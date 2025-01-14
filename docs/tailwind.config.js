@@ -6,7 +6,7 @@ export default {
   darkMode: ["class"],
   content: [
     "./components/**/*.{ts,tsx}",
-    "./docs/**/*.{mdx}",
+    "./docs/**/*.mdx",
     "./app/**/*.{ts,tsx}",
     "./content/**/*.{md,mdx}",
     "./mdx-components.{ts,tsx}",

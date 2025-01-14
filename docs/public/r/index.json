@@ -2,10 +2,21 @@
   {
     "name": "cookie-consent-modal",
     "type": "registry:ui",
+    "registryDependencies": [
+      "button",
+      "accordion",
+      "dialog",
+      "form",
+      "switch",
+      "cookie-popup",
+      "gdpr-consent",
+      "use-cookie-consent",
+      "utils"
+    ],
     "files": [
       {
-        "path": "better-events/cookie-consent-modal.tsx",
-        "type": "registry:ui"
+        "path": "components/cookie-consent-modal.tsx",
+        "type": "registry:page"
       }
     ]
   },
@@ -14,8 +25,8 @@
     "type": "registry:ui",
     "files": [
       {
-        "path": "better-events/cookie-popup.tsx",
-        "type": "registry:ui"
+        "path": "components/cookie-popup.tsx",
+        "type": "registry:page"
       }
     ]
   }

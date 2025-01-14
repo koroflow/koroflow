@@ -1,3 +1,3 @@
 import { Registry } from "./schema";
 
-export const themes: Registry = [];
+export const themes: Registry["items"] = [];

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gdpr-consent-types",
+  "type": "registry:lib",
+  "author": "Better Events (https://better-events.dev/components",
+  "files": [
+    {
+      "path": "lib/gdpr-consent-types.ts",
+      "content": "export type consentType = {\n  defaultValue: boolean;\n  description: string;\n  disabled?: boolean;\n  display: boolean;\n  gdprType: number;\n  name: allConsentNames;\n};\n\nexport type allConsentNames =\n  | \"experience\"\n  | \"functionality\"\n  | \"marketing\"\n  | \"measurement\"\n  | \"necessary\";\n\nexport const consentTypes: consentType[] = [\n  {\n    defaultValue: true,\n    description:\n      \"These trackers are used for activities that are strictly necessary to operate or deliver the service you requested from us and, therefore, do not require you to consent\",\n    disabled: true,\n    display: true,\n    gdprType: 1,\n    name: \"necessary\",\n  },\n  {\n    defaultValue: false,\n    description:\n      \"These trackers enable basic interactions and functionalities that allow you to access selected features of our service and facilitate your communication with us.\",\n    display: false,\n    gdprType: 2,\n    name: \"functionality\",\n  },\n  {\n    defaultValue: false,\n    description:\n      \"These trackers help us to measure traffic and analyze your behavior to improve our service.\",\n    display: false,\n    gdprType: 4,\n    name: \"measurement\",\n  },\n  {\n    defaultValue: false,\n    description:\n      \"These trackers help us to improve the quality of your user experience and enable interactions with external content, networks and platforms\",\n    display: false,\n    gdprType: 3,\n    name: \"experience\",\n  },\n  {\n    defaultValue: false,\n    description:\n      \"These trackers help us to deliver personalized ads or marketing content to you, and to measure their performance.\",\n    display: false,\n    gdprType: 5,\n    name: \"marketing\",\n  },\n];\n",
+      "type": "registry:lib",
+      "target": ""
+    }
+  ]
+}

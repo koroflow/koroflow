@@ -1,6 +1,8 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "utils",
   "type": "registry:lib",
+  "author": "Better Events (https://better-events.dev/components",
   "dependencies": [
     "clsx",
     "tailwind-merge"
@@ -8,8 +10,9 @@
   "files": [
     {
       "path": "lib/utils.ts",
-      "content": "import { clsx, type ClassValue } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n",
-      "type": "registry:lib"
+      "content": "import clsx, { ClassValue } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n",
+      "type": "registry:lib",
+      "target": ""
     }
   ]
 }

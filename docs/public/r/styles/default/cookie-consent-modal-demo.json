@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cookie-consent-modal-demo",
+  "type": "registry:example",
+  "author": "Better Events (https://better-events.dev/components",
+  "registryDependencies": [
+    "cookie-consent-modal",
+    "cookie-popup"
+  ],
+  "files": [
+    {
+      "path": "example/cookie-consent-modal-demo.tsx",
+      "content": "import { type ReactNode, useState, useCallback } from \"react\";\nimport { Button } from \"@/registry/default/components/button\";\nimport {\n  CookieConsentModal,\n  CookieConsentTrigger,\n  CookieConsentAccept,\n  CookieConsentDecline,\n} from \"@/registry/default/components/cookie-consent-modal\";\nimport type { allConsentNames } from \"@/types/consent\";\n\ntype DemoProviderProps = {\n  children?: ReactNode;\n  requiredGdprPurposes?: allConsentNames[];\n};\n\n// Demo analytics hook that tracks consent state\nconst useDemoAnalytics = () => {\n  const [hasConsent, setHasConsent] = useState(false);\n  return {\n    isLoaded: true,\n    state: {\n      consent: {\n        dateConsented: hasConsent ? new Date() : undefined,\n      },\n    },\n    consent: (params: {\n      gdprPurposes?: Record<allConsentNames, boolean>;\n      type: \"all\" | \"minimum\" | \"custom\";\n    }) => {\n      console.log(\"Consent updated:\", params);\n      setHasConsent(true);\n      localStorage.setItem(\"cookieConsent\", JSON.stringify(params));\n    },\n  };\n};\n\n\nexport const CookieConsentDemoProvider = ({\n  requiredGdprPurposes = [\"necessary\"],\n}: DemoProviderProps) => {\n  const [isOpen, setIsOpen] = useState(false);\n  const analytics = useDemoAnalytics();\n\n  const handleClose = useCallback(() => {\n    setIsOpen(false);\n  }, []);\n\n  const handleOpenSettings = useCallback(() => {\n    setIsOpen(true);\n  }, []);\n\n  return (\n    <>\n      <div className=\"z-10 flex min-h-64 items-center justify-center\">\n        <Button onClick={handleOpenSettings}>Show Cookie Consent Banner</Button>\n      </div>\n      {isOpen && (\n        <CookieConsentModal\n          requiredGdprPurposes={requiredGdprPurposes}\n          useAnalytics={() => analytics}\n          lockScroll={false}\n        >\n          <h2 className=\"text-lg font-semibold\">We value your privacy</h2>\n          <p className=\"mt-2 text-sm text-muted-foreground\">\n            We use cookies to enhance your browsing experience, serve\n            personalized ads or content, and analyze our traffic.\n          </p>\n          <div className=\"mt-4 flex justify-between space-x-2\">\n            <div className=\"space-x-2\">\n              <CookieConsentDecline onClick={handleClose}>\n                Decline\n              </CookieConsentDecline>\n              <CookieConsentAccept onClick={handleClose}>\n                Accept All\n              </CookieConsentAccept>\n            </div>\n            <CookieConsentTrigger asChild>\n              <Button variant=\"outline\">Customize</Button>\n            </CookieConsentTrigger>\n          </div>\n        </CookieConsentModal>\n      )}\n    </>\n  );\n};\n\nexport default CookieConsentDemoProvider;\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

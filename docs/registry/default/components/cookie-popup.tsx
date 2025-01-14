@@ -1,6 +1,6 @@
 "use client";
 
-import type * as React from "react";
+import * as React from "react";
 import { type CSSProperties, useLayoutEffect } from "react";
 
 import { cn } from "@/lib/utils";

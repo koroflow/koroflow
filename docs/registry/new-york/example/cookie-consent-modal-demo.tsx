@@ -1,11 +1,11 @@
 import { type ReactNode, useState, useCallback } from "react";
-import { Button } from "@/registry/default/components/button";
+import { Button } from "@/registry/new-york/components/button";
 import {
   CookieConsentModal,
   CookieConsentTrigger,
   CookieConsentAccept,
   CookieConsentDecline,
-} from "@/registry/default/components/cookie-consent-modal";
+} from "@/registry/new-york/components/cookie-consent-modal";
 import type { allConsentNames } from "@/types/consent";
 
 type DemoProviderProps = {

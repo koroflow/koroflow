@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { CircleCheck, CircleX } from "lucide-react";
-import { useForm, type Control } from "react-hook-form";
+import { useForm, Control } from "react-hook-form";
 import { Slot } from "@radix-ui/react-slot";
 
 import { cn } from "@/lib/utils";
@@ -11,8 +11,8 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
+} from "@/registry/default/components/accordion";
+import { Button } from "@/registry/default/components/button";
 import {
   Dialog,
   DialogClose,
@@ -22,7 +22,7 @@ import {
   DialogDescription,
   DialogFooter,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from "@/registry/default/components/dialog";
 import {
   Form,
   FormControl,
@@ -30,11 +30,14 @@ import {
   FormField,
   FormItem,
   FormLabel,
-} from "@/components/ui/form";
-import { Switch } from "@/components/ui/switch";
-import { CookiePopup } from "./cookie-popup";
-import type { allConsentNames, consentType } from "@/types/consent";
-import { useCookieConsent } from "@/hooks/use-cookie-consent";
+} from "@/registry/default/components/form";
+import { Switch } from "@/registry/default/components/switch";
+import { CookiePopup } from "@/registry/default/components/cookie-popup";
+import {
+  allConsentNames,
+  consentType,
+} from "@/registry/default/lib/gdpr-consent-types";
+import { useCookieConsent } from "@/registry/default/hooks/use-cookie-consent";
 
 type CookieConsentContextType = {
   consent: (params: {
@@ -127,8 +130,13 @@ export function CookieConsentModal({
                 )}
                 <DialogDescription asChild>
                   <CustomDialogDescription>
-                    {dialogDescription ||
-                      `We use cookies to improve your site experience. The "strictly necessary" cookies are required for the site to function.`}
+                    {dialogDescription || (
+                      <>
+                        We use cookies to improve your site experience. The
+                        "strictly necessary" cookies are required for the site
+                        to function.
+                      </>
+                    )}
                   </CustomDialogDescription>
                 </DialogDescription>
               </DialogHeader>
@@ -218,28 +226,44 @@ const CustomDialogDescription = React.forwardRef<
     />
   );
 });
-
 CustomDialogDescription.displayName = "CustomDialogDescription";
 
 export const CookieConsentTrigger = DialogTrigger;
-
 export const CookieConsentAccept = ({
   children,
+  onClick,
 }: {
   children: React.ReactNode;
-}) => {
-  const { consent } = useCookieConsentContext();
-  return <Button onClick={() => consent({ type: "all" })}>{children}</Button>;
-};
-
-export const CookieConsentDecline = ({
-  children,
-}: {
-  children: React.ReactNode;
+  onClick?: () => void;
 }) => {
   const { consent } = useCookieConsentContext();
   return (
-    <Button variant="outline" onClick={() => consent({ type: "minimum" })}>
+    <Button
+      onClick={() => {
+        consent({ type: "all" });
+        if (onClick) onClick();
+      }}
+    >
+      {children}
+    </Button>
+  );
+};
+export const CookieConsentDecline = ({
+  children,
+  onClick,
+}: {
+  children: React.ReactNode;
+  onClick?: () => void;
+}) => {
+  const { consent } = useCookieConsentContext();
+  return (
+    <Button
+      variant="outline"
+      onClick={() => {
+        consent({ type: "minimum" });
+        if (onClick) onClick();
+      }}
+    >
       {children}
     </Button>
   );

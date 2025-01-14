@@ -20,7 +20,7 @@ export const GradientIcon: React.FC<GradientIconProps> = ({
   return (
     <div
       className={cn(
-        "relative inline-flex items-center justify-center rounded-full bg-[hsl(var(--primary))] size-8",
+        "relative inline-flex items-center justify-center rounded-full bg-[hsl(var(--docs-primary))] size-8",
         "before:content-[''] before:absolute before:inset-0 before:rounded-full",
         "before:shadow-[inset_0_-0.5em_0.5em_rgba(255,255,255,0.5)] dark:before:shadow-[inset_0_-0.5em_0.5em_rgba(0,0,0,0.5)]",
         "overflow-hidden",
