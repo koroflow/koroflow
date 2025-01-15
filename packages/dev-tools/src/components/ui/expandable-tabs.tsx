@@ -3,9 +3,8 @@
 import * as React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOnClickOutside } from "usehooks-ts";
-
+import { cn } from "../../libs/utils";
 import { LucideIcon } from "lucide-react";
-import { cn } from "../../libs/utils"
 
 interface Tab {
   title: string;
@@ -55,8 +54,12 @@ export function ExpandableTabs({
   activeColor = "text-primary",
   onChange,
 }: ExpandableTabsProps) {
-  const [selected, setSelected] = React.useState<number | null>(null);
+  const [selected, setSelected] = React.useState<number | null>(0);
   const outsideClickRef = React.useRef(null);
+
+  React.useEffect(() => {
+    onChange?.(0);
+  }, [onChange]);
 
   //@ts-expect-error
   useOnClickOutside(outsideClickRef, () => {
@@ -124,4 +127,3 @@ export function ExpandableTabs({
     </div>
   );
 }
-

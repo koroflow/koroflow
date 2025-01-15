@@ -8,11 +8,9 @@ import { usePrivacyConsent } from "@better-events/react"
 
 import { Overlay } from "./overlay"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./card"
-
 import PrivacySettingsModal from "./privacy-setting-modal"
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 import { Button } from "./button"
-
 
 type HorizontalPosition = 'left' | 'center' | 'right'
 type VerticalPosition = 'top' | 'bottom'
@@ -51,25 +49,38 @@ const CookieConsentBanner = React.forwardRef<
   } = usePrivacyConsent()
 
   const bannerShownRef = React.useRef(false)
+  const [isMounted, setIsMounted] = React.useState(false)
 
   React.useEffect(() => {
+    setIsMounted(true)
+    return () => setIsMounted(false)
+  }, [])
+
+  React.useEffect(() => {
+    if (!isMounted) return
+
     if (showPopup && !bannerShownRef.current && !hasConsented()) {
       callbacks.onBannerShown?.()
       bannerShownRef.current = true
-      document.body.style.overflow = 'hidden'
+      if (typeof document !== 'undefined') {
+        document.body.style.overflow = 'hidden'
+      }
     }
+    
     return () => {
-      document.body.style.overflow = ''
+      if (typeof document !== 'undefined') {
+        document.body.style.overflow = ''
+      }
     }
-  }, [showPopup, callbacks, hasConsented])
+  }, [showPopup, callbacks, hasConsented, isMounted])
 
   const acceptAll = React.useCallback(() => {
-    const allConsents = Object.keys(consents) as (keyof typeof consents)[];
+    const allConsents = Object.keys(consents) as (keyof typeof consents)[]
     allConsents.forEach(consentName => {
-      setConsent(consentName, true);
-    });
-    saveConsents('all');
-  }, [consents, setConsent, saveConsents]);
+      setConsent(consentName, true)
+    })
+    saveConsents('all')
+  }, [consents, setConsent, saveConsents])
 
   const rejectAll = React.useCallback(() => {
     saveConsents('necessary')
@@ -77,7 +88,9 @@ const CookieConsentBanner = React.forwardRef<
 
   const handleClose = React.useCallback(() => {
     setShowPopup(false)
-    document.body.style.overflow = ''
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = ''
+    }
     callbacks.onBannerClosed?.()
   }, [setShowPopup, callbacks])
 
@@ -93,11 +106,12 @@ const CookieConsentBanner = React.forwardRef<
     className
   )
 
-  if (hasConsented()) {
+  // Early return for SSR and when user has consented
+  if (!isMounted || hasConsented()) {
     return null
   }
 
-  const popupContent = createPortal(
+  const BannerContent = () => (
     <AnimatePresence>
       {showPopup && !isPrivacyDialogOpen && (
         <>
@@ -118,7 +132,6 @@ const CookieConsentBanner = React.forwardRef<
               exit={{ opacity: 0, y: 50 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
               ref={ref}
-              {...props}
             >
               <Card>
                 <CardHeader className="relative">
@@ -136,32 +149,41 @@ const CookieConsentBanner = React.forwardRef<
                   <CardTitle id="cookie-consent-title">{bannerTitle}</CardTitle>
                   <CardDescription>{bannerDescription}</CardDescription>
                 </CardHeader>
-                <CardContent>
-                </CardContent>
+                <CardContent />
                 <CardFooter className="flex flex-col sm:flex-row justify-between gap-4">
                   <div className="flex flex-row justify-between gap-2">
                     {complianceSettings.gdpr.enabled && (
-                      <Button variant="outline" size="sm" onClick={rejectAll}>Reject All</Button>
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={rejectAll}
+                      >
+                        Reject All
+                      </Button>
                     )}
                     <PrivacySettingsModal>
-                      <Button variant="outline" size="sm">Customise Consent</Button>
+                      <Button variant="outline" size="sm">
+                        Customise Consent
+                      </Button>
                     </PrivacySettingsModal>
                   </div>
-                  <Button size="sm" onClick={acceptAll}>Accept All</Button>
+                  <Button size="sm" onClick={acceptAll}>
+                    Accept All
+                  </Button>
                 </CardFooter>
               </Card>
             </motion.div>
           </motion.div>
         </>
       )}
-    </AnimatePresence>,
-    document.body
+    </AnimatePresence>
   )
 
-  return <>{popupContent}</>
+  return (
+    isMounted && createPortal(<BannerContent />, document.body)
+  )
 })
 
 CookieConsentBanner.displayName = "CookieConsentBanner"
 
 export default CookieConsentBanner
-

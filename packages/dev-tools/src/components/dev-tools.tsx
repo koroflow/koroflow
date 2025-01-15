@@ -2,9 +2,7 @@
 
 import React, { useState, useCallback, useRef, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-
 import { Shield, X, RefreshCw, FileText, Cookie, Eye, ToggleLeft, GanttChartSquare, Code, Layout } from 'lucide-react'
-
 import Draggable from 'react-draggable'
 import { motion, AnimatePresence } from 'framer-motion'
 import { usePrivacyConsent } from '../hooks/use-privacy-consent'
@@ -13,8 +11,7 @@ import { allConsentNames } from '@better-events/react'
 import { Button } from './ui/button'
 import { Card } from './ui/card'
 import { ScrollArea } from './ui/scroll-area'
-import { FancyTabs } from './ui/fancy-tabs'
-
+import { ExpandableTabs } from './ui/expandable-tabs'
 
 type ConditionalRenderingState = {
   componentName: string
@@ -23,10 +20,10 @@ type ConditionalRenderingState = {
 }
 
 const tabs = [
-  { value: "consent", icon: <ToggleLeft className="h-4 w-4" />, label: "Consents" },
-  { value: "compliance", icon: <GanttChartSquare className="h-4 w-4" />, label: "Compliance" },
-  { value: "scripts", icon: <Code className="h-4 w-4" />, label: "Scripts" },
-  { value: "conditional", icon: <Layout className="h-4 w-4" />, label: "Conditional" },
+  { title: "Consents", icon: ToggleLeft },
+  { title: "Compliance", icon: GanttChartSquare },
+  { title: "Scripts", icon: Code },
+  { title: "Conditional", icon: Layout },
 ]
 
 export function PrivacyDevToolWidget() {
@@ -40,11 +37,19 @@ export function PrivacyDevToolWidget() {
   } = usePrivacyConsent()
 
   const [isOpen, setIsOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState<string>("consent")
+  const [activeSection, setActiveSection] = useState<string>("Consents")
   const nodeRef = useRef(null)
   const [conditionalRenderingState, setConditionalRenderingState] = useState<ConditionalRenderingState[]>([])
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
+    setIsMounted(true)
+    return () => setIsMounted(false)
+  }, [])
+
+  useEffect(() => {
+    if (!isMounted) return
+
     const updateConditionalRendering = () => {
       const effectiveConsents = getEffectiveConsents()
       const newState: ConditionalRenderingState[] = [
@@ -58,25 +63,25 @@ export function PrivacyDevToolWidget() {
     updateConditionalRendering()
     const intervalId = setInterval(updateConditionalRendering, 1000)
     return () => clearInterval(intervalId)
-  }, [getEffectiveConsents])
+  }, [getEffectiveConsents, isMounted])
 
   const renderContent = useCallback(() => {
     let items: any[] = []
 
     switch (activeSection) {
-      case 'consent':
+      case 'Consents':
         items = Object.entries(consents || {}).map(([name, value]) => ({
           title: name,
           status: value ? 'Enabled' : 'Disabled'
         }))
         break
-      case 'compliance':
+      case 'Compliance':
         items = Object.entries(complianceSettings || {}).map(([region, settings]) => ({
           title: region,
           status: settings.enabled ? 'Active' : 'Inactive'
         }))
         break
-      case 'conditional':
+      case 'Conditional':
         items = conditionalRenderingState.map(item => ({
           title: item.componentName,
           status: item.isRendered ? 'Rendered' : 'Not Rendered',
@@ -126,7 +131,9 @@ export function PrivacyDevToolWidget() {
 
   const handleResetConsent = useCallback(() => {
     clearAllData()
-    alert("Local storage consent has been reset. Please refresh the page.")
+    if (typeof window !== 'undefined') {
+      window.alert("Local storage consent has been reset. Please refresh the page.")
+    }
   }, [clearAllData])
 
   const handleOpenPrivacyModal = useCallback(() => {
@@ -139,7 +146,7 @@ export function PrivacyDevToolWidget() {
     setIsOpen(false)
   }, [setShowPopup])
 
-  const devToolContent = (
+  const DevToolContent = () => (
     <AnimatePresence>
       {isOpen && (
         <motion.div
@@ -155,7 +162,7 @@ export function PrivacyDevToolWidget() {
             exit={{ opacity: 0 }}
             onClick={toggleOpen}
           />
-          <Draggable 
+          <Draggable
           //@ts-expect-error
           nodeRef={nodeRef} handle=".handle" bounds="body">
             <motion.div
@@ -172,15 +179,21 @@ export function PrivacyDevToolWidget() {
                     <Shield className="h-4 w-4" />
                     <span className="text-sm font-medium">Better Events Dev Tool</span>
                   </div>
-                  <Button variant="ghost" size="icon" className="h-8 w-8" onClick={toggleOpen}>
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    className="h-8 w-8" 
+                    onClick={toggleOpen}
+                  >
                     <X className="h-4 w-4" />
                   </Button>
                 </div>
                 <div className="p-4 border-b">
-                  <FancyTabs
+                  <ExpandableTabs
                     tabs={tabs}
-                    activeTab={activeSection}
-                    onChange={setActiveSection}
+                    activeColor="text-primary"
+                    className="border-muted"
+                    onChange={(index) => index !== null && setActiveSection(tabs[index].title)}
                   />
                 </div>
                 {renderContent()}
@@ -208,6 +221,10 @@ export function PrivacyDevToolWidget() {
     </AnimatePresence>
   )
 
+  if (!isMounted) {
+    return null
+  }
+
   return (
     <>
       <AnimatePresence>
@@ -229,8 +246,7 @@ export function PrivacyDevToolWidget() {
           </motion.div>
         )}
       </AnimatePresence>
-      {createPortal(devToolContent, document.body)}
+      {isMounted && createPortal(<DevToolContent />, document.body)}
     </>
   )
 }
-

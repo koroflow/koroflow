@@ -1,4 +1,5 @@
 "use client"
+
 import React, { useEffect, useCallback } from 'react'
 import { usePrivacyConsentStore } from '../store/privacy-consent-store'
 import { allConsentNames, ComplianceRegion, ComplianceSettings } from '../types/privacy'
@@ -36,17 +37,17 @@ export function PrivacyConsentProvider({
 
 export function usePrivacyConsent() {
   const state = usePrivacyConsentStore()
-  
+
   return {
     consents: state.consents,
     showPopup: state.showPopup,
     gdprTypes: state.gdprTypes,
     isPrivacyDialogOpen: state.isPrivacyDialogOpen,
     complianceSettings: state.complianceSettings,
+    hasConsented: state.hasConsented,
     callbacks: state.callbacks,
     detectedCountry: state.detectedCountry,
     displayedConsents: state.getDisplayedConsents(),
-    hasConsented: useCallback(state.hasConsented, []), // Added this line
     setConsent: useCallback(state.setConsent, []),
     setShowPopup: useCallback(state.setShowPopup, []),
     setIsPrivacyDialogOpen: useCallback(state.setIsPrivacyDialogOpen, []),
@@ -58,3 +59,4 @@ export function usePrivacyConsent() {
     setCallback: useCallback(state.setCallback, []),
   }
 }
+

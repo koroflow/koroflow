@@ -10,7 +10,6 @@ import { Overlay } from "./overlay"
 import { Button } from "./button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "./card"
 
-
 interface PrivacySettingsModalProps {
   children?: React.ReactNode
   triggerClassName?: string
@@ -22,11 +21,17 @@ const PrivacySettingsModal = React.forwardRef<
   PrivacySettingsModalProps
 >(({ children, triggerClassName, showCloseButton = false }, ref) => {
   const { isPrivacyDialogOpen, setIsPrivacyDialogOpen, setShowPopup, saveConsents } = usePrivacyConsent()
+  const [isMounted, setIsMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setIsMounted(true)
+    return () => setIsMounted(false)
+  }, [])
 
   const handleOpenChange = React.useCallback((newOpen: boolean) => {
     setIsPrivacyDialogOpen(newOpen)
     if (newOpen) {
-      setShowPopup(false) // Close the cookie popup when opening the privacy popup
+      setShowPopup(false)
     }
   }, [setIsPrivacyDialogOpen, setShowPopup])
 
@@ -39,7 +44,7 @@ const PrivacySettingsModal = React.forwardRef<
     setIsPrivacyDialogOpen(false)
   }, [setIsPrivacyDialogOpen])
 
-  const popupContent = createPortal(
+  const ModalContent = () => (
     <AnimatePresence>
       {isPrivacyDialogOpen && (
         <>
@@ -87,8 +92,7 @@ const PrivacySettingsModal = React.forwardRef<
           </motion.div>
         </>
       )}
-    </AnimatePresence>,
-    document.body
+    </AnimatePresence>
   )
 
   return (
@@ -104,7 +108,7 @@ const PrivacySettingsModal = React.forwardRef<
           </Button>
         )}
       </div>
-      {popupContent}
+      {isMounted && createPortal(<ModalContent />, document.body)}
     </>
   )
 })
@@ -112,4 +116,3 @@ const PrivacySettingsModal = React.forwardRef<
 PrivacySettingsModal.displayName = "PrivacySettingsModal"
 
 export default PrivacySettingsModal
-
