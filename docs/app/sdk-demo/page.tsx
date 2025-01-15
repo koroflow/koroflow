@@ -33,8 +33,8 @@ export default function PrivacyConsentPage() {
             </PrivacySettingsModal>
           </div>
         </div>
-        {/* <CookieConsentBanner /> */}
-        {/* <PrivacyDevToolWidget /> */}
+        <CookieConsentBanner />
+        <PrivacyDevToolWidget />
       </PrivacyConsentProvider>
     </main>
   );

@@ -48,6 +48,61 @@ const spanVariants = {
 
 const transition = { delay: 0.1, type: "spring", bounce: 0, duration: 0.6 };
 
+const Separator = React.memo(() => (
+  <div className="mx-1 h-[24px] w-[1.2px] bg-border" aria-hidden="true" />
+));
+Separator.displayName = "Separator";
+
+const TabButton = React.memo(({ 
+  tab, 
+  index,
+  isSelected, 
+  activeColor, 
+  onClick 
+}: { 
+  tab: Tab;
+  index: number;
+  isSelected: boolean;
+  activeColor: string;
+  onClick: (index: number) => void;
+}) => {
+  const Icon = tab.icon;
+  
+  return (
+    <motion.button
+      variants={buttonVariants}
+      initial={false}
+      animate="animate"
+      custom={isSelected}
+      onClick={() => onClick(index)}
+      transition={transition}
+      className={cn(
+        "relative flex items-center rounded-xl px-4 py-2 text-sm font-medium transition-colors duration-300",
+        isSelected
+          ? cn("bg-muted", activeColor)
+          : "text-muted-foreground hover:bg-muted hover:text-foreground"
+      )}
+    >
+      <Icon size={20} />
+      <AnimatePresence initial={false}>
+        {isSelected && (
+          <motion.span
+            variants={spanVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={transition}
+            className="overflow-hidden whitespace-nowrap"
+          >
+            {tab.title}
+          </motion.span>
+        )}
+      </AnimatePresence>
+    </motion.button>
+  );
+});
+TabButton.displayName = "TabButton";
+
 export function ExpandableTabs({
   tabs,
   className,
@@ -55,75 +110,53 @@ export function ExpandableTabs({
   onChange,
 }: ExpandableTabsProps) {
   const [selected, setSelected] = React.useState<number | null>(0);
-  const outsideClickRef = React.useRef(null);
+  const outsideClickRef = React.useRef<HTMLDivElement>(null);
 
-  React.useEffect(() => {
+  const handleInitialChange = React.useCallback(() => {
     onChange?.(0);
   }, [onChange]);
 
-  //@ts-expect-error
-  useOnClickOutside(outsideClickRef, () => {
+  React.useEffect(() => {
+    handleInitialChange();
+  }, [handleInitialChange]);
+
+  const handleOutsideClick = React.useCallback(() => {
     setSelected(null);
     onChange?.(null);
-  });
+  }, [onChange]);
 
-  const handleSelect = (index: number) => {
+  //@ts-expect-error
+  useOnClickOutside(outsideClickRef, handleOutsideClick);
+
+  const handleSelect = React.useCallback((index: number) => {
     setSelected(index);
     onChange?.(index);
-  };
+  }, [onChange]);
 
-  const Separator = () => (
-    <div className="mx-1 h-[24px] w-[1.2px] bg-border" aria-hidden="true" />
+  const containerClassName = React.useMemo(() => 
+    cn(
+      "flex flex-wrap items-center gap-2 rounded-2xl border bg-background p-1 shadow-sm",
+      className
+    ),
+    [className]
   );
 
   return (
-    <div
-      ref={outsideClickRef}
-      className={cn(
-        "flex flex-wrap items-center gap-2 rounded-2xl border bg-background p-1 shadow-sm",
-        className
+    <div ref={outsideClickRef} className={containerClassName}>
+      {tabs.map((tab, index) => 
+        tab.type === "separator" ? (
+          <Separator key={`separator-${index}`} />
+        ) : (
+          <TabButton
+            key={`${tab.title}-${index}`}
+            tab={tab}
+            index={index}
+            isSelected={selected === index}
+            activeColor={activeColor}
+            onClick={handleSelect}
+          />
+        )
       )}
-    >
-      {tabs.map((tab, index) => {
-        if (tab.type === "separator") {
-          return <Separator key={`separator-${index}`} />;
-        }
-
-        const Icon = tab.icon;
-        return (
-          <motion.button
-            key={tab.title}
-            variants={buttonVariants}
-            initial={false}
-            animate="animate"
-            custom={selected === index}
-            onClick={() => handleSelect(index)}
-            transition={transition}
-            className={cn(
-              "relative flex items-center rounded-xl px-4 py-2 text-sm font-medium transition-colors duration-300",
-              selected === index
-                ? cn("bg-muted", activeColor)
-                : "text-muted-foreground hover:bg-muted hover:text-foreground"
-            )}
-          >
-            <Icon size={20} />
-            <AnimatePresence initial={false}>
-              {selected === index && (
-                <motion.span
-                  variants={spanVariants}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  transition={transition}
-                  className="overflow-hidden"
-                >
-                  {tab.title}
-                </motion.span>
-              )}
-            </AnimatePresence>
-          </motion.button>
-        );
-      })}
     </div>
   );
 }

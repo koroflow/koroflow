@@ -16,12 +16,70 @@ interface PrivacySettingsModalProps {
   showCloseButton?: boolean
 }
 
+const modalVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+  exit: { opacity: 0 }
+}
+
+const contentVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { type: "spring", stiffness: 300, damping: 30 }
+  },
+  exit: { 
+    opacity: 0, 
+    scale: 0.95,
+    transition: { duration: 0.2 }
+  }
+}
+
+const ModalContent = React.memo(({ 
+  onClose,
+  showCloseButton,
+  handleSave,
+  ref 
+}: { 
+  onClose: () => void
+  showCloseButton: boolean
+  handleSave: () => void
+  ref: React.RefObject<HTMLDivElement>
+}) => (
+  <Card>
+    <CardHeader className="relative">
+      {showCloseButton && (
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute right-2 top-2"
+          onClick={onClose}
+          aria-label="Close privacy settings"
+        >
+          <X className="h-4 w-4" />
+        </Button>
+      )}
+      <CardTitle id="privacy-settings-title">Privacy Settings</CardTitle>
+      <CardDescription>
+        Customize your privacy settings here. You can choose which types of cookies and tracking technologies you allow.
+      </CardDescription>
+    </CardHeader>
+    <CardContent>
+      <PrivacyConsentWidget onSave={handleSave} />
+    </CardContent>
+  </Card>
+))
+
+ModalContent.displayName = "ModalContent"
+
 const PrivacySettingsModal = React.forwardRef<
   HTMLDivElement,
   PrivacySettingsModalProps
 >(({ children, triggerClassName, showCloseButton = false }, ref) => {
   const { isPrivacyDialogOpen, setIsPrivacyDialogOpen, setShowPopup, saveConsents } = usePrivacyConsent()
   const [isMounted, setIsMounted] = React.useState(false)
+  const contentRef = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
     setIsMounted(true)
@@ -44,56 +102,41 @@ const PrivacySettingsModal = React.forwardRef<
     setIsPrivacyDialogOpen(false)
   }, [setIsPrivacyDialogOpen])
 
-  const ModalContent = () => (
-    <AnimatePresence>
+  const modalContent = React.useMemo(() => (
+    <AnimatePresence mode="wait">
       {isPrivacyDialogOpen && (
         <>
           <Overlay show={isPrivacyDialogOpen} />
           <motion.div
             className="fixed inset-0 z-50 flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            variants={modalVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             role="dialog"
             aria-modal="true"
             aria-labelledby="privacy-settings-title"
           >
             <motion.div
+              ref={contentRef}
               className="z-50 w-full max-w-md mx-auto"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              ref={ref}
+              variants={contentVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
             >
-              <Card>
-                <CardHeader className="relative">
-                  {showCloseButton && (
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="absolute right-2 top-2"
-                      onClick={handleClose}
-                      aria-label="Close privacy settings"
-                    >
-                      <X className="h-4 w-4" />
-                    </Button>
-                  )}
-                  <CardTitle id="privacy-settings-title">Privacy Settings</CardTitle>
-                  <CardDescription>
-                    Customize your privacy settings here. You can choose which types of cookies and tracking technologies you allow.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <PrivacyConsentWidget onSave={handleSave} />
-                </CardContent>
-              </Card>
+              <ModalContent
+                ref={ref as React.RefObject<HTMLDivElement>}
+                onClose={handleClose}
+                showCloseButton={showCloseButton}
+                handleSave={handleSave}
+              />
             </motion.div>
           </motion.div>
         </>
       )}
     </AnimatePresence>
-  )
+  ), [isPrivacyDialogOpen, handleClose, handleSave, showCloseButton])
 
   return (
     <>
@@ -108,7 +151,7 @@ const PrivacySettingsModal = React.forwardRef<
           </Button>
         )}
       </div>
-      {isMounted && createPortal(<ModalContent />, document.body)}
+      {isMounted && createPortal(modalContent, document.body)}
     </>
   )
 })
