@@ -1,0 +1,349 @@
+---
+title: Cookie Banner
+date: 2024-12-20
+description: A customizable cookie consent modal for web applications
+author: burnedchris
+published: true
+---
+
+
+<ComponentPreview name="cookie-consent-minimal-demo"/>
+
+
+## Features
+
+- 🌍 Support for multiple privacy regulations (GDPR, CCPA, LGPD, US State Privacy)
+- 🔒 Granular consent management for different cookie types
+- 📱 Responsive and customizable UI components
+- 🎨 Fully customizable styling with Tailwind CSS
+- ⚡ Server-side country detection for regulation compliance
+- 🔄 Automatic consent persistence
+- 📝 Built-in privacy and cookie policy integration
+- 🎯 Event callbacks for tracking user interactions
+- 🧩 Multiple UI components (Banner, Dialog, Widget)
+
+## Installation
+
+<Steps>
+
+### Install dependencies
+
+```bash
+npm install @radix-ui/react-dialog @radix-ui/react-switch lucide-react
+```
+
+### Add the components
+
+Copy and paste the following components into your project:
+
+<ComponentSource name="cookie-popup" />
+<ComponentSource name="privacy-consent-dialog" />
+<ComponentSource name="privacy-consent-widget" />
+<ComponentSource name="privacy-consent-context" />
+
+### Add the types
+
+<ComponentSource name="types/privacy" />
+
+### Update the imports
+
+Update the import paths to match your project structure.
+
+</Steps>
+
+## Usage
+
+### Basic Usage
+
+The simplest implementation with only necessary cookies:
+
+```tsx
+import { PrivacyConsentProvider } from "@/contexts/privacy-consent-context"
+import { CookiePopup } from "@/components/cookie-popup"
+
+export default function MinimalExample() {
+  return (
+    <PrivacyConsentProvider initialGdprTypes={["necessary"]}>
+      <CookiePopup 
+        bannerTitle="Cookies"
+        bannerDescription="This website uses necessary cookies to ensure proper functionality."
+      />
+    </PrivacyConsentProvider>
+  )
+}
+```
+
+### Advanced Usage
+
+Implementation with multiple consent types and compliance settings:
+
+```tsx
+export default function AdvancedExample() {
+  return (
+    <PrivacyConsentProvider
+      initialGdprTypes={[
+        "necessary",
+        "functionality",
+        "marketing",
+        "measurement",
+        "experience",
+      ]}
+      initialComplianceSettings={{
+        gdpr: { enabled: true, appliesGlobally: true, applies: true },
+        ccpa: { enabled: true, appliesGlobally: false, applies: true },
+        lgpd: { enabled: true, appliesGlobally: false, applies: false },
+        usStatePrivacy: {
+          enabled: true,
+          appliesGlobally: false,
+          applies: true,
+        },
+      }}
+      initialPrivacyPolicyUrl="/privacy"
+      initialCookiePolicyUrl="/cookies"
+    >
+      <CookiePopup
+        bannerTitle="Privacy Notice"
+        bannerDescription="This site uses cookies and similar technologies."
+        enableScrollLock={true}
+      />
+    </PrivacyConsentProvider>
+  )
+}
+```
+
+### Privacy Settings Dialog
+
+Add a modal dialog for managing cookie preferences:
+
+```tsx
+import { PrivacyConsentDialog } from "@/components/privacy-consent/privacy-consent-dialog"
+import { PrivacyConsentWidget } from "@/components/privacy-consent/privacy-consent-widget"
+
+export default function PrivacyModalExample() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Privacy Settings</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <PrivacyConsentDialog>
+          <button className="text-blue-600 hover:underline">
+            Manage Cookie Preferences
+          </button>
+        </PrivacyConsentDialog>
+      </CardContent>
+    </Card>
+  )
+}
+```
+
+### Embedded Privacy Widget
+
+Display privacy settings directly in your page:
+
+```tsx
+import { PrivacyConsentWidget } from "@/components/privacy-consent/privacy-consent-widget"
+
+export default function EmbeddedPrivacyExample() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Privacy Settings</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <PrivacyConsentWidget />
+      </CardContent>
+    </Card>
+  )
+}
+```
+
+### Event Callbacks
+
+Track user interactions with the consent system:
+
+```tsx
+function ConsentCallbacks() {
+  const { setCallback } = usePrivacyConsent()
+
+  useEffect(() => {
+    setCallback("onBannerShown", () => {
+      console.log("Banner displayed")
+    })
+
+    setCallback("onConsentGiven", () => {
+      console.log("User gave consent")
+    })
+
+    setCallback("onConsentRejected", () => {
+      console.log("User rejected consent")
+    })
+
+    setCallback("onBannerClosed", () => {
+      console.log("Banner closed")
+    })
+  }, [setCallback])
+
+  return <CookiePopup />
+}
+```
+
+## API Reference
+
+### PrivacyConsentProvider
+<TypeTable
+  type={{
+    initialGdprTypes: {
+      description: 'Initial types of GDPR consents to be managed.',
+      type: 'allConsentNames[]',
+      default: '["necessary"]',
+    },
+    initialComplianceSettings: {
+      description: 'Initial compliance settings for different regions.',
+      type: 'Record<ComplianceRegion, ComplianceSettings>',
+    },
+    initialPrivacyPolicyUrl: {
+      description: 'URL to the privacy policy page.',
+      type: 'string',
+    },
+    initialCookiePolicyUrl: {
+      description: 'URL to the cookie policy page.',
+      type: 'string',
+    },
+  }}
+/>
+
+### CookiePopup
+
+
+<TypeTable
+  type={{
+    bannerDescription: {
+      description: 'Description text for the cookie banner.',
+      type: 'string',
+    },
+    bannerTitle: {
+      description: 'Title text for the cookie banner.',
+      type: 'string',
+    },
+    className: {
+      description: 'Additional CSS classes.',
+      type: 'string',
+    },
+    horizontalPosition: {
+      description: 'Horizontal positioning of the popup.',
+      type: "'left' | 'center' | 'right'",
+      default: 'center',
+    },
+    verticalPosition: {
+      description: 'Vertical positioning of the popup.',
+      type: "'top' | 'center' | 'bottom'",
+      default: 'bottom',
+    },
+    enableScrollLock: {
+      description: 'Whether to prevent scrolling when popup is open.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>
+
+### PrivacyConsentDialog
+
+<TypeTable
+  type={{
+    children: {
+      description: 'Trigger element to open the dialog.',
+      type: 'React.ReactNode',
+    },
+    className: {
+      description: 'Additional CSS classes for the dialog.',
+      type: 'string',
+    },
+  }}
+/>
+
+
+### PrivacyConsentWidget
+
+<TypeTable
+  type={{
+    onSave: {
+      description: 'Callback function triggered when preferences are saved.',
+      type: '() => void',
+    },
+    className: {
+      description: 'Additional CSS classes for the widget.',
+      type: 'string',
+    },
+  }}
+/>
+
+
+### usePrivacyConsent
+
+A hook for accessing the privacy consent context.
+
+
+<TypeTable
+  type={{
+    consents: {
+      description: 'Current state of user consents.',
+      type: 'ConsentState',
+    },
+    setConsent: {
+      description: 'Function to update a single consent value.',
+      type: '(name: allConsentNames, value: boolean) => void',
+    },
+    saveConsents: {
+      description: 'Function to save current consent values.',
+      type: '() => void',
+    },
+    resetConsents: {
+      description: 'Function to reset consents to default values.',
+      type: '() => void',
+    },
+    setCallback: {
+      description: 'Function to set callbacks for consent events.',
+      type: '(name: keyof Callbacks, callback: CallbackFunction) => void',
+    },
+    setShowPopup: {
+      description: 'Function to programmatically show/hide the popup.',
+      type: '(show: boolean) => void',
+    },
+    setIsPrivacyDialogOpen: {
+      description: 'Function to programmatically control the privacy dialog.',
+      type: '(open: boolean) => void',
+    },
+  }}
+/>
+
+
+## Accessibility
+
+The cookie consent components are built with accessibility in mind:
+
+- Full keyboard navigation support
+- ARIA labels and roles
+- Focus management
+- Screen reader announcements for consent changes
+- High contrast mode support
+
+## Best Practices
+
+1. Always include necessary cookies as required
+2. Provide clear descriptions for each consent type
+3. Include links to privacy and cookie policies
+4. Implement proper consent persistence
+5. Handle consent changes appropriately
+6. Consider regional privacy regulations
+7. Use appropriate callbacks to track user interactions
+8. Provide multiple ways to access privacy settings
+9. Ensure consistent styling across components
+
+## Resources
+
+- [GDPR Compliance](https://gdpr.eu/cookies/)
+- [CCPA Requirements](https://oag.ca.gov/privacy/ccpa)
+- [Cookie Law Info](https://www.cookielaw.org/the-cookie-law/)
+- [US State Privacy Laws](https://iapp.org/resources/article/us-state-privacy-legislation-tracker/)

@@ -5,36 +5,6 @@ import * as React from "react"
 
 export const Index: Record<string, any> = {
   "default": {
-    "cookie-consent-modal": {
-      name: "cookie-consent-modal",
-      description: "",
-      type: "registry:ui",
-      registryDependencies: ["button","accordion","dialog","form","switch","cookie-popup","gdpr-consent","use-cookie-consent","utils"],
-      files: [{
-        path: "registry/default/components/cookie-consent-modal.tsx",
-        type: "registry:page",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/components/cookie-consent-modal.tsx")),
-      source: "",
-      meta: undefined,
-    },
-    "cookie-popup": {
-      name: "cookie-popup",
-      description: "",
-      type: "registry:ui",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/default/components/cookie-popup.tsx",
-        type: "registry:page",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/components/cookie-popup.tsx")),
-      source: "",
-      meta: undefined,
-    },
     "utils": {
       name: "utils",
       description: "",
@@ -47,66 +17,6 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/lib/utils.ts")),
-      source: "",
-      meta: undefined,
-    },
-    "gdpr-consent-types": {
-      name: "gdpr-consent-types",
-      description: "",
-      type: "registry:lib",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/default/lib/gdpr-consent-types.ts",
-        type: "registry:lib",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/lib/gdpr-consent-types.ts")),
-      source: "",
-      meta: undefined,
-    },
-    "use-cookie-consent": {
-      name: "use-cookie-consent",
-      description: "",
-      type: "registry:hook",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/default/hooks/use-cookie-consent.ts",
-        type: "registry:hook",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/hooks/use-cookie-consent.ts")),
-      source: "",
-      meta: undefined,
-    },
-    "cookie-consent-modal-demo": {
-      name: "cookie-consent-modal-demo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["cookie-consent-modal","cookie-popup"],
-      files: [{
-        path: "registry/default/example/cookie-consent-modal-demo.tsx",
-        type: "registry:example",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/example/cookie-consent-modal-demo.tsx")),
-      source: "",
-      meta: undefined,
-    },
-    "cookie-consent-modal-demo-custom-components": {
-      name: "cookie-consent-modal-demo-custom-components",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["cookie-consent-modal","cookie-popup"],
-      files: [{
-        path: "registry/default/example/cookie-consent-modal-demo-custom-components.tsx",
-        type: "registry:example",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/example/cookie-consent-modal-demo-custom-components.tsx")),
       source: "",
       meta: undefined,
     },

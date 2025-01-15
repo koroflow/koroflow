@@ -12,14 +12,4 @@ export const lib: Registry["items"] = [
       },
     ],
   },
-  {
-    name: "gdpr-consent-types",
-    type: "registry:lib",
-    files: [
-      {
-        path: "lib/gdpr-consent-types.ts",
-        type: "registry:lib",
-      },
-    ],
-  },
 ];

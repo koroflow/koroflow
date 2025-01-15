@@ -6,11 +6,13 @@ export default {
   darkMode: ["class"],
   content: [
     "./components/**/*.{ts,tsx}",
+    "./registry/**/*.{ts,tsx}",
     "./docs/**/*.mdx",
     "./app/**/*.{ts,tsx}",
     "./content/**/*.{md,mdx}",
     "./mdx-components.{ts,tsx}",
     "./node_modules/fumadocs-ui/dist/**/*.js",
+    "./node_modules/@better-events/dev-tools/dist/**/*.js",
   ],
   presets: [
     createPreset({
