@@ -1,2 +1,4 @@
-// src/index.ts
-export { PrivacyDevToolWidget } from './components/dev-tools';
+import { BetterEventsDevTool } from './dev-tool';
+
+export default BetterEventsDevTool;
+

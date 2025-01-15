@@ -1,11 +1,12 @@
 // import PlaygroundExampleWrapper from "@/registry/default/example/cookie-consent/playground";
 
-import { PrivacyConsentProvider } from "@better-events/react";
+import { PrivacyConsentProvider } from "@better-events/core-react";
 
-import { PrivacyDevToolWidget } from "@better-events/dev-tools";
+import BetterEventsDevTool from "@better-events/dev-tools";
 import PrivacySettingsModal from "@/components/ui/privacy-setting-modal";
 import { Button } from "@/components/ui/button";
 import CookieConsentBanner from "@/components/ui/cookie-consent-banner";
+
 export default function PrivacyConsentPage() {
   return (
     <main className="container py-10">
@@ -34,7 +35,7 @@ export default function PrivacyConsentPage() {
           </div>
         </div>
         <CookieConsentBanner />
-        <PrivacyDevToolWidget />
+        <BetterEventsDevTool />
       </PrivacyConsentProvider>
     </main>
   );

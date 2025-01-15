@@ -4,7 +4,7 @@ import * as React from "react"
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
-import { usePrivacyConsent } from "@better-events/react"
+import { usePrivacyConsent } from "@better-events/core-react"
 
 import { Overlay } from "./overlay"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./card"
@@ -40,7 +40,6 @@ const CookieConsentBanner = React.forwardRef<
     setShowPopup, 
     saveConsents, 
     setConsent, 
-    displayedConsents, 
     callbacks,
     complianceSettings,
     isPrivacyDialogOpen,
@@ -107,7 +106,7 @@ const CookieConsentBanner = React.forwardRef<
   )
 
   // Early return for SSR and when user has consented
-  if (!isMounted || hasConsented()) {
+  if (!isMounted || (hasConsented() && !showPopup)) {
     return null
   }
 

@@ -1,0 +1,35 @@
+{
+    "name": "@better-events/core-js",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "types": "dist/types/index.d.ts",
+    "scripts": {
+      "build": "pnpm clean && tsup",
+      "build:declarations": "tsc -p tsconfig.declarations.json",
+      "dev": "tsup --watch",
+      "typecheck": "tsc --noEmit",
+      "clean": "rimraf dist"
+    },
+    "browserslist": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "devDependencies": {
+      "@types/react": "^19.0.7",
+      "@types/react-dom": "^19.0.3",
+      "rimraf": "^6.0.1",
+      "tsup": "^8.3.5",
+      "typescript": "^5.7.3"
+    },
+    "peerDependencies": {
+      "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+      "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
+    },
+    "dependencies": {
+      "zustand": "^5.0.3"
+    }
+  }
+  

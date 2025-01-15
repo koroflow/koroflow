@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
 import PrivacyConsentWidget from "./privacy-consent-widget"
-import { usePrivacyConsent } from "@better-events/react"
+import { usePrivacyConsent } from "@better-events/core-react"
 import { Overlay } from "./overlay"
 import { Button } from "./button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "./card"
@@ -36,11 +36,11 @@ const contentVariants = {
   }
 }
 
-const ModalContent = React.memo(({ 
+const ModalContent = ({
   onClose,
   showCloseButton,
   handleSave,
-  ref 
+  ref
 }: { 
   onClose: () => void
   showCloseButton: boolean
@@ -69,9 +69,7 @@ const ModalContent = React.memo(({
       <PrivacyConsentWidget onSave={handleSave} />
     </CardContent>
   </Card>
-))
-
-ModalContent.displayName = "ModalContent"
+)
 
 const PrivacySettingsModal = React.forwardRef<
   HTMLDivElement,
@@ -81,6 +79,7 @@ const PrivacySettingsModal = React.forwardRef<
   const [isMounted, setIsMounted] = React.useState(false)
   const contentRef = React.useRef<HTMLDivElement>(null)
 
+  console.log("isPrivacyDialogOpen", isPrivacyDialogOpen)
   React.useEffect(() => {
     setIsMounted(true)
     return () => setIsMounted(false)
@@ -102,7 +101,7 @@ const PrivacySettingsModal = React.forwardRef<
     setIsPrivacyDialogOpen(false)
   }, [setIsPrivacyDialogOpen])
 
-  const modalContent = React.useMemo(() => (
+  const modalContent = (
     <AnimatePresence mode="wait">
       {isPrivacyDialogOpen && (
         <>
@@ -136,7 +135,7 @@ const PrivacySettingsModal = React.forwardRef<
         </>
       )}
     </AnimatePresence>
-  ), [isPrivacyDialogOpen, handleClose, handleSave, showCloseButton])
+  )
 
   return (
     <>

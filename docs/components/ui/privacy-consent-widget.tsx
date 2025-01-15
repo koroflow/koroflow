@@ -11,7 +11,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { ChevronDown } from 'lucide-react'
-import { usePrivacyConsent } from "@better-events/react"
+import { usePrivacyConsent } from "@better-events/core-react"
 
 interface PrivacyConsentWidgetProps extends React.HTMLAttributes<HTMLDivElement> {
   onSave?: () => void
@@ -21,7 +21,7 @@ const PrivacyConsentWidget = React.forwardRef<
   HTMLDivElement,
   PrivacyConsentWidgetProps
 >(({ onSave, ...props }, ref) => {
-  const { consents, setConsent, saveConsents, resetConsents, displayedConsents } = usePrivacyConsent()
+  const { consents, setConsent, saveConsents, getDisplayedConsents,resetConsents } = usePrivacyConsent()
   const [openItems, setOpenItems] = React.useState<string[]>([])
 
   const toggleAccordion = React.useCallback((value: string) => {
@@ -46,16 +46,22 @@ const PrivacyConsentWidget = React.forwardRef<
   return (
     <div className="space-y-6" ref={ref} {...props}>
       <Accordion type="multiple" value={openItems} onValueChange={setOpenItems} className="w-full">
-        {displayedConsents.map((consent) => (
+        {getDisplayedConsents().map((consent) => (
           <AccordionItem value={consent.name} key={consent.name}>
             <div className="flex items-center justify-between py-4">
               <div className="flex-grow" onClick={() => toggleAccordion(consent.name)}>
                 <div className="flex items-center justify-between cursor-pointer">
-                  <span className="font-medium capitalize">{consent.name.replace('_', ' ')}</span>
-                  <ChevronDown className={`h-4 w-4 shrink-0 transition-transform duration-200 ${openItems.includes(consent.name) ? 'rotate-180' : ''}`} />
+                  <span className="font-medium capitalize">
+                    {consent.name.replace('_', ' ')}
+                  </span>
+                  <ChevronDown 
+                    className={`h-4 w-4 shrink-0 transition-transform duration-200 ${
+                      openItems.includes(consent.name) ? 'rotate-180' : ''
+                    }`} 
+                  />
                 </div>
               </div>
-              <Switch
+             <Switch
                 checked={consents[consent.name]}
                 onCheckedChange={(checked) => handleConsentChange(consent.name, checked)}
                 disabled={consent.disabled}
@@ -63,7 +69,9 @@ const PrivacyConsentWidget = React.forwardRef<
               />
             </div>
             <AccordionContent>
-              <p className="text-sm text-muted-foreground pb-4">{consent.description}</p>
+              <p className="text-sm text-muted-foreground pb-4">
+                {consent.description}
+              </p>
             </AccordionContent>
           </AccordionItem>
         ))}

@@ -1,5 +1,4 @@
 packages:
   - "configs/*"
-  - "packages/*"
+  - "packages/**/*"
   - "docs"
-  - "fumadocs"

@@ -13,7 +13,7 @@ export default {
     "./mdx-components.{ts,tsx}",
     "./node_modules/fumadocs-ui/dist/**/*.js",
     "./node_modules/@better-events/dev-tools/dist/**/*.js",
-    "./node_modules/@better-events/react/dist/**/*.js",
+    "./node_modules/@better-events/core-react/dist/**/*.js",
   ],
   presets: [
     createPreset({
