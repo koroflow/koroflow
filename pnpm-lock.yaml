@@ -226,9 +226,6 @@ importers:
       '@types/react-dom':
         specifier: ^19.0.3
         version: 19.0.3(@types/react@19.0.7)
-      rimraf:
-        specifier: ^6.0.1
-        version: 6.0.1
       tsup:
         specifier: ^8.3.5
         version: 8.3.5(jiti@2.4.2)(postcss@8.5.0)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
@@ -257,9 +254,6 @@ importers:
       '@types/react-dom':
         specifier: ^19.0.3
         version: 19.0.3(@types/react@19.0.7)
-      rimraf:
-        specifier: ^6.0.1
-        version: 6.0.1
       tsup:
         specifier: ^8.3.5
         version: 8.3.5(jiti@2.4.2)(postcss@8.5.0)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
@@ -336,9 +330,6 @@ importers:
       postcss:
         specifier: ^8.4.49
         version: 8.5.0
-      rimraf:
-        specifier: ^6.0.1
-        version: 6.0.1
       tsup:
         specifier: ^8.3.5
         version: 8.3.5(jiti@2.4.2)(postcss@8.5.0)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)

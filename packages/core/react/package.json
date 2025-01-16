@@ -6,11 +6,10 @@
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "pnpm clean && tsup",
+    "build": "tsup",
     "build:declarations": "tsc -p tsconfig.declarations.json",
     "dev": "tsup --watch",
-    "typecheck": "tsc --noEmit",
-    "clean": "rimraf dist"
+    "typecheck": "tsc --noEmit"
   },
   "browserslist": [
     ">0.2%",
@@ -20,7 +19,6 @@
   "devDependencies": {
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
-    "rimraf": "^6.0.1",
     "tsup": "^8.3.5",
     "typescript": "^5.7.3"
   },
