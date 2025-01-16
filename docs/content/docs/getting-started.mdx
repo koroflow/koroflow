@@ -9,16 +9,30 @@ Koroflow provides a complete consent management system out of the box. Here's ho
 
 ### 1. Install the packages
 
-```bash
-npm install @koroflow/core-react @koroflow/dev-tools
-```
+<Tabs groupId="manual-install" items={["npm", "pnpm", "yarn", "bun"]}>
+  <Tab value="npm">npm install @koroflow/core-react @koroflow/dev-tools</Tab>
+  <Tab value="pnpm">pnpm install @koroflow/core-react @koroflow/dev-tools</Tab>
+  <Tab value="yarn">yarn add @koroflow/core-react @koroflow/dev-tools</Tab>
+  <Tab value="bun">bun add @koroflow/core-react @koroflow/dev-tools</Tab>
+</Tabs>
 
 ### 2. Add the Consent Manager
 
-Wrap your application with the ConsentManagerProvider:
+First Install the Consent Manager:
+
+<Tabs groupId="consent-manager" items={["npm", "pnpm"]}>
+  <Tab value="npm">
+    npx shadcn@latest add "https://koroflow.com/r/consent-solution
+  </Tab>
+  <Tab value="pnpm">
+    pnpx shadcn@latest add "https://koroflow.com/r/consent-solution
+  </Tab>
+</Tabs>
+
+Then Wrap your application with the ConsentManagerProvider:
 
 ```tsx
-import { ConsentManagerProvider } from "@koroflow/core-react"
+import { ConsentManagerProvider } from "@koroflow/core-react";
 
 export default function App() {
   return (
@@ -32,24 +46,16 @@ export default function App() {
     >
       {/* Your app content */}
     </ConsentManagerProvider>
-  )
+  );
 }
 ```
 
 ### 3. Add the Cookie Banner
 
-Install the Cookie Banner component:
-<InstallPackagesBlock
-groupId="shadcn-cli"
-  commands={{
-    npm: `npx shadcn@latest add "https://koroflow.com/r/consent-solution"`,
-    pnpm: `pnpx shadcn@latest add "https://koroflow.com/r/consent-solution"`,
-  }}
-/>
+Add it to your layout:
 
-Add it to your layout: 
 ```tsx
-import { CookieBanner } from "@koroflow/ui"
+import { CookieBanner } from "@koroflow/ui";
 
 export default function Layout() {
   return (
@@ -57,7 +63,7 @@ export default function Layout() {
       <CookieBanner />
       {/* Your layout content */}
     </>
-  )
+  );
 }
 ```
 
@@ -68,31 +74,31 @@ That's it! You now have a fully functional consent management system.
 Koroflow makes it easy to integrate with your analytics tools. Here's how to track consent changes:
 
 ```tsx
-import { useConsentManager } from "@koroflow/core-react"
-import { PostHog } from 'posthog-js'
+import { useConsentManager } from "@koroflow/core-react";
+import { PostHog } from "posthog-js";
 
 function ConsentTracker() {
-  const { setCallback } = useConsentManager()
+  const { setCallback } = useConsentManager();
 
   useEffect(() => {
     // Track when user updates their consent preferences
-    setCallback('onConsentUpdated', (newConsents) => {
-      PostHog.capture('consent_updated', {
+    setCallback("onConsentUpdated", (newConsents) => {
+      PostHog.capture("consent_updated", {
         marketing: newConsents.marketing,
         analytics: newConsents.measurement,
-        functional: newConsents.functionality
-      })
-    })
+        functional: newConsents.functionality,
+      });
+    });
 
     // Track when user saves their preferences
-    setCallback('onConsentSaved', (consents) => {
-      PostHog.capture('consent_saved', {
-        consents
-      })
-    })
-  }, [setCallback])
+    setCallback("onConsentSaved", (consents) => {
+      PostHog.capture("consent_saved", {
+        consents,
+      });
+    });
+  }, [setCallback]);
 
-  return null
+  return null;
 }
 ```
 
@@ -102,16 +108,16 @@ Once you have consent preferences, use them to control your analytics:
 
 ```tsx
 function AnalyticsWrapper() {
-  const { consents } = useConsentManager()
+  const { consents } = useConsentManager();
 
   useEffect(() => {
     // Only initialize analytics if user has consented
     if (consents.measurement) {
-      PostHog.init('your-project-key')
+      PostHog.init("your-project-key");
     }
-  }, [consents.measurement])
+  }, [consents.measurement]);
 
-  return null
+  return null;
 }
 ```
 
@@ -122,7 +128,7 @@ function AnalyticsWrapper() {
 All components are built with shadcn/ui and Tailwind, making customization simple:
 
 ```tsx
-<CookieBanner 
+<CookieBanner
   className="bg-brand dark:bg-brand-dark"
   buttonClassName="bg-accent"
 />
@@ -133,7 +139,7 @@ All components are built with shadcn/ui and Tailwind, making customization simpl
 Koroflow includes development tools for testing:
 
 ```tsx
-import KoroflowDevTools from "@koroflow/dev-tools"
+import KoroflowDevTools from "@koroflow/dev-tools";
 
 function App() {
   return (
@@ -141,7 +147,7 @@ function App() {
       <KoroflowDevTools />
       {/* Your app */}
     </>
-  )
+  );
 }
 ```
 

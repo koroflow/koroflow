@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Shield, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
+import { cn } from "~/libs/utils";
 
 /**
  * Dev Tool Wrapper Component
@@ -20,11 +21,13 @@ import { Card } from "./ui/card";
 export function DevToolWrapper({ 
   children, 
   isOpen, 
-  toggleOpen 
+  toggleOpen,
+  position = "bottom-right",
 }: { 
   children: React.ReactNode;
   isOpen: boolean;
   toggleOpen: () => void;
+  position?: "bottom-right" | "top-right" | "bottom-left" | "top-left";
 }) {
   // Track whether component is mounted to handle client-side only features
   const [isMounted, setIsMounted] = useState(false);
@@ -51,7 +54,12 @@ export function DevToolWrapper({
             onClick={toggleOpen}
           />
           <motion.div
-            className="fixed bottom-4 right-4 z-[9999]"
+            className={cn("fixed z-[9999]", 
+              position === "bottom-right" && "bottom-4 right-4",
+              position === "top-right" && "top-4 right-4",
+              position === "bottom-left" && "bottom-4 left-4",
+              position === "top-left" && "top-4 left-4",
+            )}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}

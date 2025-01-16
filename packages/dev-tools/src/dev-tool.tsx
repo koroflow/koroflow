@@ -51,10 +51,12 @@ export const getStore = () => {
 export default PrivacyConsentContext;
 
 interface ConsentManagerProviderProps extends NamespaceProps {
+  position?: "bottom-right" | "top-right" | "bottom-left" | "top-left";
 }
 
 export const KoroflowDevTool: React.FC<ConsentManagerProviderProps> = ({
-  namespace = 'KoroflowStore'
+  namespace = 'KoroflowStore',
+  position = "bottom-right",
 }) => {
   const [state, setState] = useState<PrivacyConsentState | null>(null);
   const [store, setStore] = useState<any | null>(null);
@@ -86,7 +88,7 @@ export const KoroflowDevTool: React.FC<ConsentManagerProviderProps> = ({
 
   return (
     <PrivacyConsentContext.Provider value={{ state, store }}>
-      <DevToolWrapper isOpen={isOpen} toggleOpen={toggleOpen}>
+      <DevToolWrapper isOpen={isOpen} toggleOpen={toggleOpen} position={position}>
         <Header onClose={() => setIsOpen(false)} />
         {state ? (
           <Router onClose={() => setIsOpen(false)} />

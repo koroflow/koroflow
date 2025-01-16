@@ -9,7 +9,6 @@ import { useConsentManager } from "@koroflow/core-react";
 import { Overlay } from "@/registry/default/components/consent/overlay";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -41,7 +40,7 @@ const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
       showCloseButton = false,
       ...props
     },
-    ref,
+    ref
   ) => {
     const {
       showPopup,
@@ -110,7 +109,7 @@ const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
         "top-4": verticalPosition === "top",
         "bottom-4": verticalPosition === "bottom",
       },
-      className,
+      className
     );
 
     // Early return for SSR and when user has consented
@@ -141,7 +140,7 @@ const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
                 ref={ref}
               >
                 <Card>
-                  <CardHeader className="relative">
+                  <CardHeader>
                     {showCloseButton && (
                       <Button
                         variant="ghost"
@@ -158,7 +157,6 @@ const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
                     </CardTitle>
                     <CardDescription>{bannerDescription}</CardDescription>
                   </CardHeader>
-                  <CardContent />
                   <CardFooter className="flex flex-col sm:flex-row justify-between gap-4">
                     <div className="flex flex-row justify-between gap-2">
                       {complianceSettings.gdpr.enabled && (
@@ -185,7 +183,7 @@ const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
     );
 
     return isMounted && createPortal(<BannerContent />, document.body);
-  },
+  }
 );
 
 CookieBanner.displayName = "CookieBanner";
