@@ -10,6 +10,8 @@ export default function PrivacyPopupMinimalDemo() {
         "functionality",
         "measurement",
       ]}
+      // This is just for the demo's so we can have multiple instances of the consent manager on the same page.
+      namespace="minimal-demo"
     >
       <CookieBanner />
     </ConsentManagerProvider>

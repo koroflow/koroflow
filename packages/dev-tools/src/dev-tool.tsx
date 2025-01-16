@@ -8,7 +8,7 @@ import React, {
   useState,
 } from "react";
 import { Router } from "./router/router";
-import { PrivacyConsentState } from "@koroflow/core-js";
+import { NamespaceProps, PrivacyConsentState } from "@koroflow/core-js";
 import { ErrorState } from "./components/error-state";
 import { Header } from "./components/header";
 import DevToolWrapper from "./components/wrapper";
@@ -50,8 +50,7 @@ export const getStore = () => {
 
 export default PrivacyConsentContext;
 
-interface ConsentManagerProviderProps {
-  namespace?: string;
+interface ConsentManagerProviderProps extends NamespaceProps {
 }
 
 export const KoroflowDevTool: React.FC<ConsentManagerProviderProps> = ({

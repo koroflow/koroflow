@@ -13,6 +13,8 @@ export default function PrivacyPopupDemo() {
         "functionality",
         "measurement",
       ]}
+      // This is just for the demo's so we can have multiple instances of the consent manager on the same page.
+      namespace="consent-solution-demo"
     >
       <div className="text-center space-y-4">
         <div className="space-x-4">

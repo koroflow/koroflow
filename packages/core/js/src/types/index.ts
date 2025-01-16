@@ -5,6 +5,7 @@ import {
   ComplianceSettings,
   PrivacySettings,
   HasConsentedProps,
+  NamespaceProps,
 } from "./compliance";
 
 export type {
@@ -13,6 +14,7 @@ export type {
   ComplianceSettings,
   PrivacySettings,
   HasConsentedProps,
+  NamespaceProps,
 };
 
 // Import and export all types from gdpr.ts
