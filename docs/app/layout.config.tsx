@@ -40,25 +40,16 @@ export const baseOptions: BaseLayoutProps = {
   },
   links: [
     {
-      type: 'menu',
-      text: 'Documentation',
-      url: '/docs/components',
-      items: [
-        {
-          icon: <ComponentIcon />,
-          text: 'Components',
-          description: 'Add interactive experience to your docs.',
-          url: '/docs/components',
-        },
-        {
-          icon: <Brain />,
-          text: 'Core',
-          description:
-            'Generate interactive playgrounds and docs for your OpenAPI schema.',
-          url: '/docs/core',
-        },
-      ],
+      type: "button",
+      text: 'Getting Started',
+      url: '/docs/getting-started',
     },
+    {
+      type: 'main',
+      text: 'Components',
+      url: '/docs/components/consent-solution',
+    },
+    
     ...linkItems,
   ],
 };

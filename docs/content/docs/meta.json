@@ -1,3 +1,17 @@
 {
-    "pages": ["components", "core"]
+    "root": true,
+    "title": "Components",
+    "description": "Ready-to-use privacy components.",
+    "icon": "Component",
+    "pages": [
+      "---Guide---",
+      "index",
+      "---Components---",
+      "getting-started",
+      "shadcn",
+      "components",
+
+      "..."
+    ]
   }
+  

@@ -1,0 +1,76 @@
+---
+title: Dev Tool
+date: 2024-12-20
+description: A powerful set of developer tools for monitoring and debugging Koroflow consent state
+author: burnedchris
+published: true
+---
+
+<ComponentPreview name="dev-tool-example" />
+
+## Features
+
+- 🔍 Real-time consent state monitoring
+- 🐞 Easy debugging of consent-related issues
+- 📊 Visual representation of current consent status
+- 🔗 Seamless integration with Koroflow consent management system
+- 🎨 Customizable UI to match your development environment
+
+## Installation
+
+<InstallPackagesBlock
+groupId="dev-tools"
+  commands={{
+    npm: `npm install @koroflow/dev-tools`,
+    pnpm: `pnpm install @koroflow/dev-tools`,
+  }}
+/>
+
+## Usage
+
+1. Wrap your application with the `KoroflowDevTool` component:
+
+```tsx
+import { KoroflowDevTool } from '@koroflow/dev-tools';
+
+function Layout() {
+  return (
+    <KoroflowDevTool/>
+  );
+}
+```
+
+
+## API Reference
+
+### KoroflowDevTool
+
+<TypeTable
+  type={{
+    namespace: {
+      description: "The namespace where the Koroflow store is located on the window object.",
+      type: "string",
+      default: "KoroflowStore",
+    },
+  }}
+/>
+
+### getStore
+
+A hook for accessing the current consent state.
+
+Returns:
+- `PrivacyConsentState`: The current consent state object.
+
+## Troubleshooting
+
+- Make sure the `KoroflowDevTool` component is properly wrapped around your application.
+- Verify that the `namespace` prop matches the namespace used in your Koroflow setup.
+- Check the browser console for any error messages related to the dev tools.
+
+## Best Practices
+
+1. Use the dev tools only during development and testing.
+2. Remove the `KoroflowDevTool` component before deploying to production.
+3. Be mindful of sensitive data that may be exposed in the consent state.
+4. Use the consent state information to debug and optimize your consent management flow.

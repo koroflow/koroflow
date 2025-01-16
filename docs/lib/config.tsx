@@ -12,46 +12,84 @@ import {
 export const BLUR_FADE_DELAY = 0.15;
 
 export const siteConfig = {
+  hero: {
+    cta: "Get Started",
+    ctaDescription: "Open Source",
+    description:
+      "An open-source privacy infrastructure that unifies analytics, consent tracking, and privacy controls into a performant solution. Built for modern development teams who prioritize both user privacy and developer experience.",
+    title: "Koroflow",
+    subtitle: "Privacy Infrastructure for Developers",
+  },
+  keywords: [
+    "Privacy Infrastructure",
+    "Consent Management",
+    "Analytics",
+    "GDPR Compliance",
+    "Developer Tools",
+    "Privacy Controls",
+  ],
   cta: "Get Started",
-  description: "Privacy-first analytics framework with built-in consent management",
+  secondaryCta: "View on GitHub",
+  description:
+    "Transform privacy consent from a compliance checkbox into a fully observable system",
   features: [
     {
+      name: "Privacy-First Architecture",
       description:
-        "Server-side relay system eliminates frontend bloat and ad-blocker issues.",
+        "Server-side relay system with built-in privacy controls, eliminating client-side bloat and tracking issues.",
       icon: <ServerIcon className="h-6 w-6" />,
-      name: "Server-Side First",
+      highlight: "Zero third-party scripts",
     },
     {
+      name: "Modern Consent Management",
       description:
-        "Beautiful, customizable cookie consent UI components built with shadcn/ui.",
+        "Beautiful, customizable consent UI built with shadcn/ui. Full support for GDPR, CCPA, and emerging privacy regulations.",
       icon: <SparklesIcon className="h-6 w-6" />,
-      name: "Ready-to-Use Components",
+      highlight: "Automatic compliance",
     },
     {
-      description:
-        "Built-in GDPR compliance and granular consent management.",
-      icon: <GlobeIcon className="h-6 w-6" />,
-      name: "Privacy by Design",
-    },
-    {
-      description:
-        "Send events to multiple destinations through a single API.",
-      icon: <ActivityIcon className="h-6 w-6" />,
-      name: "Universal Analytics",
-    },
-    {
-      description:
-        "TypeScript-first with full type safety and excellent DX.",
-      icon: <BoxIcon className="h-6 w-6" />,
       name: "Developer Experience",
+      description:
+        "TypeScript-first with full type safety. Clean APIs that feel natural to use. Comprehensive documentation and examples.",
+      icon: <BoxIcon className="h-6 w-6" />,
+      highlight: "Type-safe APIs",
     },
     {
+      name: "Universal Analytics",
       description:
-        "Scale to millions of events with efficient batching and processing.",
+        "Route events to multiple destinations through a single, privacy-aware API. Built-in support for popular analytics platforms.",
+      icon: <ActivityIcon className="h-6 w-6" />,
+      highlight: "Single source of truth",
+    },
+    {
+      name: "Performance Focused",
+      description:
+        "Minimal bundle impact with efficient batching and processing. No impact on Core Web Vitals or page load times.",
       icon: <ZapIcon className="h-6 w-6" />,
-      name: "Built for Scale",
+      highlight: "Zero performance cost",
+    },
+    {
+      name: "Complete Observability",
+      description:
+        "Full visibility into your privacy and consent infrastructure. Monitor compliance, track consent changes, and analyze patterns.",
+      icon: <GlobeIcon className="h-6 w-6" />,
+      highlight: "Real-time monitoring",
     },
   ],
+  testimonials: [
+    {
+      quote:
+        "Finally, a privacy solution that puts developer experience first.",
+      author: "Jane Developer",
+      role: "Senior Engineer",
+      company: "Tech Co",
+    },
+  ],
+  stats: {
+    bundle: "~5kb",
+    performance: "Zero Impact",
+    satisfaction: "Type Safe",
+  },
   footer: {
     bottomText: "All rights reserved.",
     brandText: "Koroflow",
@@ -74,20 +112,6 @@ export const siteConfig = {
       },
     ],
   },
-  hero: {
-    cta: "Get Started",
-    ctaDescription: "Open Source",
-    description:
-      "A server-side analytics relay that combines privacy controls with ready-to-use client components. Built for developers who care about user privacy and clean code.",
-    title: "Koroflow",
-  },
-  keywords: [
-    "Analytics",
-    "Privacy",
-    "GDPR Compliance",
-    "Cookie Consent",
-    "Developer Tools",
-  ],
   links: {
     github: "https://github.com/koroflow/koroflow",
     twitter: "https://x.com/burnedchris",

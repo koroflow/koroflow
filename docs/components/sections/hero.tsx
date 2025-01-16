@@ -67,20 +67,11 @@ function HeroCTA() {
         transition={{ delay: 0.8, duration: 0.8, ease }}
       >
         <Button className="flex items-center gap-2" asChild>
-        <Link href="/docs/components" >
+        <Link href="/docs/getting-started" >
           Get Started
           </Link>
         </Button>
-
       </motion.div>
-      <motion.p
-        className="mt-3 text-sm text-muted-foreground text-left"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.8 }}
-      >
-        {siteConfig.hero.ctaDescription}
-      </motion.p>
     </div>
   );
 }

@@ -37,4 +37,16 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "dev-tool-example",
+    type: "registry:example",
+    registryDependencies: ["consent-solution"],
+    dependencies: ["@koroflow/core-react", "@koroflow/dev-tools"],
+    files: [
+      {
+        path: "examples/dev-tool-example.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];

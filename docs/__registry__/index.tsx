@@ -92,5 +92,20 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "dev-tool-example": {
+      name: "dev-tool-example",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["consent-solution"],
+      files: [{
+        path: "registry/default/examples/dev-tool-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/dev-tool-example.tsx")),
+      source: "",
+      meta: undefined,
+    },
   },
 }

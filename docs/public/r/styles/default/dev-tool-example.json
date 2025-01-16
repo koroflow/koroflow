@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dev-tool-example",
+  "type": "registry:example",
+  "author": "Koroflow (https://koroflow.com/components",
+  "dependencies": [
+    "@koroflow/core-react",
+    "@koroflow/dev-tools"
+  ],
+  "registryDependencies": [
+    "consent-solution"
+  ],
+  "files": [
+    {
+      "path": "examples/dev-tool-example.tsx",
+      "content": "\"use client\";\n\nimport {\n  ConsentManagerProvider,\n  useConsentManager,\n} from \"@koroflow/core-react\";\nimport KoroflowDevTool from \"@koroflow/dev-tools\";\nimport ConsentCustomizationModal from \"@/registry/default/components/consent/consent-customization-modal\";\nimport { Button } from \"@/components/ui/button\";\nimport CookieBanner from \"@/registry/default/components/consent/cookie-banner\";\nimport { useCallback } from \"react\";\nimport { Cookie, Lock, RefreshCw } from \"lucide-react\";\n\nexport default function DevToolExample() {\n  return (\n    <ConsentManagerProvider\n      initialGdprTypes={[\n        \"necessary\",\n        \"marketing\",\n        \"functionality\",\n        \"measurement\",\n      ]}\n      // This namespace is used specifically for demonstration purposes,\n      // allowing multiple instances of the consent manager to coexist on the same page.\n      // It helps in isolating consent states for different demos or components.\n      namespace=\"DevToolExample\"\n    >\n      <DemoWidget />\n      <CookieBanner />\n      <KoroflowDevTool namespace=\"DevToolExample\" />\n    </ConsentManagerProvider>\n  );\n}\n\nexport function DemoWidget() {\n  const { clearAllData, setShowPopup } = useConsentManager();\n  const handleResetConsent = useCallback(() => {\n    clearAllData();\n  }, [clearAllData]);\n\n  const handleOpenCookiePopup = useCallback(() => {\n    setShowPopup(true);\n  }, [setShowPopup]);\n\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <Button onClick={handleOpenCookiePopup}>\n        <Cookie className=\"h-4 w-4 mr-2\" />\n        Open Cookie Banner\n      </Button>\n      <ConsentCustomizationModal>\n        <Button>\n          <Lock className=\"h-4 w-4 mr-2\" />\n          Open Consent Customization{\" \"}\n        </Button>\n      </ConsentCustomizationModal>\n      <Button onClick={handleResetConsent}>\n        <RefreshCw className=\"h-4 w-4 mr-2\" />\n        Reset Local Storage Consent\n      </Button>\n    </div>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
