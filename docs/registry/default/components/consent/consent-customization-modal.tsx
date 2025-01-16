@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import ConsentCustomizationWidget from "./consent-customization-widget";
-import { usePrivacyConsent } from "@koroflow/core-react";
+import { useConsentManager } from "@koroflow/core-react";
 import { Overlay } from "@/registry/default/components/consent/overlay";
 import { Button } from "@/registry/default/components/button";
 import {
@@ -87,11 +87,10 @@ const ConsentCustomizationModal = React.forwardRef<
     setIsPrivacyDialogOpen,
     setShowPopup,
     saveConsents,
-  } = usePrivacyConsent();
+  } = useConsentManager();
   const [isMounted, setIsMounted] = React.useState(false);
   const contentRef = React.useRef<HTMLDivElement>(null);
 
-  console.log("isPrivacyDialogOpen", isPrivacyDialogOpen);
   React.useEffect(() => {
     setIsMounted(true);
     return () => setIsMounted(false);

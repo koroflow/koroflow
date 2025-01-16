@@ -18,7 +18,7 @@ export default defineConfig((overrideOptions) => {
   const isProd = overrideOptions.env?.NODE_ENV === "production";
 
   const common: Options = {
-    name: "🍪 Dev Tools",
+    name: "⚛️ core/react",
     entry: ["./src/**/*.{ts,tsx,js,jsx}", "!./src/**/*.{spec,test}.{ts,tsx}"],
     // We want to preserve original file structure
     // so that the "use client" directives are not lost

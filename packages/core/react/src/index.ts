@@ -1,7 +1,7 @@
 // src/index.ts
 export {
-  PrivacyConsentProvider,
-  usePrivacyConsent,
+  ConsentManagerProvider,
+  useConsentManager,
 } from "./privacy-consent-widget";
 
 // Re-export types and constants

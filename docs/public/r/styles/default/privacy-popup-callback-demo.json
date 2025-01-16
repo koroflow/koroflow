@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "privacy-popup-callback-demo",
+  "type": "registry:example",
+  "author": "Koroflow (https://koroflow.com/components",
+  "dependencies": [
+    "@koroflow/core-react"
+  ],
+  "registryDependencies": [
+    "privacy-popup"
+  ],
+  "files": [
+    {
+      "path": "examples/privacy-popup-callback-demo.tsx",
+      "content": "\"use client\"\n\nimport PrivacyPopup from \"@/registry/default/components/consent/privacy-popup\";\nimport {\n  ConsentManagerProvider,\n  useConsentManager,\n} from \"@koroflow/core-react\";\nimport { useEffect } from \"react\";\n\nexport default function PrivacyPopupMinimalDemo() {\n  return (\n    <ConsentManagerProvider\n      initialGdprTypes={[\n        \"necessary\",\n        \"marketing\",\n        \"functionality\",\n        \"measurement\",\n      ]}\n    >\n      <ConsentCallbacks />\n    </ConsentManagerProvider>\n  );\n}\n\nfunction ConsentCallbacks() {\n  const { setCallback } = useConsentManager();\n\n  useEffect(() => {\n    setCallback(\"onBannerShown\", () => {\n      console.log(\"Banner displayed\");\n    });\n\n    setCallback(\"onConsentGiven\", () => {\n      console.log(\"User gave consent\");\n    });\n\n    setCallback(\"onConsentRejected\", () => {\n      console.log(\"User rejected consent\");\n    });\n\n    setCallback(\"onBannerClosed\", () => {\n      console.log(\"Banner closed\");\n    });\n  }, [setCallback]);\n\n  return <PrivacyPopup />;\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

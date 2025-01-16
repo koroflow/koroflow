@@ -77,5 +77,20 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "privacy-popup-callback-demo": {
+      name: "privacy-popup-callback-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["privacy-popup"],
+      files: [{
+        path: "registry/default/examples/privacy-popup-callback-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/privacy-popup-callback-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
   },
 }

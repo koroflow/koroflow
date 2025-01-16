@@ -7,7 +7,7 @@ export interface CodeBlockProps {
   lang: string
 }
 
-export async function CodeBlock({ code, lang, wrapper }: CodeBlockProps) {
+export async function CodeBlock({ code, wrapper }: CodeBlockProps) {
   const rendered = await highlight(code, {
     lang: "tsx",
     components: {

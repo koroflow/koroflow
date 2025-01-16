@@ -4,17 +4,17 @@ import React, { useEffect, useState } from 'react';
 import { AllConsentNames, ComplianceRegion, ComplianceSettings, PrivacyConsentState, store } from '@koroflow/core-js';
 
 
-interface PrivacyConsentProviderProps {
+interface ConsentManagerProviderProps {
   children: React.ReactNode;
   initialGdprTypes?: AllConsentNames[];
   initialComplianceSettings?: Record<ComplianceRegion, ComplianceSettings>;
 }
 
-export function PrivacyConsentProvider({ 
+export function ConsentManagerProvider({ 
   children, 
   initialGdprTypes,
   initialComplianceSettings
-}: PrivacyConsentProviderProps) {
+}: ConsentManagerProviderProps) {
   useEffect(() => {
     const { setGdprTypes, setComplianceSetting, setDetectedCountry } = store.getState();
 
@@ -33,16 +33,14 @@ export function PrivacyConsentProvider({
   return <>{children}</>;
 }
 
-export function usePrivacyConsent() {
+export function useConsentManager() {
   const [state, setState] = useState<PrivacyConsentState>(store.getState());
 
   useEffect(() => {
-    // Subscribe to store changes
     const unsubscribe = store.subscribe((newState) => {
       setState(newState);
     });
 
-    // Cleanup subscription on unmount
     return () => {
       unsubscribe();
     };

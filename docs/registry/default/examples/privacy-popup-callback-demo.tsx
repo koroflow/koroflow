@@ -1,10 +1,15 @@
+"use client";
+
 import PrivacyPopup from "@/registry/default/components/consent/privacy-popup";
-import { PrivacyConsentProvider, usePrivacyConsent } from "@koroflow/core-react";
+import {
+  ConsentManagerProvider,
+  useConsentManager,
+} from "@koroflow/core-react";
 import { useEffect } from "react";
 
 export default function PrivacyPopupMinimalDemo() {
   return (
-    <PrivacyConsentProvider
+    <ConsentManagerProvider
       initialGdprTypes={[
         "necessary",
         "marketing",
@@ -13,30 +18,30 @@ export default function PrivacyPopupMinimalDemo() {
       ]}
     >
       <ConsentCallbacks />
-    </PrivacyConsentProvider>
+    </ConsentManagerProvider>
   );
 }
 
 function ConsentCallbacks() {
-  const { setCallback } = usePrivacyConsent()
- 
+  const { setCallback } = useConsentManager();
+
   useEffect(() => {
     setCallback("onBannerShown", () => {
-      console.log("Banner displayed")
-    })
- 
+      console.log("Banner displayed");
+    });
+
     setCallback("onConsentGiven", () => {
-      console.log("User gave consent")
-    })
- 
+      console.log("User gave consent");
+    });
+
     setCallback("onConsentRejected", () => {
-      console.log("User rejected consent")
-    })
- 
+      console.log("User rejected consent");
+    });
+
     setCallback("onBannerClosed", () => {
-      console.log("Banner closed")
-    })
-  }, [setCallback])
- 
-  return       <PrivacyPopup />
+      console.log("Banner closed");
+    });
+  }, [setCallback]);
+
+  return <PrivacyPopup />;
 }

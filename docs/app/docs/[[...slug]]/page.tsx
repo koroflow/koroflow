@@ -16,6 +16,8 @@ import { createTypeTable } from "fumadocs-typescript/ui";
 import { Pre, CodeBlock } from "fumadocs-ui/components/codeblock";
 import Link from "fumadocs-core/link";
 import { ComponentPreviewServer } from "@/components/render/component-preview-server";
+import InstallPackagesBlock from "@/components/install-packages-block";
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -42,6 +44,9 @@ export default async function Page(props: {
             ...defaultMdxComponents,
             ComponentSource: ComponentSourceServer,
             ComponentPreview: ComponentPreviewServer,
+            Accordion,
+            Accordions,
+            InstallPackagesBlock,
             AutoTypeTable,
             TypeTable,
             Step,

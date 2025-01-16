@@ -1,5 +1,5 @@
 ---
-title: Cookie Banner
+title: Consent Solution
 date: 2024-12-20
 description: A customizable cookie consent modal for web applications
 author: burnedchris
@@ -22,30 +22,50 @@ published: true
 
 ## Installation
 
-<Steps>
+There are two ways to install the component:
+
+<Accordions>
+<Accordion title="Using Shadcn CLI" id="shadcn">
+ 
+<InstallPackagesBlock
+groupId="shadcn"
+  commands={{
+    npm: `npx shadcn@latest add "https://koroflow.com/r/privacy-popup"`,
+    pnpm: `pnpx shadcn@latest add "https://koroflow.com/r/privacy-popup"`,
+  }}
+/>
+
+</Accordion>
+<Accordion title="Manually" id="manually">
+ <Steps>
+<Step>
 
 ### Install dependencies
 
-```bash
-npm install @radix-ui/react-dialog @radix-ui/react-switch lucide-react
-```
-
+<InstallPackagesBlock groupId="manual" commands={{
+  pnpm: "pnpm install @koroflow/core-react @koroflow/dev-tools",
+  npm: "npm install @koroflow/core-react @koroflow/dev-tools",
+  yarn: "yarn add @koroflow/core-react @koroflow/dev-tools",
+  bun: "bun add @koroflow/core-react @koroflow/dev-tools",
+}} />
+</Step>
+<Step>
 ### Add the components
 
 Copy and paste the following components into your project:
-{/* 
 
-<ComponentSource name="cookie-popup" />
-<ComponentSource name="privacy-consent-dialog" />
-<ComponentSource name="privacy-consent-widget" />
-<ComponentSource name="privacy-consent-context" /> */}
+<ComponentSource name="privacy-popup" />
 
-
+</Step>
+<Step>
 ### Update the imports
 
 Update the import paths to match your project structure.
 
+</Step>
 </Steps>
+</Accordion>
+</Accordions>
 
 ## Usage
 
@@ -63,7 +83,7 @@ Track user interactions with the consent system:
 
 ## API Reference
 
-### PrivacyConsentProvider
+### ConsentManagerProvider
 
 <TypeTable
   type={{
@@ -151,7 +171,7 @@ Track user interactions with the consent system:
   }}
 />
 
-### usePrivacyConsent
+### useConsentManager
 
 A hook for accessing the privacy consent context.
 

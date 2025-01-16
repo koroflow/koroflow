@@ -11,7 +11,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ChevronDown } from "lucide-react";
-import { usePrivacyConsent } from "@koroflow/core-react";
+import { useConsentManager } from "@koroflow/core-react";
 
 interface ConsentCustomizationWidgetProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -28,7 +28,7 @@ const ConsentCustomizationWidget = React.forwardRef<
     saveConsents,
     getDisplayedConsents,
     resetConsents,
-  } = usePrivacyConsent();
+  } = useConsentManager();
   const [openItems, setOpenItems] = React.useState<string[]>([]);
 
   const toggleAccordion = React.useCallback((value: string) => {

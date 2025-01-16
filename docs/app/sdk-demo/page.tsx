@@ -1,4 +1,4 @@
-import { PrivacyConsentProvider } from "@koroflow/core-react";
+import { ConsentManagerProvider } from "@koroflow/core-react";
 
 import KoroflowDevTool from "@koroflow/dev-tools";
 import ConsentCustomizationModal from "@/registry/default/components/consent/consent-customization-modal";
@@ -8,7 +8,7 @@ import PrivacyPopup from "@/registry/default/components/consent/privacy-popup";
 export default function PrivacyConsentPage() {
   return (
     <main className="container py-10">
-      <PrivacyConsentProvider
+      <ConsentManagerProvider
         initialGdprTypes={["necessary", "marketing", "functionality", "measurement"]}
         initialComplianceSettings={{
           gdpr: { enabled: true, appliesGlobally: true, applies: true },
@@ -34,7 +34,7 @@ export default function PrivacyConsentPage() {
         </div>
         <PrivacyPopup />
         <KoroflowDevTool />
-      </PrivacyConsentProvider>
+      </ConsentManagerProvider>
     </main>
   );
 }

@@ -1,8 +1,8 @@
-import { usePrivacyConsent } from "@koroflow/core-react";
+import { useConsentManager } from "@koroflow/core-react";
 import Script from "next/script";
 
 const Demo = () => {
-  const { consents } = usePrivacyConsent();
+  const { consents } = useConsentManager();
 
   return (
     <div>

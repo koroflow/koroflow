@@ -1,9 +1,9 @@
 import PrivacyPopup from "@/registry/default/components/consent/privacy-popup";
-import { PrivacyConsentProvider } from "@koroflow/core-react";
+import { ConsentManagerProvider } from "@koroflow/core-react";
 
 export default function PrivacyPopupMinimalDemo() {
   return (
-    <PrivacyConsentProvider
+    <ConsentManagerProvider
       initialGdprTypes={[
         "necessary",
         "marketing",
@@ -12,6 +12,6 @@ export default function PrivacyPopupMinimalDemo() {
       ]}
     >
       <PrivacyPopup />
-    </PrivacyConsentProvider>
+    </ConsentManagerProvider>
   );
 }

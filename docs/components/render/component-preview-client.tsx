@@ -1,22 +1,23 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Index } from "__registry__"
-import { RotateCcw } from 'lucide-react'
-import { Tab, Tabs } from 'fumadocs-ui/components/tabs'
+import * as React from "react";
+import { RotateCcw } from 'lucide-react';
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import ComponentWrapper from "@/components/component-wrapper"
-import { Icons } from "@/components/icons"
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import ComponentWrapper from "@/components/component-wrapper";
+import { Icons } from "@/components/icons";
 
-interface ComponentPreviewClientProps extends React.HTMLAttributes<HTMLDivElement> {
-  name: string
-  code: string
-  styleName: string
-  align?: "center" | "start" | "end"
-  highlightedCode: React.ReactNode
-  defaultTab?: "Preview" | "Code"
+interface ComponentPreviewClientProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  name: string;
+  code: string;
+  styleName: string;
+  preview: React.ReactNode;
+  align?: "center" | "start" | "end";
+  highlightedCode: React.ReactNode;
+  defaultTab?: "Preview" | "Code";
 }
 
 export function ComponentPreviewClient({
@@ -27,30 +28,33 @@ export function ComponentPreviewClient({
   align = "center",
   highlightedCode,
   defaultTab = "Preview",
+  preview,
   ...props
 }: ComponentPreviewClientProps) {
-  const [key, setKey] = React.useState(0)
+  const [key, setKey] = React.useState(0);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   const Preview = React.useMemo(() => {
-    const Component = Index[styleName][name]?.component
-
-    if (!Component) {
+    if (!preview) {
       return (
         <p className="text-sm text-muted-foreground">
           Component{" "}
           <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
             {name}
           </code>{" "}
-          not found in registry.
+          not found in {styleName} style registry.
         </p>
-      )
+      );
     }
 
-    return <Component />
-  }, [name, styleName])
-  
-  console.log(defaultTab)
-  const defaultIndex = defaultTab === "Preview" ? 0 : 1
+    return preview;
+  }, [name, styleName, preview]);
+
+  React.useEffect(() => {
+    setIsLoading(false);
+  }, []);
+
+  const defaultIndex = defaultTab === "Preview" ? 0 : 1;
 
   return (
     <div
@@ -79,16 +83,21 @@ export function ComponentPreviewClient({
                   </div>
                 }
               >
-                {Preview}
+                {isLoading ? (
+                  <div className="flex items-center text-sm text-muted-foreground">
+                    <Icons.spinner className="mr-2 size-4 animate-spin" />
+                    Loading...
+                  </div>
+                ) : (
+                  Preview
+                )}
               </React.Suspense>
             </ComponentWrapper>
           </div>
         </Tab>
-        <Tab value="Code">
-          {highlightedCode}
-        </Tab>
+        <Tab value="Code">{highlightedCode}</Tab>
       </Tabs>
     </div>
-  )
+  );
 }
 

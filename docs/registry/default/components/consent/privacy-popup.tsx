@@ -4,7 +4,7 @@ import * as React from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
-import { usePrivacyConsent } from "@koroflow/core-react";
+import { useConsentManager } from "@koroflow/core-react";
 
 import { Overlay } from "@/registry/default/components/consent/overlay";
 import {
@@ -53,7 +53,7 @@ const PrivacyPopup = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
       isPrivacyDialogOpen,
       hasConsented,
       consents,
-    } = usePrivacyConsent();
+    } = useConsentManager();
 
     const bannerShownRef = React.useRef(false);
     const [isMounted, setIsMounted] = React.useState(false);

@@ -2,6 +2,9 @@
   {
     "name": "privacy-popup",
     "type": "registry:ui",
+    "dependencies": [
+      "@koroflow/core-react"
+    ],
     "registryDependencies": [],
     "files": [
       {

@@ -22,7 +22,7 @@ export const getStore = () => {
   const context = useContext(PrivacyConsentContext);
   if (context === null) {
     throw new Error(
-      "usePrivacyConsentContext must be used within a PrivacyConsentProvider"
+      "useConsentManagerContext must be used within a ConsentManagerProvider"
     );
   }
   
@@ -50,11 +50,11 @@ export const getStore = () => {
 
 export default PrivacyConsentContext;
 
-interface PrivacyConsentProviderProps {
+interface ConsentManagerProviderProps {
   namespace?: string;
 }
 
-export const KoroflowDevTool: React.FC<PrivacyConsentProviderProps> = ({
+export const KoroflowDevTool: React.FC<ConsentManagerProviderProps> = ({
   namespace = 'KoroflowStore'
 }) => {
   const [state, setState] = useState<PrivacyConsentState | null>(null);
