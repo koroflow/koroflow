@@ -5,10 +5,6 @@ const withMDX = createMDX();
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
-
-    outputFileTracingIncludes: {
-      "/blocks/*": ["./registry/**/*"],
-    },
   async redirects() {
     return [
       {

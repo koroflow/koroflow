@@ -12,9 +12,9 @@ type InstallPackagesBlockProps = {
 
 const InstallPackagesBlock = ({ commands, groupId }: InstallPackagesBlockProps) => {
   return (
-      <Tabs groupId={groupId} items={Object.keys(commands)}>
+      <Tabs groupId={`${groupId}-tabs`} items={Object.keys(commands)}>
         {Object.entries(commands).map(([key, value]) => (
-          <Tab value={key}>{value}</Tab>
+          <Tab value={`${groupId}-${key}`}>{value}</Tab>
         ))}
       </Tabs>
   );

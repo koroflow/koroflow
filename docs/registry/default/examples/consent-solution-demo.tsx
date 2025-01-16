@@ -13,8 +13,10 @@ export default function PrivacyPopupDemo() {
         "functionality",
         "measurement",
       ]}
-      // This is just for the demo's so we can have multiple instances of the consent manager on the same page.
-      namespace="consent-solution-demo"
+      // This namespace is used specifically for demonstration purposes,
+      // allowing multiple instances of the consent manager to coexist on the same page.
+      // It helps in isolating consent states for different demos or components.
+      namespace="ConsentSolutionDemo"
     >
       <div className="text-center space-y-4">
         <div className="space-x-4">
@@ -24,7 +26,6 @@ export default function PrivacyPopupDemo() {
         </div>
       </div>
       <CookieBanner />
-      <KoroflowDevTool />
     </ConsentManagerProvider>
   );
 }

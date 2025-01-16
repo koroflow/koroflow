@@ -1,50 +1,48 @@
 "use client";
-
-import { useEffect, useState } from "react";
-import {
-  createConsentManagerStore,
-  PrivacyConsentState,
-  NamespaceProps,
-} from "@koroflow/core-js";
+import { useContext } from "react";
+import { PrivacyConsentState, createConsentManagerStore } from "@koroflow/core-js";
+import { ConsentStateContext } from "../privacy-consent-widget";
 
 /**
- * Options for configuring the useConsentManager hook.
- */
-interface UseConsentManagerOptions extends NamespaceProps {}
-
-/**
- * A custom React hook that manages privacy consent state using a consent manager store.
+ * A custom React hook that provides access to the privacy consent state and methods.
  *
- * @param options - The options for configuring the consent manager, including the namespace.
- * @returns The current privacy consent state.
+ * @returns An object containing both the privacy consent state and store methods.
  *
  * @remarks
- * This hook initializes a consent manager store with the specified namespace and subscribes to its state changes.
- * It returns the current state of the privacy consents, allowing components to react to changes.
+ * This hook must be used within a ConsentManagerProvider component.
+ * It provides access to both the consent state and store methods for managing consent.
+ * 
+ * @throws {Error} If used outside of a ConsentManagerProvider
+ * 
+ * @example
+ * ```tsx
+ * function MyComponent() {
+ *   const { isConsentRequired, setGdprTypes } = useConsentManager();
+ *   return (
+ *     <div>
+ *       {isConsentRequired && (
+ *         <button onClick={() => setGdprTypes(['analytics'])}>
+ *           Accept Analytics
+ *         </button>
+ *       )}
+ *     </div>
+ *   );
+ * }
+ * ```
  */
-export function useConsentManager({
-  namespace = "KoroflowStore",
-}: UseConsentManagerOptions = {}) {
-  // Initialize state with the current state from the consent manager store
-  const [state, setState] = useState<PrivacyConsentState>(
-    createConsentManagerStore(namespace).getState()
-  );
-
-  useEffect(() => {
-    // Subscribe to state changes in the consent manager store
-    const unsubscribe = createConsentManagerStore(namespace).subscribe(
-      (newState) => {
-        // Update the state when a new state is emitted
-        setState(newState);
-      }
+export function useConsentManager(): PrivacyConsentState & ReturnType<typeof createConsentManagerStore>["getState"] {
+  const context = useContext(ConsentStateContext);
+  
+  if (context === undefined) {
+    throw new Error(
+      "useConsentManager must be used within a ConsentManagerProvider"
     );
+  }
 
-    // Cleanup function to unsubscribe from the store when the component unmounts
-    return () => {
-      unsubscribe();
-    };
-  }, [namespace]); // Re-run the effect if the namespace changes
-
-  // Return the current privacy consent state
-  return state;
+  const storeState = context.store.getState();
+  
+  return {
+    ...context.state,
+    ...storeState,
+  } as PrivacyConsentState & ReturnType<typeof createConsentManagerStore>["getState"];
 }

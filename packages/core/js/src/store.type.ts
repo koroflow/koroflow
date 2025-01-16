@@ -1,7 +1,5 @@
 import { ConsentState, Callbacks, CallbackFunction, ComplianceRegion, ComplianceSettings, PrivacySettings, AllConsentNames, ConsentType, consentTypes } from './types';
 
-
-
 export interface PrivacyConsentState {
     consents: ConsentState;
     consentInfo: { time: number; type: 'all' | 'custom' | 'necessary' } | null;

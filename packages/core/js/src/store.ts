@@ -27,7 +27,6 @@ export const createConsentManagerStore = (namespace: string | undefined = "Korof
     }
   },
   setIsPrivacyDialogOpen: (isOpen) => {
-    console.log("open pp");
     set({ isPrivacyDialogOpen: isOpen });
   },
   saveConsents: (type) => {
@@ -58,6 +57,7 @@ export const createConsentManagerStore = (namespace: string | undefined = "Korof
     updateConsentMode();
     callbacks.onConsentGiven?.();
     callbacks.onPreferenceExpressed?.();
+
   },
   resetConsents: () =>
     set((state) => ({

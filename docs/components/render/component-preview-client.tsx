@@ -102,7 +102,7 @@ export function ComponentPreviewClient({
       )}
       {...props}
     >
-      <Tabs items={["Preview", "Code"]} defaultIndex={defaultIndex}>
+      <Tabs groupId={`${name}-preview`}  items={["Preview", "Code"]} defaultIndex={defaultIndex}>
         <Tab value="Preview" className="p-0 rounded-none">
           <div className="relative" key={key}>
             <ComponentWrapper>
