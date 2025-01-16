@@ -36,15 +36,14 @@ export const baseOptions: BaseLayoutProps = {
   links: [
     {
       type: "button",
-      text: "Getting Started",
-      url: "/docs/getting-started",
+      text: 'Getting Started',
+      url: '/docs/getting-started',
     },
     {
-      type: "main",
-      text: "Components",
-      url: "/docs/components/consent-solution",
+      type: 'main',
+      text: 'Components',
+      url: '/docs/components/consent-solution',
     },
-
     ...linkItems,
   ],
 };
