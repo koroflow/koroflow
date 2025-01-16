@@ -76,7 +76,7 @@ export const siteConfig = {
   },
   hero: {
     cta: "Get Started",
-    ctaDescription: "Open Source & MIT Licensed",
+    ctaDescription: "Open Source",
     description:
       "A server-side analytics relay that combines privacy controls with ready-to-use client components. Built for developers who care about user privacy and clean code.",
     title: "Koroflow",
