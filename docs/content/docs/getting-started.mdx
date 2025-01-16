@@ -10,10 +10,26 @@ Koroflow provides a complete consent management system out of the box. Here's ho
 ### 1. Install the packages
 
 <Tabs groupId="manual-install" items={["npm", "pnpm", "yarn", "bun"]}>
-  <Tab value="npm">npm install @koroflow/core-react @koroflow/dev-tools</Tab>
-  <Tab value="pnpm">pnpm install @koroflow/core-react @koroflow/dev-tools</Tab>
-  <Tab value="yarn">yarn add @koroflow/core-react @koroflow/dev-tools</Tab>
-  <Tab value="bun">bun add @koroflow/core-react @koroflow/dev-tools</Tab>
+  <Tab value="npm">
+  ```bash 
+  npm install @koroflow/core-react @koroflow/dev-tools
+  ```
+  </Tab>
+  <Tab value="pnpm">
+  ```bash 
+  pnpm install @koroflow/core-react @koroflow/dev-tools
+  ```
+  </Tab>
+  <Tab value="yarn">
+  ```bash
+   yarn add @koroflow/core-react @koroflow/dev-tools
+   ```
+   </Tab>
+  <Tab value="bun">
+  ```bash
+   <bun add @koroflow/core-react @koroflow/dev-tools 
+   ```
+   </Tab>
 </Tabs>
 
 ### 2. Add the Consent Manager
@@ -22,10 +38,14 @@ First Install the Consent Manager:
 
 <Tabs groupId="consent-manager" items={["npm", "pnpm"]}>
   <Tab value="npm">
-    npx shadcn@latest add "https://koroflow.com/r/consent-solution
+    ```bash 
+    npx shadcn@latest add "https://koroflow.com/r/consent-solution 
+    ```
   </Tab>
   <Tab value="pnpm">
+    ```bash 
     pnpx shadcn@latest add "https://koroflow.com/r/consent-solution
+    ```
   </Tab>
 </Tabs>
 
@@ -63,7 +83,6 @@ export default function Layout() {
       <CookieBanner />
       {/* Your layout content */}
     </>
-
   );
 }
 ```
@@ -75,7 +94,6 @@ That's it! You now have a fully functional consent management system.
 Koroflow makes it easy to integrate with your analytics tools. Here's how to track consent changes:
 
 ```tsx
-
 import { useConsentManager } from "@koroflow/core-react";
 import { PostHog } from "posthog-js";
 
