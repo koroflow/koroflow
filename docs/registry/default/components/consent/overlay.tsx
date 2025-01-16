@@ -1,8 +1,8 @@
-import React from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface OverlayProps {
-  show: boolean
+  show: boolean;
 }
 
 export const Overlay: React.FC<OverlayProps> = ({ show }) => {
@@ -17,6 +17,5 @@ export const Overlay: React.FC<OverlayProps> = ({ show }) => {
         />
       )}
     </AnimatePresence>
-  )
-}
-
+  );
+};

@@ -1,38 +1,38 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { Index } from "__registry__";
-import { RotateCcw } from 'lucide-react';
-import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+import * as React from "react"
+import { Index } from "__registry__"
+import { RotateCcw } from 'lucide-react'
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs'
 
-import { useConfig } from "@/lib/use-config";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import ComponentWrapper from "@/components/component-wrapper";
-import { Icons } from "@/components/icons";
-import { CodeBlock } from "./component-preview.codeblock";
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import ComponentWrapper from "@/components/component-wrapper"
+import { Icons } from "@/components/icons"
 
-interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
-  name: string;
-  code: string;
-  styleName: string;
-  align?: "center" | "start" | "end";
-  highlightedCode: React.ReactNode;
+interface ComponentPreviewClientProps extends React.HTMLAttributes<HTMLDivElement> {
+  name: string
+  code: string
+  styleName: string
+  align?: "center" | "start" | "end"
+  highlightedCode: React.ReactNode
+  defaultTab?: "Preview" | "Code"
 }
 
-export function ComponentPreview({
+export function ComponentPreviewClient({
   name,
   code,
   styleName,
   className,
   align = "center",
   highlightedCode,
+  defaultTab = "Preview",
   ...props
-}: ComponentPreviewProps) {
-  const [key, setKey] = React.useState(0);
+}: ComponentPreviewClientProps) {
+  const [key, setKey] = React.useState(0)
 
   const Preview = React.useMemo(() => {
-    const Component = Index[styleName][name]?.component;
+    const Component = Index[styleName][name]?.component
 
     if (!Component) {
       return (
@@ -43,12 +43,15 @@ export function ComponentPreview({
           </code>{" "}
           not found in registry.
         </p>
-      );
+      )
     }
 
-    return <Component />;
-  }, [name, styleName]);
+    return <Component />
+  }, [name, styleName])
   
+  console.log(defaultTab)
+  const defaultIndex = defaultTab === "Preview" ? 0 : 1
+
   return (
     <div
       className={cn(
@@ -57,7 +60,7 @@ export function ComponentPreview({
       )}
       {...props}
     >
-      <Tabs items={["Preview", "Code"]}>
+      <Tabs items={["Preview", "Code"]} defaultIndex={defaultIndex}>
         <Tab value="Preview" className="p-0 rounded-none">
           <div className="relative" key={key}>
             <ComponentWrapper>
@@ -86,6 +89,6 @@ export function ComponentPreview({
         </Tab>
       </Tabs>
     </div>
-  );
+  )
 }
 

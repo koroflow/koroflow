@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "privacy-popup-minimal-demo",
+  "type": "registry:example",
+  "author": "Koroflow (https://koroflow.com/components",
+  "registryDependencies": [
+    "privacy-popup"
+  ],
+  "files": [
+    {
+      "path": "examples/privacy-popup-minimal-demo.tsx",
+      "content": "import PrivacyPopup from \"@/registry/default/components/consent/privacy-popup\";\nimport { PrivacyConsentProvider } from \"@koroflow/core-react\";\n\nexport default function PrivacyPopupMinimalDemo() {\n  return (\n    <PrivacyConsentProvider\n      initialGdprTypes={[\n        \"necessary\",\n        \"marketing\",\n        \"functionality\",\n        \"measurement\",\n      ]}\n    >\n      <PrivacyPopup />\n    </PrivacyConsentProvider>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

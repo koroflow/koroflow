@@ -1,21 +1,21 @@
-import { source } from '@/lib/source';
+import { source } from "@/lib/source";
 import {
   DocsPage,
   DocsBody,
   DocsDescription,
   DocsTitle,
-} from 'fumadocs-ui/page';
-import { notFound } from 'next/navigation';
-import defaultMdxComponents from 'fumadocs-ui/mdx';
-import { DynamicComponentPreview } from '@/components/component-preview.dynamic';
-import { ComponentSource } from '@/components/component-source';
-import { cn } from '@/lib/utils';
-import { Step, Steps } from 'fumadocs-ui/components/steps';
-import { TypeTable } from 'fumadocs-ui/components/type-table';
-import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
-import { createTypeTable } from 'fumadocs-typescript/ui';
-import { Pre, CodeBlock } from 'fumadocs-ui/components/codeblock';
-import Link from 'fumadocs-core/link';
+} from "fumadocs-ui/page";
+import { notFound } from "next/navigation";
+import defaultMdxComponents from "fumadocs-ui/mdx";
+import { ComponentSourceServer } from "@/components/render/component-source-server";
+import { cn } from "@/lib/utils";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { TypeTable } from "fumadocs-ui/components/type-table";
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+import { createTypeTable } from "fumadocs-typescript/ui";
+import { Pre, CodeBlock } from "fumadocs-ui/components/codeblock";
+import Link from "fumadocs-core/link";
+import { ComponentPreviewServer } from "@/components/render/component-preview-server";
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -29,15 +29,19 @@ export default async function Page(props: {
   const MDX = page.data.body;
 
   return (
-    <DocsPage toc={page.data.toc} tableOfContent={{style: 'clerk'}} full={page.data.full}>
+    <DocsPage
+      toc={page.data.toc}
+      tableOfContent={{ style: "clerk" }}
+      full={page.data.full}
+    >
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
         <MDX
           components={{
             ...defaultMdxComponents,
-            ComponentSource,
-            ComponentPreview: DynamicComponentPreview,
+            ComponentSource: ComponentSourceServer,
+            ComponentPreview: ComponentPreviewServer,
             AutoTypeTable,
             TypeTable,
             Step,
@@ -49,11 +53,14 @@ export default async function Page(props: {
                 <Pre>{props.children}</Pre>
               </CodeBlock>
             ),
-            LinkedCard: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
+            LinkedCard: ({
+              className,
+              ...props
+            }: React.ComponentProps<typeof Link>) => (
               <Link
                 className={cn(
                   "flex w-full flex-col items-center rounded-xl border bg-card p-6 text-card-foreground shadow transition-colors hover:bg-muted/50 sm:p-10",
-                  className,
+                  className
                 )}
                 {...props}
               />
@@ -81,4 +88,3 @@ export async function generateMetadata(props: {
     description: page.data.description,
   };
 }
-

@@ -1,51 +1,57 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { createPortal } from 'react-dom'
-import { motion, AnimatePresence } from 'framer-motion'
-import { X } from 'lucide-react'
-import PrivacyConsentWidget from "./privacy-consent-widget"
-import { usePrivacyConsent } from "@koroflow/core-react"
-import { Overlay } from "./overlay"
-import { Button } from "./button"
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "./card"
+import * as React from "react";
+import { createPortal } from "react-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
+import ConsentCustomizationWidget from "./consent-customization-widget";
+import { usePrivacyConsent } from "@koroflow/core-react";
+import { Overlay } from "@/registry/default/components/consent/overlay";
+import { Button } from "@/registry/default/components/button";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/registry/default/components/card";
 
-interface PrivacySettingsModalProps {
-  children?: React.ReactNode
-  triggerClassName?: string
-  showCloseButton?: boolean
+interface ConsentCustomizationModalProps {
+  children?: React.ReactNode;
+  triggerClassName?: string;
+  showCloseButton?: boolean;
 }
 
 const modalVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1 },
-  exit: { opacity: 0 }
-}
+  exit: { opacity: 0 },
+};
 
 const contentVariants = {
   hidden: { opacity: 0, scale: 0.95 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     scale: 1,
-    transition: { type: "spring", stiffness: 300, damping: 30 }
+    transition: { type: "spring", stiffness: 300, damping: 30 },
   },
-  exit: { 
-    opacity: 0, 
+  exit: {
+    opacity: 0,
     scale: 0.95,
-    transition: { duration: 0.2 }
-  }
-}
+    transition: { duration: 0.2 },
+  },
+};
 
 const ModalContent = ({
   onClose,
   showCloseButton,
   handleSave,
-  ref
-}: { 
-  onClose: () => void
-  showCloseButton: boolean
-  handleSave: () => void
-  ref: React.RefObject<HTMLDivElement>
+  ref,
+}: {
+  onClose: () => void;
+  showCloseButton: boolean;
+  handleSave: () => void;
+  ref: React.RefObject<HTMLDivElement>;
 }) => (
   <Card>
     <CardHeader className="relative">
@@ -62,44 +68,53 @@ const ModalContent = ({
       )}
       <CardTitle id="privacy-settings-title">Privacy Settings</CardTitle>
       <CardDescription>
-        Customize your privacy settings here. You can choose which types of cookies and tracking technologies you allow.
+        Customize your privacy settings here. You can choose which types of
+        cookies and tracking technologies you allow.
       </CardDescription>
     </CardHeader>
     <CardContent>
-      <PrivacyConsentWidget onSave={handleSave} />
+      <ConsentCustomizationWidget onSave={handleSave} />
     </CardContent>
   </Card>
-)
+);
 
-const PrivacySettingsModal = React.forwardRef<
+const ConsentCustomizationModal = React.forwardRef<
   HTMLDivElement,
-  PrivacySettingsModalProps
+  ConsentCustomizationModalProps
 >(({ children, triggerClassName, showCloseButton = false }, ref) => {
-  const { isPrivacyDialogOpen, setIsPrivacyDialogOpen, setShowPopup, saveConsents } = usePrivacyConsent()
-  const [isMounted, setIsMounted] = React.useState(false)
-  const contentRef = React.useRef<HTMLDivElement>(null)
+  const {
+    isPrivacyDialogOpen,
+    setIsPrivacyDialogOpen,
+    setShowPopup,
+    saveConsents,
+  } = usePrivacyConsent();
+  const [isMounted, setIsMounted] = React.useState(false);
+  const contentRef = React.useRef<HTMLDivElement>(null);
 
-  console.log("isPrivacyDialogOpen", isPrivacyDialogOpen)
+  console.log("isPrivacyDialogOpen", isPrivacyDialogOpen);
   React.useEffect(() => {
-    setIsMounted(true)
-    return () => setIsMounted(false)
-  }, [])
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
 
-  const handleOpenChange = React.useCallback((newOpen: boolean) => {
-    setIsPrivacyDialogOpen(newOpen)
-    if (newOpen) {
-      setShowPopup(false)
-    }
-  }, [setIsPrivacyDialogOpen, setShowPopup])
+  const handleOpenChange = React.useCallback(
+    (newOpen: boolean) => {
+      setIsPrivacyDialogOpen(newOpen);
+      if (newOpen) {
+        setShowPopup(false);
+      }
+    },
+    [setIsPrivacyDialogOpen, setShowPopup],
+  );
 
   const handleSave = React.useCallback(() => {
-    saveConsents('custom')
-    setIsPrivacyDialogOpen(false)
-  }, [setIsPrivacyDialogOpen, saveConsents])
+    saveConsents("custom");
+    setIsPrivacyDialogOpen(false);
+  }, [setIsPrivacyDialogOpen, saveConsents]);
 
   const handleClose = React.useCallback(() => {
-    setIsPrivacyDialogOpen(false)
-  }, [setIsPrivacyDialogOpen])
+    setIsPrivacyDialogOpen(false);
+  }, [setIsPrivacyDialogOpen]);
 
   const modalContent = (
     <AnimatePresence mode="wait">
@@ -135,26 +150,22 @@ const PrivacySettingsModal = React.forwardRef<
         </>
       )}
     </AnimatePresence>
-  )
+  );
 
   return (
     <>
       <div onClick={() => handleOpenChange(true)}>
         {children || (
-          <Button
-            variant="outline"
-            size="sm"
-            className={triggerClassName}
-          >
+          <Button variant="outline" size="sm" className={triggerClassName}>
             Customise Consent
           </Button>
         )}
       </div>
       {isMounted && createPortal(modalContent, document.body)}
     </>
-  )
-})
+  );
+});
 
-PrivacySettingsModal.displayName = "PrivacySettingsModal"
+ConsentCustomizationModal.displayName = "ConsentCustomizationModal";
 
-export default PrivacySettingsModal
+export default ConsentCustomizationModal;

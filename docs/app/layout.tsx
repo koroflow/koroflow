@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { Body } from './layout.client';
 
+
 const inter = Inter({
   subsets: ['latin'],
 });

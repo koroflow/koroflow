@@ -5,6 +5,33 @@ import * as React from "react"
 
 export const Index: Record<string, any> = {
   "default": {
+    "privacy-popup": {
+      name: "privacy-popup",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: [],
+      files: [{
+        path: "registry/default/components/consent/privacy-popup.tsx",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/components/consent/overlay.tsx",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/components/consent/consent-customization-modal.tsx",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/components/consent/consent-customization-widget.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/components/consent/privacy-popup.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "utils": {
       name: "utils",
       description: "",
@@ -17,6 +44,36 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/lib/utils.ts")),
+      source: "",
+      meta: undefined,
+    },
+    "privacy-popup-demo": {
+      name: "privacy-popup-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["privacy-popup"],
+      files: [{
+        path: "registry/default/examples/privacy-popup-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/privacy-popup-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "privacy-popup-minimal-demo": {
+      name: "privacy-popup-minimal-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["privacy-popup"],
+      files: [{
+        path: "registry/default/examples/privacy-popup-minimal-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/privacy-popup-minimal-demo.tsx")),
       source: "",
       meta: undefined,
     },
