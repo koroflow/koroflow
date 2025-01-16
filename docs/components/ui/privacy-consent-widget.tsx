@@ -11,7 +11,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { ChevronDown } from 'lucide-react'
-import { usePrivacyConsent } from "@better-events/core-react"
+import { usePrivacyConsent } from "@koroflow/core-react"
 
 interface PrivacyConsentWidgetProps extends React.HTMLAttributes<HTMLDivElement> {
   onSave?: () => void

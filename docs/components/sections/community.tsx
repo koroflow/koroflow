@@ -23,7 +23,7 @@ export function Community() {
               className="flex items-center gap-2"
               asChild
             >
-              <Link href="https://github.com/better-events/better-events">
+              <Link href="https://github.com/koroflow/koroflow">
                 <Icons.github className="h-5 w-5" />
                 Become a contributor
               </Link>

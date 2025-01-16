@@ -1,14 +1,14 @@
 ---
 title: Getting Started
-description: Privacy-focused UI components built with shadcn/ui and Tailwind CSS that integrate seamlessly with Better Events' core functionality.
+description: Privacy-focused UI components built with shadcn/ui and Tailwind CSS that integrate seamlessly with Koroflow' core functionality.
 ---
-Better Events provides carefully crafted UI components that help you implement privacy-conscious analytics in your applications. Our components are built using shadcn/ui and Tailwind CSS, offering both beautiful design and robust functionality while integrating seamlessly with our core consent management system.
+Koroflow provides carefully crafted UI components that help you implement privacy-conscious analytics in your applications. Our components are built using shadcn/ui and Tailwind CSS, offering both beautiful design and robust functionality while integrating seamlessly with our core consent management system.
 
 ## Available Components
 
 ### Cookie Banner
 
-The Cookie Banner component serves as the primary interface between your users and Better Events' consent management system. It's designed to be both beautiful and functional, providing a smooth user experience for managing privacy preferences.
+The Cookie Banner component serves as the primary interface between your users and Koroflow' consent management system. It's designed to be both beautiful and functional, providing a smooth user experience for managing privacy preferences.
 
 ```tsx
 import { CookieBanner } from "@/components/ui/cookie-banner"
@@ -42,7 +42,7 @@ import {
 You can install the components using the shadcn/ui CLI:
 
 ```bash
-npx shadcn@latest add "https://better-events.dev/r/cookie-consent-modal"
+npx shadcn@latest add "https://koroflow.com/r/cookie-consent-modal"
 ```
 
 This will add the Cookie Banner and its related components to your project, along with any necessary dependencies.
@@ -63,7 +63,7 @@ The Cookie Banner component is built with customization in mind. You can modify 
 
 ## Integration with Consent Management
 
-While the Cookie Banner provides the user interface, it works in tandem with Better Events' core Consent Manager to handle the actual consent logic. The integration is handled automatically when you use the useAnalytics hook:
+While the Cookie Banner provides the user interface, it works in tandem with Koroflow' core Consent Manager to handle the actual consent logic. The integration is handled automatically when you use the useAnalytics hook:
 
 ```tsx
 import { useAnalytics } from "@/lib/analytics"
@@ -110,6 +110,6 @@ When implementing the Cookie Banner, consider these best practices:
 
 ## What's Next
 
-Take a deeper dive into the Cookie Banner documentation to learn about all its features and customization options. The component is designed to work seamlessly with Better Events' core functionality while remaining flexible enough to adapt to your specific needs.
+Take a deeper dive into the Cookie Banner documentation to learn about all its features and customization options. The component is designed to work seamlessly with Koroflow' core functionality while remaining flexible enough to adapt to your specific needs.
 
 For more complex implementations or custom requirements, you can also learn about how to integrate directly with our core Consent Manager in the Advanced Usage section of the documentation.

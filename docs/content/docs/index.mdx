@@ -1,11 +1,11 @@
 ---
-title: Why Better Events
+title: Why Koroflow
 description: Create privacy-first analytics with a single unified event system that just works.
 ---
 
-## What is Better Events?
+## What is Koroflow?
 
-Better Events is a thoughtfully crafted analytics solution that lets you implement powerful tracking capabilities without compromising on performance or privacy. It's built for developers who care about clean code, user privacy, and maintaining control over their data pipeline.
+Koroflow is a thoughtfully crafted analytics solution that lets you implement powerful tracking capabilities without compromising on performance or privacy. It's built for developers who care about clean code, user privacy, and maintaining control over their data pipeline.
 
 ## Philosophy
 
@@ -19,11 +19,11 @@ The problems I kept seeing were:
 - Solutions that are easily blocked by ad blockers
 - Privacy compliance being an afterthought
 
-Better Events takes a different approach. Instead of adding multiple tracking scripts and cookie management systems to your frontend, it provides a unified event system that handles everything through a single, efficient API relay.
+Koroflow takes a different approach. Instead of adding multiple tracking scripts and cookie management systems to your frontend, it provides a unified event system that handles everything through a single, efficient API relay.
 
 ## How It Works
 
-The magic happens through a server-side relay system. When you track an event, instead of loading multiple third-party scripts, Better Events sends a single request to your API relay. This relay then handles the distribution to various destinations like PostHog or other analytics services.
+The magic happens through a server-side relay system. When you track an event, instead of loading multiple third-party scripts, Koroflow sends a single request to your API relay. This relay then handles the distribution to various destinations like PostHog or other analytics services.
 
 ```typescript
 // Instead of this:
@@ -49,7 +49,7 @@ This approach brings several benefits:
 
 ## UI Components
 
-Better Events includes a comprehensive set of UI components built on shadcn/ui that make it easy to create professional-grade cookie consent experiences. These components are more than just cookie banners – they're a complete privacy management system that your users will appreciate:
+Koroflow includes a comprehensive set of UI components built on shadcn/ui that make it easy to create professional-grade cookie consent experiences. These components are more than just cookie banners – they're a complete privacy management system that your users will appreciate:
 
 - **Cookie Consent Banner**: A customizable, accessible banner that integrates seamlessly with your design system
 - **Privacy Preference Center**: A full-featured interface for managing consent preferences
@@ -60,7 +60,7 @@ Each component is built using shadcn/ui and Tailwind CSS, giving you complete co
 
 ```tsx
 // Example of a customized cookie banner
-import { CookieBanner } from 'better-events/ui'
+import { CookieBanner } from 'koroflow/ui'
 
 export function MyCustomBanner() {
   return (
@@ -77,7 +77,7 @@ export function MyCustomBanner() {
 ## Core Principles
 
 ### 1. Performance First
-Everything in Better Events is designed to have minimal impact on your frontend performance. No more wondering if your analytics are slowing down your site.
+Everything in Koroflow is designed to have minimal impact on your frontend performance. No more wondering if your analytics are slowing down your site.
 
 ### 2. Privacy as Standard
 Cookie consent and privacy tools aren't bolt-on features – they're built into the core of the system. GDPR compliance isn't an afterthought.
@@ -86,18 +86,18 @@ Cookie consent and privacy tools aren't bolt-on features – they're built into 
 Clean, TypeScript-first APIs that feel natural to use. No more wrestling with multiple tracking implementations or juggling different syntax for different services. Beyond just tracking, we provide a complete set of customizable UI components built on shadcn/ui for creating beautiful, accessible cookie banners and privacy controls. These components integrate seamlessly with your existing design system while maintaining full TypeScript support.
 
 ### 4. Customization Without Compromise
-Every aspect of Better Events can be tailored to your needs, starting with the UI. The included shadcn/ui components serve as a foundation that you can build upon. Want a cookie banner that matches your brand perfectly? Our components use Tailwind CSS and follow shadcn's composable philosophy, making it easy to modify everything from colors and typography to animations and layout. You maintain complete control over the user experience while benefiting from our battle-tested privacy logic.
+Every aspect of Koroflow can be tailored to your needs, starting with the UI. The included shadcn/ui components serve as a foundation that you can build upon. Want a cookie banner that matches your brand perfectly? Our components use Tailwind CSS and follow shadcn's composable philosophy, making it easy to modify everything from colors and typography to animations and layout. You maintain complete control over the user experience while benefiting from our battle-tested privacy logic.
 
 ### 5. Flexibility Through Simplicity
-By separating the tracking interface from the data destinations, Better Events gives you the flexibility to send data wherever you need without complicating your frontend code.
+By separating the tracking interface from the data destinations, Koroflow gives you the flexibility to send data wherever you need without complicating your frontend code.
 
 ## Why This Matters
 
-In today's web landscape, respecting user privacy while gathering meaningful analytics is crucial. But it shouldn't come at the cost of developer experience or application performance. Better Events proves you can have both – powerful analytics capabilities and a clean, efficient implementation.
+In today's web landscape, respecting user privacy while gathering meaningful analytics is crucial. But it shouldn't come at the cost of developer experience or application performance. Koroflow proves you can have both – powerful analytics capabilities and a clean, efficient implementation.
 
 The UI components are designed with the same philosophy as the rest of the system: they should be powerful yet simple to implement, fully customizable yet functional out of the box. Just as the analytics relay system simplifies your data pipeline, these components simplify your privacy management interface without sacrificing flexibility.
 
-Think of it like this: if analytics implementations were restaurants, traditional solutions would be like having multiple food delivery services each installing their own kitchen in your restaurant. Better Events is like having one efficient kitchen that can serve any delivery service you choose.
+Think of it like this: if analytics implementations were restaurants, traditional solutions would be like having multiple food delivery services each installing their own kitchen in your restaurant. Koroflow is like having one efficient kitchen that can serve any delivery service you choose.
 
 This library draws inspiration from Event Detective but reimagines analytics implementation for modern web development, where performance, privacy, and developer experience are non-negotiable priorities.
 ## Next Steps

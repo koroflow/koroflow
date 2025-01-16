@@ -8,7 +8,7 @@ import React, {
   useState,
 } from "react";
 import { Router } from "./router/router";
-import { PrivacyConsentState } from "@better-events/core-js";
+import { PrivacyConsentState } from "@koroflow/core-js";
 import { ErrorState } from "./components/error-state";
 import { Header } from "./components/header";
 import DevToolWrapper from "./components/wrapper";
@@ -54,8 +54,8 @@ interface PrivacyConsentProviderProps {
   namespace?: string;
 }
 
-export const BetterEventsDevTool: React.FC<PrivacyConsentProviderProps> = ({
-  namespace = 'BetterEventsStore'
+export const KoroflowDevTool: React.FC<PrivacyConsentProviderProps> = ({
+  namespace = 'KoroflowStore'
 }) => {
   const [state, setState] = useState<PrivacyConsentState | null>(null);
   const [store, setStore] = useState<any | null>(null);

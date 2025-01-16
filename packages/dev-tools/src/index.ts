@@ -1,4 +1,4 @@
-import { BetterEventsDevTool } from './dev-tool';
+import { KoroflowDevTool } from './dev-tool';
 
-export default BetterEventsDevTool;
+export default KoroflowDevTool;
 

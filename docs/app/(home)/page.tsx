@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/config";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Better Events",
+  title: "Koroflow",
   description: siteConfig.description,
   authors: [{ name: "Christopher Burns" }],
 };

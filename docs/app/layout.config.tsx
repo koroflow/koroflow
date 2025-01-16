@@ -4,11 +4,10 @@ import {
   ComponentIcon,
 } from 'lucide-react';
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
-import { BetterDocsLogo } from './layout.client';
 export const linkItems: LinkItemType[] = [
   {
     type: 'icon',
-    url: 'https://github.com/better-events/better-events',
+    url: 'https://github.com/koroflow/koroflow',
     text: 'Github',
     icon: (
       <svg role="img" viewBox="0 0 24 24" fill="currentColor">
@@ -32,10 +31,8 @@ export const baseOptions: BaseLayoutProps = {
   nav: {
     title: (
       <>
-        <BetterDocsLogo/>
-
         <span className="font-medium [header_&]:text-[15px]">
-          Better Events
+          Koroflow
         </span>
       </>
     ),

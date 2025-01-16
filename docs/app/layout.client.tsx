@@ -25,17 +25,4 @@ export function useMode(): string | undefined {
   return Array.isArray(slug) && slug.length > 0 ? slug[0] : undefined;
 }
 
-interface BetterDocsLogoProps {
-  className?: string;
-}
 
-export const BetterDocsLogo: React.FC<BetterDocsLogoProps> = ({
-  className = "size-8",
-}) => {
-  return (
-    <GradientIcon
-      icon={Waypoints}
-      className={className}
-    />
-  );
-};

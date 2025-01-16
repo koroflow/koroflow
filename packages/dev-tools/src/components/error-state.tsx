@@ -20,7 +20,7 @@ export function ErrorState({
 
       <AlertDescription className="mt-2 -ml-7">
         <p className="mb-2">
-          The @better-events/core SDK could not be found in the global scope. This usually means either:
+          The @koroflow/core SDK could not be found in the global scope. This usually means either:
         </p>
         <ul className="list-disc pl-6 space-y-1">
           <li>The namespace has been changed from its default value</li>

@@ -4,7 +4,7 @@ import * as React from "react"
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
-import { usePrivacyConsent } from "@better-events/core-react"
+import { usePrivacyConsent } from "@koroflow/core-react"
 
 import { Overlay } from "./overlay"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./card"

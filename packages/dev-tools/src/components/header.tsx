@@ -15,7 +15,7 @@ export function Header({ onClose }: HeaderProps) {
       <div className="flex items-center justify-between p-4 border-b">
         <div className="flex items-center gap-2">
           <Shield className="h-4 w-4" />
-          <span className="text-sm font-medium">Better Events Dev Tool</span>
+          <span className="text-sm font-medium">Koroflow Dev Tool</span>
         </div>
         <Button
           variant="ghost"

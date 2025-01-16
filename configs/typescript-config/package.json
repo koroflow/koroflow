@@ -1,5 +1,5 @@
 {
-  "name": "@better-events/typescript-config",
+  "name": "@koroflow/typescript-config",
   "version": "0.0.0",
   "type": "module",
   "private": true,

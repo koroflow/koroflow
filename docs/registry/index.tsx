@@ -7,8 +7,8 @@ import { ui } from "./registry-ui";
 import { Registry } from "./schema";
 
 export const registry = {
-  name: "better-events",
-  homepage: "https://better-events.dev/components",
+  name: "koroflow",
+  homepage: "https://koroflow.com/components",
   items: [
     ...ui,
     ...blocks,

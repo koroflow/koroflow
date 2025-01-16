@@ -12,8 +12,8 @@ export default {
     "./content/**/*.{md,mdx}",
     "./mdx-components.{ts,tsx}",
     "./node_modules/fumadocs-ui/dist/**/*.js",
-    "./node_modules/@better-events/dev-tools/dist/**/*.js",
-    "./node_modules/@better-events/core-react/dist/**/*.js",
+    "./node_modules/@koroflow/dev-tools/dist/**/*.js",
+    "./node_modules/@koroflow/core-react/dist/**/*.js",
   ],
   presets: [
     createPreset({

@@ -8,7 +8,7 @@ import { cn } from '../libs/utils'
 import { Button } from '../components/ui/button'
 import { ScrollArea } from '../components/ui/scroll-area'
 import { ExpandableTabs } from '../components/ui/expandable-tabs'
-import { PrivacyConsentState } from '@better-events/core-js'
+import { PrivacyConsentState } from '@koroflow/core-js'
 import { getStore } from '../dev-tool'
 
 

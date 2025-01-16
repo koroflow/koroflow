@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from 'react';
-import { AllConsentNames, ComplianceRegion, ComplianceSettings, PrivacyConsentState, store } from '@better-events/core-js';
+import { AllConsentNames, ComplianceRegion, ComplianceSettings, PrivacyConsentState, store } from '@koroflow/core-js';
 
 
 interface PrivacyConsentProviderProps {

@@ -54,7 +54,7 @@ export const siteConfig = {
   ],
   footer: {
     bottomText: "All rights reserved.",
-    brandText: "Better Events",
+    brandText: "Koroflow",
     links: [
       { text: "Blog", url: "/blog" },
       { text: "Docs", url: "/docs" },
@@ -70,7 +70,7 @@ export const siteConfig = {
       },
       {
         icon: <Icons.github className="h-5 w-5" />,
-        url: "https://github.com/burnedchris/better-events",
+        url: "https://github.com/burnedchris/koroflow",
       },
     ],
   },
@@ -79,7 +79,7 @@ export const siteConfig = {
     ctaDescription: "Open Source & MIT Licensed",
     description:
       "A server-side analytics relay that combines privacy controls with ready-to-use client components. Built for developers who care about user privacy and clean code.",
-    title: "Better Events",
+    title: "Koroflow",
   },
   keywords: [
     "Analytics",
@@ -89,10 +89,10 @@ export const siteConfig = {
     "Developer Tools",
   ],
   links: {
-    github: "https://github.com/burnedchris/better-events",
+    github: "https://github.com/burnedchris/koroflow",
     twitter: "https://x.com/burnedchris",
   },
-  name: "Better Events",
+  name: "Koroflow",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
 };
 

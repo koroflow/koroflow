@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
 import PrivacyConsentWidget from "./privacy-consent-widget"
-import { usePrivacyConsent } from "@better-events/core-react"
+import { usePrivacyConsent } from "@koroflow/core-react"
 import { Overlay } from "./overlay"
 import { Button } from "./button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "./card"

@@ -62,10 +62,10 @@ importers:
 
   docs:
     dependencies:
-      '@better-events/core-react':
+      '@koroflow/core-react':
         specifier: workspace:*
         version: link:../packages/core/react
-      '@better-events/dev-tools':
+      '@koroflow/dev-tools':
         specifier: workspace:*
         version: link:../packages/dev-tools
       '@radix-ui/react-accordion':
@@ -238,7 +238,7 @@ importers:
 
   packages/core/react:
     dependencies:
-      '@better-events/core-js':
+      '@koroflow/core-js':
         specifier: workspace:*
         version: link:../js
       react:
@@ -269,7 +269,7 @@ importers:
 
   packages/dev-tools:
     dependencies:
-      '@better-events/core-js':
+      '@koroflow/core-js':
         specifier: workspace:*
         version: link:../core/js
       '@radix-ui/react-accordion':

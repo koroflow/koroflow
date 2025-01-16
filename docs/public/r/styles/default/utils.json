@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "utils",
   "type": "registry:lib",
-  "author": "Better Events (https://better-events.dev/components",
+  "author": "Koroflow (https://koroflow.com/components",
   "dependencies": [
     "clsx",
     "tailwind-merge"

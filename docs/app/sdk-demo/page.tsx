@@ -1,8 +1,8 @@
 // import PlaygroundExampleWrapper from "@/registry/default/example/cookie-consent/playground";
 
-import { PrivacyConsentProvider } from "@better-events/core-react";
+import { PrivacyConsentProvider } from "@koroflow/core-react";
 
-import BetterEventsDevTool from "@better-events/dev-tools";
+import KoroflowDevTool from "@koroflow/dev-tools";
 import PrivacySettingsModal from "@/components/ui/privacy-setting-modal";
 import { Button } from "@/components/ui/button";
 import CookieConsentBanner from "@/components/ui/cookie-consent-banner";
@@ -11,7 +11,7 @@ export default function PrivacyConsentPage() {
   return (
     <main className="container py-10">
       <PrivacyConsentProvider
-        initialGdprTypes={["necessary", "marketing"]}
+        initialGdprTypes={["necessary", "marketing", "functionality", "measurement"]}
         initialComplianceSettings={{
           gdpr: { enabled: true, appliesGlobally: true, applies: true },
           ccpa: { enabled: true, appliesGlobally: false, applies: undefined },
@@ -24,7 +24,7 @@ export default function PrivacyConsentPage() {
         }}
       >
         <div className="text-center space-y-4">
-          <h1 className="text-4xl font-bold">Better Events SDK Demo</h1>
+          <h1 className="text-4xl font-bold">Koroflow SDK Demo</h1>
           <p className="text-xl">
             Explore our privacy consent management tools
           </p>
@@ -35,8 +35,9 @@ export default function PrivacyConsentPage() {
           </div>
         </div>
         <CookieConsentBanner />
-        <BetterEventsDevTool />
+        <KoroflowDevTool />
       </PrivacyConsentProvider>
     </main>
   );
 }
+

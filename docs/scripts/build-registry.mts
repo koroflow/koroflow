@@ -379,7 +379,7 @@ async function buildStyles(registry: Registry) {
 
       const payload = registryItemSchema.safeParse({
         $schema: "https://ui.shadcn.com/schema/registry-item.json",
-        author: "Better Events (https://better-events.dev/components",
+        author: "Koroflow (https://koroflow.com/components",
         ...item,
         files,
       })

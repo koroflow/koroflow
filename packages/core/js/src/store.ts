@@ -127,7 +127,7 @@ export const store = createStore<PrivacyConsentState>((set, get) => ({
 }));
 
 if (typeof window !== "undefined") {
-  (window as any).BetterEventsStore = store;
+  (window as any).KoroflowStore = store;
 }
 
 export default store;

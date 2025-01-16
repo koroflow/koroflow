@@ -1,5 +1,5 @@
 {
-  "name": "@better-events/dev-tools",
+  "name": "@koroflow/dev-tools",
   "version": "1.0.0",
   "type": "module",
   "main": "dist/cjs/index.js",
@@ -31,7 +31,7 @@
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@better-events/core-js": "workspace:*",
+    "@koroflow/core-js": "workspace:*",
     "@radix-ui/react-accordion": "1.2.2",
     "@radix-ui/react-scroll-area": "^1.2.2",
     "@radix-ui/react-slot": "1.1.1",

@@ -1,83 +1,66 @@
-# Turborepo starter
+# Koroflow
 
-This is an official starter Turborepo.
+Privacy-first consent management and unified event streaming system. Koroflow helps you manage user consent and route events to your analytics platforms while respecting user privacy preferences.
 
-## Using this example
-
-Run the following command:
-
-```sh
-npx create-turbo@latest
-```
-
-## What's inside?
-
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@better-events/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@better-events/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
+## Project Structure
 
 ```
-cd my-turborepo
-pnpm build
+.
+├── packages/
+│   ├── core/         # Core consent and event management
+│   │   ├── js/       # JavaScript implementation
+│   │   └── react/    # React bindings
+│   └── dev-tools/    # Development utilities
+├── docs/            # Documentation site
+└── configs/         # Shared configurations
+    ├── eslint-config/
+    └── typescript-config/
 ```
 
-### Develop
+## Development
 
-To develop all apps and packages, run the following command:
+Prerequisites:
+- Node.js >= 18
+- pnpm >= 8
 
-```
-cd my-turborepo
+```bash
+# Install dependencies
+pnpm install
+
+# Start development server
 pnpm dev
+
+# Build all packages
+pnpm build
+
+# Run tests
+pnpm test
 ```
 
-### Remote Caching
+## Packages
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+- `@koroflow/core`: Core consent and event management system
+  - JavaScript implementation
+  - React bindings
+  - Privacy-focused UI components built with shadcn/ui:
+    - Cookie Banner
+    - Privacy Widget
+- `@koroflow/dev-tools`: Development utilities and components
+- `@koroflow/eslint-config`: Shared ESLint configurations
+- `@koroflow/typescript-config`: Shared TypeScript configurations
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+## Documentation
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+Full documentation is available at [koroflow.com/docs](https://koroflow.com/docs). The documentation site is built with Next.js and is located in the `docs` directory.
 
-```
-cd my-turborepo
-npx turbo login
-```
+## Contributing
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+## License
 
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+GNU General Public License v3.0 - See [LICENSE.md](./LICENSE.md) for details.

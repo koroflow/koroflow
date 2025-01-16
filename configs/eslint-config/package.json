@@ -1,5 +1,5 @@
 {
-  "name": "@better-events/eslint-config",
+  "name": "@koroflow/eslint-config",
   "version": "0.0.0",
   "type": "module",
   "private": true,
