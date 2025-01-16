@@ -70,7 +70,7 @@ export const siteConfig = {
       },
       {
         icon: <Icons.github className="h-5 w-5" />,
-        url: "https://github.com/burnedchris/koroflow",
+        url: "https://github.com/koroflow/koroflow",
       },
     ],
   },
@@ -89,7 +89,7 @@ export const siteConfig = {
     "Developer Tools",
   ],
   links: {
-    github: "https://github.com/burnedchris/koroflow",
+    github: "https://github.com/koroflow/koroflow",
     twitter: "https://x.com/burnedchris",
   },
   name: "Koroflow",
