@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Shield, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
-import { cn } from "~/libs/utils";
+import { cn } from "../libs/utils";
 
 /**
  * Dev Tool Wrapper Component
