@@ -5,7 +5,10 @@ import {
   ConsentManagerProvider,
   useConsentManager,
 } from "@koroflow/core-react";
-import { useEffect } from "react";
+import { Cookie, Lock, RefreshCw } from "lucide-react";
+import { useCallback, useEffect } from "react";
+import { Button } from "../components/button";
+import ConsentCustomizationModal from "../components/consent/consent-customization-modal";
 
 export default function PrivacyPopupMinimalDemo() {
   return (
@@ -21,13 +24,22 @@ export default function PrivacyPopupMinimalDemo() {
       // It helps in isolating consent states for different demos or components.
       namespace="CallbackDemo"
     >
-      <ConsentCallbacks />
+      <DemoWidget />
+      <CookieBanner />
     </ConsentManagerProvider>
   );
 }
 
-function ConsentCallbacks() {
-  const { setCallback } = useConsentManager();
+export function DemoWidget() {
+  const { clearAllData, setShowPopup, setCallback } = useConsentManager();
+
+  const handleResetConsent = useCallback(() => {
+    clearAllData();
+  }, [clearAllData]);
+
+  const handleOpenCookiePopup = useCallback(() => {
+    setShowPopup(true);
+  }, [setShowPopup]);
 
   useEffect(() => {
     setCallback("onBannerShown", () => {
@@ -46,6 +58,22 @@ function ConsentCallbacks() {
       console.log("Banner closed");
     });
   }, [setCallback]);
-
-  return <CookieBanner />;
+  return (
+    <div className="flex flex-col gap-4">
+      <Button onClick={handleOpenCookiePopup}>
+        <Cookie className="h-4 w-4 mr-2" />
+        Open Cookie Banner
+      </Button>
+      <ConsentCustomizationModal>
+        <Button>
+          <Lock className="h-4 w-4 mr-2" />
+          Open Consent Customization{" "}
+        </Button>
+      </ConsentCustomizationModal>
+      <Button onClick={handleResetConsent}>
+        <RefreshCw className="h-4 w-4 mr-2" />
+        Reset Local Storage Consent
+      </Button>
+    </div>
+  );
 }
