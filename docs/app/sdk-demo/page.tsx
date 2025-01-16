@@ -3,7 +3,7 @@ import { ConsentManagerProvider } from "@koroflow/core-react";
 import KoroflowDevTool from "@koroflow/dev-tools";
 import ConsentCustomizationModal from "@/registry/default/components/consent/consent-customization-modal";
 import { Button } from "@/components/ui/button";
-import PrivacyPopup from "@/registry/default/components/consent/consent-solution";
+import CookieBanner from "@/registry/default/components/consent/cookie-banner";
 
 export default function PrivacyConsentPage() {
   return (
@@ -32,7 +32,7 @@ export default function PrivacyConsentPage() {
             </ConsentCustomizationModal>
           </div>
         </div>
-        <PrivacyPopup />
+        <CookieBanner />
         <KoroflowDevTool />
       </ConsentManagerProvider>
     </main>
