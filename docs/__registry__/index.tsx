@@ -5,13 +5,13 @@ import * as React from "react"
 
 export const Index: Record<string, any> = {
   "default": {
-    "privacy-popup": {
-      name: "privacy-popup",
+    "consent-solution": {
+      name: "consent-solution",
       description: "",
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/components/consent/privacy-popup.tsx",
+        path: "registry/default/components/consent/cookie-banner.tsx",
         type: "registry:ui",
         target: ""
       },{
@@ -28,7 +28,7 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/components/consent/privacy-popup.tsx")),
+      component: React.lazy(() => import("@/registry/default/components/consent/cookie-banner.tsx")),
       source: "",
       meta: undefined,
     },
@@ -47,48 +47,48 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
-    "privacy-popup-demo": {
-      name: "privacy-popup-demo",
+    "consent-solution-demo": {
+      name: "consent-solution-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["privacy-popup"],
+      registryDependencies: ["consent-solution"],
       files: [{
-        path: "registry/default/examples/privacy-popup-demo.tsx",
+        path: "registry/default/examples/consent-solution-demo.tsx",
         type: "registry:example",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/privacy-popup-demo.tsx")),
+      component: React.lazy(() => import("@/registry/default/examples/consent-solution-demo.tsx")),
       source: "",
       meta: undefined,
     },
-    "privacy-popup-minimal-demo": {
-      name: "privacy-popup-minimal-demo",
+    "consent-solution-minimal-demo": {
+      name: "consent-solution-minimal-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["privacy-popup"],
+      registryDependencies: ["consent-solution"],
       files: [{
-        path: "registry/default/examples/privacy-popup-minimal-demo.tsx",
+        path: "registry/default/examples/consent-solution-minimal-demo.tsx",
         type: "registry:example",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/privacy-popup-minimal-demo.tsx")),
+      component: React.lazy(() => import("@/registry/default/examples/consent-solution-minimal-demo.tsx")),
       source: "",
       meta: undefined,
     },
-    "privacy-popup-callback-demo": {
-      name: "privacy-popup-callback-demo",
+    "consent-solution-callback-demo": {
+      name: "consent-solution-callback-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["privacy-popup"],
+      registryDependencies: ["consent-solution"],
       files: [{
-        path: "registry/default/examples/privacy-popup-callback-demo.tsx",
+        path: "registry/default/examples/consent-solution-callback-demo.tsx",
         type: "registry:example",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/privacy-popup-callback-demo.tsx")),
+      component: React.lazy(() => import("@/registry/default/examples/consent-solution-callback-demo.tsx")),
       source: "",
       meta: undefined,
     },

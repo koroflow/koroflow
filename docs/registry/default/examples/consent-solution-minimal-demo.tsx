@@ -1,4 +1,4 @@
-import PrivacyPopup from "@/registry/default/components/consent/privacy-popup";
+import CookieBanner from "@/registry/default/components/consent/cookie-banner";
 import { ConsentManagerProvider } from "@koroflow/core-react";
 
 export default function PrivacyPopupMinimalDemo() {
@@ -11,7 +11,7 @@ export default function PrivacyPopupMinimalDemo() {
         "measurement",
       ]}
     >
-      <PrivacyPopup />
+      <CookieBanner />
     </ConsentManagerProvider>
   );
 }

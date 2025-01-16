@@ -3,11 +3,33 @@ import path from "path";
 import { Index } from "__registry__";
 import React from "react";
 
+/**
+ * Represents information about a component, including its React component type and associated files.
+ */
 interface ComponentInfo {
+  /**
+   * The React component type for rendering the component.
+   */
   component: React.ComponentType;
+
+  /**
+   * An array of file objects associated with the component.
+   * Each file object contains the path to the file.
+   */
   files: { path: string }[];
 }
 
+/**
+ * Asynchronously retrieves the code and a preview component for a given component name and style.
+ *
+ * @param name - The name of the component to retrieve.
+ * @param styleName - The style category under which the component is registered.
+ * @returns A promise that resolves to an object containing the component's code as a string and a React node for preview.
+ *
+ * @remarks
+ * This function reads the component's source file from the filesystem and creates a memoized React component for preview.
+ * If the component or its file is not found, appropriate error messages are logged and default error messages are returned.
+ */
 export const getComponentCode = async (
   name: string,
   styleName: string
@@ -23,9 +45,6 @@ export const getComponentCode = async (
 
   try {
     const code = await fs.readFile(fetchFile, "utf-8");
-    console.log(`Found component: ${fetchFile}`);
-
-    // Wrap the component in a client component
     const ClientComponent = React.memo(() => React.createElement(Component.component));
     ClientComponent.displayName = `ClientComponent(${name})`;
 

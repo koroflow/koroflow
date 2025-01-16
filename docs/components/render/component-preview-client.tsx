@@ -1,25 +1,63 @@
 "use client";
 
-import * as React from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { RotateCcw } from 'lucide-react';
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
-
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import ComponentWrapper from "@/components/component-wrapper";
+import ComponentWrapper from "@/components/render/component-wrapper";
 import { Icons } from "@/components/icons";
 
-interface ComponentPreviewClientProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+/**
+ * Props for the ComponentPreviewClient component.
+ */
+interface ComponentPreviewClientProps extends React.HTMLAttributes<HTMLDivElement> {
+  /**
+   * The name of the component being previewed.
+   */
   name: string;
+
+  /**
+   * The source code of the component.
+   */
   code: string;
+
+  /**
+   * The style name used for the component.
+   */
   styleName: string;
+
+  /**
+   * The React node to render as the component preview.
+   */
   preview: React.ReactNode;
+
+  /**
+   * The alignment of the component preview.
+   */
   align?: "center" | "start" | "end";
+
+  /**
+   * The highlighted source code to display.
+   */
   highlightedCode: React.ReactNode;
+
+  /**
+   * The default tab to display, either "Preview" or "Code".
+   */
   defaultTab?: "Preview" | "Code";
 }
 
+/**
+ * A client-side component that displays both the preview and source code of a specified component.
+ *
+ * @param props - The props for the ComponentPreviewClient component.
+ * @returns A JSX element that displays the component's preview and source code in a tabbed interface.
+ *
+ * @remarks
+ * This component is used to showcase both the visual preview and the source code of components on documentation pages.
+ * It provides a tabbed interface for users to switch between viewing the live preview and the source code.
+ */
 export function ComponentPreviewClient({
   name,
   code,
@@ -31,10 +69,10 @@ export function ComponentPreviewClient({
   preview,
   ...props
 }: ComponentPreviewClientProps) {
-  const [key, setKey] = React.useState(0);
-  const [isLoading, setIsLoading] = React.useState(true);
+  const [key, setKey] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const Preview = React.useMemo(() => {
+  const Preview = useMemo(() => {
     if (!preview) {
       return (
         <p className="text-sm text-muted-foreground">
@@ -50,7 +88,7 @@ export function ComponentPreviewClient({
     return preview;
   }, [name, styleName, preview]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setIsLoading(false);
   }, []);
 

@@ -2,13 +2,13 @@ import { Registry } from "@/registry/schema";
 
 export const ui: Registry["items"] = [
   {
-    name: "privacy-popup",
+    name: "consent-solution",
     type: "registry:ui",
     registryDependencies: [],
     dependencies: ["@koroflow/core-react"],
     files: [
       {
-        path: "components/consent/privacy-popup.tsx",
+        path: "components/consent/cookie-banner.tsx",
         type: "registry:ui",
       },
       {

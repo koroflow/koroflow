@@ -2,37 +2,37 @@ import { Registry } from "@/registry/schema";
 
 export const examples: Registry["items"] = [
   {
-    name: "privacy-popup-demo",
+    name: "consent-solution-demo",
     type: "registry:example",
-    registryDependencies: ["privacy-popup"],
+    registryDependencies: ["consent-solution"],
     dependencies: ["@koroflow/core-react"],
     files: [
       {
-        path: "examples/privacy-popup-demo.tsx",
+        path: "examples/consent-solution-demo.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "privacy-popup-minimal-demo",
+    name: "consent-solution-minimal-demo",
     type: "registry:example",
-    registryDependencies: ["privacy-popup"],
+    registryDependencies: ["consent-solution"],
     dependencies: ["@koroflow/core-react"],
     files: [
       {
-        path: "examples/privacy-popup-minimal-demo.tsx",
+        path: "examples/consent-solution-minimal-demo.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "privacy-popup-callback-demo",
+    name: "consent-solution-callback-demo",
     type: "registry:example",
-    registryDependencies: ["privacy-popup"],
+    registryDependencies: ["consent-solution"],
     dependencies: ["@koroflow/core-react"],
     files: [
       {
-        path: "examples/privacy-popup-callback-demo.tsx",
+        path: "examples/consent-solution-callback-demo.tsx",
         type: "registry:example",
       },
     ],

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "consent-solution-demo",
+  "type": "registry:example",
+  "author": "Koroflow (https://koroflow.com/components",
+  "dependencies": [
+    "@koroflow/core-react"
+  ],
+  "registryDependencies": [
+    "consent-solution"
+  ],
+  "files": [
+    {
+      "path": "examples/consent-solution-demo.tsx",
+      "content": "import { ConsentManagerProvider } from \"@koroflow/core-react\";\nimport KoroflowDevTool from \"@koroflow/dev-tools\";\nimport ConsentCustomizationModal from \"@/registry/default/components/consent/consent-customization-modal\";\nimport { Button } from \"@/components/ui/button\";\nimport CookieBanner from \"@/registry/default/components/consent/cookie-banner\";\n\nexport default function PrivacyPopupDemo() {\n  return (\n      <ConsentManagerProvider\n        initialGdprTypes={[\n          \"necessary\",\n          \"marketing\",\n          \"functionality\",\n          \"measurement\",\n        ]}\n      >\n        <div className=\"text-center space-y-4\">\n          <div className=\"space-x-4\">\n            <ConsentCustomizationModal>\n              <Button>Open Privacy Settings</Button>\n            </ConsentCustomizationModal>\n          </div>\n        </div>\n        <CookieBanner />\n        <KoroflowDevTool />\n      </ConsentManagerProvider>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

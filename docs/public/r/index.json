@@ -1,6 +1,6 @@
 [
   {
-    "name": "privacy-popup",
+    "name": "consent-solution",
     "type": "registry:ui",
     "dependencies": [
       "@koroflow/core-react"
@@ -8,7 +8,7 @@
     "registryDependencies": [],
     "files": [
       {
-        "path": "components/consent/privacy-popup.tsx",
+        "path": "components/consent/cookie-banner.tsx",
         "type": "registry:ui"
       },
       {

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "consent-solution-minimal-demo",
+  "type": "registry:example",
+  "author": "Koroflow (https://koroflow.com/components",
+  "dependencies": [
+    "@koroflow/core-react"
+  ],
+  "registryDependencies": [
+    "consent-solution"
+  ],
+  "files": [
+    {
+      "path": "examples/consent-solution-minimal-demo.tsx",
+      "content": "import CookieBanner from \"@/registry/default/components/consent/cookie-banner\";\nimport { ConsentManagerProvider } from \"@koroflow/core-react\";\n\nexport default function PrivacyPopupMinimalDemo() {\n  return (\n    <ConsentManagerProvider\n      initialGdprTypes={[\n        \"necessary\",\n        \"marketing\",\n        \"functionality\",\n        \"measurement\",\n      ]}\n    >\n      <CookieBanner />\n    </ConsentManagerProvider>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

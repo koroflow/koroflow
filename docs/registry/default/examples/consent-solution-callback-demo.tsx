@@ -1,6 +1,6 @@
 "use client";
 
-import PrivacyPopup from "@/registry/default/components/consent/privacy-popup";
+import CookieBanner from "@/registry/default/components/consent/cookie-banner";
 import {
   ConsentManagerProvider,
   useConsentManager,
@@ -43,5 +43,5 @@ function ConsentCallbacks() {
     });
   }, [setCallback]);
 
-  return <PrivacyPopup />;
+  return <CookieBanner />;
 }

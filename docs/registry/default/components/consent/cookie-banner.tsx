@@ -30,7 +30,7 @@ interface PrivacyPopupProps extends React.HTMLAttributes<HTMLDivElement> {
   showCloseButton?: boolean;
 }
 
-const PrivacyPopup = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
+const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
   (
     {
       bannerDescription = "This site uses cookies and similar technologies to measure and improve your experience and show you personalized content and ads.",
@@ -188,6 +188,6 @@ const PrivacyPopup = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
   },
 );
 
-PrivacyPopup.displayName = "PrivacyPopup";
+CookieBanner.displayName = "CookieBanner";
 
-export default PrivacyPopup;
+export default CookieBanner;
