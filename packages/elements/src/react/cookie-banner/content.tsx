@@ -3,7 +3,7 @@
 import { Slot } from "@radix-ui/react-slot"
 import { AnimatePresence, motion } from "motion/react"
 import { type HTMLAttributes, type ReactNode, forwardRef } from "react"
-import { cn } from "../../libs/utils"
+import { cn } from "../libs/utils"
 import { useCookieBannerContext } from "./context"
 import { createPortal } from "react-dom"
 import React from "react"

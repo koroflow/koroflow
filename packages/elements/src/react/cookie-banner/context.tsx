@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext } from "react";
-import type { useConsentManager } from "../../consent-manager";
+import type { useConsentManager } from "../store/consent-manager";
 
 // Types
 type CookieBannerContextValue = ReturnType<typeof useConsentManager>;

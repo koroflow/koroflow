@@ -1,0 +1,69 @@
+{
+	"name": "@koroflow/elements",
+	"version": "0.0.1-beta.3",
+	"type": "module",
+	"sideEffects": false,
+	"exports": {
+	  "./*": {
+		"import": {
+		  "types": "./dist/react/*/index.d.ts",
+		  "default": "./dist/react/*/index.js"
+		},
+		"require": {
+		  "types": "./dist/react/*/index.d.cts",
+		  "default": "./dist/react/*/index.cjs"
+		}
+	  },
+	  ".": {
+		"import": {
+		  "types": "./dist/index.d.ts",
+		  "default": "./dist/index.js"
+		},
+		"require": {
+		  "types": "./dist/types/index.d.cts",
+		  "default": "./dist/index.cjs"
+		}
+	  }
+	},
+	"files": [
+		"dist"
+	  ],
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"build": "tsup",
+		"build:declarations": "tsc -p tsconfig.declarations.json",
+		"dev": "tsup --watch",
+		"typecheck": "tsc --noEmit"
+	},
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not op_mini all"
+	],
+	"devDependencies": {
+		"@types/react": "^19.0.7",
+		"@types/react-dom": "^19.0.3",
+		"tsup": "^8.3.5",
+		"typescript": "^5.7.3"
+	},
+	"peerDependencies": {
+		"react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+		"react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
+	},
+	"dependencies": {
+		"@koroflow/core-js": "0.0.1-beta.3",
+		"@radix-ui/react-accordion": "1.2.2",
+		"@radix-ui/react-slot": "1.1.1",
+		"@radix-ui/react-switch": "1.1.2",
+		"class-variance-authority": "^0.7.1",
+		"client-only": "^0.0.1",
+		"clsx": "2.1.1",
+		"lucide-react": "^0.471.1",
+		"motion": "^11.18.0",
+		"react-aria-components": "^1.6.0",
+		"tailwind-merge": "2.6.0",
+		"zustand": "^5.0.3"
+	}
+}

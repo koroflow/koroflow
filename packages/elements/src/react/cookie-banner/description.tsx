@@ -1,5 +1,5 @@
 import { type HTMLAttributes, forwardRef } from "react";
-import { cn } from "../../libs/utils";
+import { cn } from "../libs/utils";
 
 export const CookieBannerDescription = forwardRef<
 	HTMLDivElement,

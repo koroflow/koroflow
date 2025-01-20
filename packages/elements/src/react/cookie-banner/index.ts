@@ -1,3 +1,5 @@
+import "client-only";
+
 export { CookieBannerRoot as Root } from "./root";
 export { CookieBannerContent as Content } from "./content";
 export { CookieBannerDescription as Description } from "./description";

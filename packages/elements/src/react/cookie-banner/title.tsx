@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "../../libs/utils";
+import { cn } from "../libs/utils";
 
 // title component
 export const CookieBannerTitle = React.forwardRef<

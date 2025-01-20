@@ -1,6 +1,6 @@
 "use client";
 
-import { useConsentManager } from "../../consent-manager";
+import { useConsentManager } from "../store/consent-manager";
 import { CookieBannerContext } from "./context";
 
 // Root Component

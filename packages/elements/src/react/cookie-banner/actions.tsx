@@ -2,7 +2,7 @@
 
 import { Slot } from "@radix-ui/react-slot";
 import { type HTMLAttributes, forwardRef } from "react";
-import { cn } from "../../libs/utils";
+import { cn } from "../libs/utils";
 import { useCookieBannerContext } from "./context";
 
 type CookieBannerActionsElement = React.ElementRef<"div">;
