@@ -1,4 +1,8 @@
-import { ConsentManagerProvider, ConsentCustomizationDialog, CookieBanner} from "@koroflow/core-react";
+import {
+	ConsentCustomizationDialog,
+	ConsentManagerProvider,
+	CookieBanner,
+} from "@koroflow/core-react";
 
 import { Button } from "@/components/ui/button";
 

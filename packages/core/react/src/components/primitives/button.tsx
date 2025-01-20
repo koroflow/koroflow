@@ -1,10 +1,10 @@
 "use client";
 
-import { cva, type VariantProps } from "class-variance-authority";
+import { type VariantProps, cva } from "class-variance-authority";
 import {
 	Button as AriaButton,
-	composeRenderProps,
 	type ButtonProps as AriaButtonProps,
+	composeRenderProps,
 } from "react-aria-components";
 
 import { cn } from "../../libs/utils";

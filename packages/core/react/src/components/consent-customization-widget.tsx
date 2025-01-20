@@ -1,28 +1,31 @@
 "use client";
 
 import * as React from "react";
-import { ChevronDown } from "lucide-react";
+
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+} from "./primitives/accordion";
+
 import type { AllConsentNames } from "@koroflow/core-js";
+import { ChevronDown } from "lucide-react";
 
 import { useConsentManager } from "../hooks/use-consent-manager";
-import {
-	Disclosure,
-	DisclosureGroup,
-	DisclosureHeader,
-	DisclosurePanel,
-} from "./primitives/disclosure";
-import { Switch } from "./primitives/switch";
 import { Button } from "./primitives/button";
+import { CardFooter } from "./primitives/card";
+import { Switch } from "./primitives/switch";
 
 interface ConsentCustomizationWidgetProps
 	extends React.HTMLAttributes<HTMLDivElement> {
 	onSave?: () => void;
+	hideBranding?: boolean;
 }
 
 export const ConsentCustomizationWidget = React.forwardRef<
 	HTMLDivElement,
 	ConsentCustomizationWidgetProps
->(({ onSave, ...props }, ref) => {
+>(({ onSave, hideBranding, ...props }, ref) => {
 	const {
 		consents,
 		setConsent,
@@ -32,7 +35,7 @@ export const ConsentCustomizationWidget = React.forwardRef<
 	} = useConsentManager();
 	const [openItems, setOpenItems] = React.useState<string[]>([]);
 
-	const toggleDisclosure = React.useCallback((value: string) => {
+	const toggleAccordion = React.useCallback((value: string) => {
 		setOpenItems((prev) =>
 			prev.includes(value)
 				? prev.filter((item) => item !== value)
@@ -56,17 +59,31 @@ export const ConsentCustomizationWidget = React.forwardRef<
 
 	return (
 		<div className="space-y-6" ref={ref} {...props}>
-			<DisclosureGroup defaultExpandedKeys={openItems}>
+			<Accordion
+				type="multiple"
+				value={openItems}
+				onValueChange={setOpenItems}
+				className="w-full"
+			>
 				{getDisplayedConsents().map((consent) => (
-					<Disclosure key={consent.name}>
-						<DisclosureHeader className="flex items-center justify-between py-4">
+					<AccordionItem value={consent.name} key={consent.name}>
+						<div className="flex items-center justify-between py-4">
 							<div
-								className="flex-grow cursor-pointer"
-								onClick={() => toggleDisclosure(consent.name)}
-								onKeyUp={() => toggleDisclosure(consent.name)}
-								onKeyDown={() => toggleDisclosure(consent.name)}
+								className="flex-grow"
+								onClick={() => toggleAccordion(consent.name)}
+								onKeyUp={(e) => {
+									if (e.key === "Enter") {
+										toggleAccordion(consent.name);
+									}
+								}}
+								onKeyDown={(e) => {
+									if (e.key === " ") {
+										e.preventDefault();
+										toggleAccordion(consent.name);
+									}
+								}}
 							>
-								<div className="flex items-center justify-between">
+								<div className="flex items-center justify-between cursor-pointer">
 									<span className="font-medium capitalize">
 										{consent.name.replace("_", " ")}
 									</span>
@@ -85,21 +102,31 @@ export const ConsentCustomizationWidget = React.forwardRef<
 								isDisabled={consent.disabled}
 								className="ml-4"
 							/>
-						</DisclosureHeader>
-						<DisclosurePanel>
+						</div>
+						<AccordionContent>
 							<p className="text-sm text-muted-foreground pb-4">
 								{consent.description}
 							</p>
-						</DisclosurePanel>
-					</Disclosure>
+						</AccordionContent>
+					</AccordionItem>
 				))}
-			</DisclosureGroup>
+			</Accordion>
 			<div className="flex justify-between">
 				<Button onPress={resetConsents} variant="outline">
 					Reset
 				</Button>
 				<Button onPress={handleSaveConsents}>Save Preferences</Button>
 			</div>
+			{!hideBranding && (
+				<div className="flex justify-center w-full border-t py-4">
+					<a
+						href="https://koroflow.com"
+						className="text-center text-xs text-neutral-500"
+					>
+						Secured by <span className="text-[#5C8BD6]">Koroflow</span>
+					</a>
+				</div>
+			)}
 		</div>
 	);
 });

@@ -6,6 +6,7 @@
 	"pages": [
 		"---Guide---",
 		"index",
+		"regulations",
 		"---Components---",
 		"getting-started",
 		"shadcn",

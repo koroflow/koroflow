@@ -10,12 +10,12 @@ import {
 } from "./primitives/card";
 import { Overlay } from "./primitives/overlay";
 
-import { AnimatePresence, motion } from "motion/react";
 import { X } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 import { createPortal } from "react-dom";
-import { ConsentCustomizationWidget } from "./consent-customization-widget";
 import { useConsentManager } from "../hooks/use-consent-manager";
+import { ConsentCustomizationWidget } from "./consent-customization-widget";
 
 export interface ConsentCustomizationDialogProps {
 	children?: React.ReactNode;
