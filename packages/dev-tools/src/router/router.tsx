@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
 	Code,
 	Cookie,
@@ -12,6 +11,7 @@ import {
 	ToggleLeft,
 	X,
 } from "lucide-react";
+import { motion } from "motion/react";
 import { useCallback, useEffect, useState } from "react";
 
 import type { PrivacyConsentState } from "@koroflow/core-js";

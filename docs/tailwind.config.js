@@ -12,7 +12,7 @@ export default {
 		"./mdx-components.{ts,tsx}",
 		"./node_modules/fumadocs-ui/dist/**/*.js",
 		"./node_modules/@koroflow/dev-tools/dist/**/*.js",
-		"./node_modules/@koroflow/core-react/dist/**/*.js",
+		"./node_modules/@koroflow/elements/dist/**/*.js",
 	],
 	presets: [
 		createPreset({

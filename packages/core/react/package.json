@@ -7,7 +7,7 @@
 		".": {
 			"types": "./dist/types/index.d.ts",
 			"main": "./dist/cjs/index.js",
-			"default": "./dist/cjs/index.js"
+			"default": "./dist/esm/index.js"
 		}
 	},
 	"publishConfig": {

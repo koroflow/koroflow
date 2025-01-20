@@ -1,6 +1,40 @@
 /**
- * Enumerates all possible consent types that can be managed within the application.
- * These consent types are used to categorize and manage user consents for various data processing activities.
+ * @packageDocumentation
+ * Provides types and constants for managing GDPR-compliant consent categories and their configurations.
+ */
+
+/**
+ * Defines all possible consent categories that can be managed within the application.
+ *
+ * @remarks
+ * Each consent type represents a specific category of data processing:
+ *
+ * - `necessary`: Essential cookies required for basic site functionality
+ * - `functionality`: Cookies that enable enhanced features and personalization
+ * - `marketing`: Cookies used for advertising and marketing purposes
+ * - `measurement`: Analytics and performance measurement cookies
+ * - `experience`: Cookies that improve user experience and interactions
+ *
+ * @example
+ * ```typescript
+ * function isConsentRequired(type: AllConsentNames): boolean {
+ *   return type !== 'necessary';
+ * }
+ *
+ * function enableFeature(type: AllConsentNames, hasConsent: boolean) {
+ *   switch (type) {
+ *     case 'marketing':
+ *       hasConsent ? enableAds() : disableAds();
+ *       break;
+ *     case 'measurement':
+ *       hasConsent ? enableAnalytics() : disableAnalytics();
+ *       break;
+ *     // ... handle other types
+ *   }
+ * }
+ * ```
+ *
+ * @public
  */
 export type AllConsentNames =
 	| "experience"
@@ -10,30 +44,133 @@ export type AllConsentNames =
 	| "necessary";
 
 /**
- * Defines the structure for each type of consent that can be managed.
+ * Defines the configuration structure for each consent type.
  *
  * @remarks
- * - `defaultValue`: Indicates the default state of the consent (true if consent is given by default).
- * - `description`: Provides a detailed explanation of what the consent entails.
- * - `disabled`: (Optional) Specifies if the consent type is disabled and cannot be changed by the user.
- * - `display`: Determines if the consent type should be displayed to the user.
- * - `gdprType`: A numeric identifier for the consent type, often used for GDPR categorization.
- * - `name`: The name of the consent type, which must be one of the predefined `AllConsentNames`.
+ * Each consent type has specific properties that determine its behavior:
+ *
+ * - `defaultValue`: Initial consent state
+ *   - `true`: Consent is granted by default (typically only for 'necessary' cookies)
+ *   - `false`: User must explicitly grant consent
+ *
+ * - `description`: User-friendly explanation of the consent category
+ *   - Should be clear and concise
+ *   - Must accurately describe data usage
+ *   - Should help users make informed decisions
+ *
+ * - `disabled`: Whether users can modify this consent
+ *   - `true`: Users cannot change the consent state (e.g., necessary cookies)
+ *   - `false` or `undefined`: Users can toggle consent
+ *
+ * - `display`: Visibility in consent UI
+ *   - `true`: Show this option to users
+ *   - `false`: Hide from consent interface
+ *
+ * - `gdprType`: Numeric identifier for GDPR categorization
+ *   - 1: Essential/Necessary
+ *   - 2: Functional
+ *   - 3: Experience/Preferences
+ *   - 4: Analytics/Measurement
+ *   - 5: Marketing/Advertising
+ *
+ * - `name`: Reference to the consent type
+ *   - Must match one of {@link AllConsentNames}
+ *
+ * @example
+ * ```typescript
+ * const analyticsConsent: ConsentType = {
+ *   name: 'measurement',
+ *   gdprType: 4,
+ *   defaultValue: false,
+ *   description: 'Helps us understand how users interact with our site',
+ *   display: true,
+ *   disabled: false
+ * };
+ *
+ * const necessaryConsent: ConsentType = {
+ *   name: 'necessary',
+ *   gdprType: 1,
+ *   defaultValue: true,
+ *   description: 'Required for basic site functionality',
+ *   display: true,
+ *   disabled: true  // Users cannot disable necessary cookies
+ * };
+ * ```
+ *
+ * @see {@link consentTypes} for the predefined consent configurations
+ * @public
  */
 export type ConsentType = {
+	/** Whether consent is granted by default */
 	defaultValue: boolean;
+
+	/** User-friendly description of what this consent enables */
 	description: string;
+
+	/** Whether users can modify this consent setting */
 	disabled?: boolean;
+
+	/** Whether to show this consent option in the UI */
 	display: boolean;
+
+	/** GDPR category identifier (1-5) */
 	gdprType: number;
+
+	/** The consent category name */
 	name: AllConsentNames;
 };
 
 /**
- * An array of `ConsentType` objects, each representing a specific type of consent that can be managed.
+ * Predefined consent type configurations that comply with GDPR requirements.
  *
  * @remarks
- * This array can be extended to include additional consent types as needed. Ensure that any additions align with your privacy policy and applicable laws.
+ * This array defines the standard consent categories and their default configurations.
+ * Each entry represents a specific type of cookie or tracking technology:
+ *
+ * 1. Necessary (Type 1):
+ *    - Required for basic site functionality
+ *    - Cannot be disabled by users
+ *    - Enabled by default
+ *
+ * 2. Functionality (Type 2):
+ *    - Enables enhanced features
+ *    - Optional for users
+ *    - Disabled by default
+ *
+ * 3. Measurement (Type 4):
+ *    - Analytics and performance tracking
+ *    - Optional for users
+ *    - Disabled by default
+ *
+ * 4. Experience (Type 3):
+ *    - User experience improvements
+ *    - Optional for users
+ *    - Disabled by default
+ *
+ * 5. Marketing (Type 5):
+ *    - Advertising and marketing
+ *    - Optional for users
+ *    - Disabled by default
+ *
+ * @example
+ * ```typescript
+ * function getConsentConfig(type: AllConsentNames): ConsentType {
+ *   return consentTypes.find(consent => consent.name === type)!;
+ * }
+ *
+ * function isConsentRequired(type: AllConsentNames): boolean {
+ *   const config = getConsentConfig(type);
+ *   return !config.defaultValue && !config.disabled;
+ * }
+ *
+ * function getDisplayedConsents(): ConsentType[] {
+ *   return consentTypes.filter(consent => consent.display);
+ * }
+ * ```
+ *
+ * @see {@link ConsentType} for the structure of each consent configuration
+ * @see {@link AllConsentNames} for available consent categories
+ * @public
  */
 export const consentTypes: ConsentType[] = [
 	{

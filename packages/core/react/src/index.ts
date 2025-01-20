@@ -17,4 +17,4 @@ export type {
 } from "@koroflow/core-js";
 
 export * as CookieBanner from "./components/old/cookie-banner";
-export {ConsentCustomizationDialog} from './components/old/consent-customization-dialog'
+export { ConsentCustomizationDialog } from "./components/old/consent-customization-dialog";

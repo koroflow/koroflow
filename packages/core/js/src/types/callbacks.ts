@@ -1,30 +1,152 @@
 /**
  * A generic type for callback functions that can accept an argument of type T.
- * By default, the argument type is `void`, meaning no arguments are expected.
  *
- * @typeParam T - The type of the argument that the callback function accepts.
+ * @typeParam T - The type of the argument that the callback function accepts. Defaults to `void` if not specified.
+ *
+ * @remarks
+ * This type is used throughout the consent management system to define callback functions
+ * with consistent typing. It ensures type safety when passing callbacks between components.
+ *
+ * @example
+ * ```typescript
+ * // Callback with no arguments
+ * const readyCallback: CallbackFunction = () => {
+ *   console.log('System ready');
+ * };
+ *
+ * // Callback with string argument
+ * const errorCallback: CallbackFunction<string> = (errorMessage) => {
+ *   console.error('Error occurred:', errorMessage);
+ * };
+ * ```
+ *
+ * @public
  */
 export type CallbackFunction<T = void> = (arg: T) => void;
 
 /**
- * This interface defines the structure for callback functions that can be set to respond to various consent-related events.
- * These callbacks allow for custom actions to be performed at different stages of the consent management process.
+ * Defines the structure for callback functions that respond to consent-related events.
+ * These callbacks enable custom actions at different stages of the consent management process.
  *
  * @remarks
- * - `onReady`: Called when the consent management system is ready.
- * - `onBannerShown`: Called when the consent banner is displayed to the user.
- * - `onBannerClosed`: Called when the consent banner is closed by the user.
- * - `onConsentGiven`: Called when the user gives consent, with an optional argument detailing the consent type.
- * - `onConsentRejected`: Called when the user rejects consent, with an optional argument detailing the reason.
- * - `onPreferenceExpressed`: Called when the user expresses their consent preferences, with an optional argument detailing the preferences.
- * - `onError`: Called when an error occurs, with an optional argument detailing the error message.
+ * All callbacks are optional and will be called at specific points in the consent management lifecycle:
+ *
+ * Initialization callbacks:
+ * - `onReady`: System initialization complete, ready to handle consent
+ * - `onError`: Error occurred during operation
+ *
+ * Banner interaction callbacks:
+ * - `onBannerShown`: Consent banner has been displayed
+ * - `onBannerClosed`: User has closed the consent banner
+ *
+ * Consent decision callbacks:
+ * - `onConsentGiven`: User has granted consent
+ * - `onConsentRejected`: User has rejected consent
+ * - `onPreferenceExpressed`: User has made their preferences known
+ *
+ * @example
+ * Basic usage with TypeScript:
+ * ```typescript
+ * const callbacks: Callbacks = {
+ *   onReady: () => {
+ *     console.log('Consent manager ready');
+ *   },
+ *   onError: (error) => {
+ *     console.error('Consent manager error:', error);
+ *   },
+ *   onConsentGiven: () => {
+ *     initializeAnalytics();
+ *   }
+ * };
+ * ```
+ *
+ * @example
+ * Full implementation with all callbacks:
+ * ```typescript
+ * const consentCallbacks: Callbacks = {
+ *   onReady: () => {
+ *     console.log('Consent manager initialized');
+ *     checkInitialConsent();
+ *   },
+ *
+ *   onBannerShown: () => {
+ *     logBannerImpression();
+ *     pauseBackgroundVideos();
+ *   },
+ *
+ *   onBannerClosed: () => {
+ *     resumeBackgroundVideos();
+ *     updateUIState('banner-closed');
+ *   },
+ *
+ *   onConsentGiven: () => {
+ *     enableTracking();
+ *     initializeServices();
+ *   },
+ *
+ *   onConsentRejected: () => {
+ *     disableTracking();
+ *     updatePrivacyMode('strict');
+ *   },
+ *
+ *   onPreferenceExpressed: () => {
+ *     saveUserPreferences();
+ *     updateUI();
+ *   },
+ *
+ *   onError: (errorMessage) => {
+ *     console.error('Consent Error:', errorMessage);
+ *     notifyAdministrator(errorMessage);
+ *   }
+ * };
+ * ```
+ *
+ * @example
+ * Usage with React:
+ * ```tsx
+ * function ConsentManager() {
+ *   const callbacks: Callbacks = useMemo(() => ({
+ *     onReady: () => setIsReady(true),
+ *     onBannerShown: () => trackEvent('banner-shown'),
+ *     onConsentGiven: () => {
+ *       initializeAnalytics();
+ *       refreshAds();
+ *     }
+ *   }), []);
+ *
+ *   return (
+ *     <ConsentProvider callbacks={callbacks}>
+ *       {children}
+ *     </ConsentProvider>
+ *   );
+ * }
+ * ```
+ *
+ * @see {@link CallbackFunction} For the type definition of individual callbacks
+ * @public
  */
 export interface Callbacks {
+	/** Called when the consent management system is fully initialized and ready */
 	onReady?: CallbackFunction;
+
+	/** Called when the consent banner becomes visible to the user */
 	onBannerShown?: CallbackFunction;
+
+	/** Called when the consent banner is dismissed or hidden */
 	onBannerClosed?: CallbackFunction;
+
+	/** Called when the user grants consent for one or more purposes */
 	onConsentGiven?: CallbackFunction;
+
+	/** Called when the user denies consent for one or more purposes */
 	onConsentRejected?: CallbackFunction;
+
+	/** Called when the user makes any change to their consent preferences */
 	onPreferenceExpressed?: CallbackFunction;
+
+	/**
+	 * Called when an error occurs in the consent management system
+	 * @param errorMessage - A description of the error that occurred
+	 */
 	onError?: CallbackFunction<string>;
 }

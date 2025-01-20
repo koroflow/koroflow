@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Suspense, lazy, useEffect, useState } from "react";
 
 import { Section } from "@/components/section";

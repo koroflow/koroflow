@@ -1,11 +1,11 @@
 import { AnimatePresence, motion } from "motion/react";
-import type React from "react";
+import type { FC } from "react";
 
 interface OverlayProps {
 	show: boolean;
 }
 
-export const Overlay: React.FC<OverlayProps> = ({ show }) => {
+export const Overlay: FC<OverlayProps> = ({ show }) => {
 	return (
 		<AnimatePresence>
 			{show && (
