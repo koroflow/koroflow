@@ -4,19 +4,18 @@ import { X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 import { createPortal } from "react-dom";
-import { useConsentManager } from "../hooks/use-consent-manager";
-import { cn } from "../libs/utils";
+import { useConsentManager } from "../../hooks/use-consent-manager";
+import { cn } from "../../libs/utils";
 
-import { ConsentCustomizationDialog } from "./consent-customization-dialog";
-import { Button } from "./primitives/button";
+import { Button } from "../primitives/button";
 import {
 	Card,
 	CardDescription,
 	CardFooter,
 	CardHeader,
 	CardTitle,
-} from "./primitives/card";
-import { Overlay } from "./primitives/overlay";
+} from "../primitives/card";
+import { Overlay } from "../primitives/overlay";
 
 type HorizontalPosition = "left" | "center" | "right";
 type VerticalPosition = "top" | "bottom";
@@ -48,6 +47,7 @@ export const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
 			saveConsents,
 			setConsent,
 			callbacks,
+			setIsPrivacyDialogOpen,
 			complianceSettings,
 			isPrivacyDialogOpen,
 			hasConsented,
@@ -100,6 +100,10 @@ export const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
 			callbacks.onBannerClosed?.();
 		}, [setShowPopup, callbacks]);
 
+		const openCustomizationDialog = React.useCallback(() => {
+			setIsPrivacyDialogOpen(true);
+		}, [setIsPrivacyDialogOpen]);
+
 		const positionClasses = cn(
 			"fixed z-50 max-w-md",
 			{
@@ -145,9 +149,7 @@ export const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
 												variant="ghost"
 												size="icon"
 												className="absolute right-2 top-2"
-												onClick={handleClose}
-												onKeyUp={(e) => e.key === "Enter" && handleClose()}
-												onKeyDown={(e) => e.key === "Enter" && handleClose()}
+												onPress={handleClose}
 												aria-label="Close cookie consent banner"
 											>
 												<X className="h-4 w-4" />
@@ -169,29 +171,24 @@ export const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
 												<Button
 													variant="outline"
 													size="sm"
-													onClick={rejectAll}
-													onKeyUp={(e) => e.key === "Enter" && rejectAll()}
-													onKeyDown={(e) => e.key === "Enter" && rejectAll()}
+													onPress={rejectAll}
 													className="w-full sm:w-auto"
 												>
 													Reject All
 												</Button>
 											)}
-											<ConsentCustomizationDialog>
-												<Button
-													variant="outline"
-													size="sm"
-													className="w-full sm:w-auto"
-												>
-													Customise Consent
-												</Button>
-											</ConsentCustomizationDialog>
+											<Button
+												variant="outline"
+												size="sm"
+												className="w-full sm:w-auto"
+												onPress={openCustomizationDialog}
+											>
+												Customise Consent
+											</Button>
 										</div>
 										<Button
 											size="sm"
-											onClick={acceptAll}
-											onKeyUp={(e) => e.key === "Enter" && acceptAll()}
-											onKeyDown={(e) => e.key === "Enter" && acceptAll()}
+											onPress={acceptAll}
 											className="w-full sm:w-auto"
 										>
 											Accept All

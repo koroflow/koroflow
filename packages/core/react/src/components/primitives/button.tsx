@@ -49,9 +49,7 @@ const buttonVariants = cva(
 
 interface ButtonProps
 	extends AriaButtonProps,
-		VariantProps<typeof buttonVariants> {
-	onClick?: () => void;
-}
+		VariantProps<typeof buttonVariants> {}
 
 const Button = ({ className, variant, size, ...props }: ButtonProps) => {
 	return (

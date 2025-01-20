@@ -1,6 +1,6 @@
 {
 	"name": "@koroflow/core-js",
-	"version": "0.0.1-beta.1",
+	"version": "0.0.1-beta.3",
 	"type": "module",
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",

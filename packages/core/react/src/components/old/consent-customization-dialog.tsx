@@ -1,20 +1,20 @@
 "use client";
 
-import { Button } from "./primitives/button";
+import { Button } from "../primitives/button";
 import {
 	Card,
 	CardContent,
 	CardDescription,
 	CardHeader,
 	CardTitle,
-} from "./primitives/card";
-import { Overlay } from "./primitives/overlay";
+} from "../primitives/card";
+import { Overlay } from "../primitives/overlay";
 
 import { X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 import { createPortal } from "react-dom";
-import { useConsentManager } from "../hooks/use-consent-manager";
+import { useConsentManager } from "../../hooks/use-consent-manager";
 import { ConsentCustomizationWidget } from "./consent-customization-widget";
 
 export interface ConsentCustomizationDialogProps {
@@ -152,20 +152,5 @@ export const ConsentCustomizationDialog = React.forwardRef<
 		</AnimatePresence>
 	);
 
-	return (
-		<>
-			<div
-				onClick={() => handleOpenChange(true)}
-				onKeyUp={(e) => e.key === "Enter" && handleOpenChange(true)}
-				onKeyDown={(e) => e.key === "Enter" && handleOpenChange(true)}
-			>
-				{children || (
-					<Button variant="outline" size="sm" className={triggerClassName}>
-						Customize Consent
-					</Button>
-				)}
-			</div>
-			{isMounted && createPortal(dialogContent, document.body)}
-		</>
-	);
+	return isMounted && createPortal(dialogContent, document.body);
 });

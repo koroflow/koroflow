@@ -137,6 +137,9 @@ importers:
       lucide-react:
         specifier: ^0.471.1
         version: 0.471.1(react@19.0.0)
+      motion:
+        specifier: ^11.18.0
+        version: 11.18.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       next:
         specifier: 15.1.4
         version: 15.1.4(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -242,14 +245,20 @@ importers:
   packages/core/react:
     dependencies:
       '@koroflow/core-js':
-        specifier: 0.0.1-beta.1
-        version: 0.0.1-beta.1(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))
+        specifier: 0.0.1-beta.3
+        version: 0.0.1-beta.3(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))
       '@radix-ui/react-accordion':
         specifier: 1.2.2
         version: 1.2.2(@types/react-dom@19.0.3(@types/react@19.0.7))(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@radix-ui/react-slot':
+        specifier: 1.1.1
+        version: 1.1.1(@types/react@19.0.7)(react@19.0.0)
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
       clsx:
         specifier: 2.1.1
         version: 2.1.1
@@ -291,8 +300,8 @@ importers:
   packages/dev-tools:
     dependencies:
       '@koroflow/core-js':
-        specifier: 0.0.1-beta.1
-        version: 0.0.1-beta.1(@types/react@19.0.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(use-sync-external-store@1.4.0(react@18.3.1))
+        specifier: 0.0.1-beta.2
+        version: 0.0.1-beta.2(@types/react@19.0.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(use-sync-external-store@1.4.0(react@18.3.1))
       '@radix-ui/react-accordion':
         specifier: 1.2.2
         version: 1.2.2(@types/react-dom@19.0.3(@types/react@19.0.7))(@types/react@19.0.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1058,8 +1067,14 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@koroflow/core-js@0.0.1-beta.1':
-    resolution: {integrity: sha512-vAcu0jmQez4dD2Nhw/VctlBnZlgShH6yfXYBhzVe+sLfkOx7CKM1ugzdTrDaOXWX2RkLKOCivOiI4ml+UOrENA==}
+  '@koroflow/core-js@0.0.1-beta.2':
+    resolution: {integrity: sha512-ggll7CKvGS+rG+ZcKoc0/kEHJrK802etUtFrsYOxDWFTVyi+nLtJgsNms7ju+m0RhdxSaSJRXYhRKCntVS7+0w==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@koroflow/core-js@0.0.1-beta.3':
+    resolution: {integrity: sha512-2hxQrodgK6GUCFTjisVTxG8UkTZ86LjQ31x6m1pVpiLCU+wPXnwyZoNPFCWEY9xT75dBwGr9sfRi0x/30PBBbg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -5502,7 +5517,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@koroflow/core-js@0.0.1-beta.1(@types/react@19.0.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(use-sync-external-store@1.4.0(react@18.3.1))':
+  '@koroflow/core-js@0.0.1-beta.2(@types/react@19.0.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(use-sync-external-store@1.4.0(react@18.3.1))':
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -5512,7 +5527,7 @@ snapshots:
       - immer
       - use-sync-external-store
 
-  '@koroflow/core-js@0.0.1-beta.1(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))':
+  '@koroflow/core-js@0.0.1-beta.3(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))':
     dependencies:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)

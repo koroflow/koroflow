@@ -4,8 +4,6 @@ import {
 	CookieBanner,
 } from "@koroflow/core-react";
 
-import { Button } from "@/components/ui/button";
-
 import KoroflowDevTool from "@koroflow/dev-tools";
 
 export default function PrivacyConsentPage() {
@@ -34,13 +32,22 @@ export default function PrivacyConsentPage() {
 					<p className="text-xl">
 						Explore our privacy consent management tools
 					</p>
-					<div className="space-x-4">
-						<ConsentCustomizationDialog>
-							<Button>Open Privacy Settings</Button>
-						</ConsentCustomizationDialog>
-					</div>
 				</div>
-				<CookieBanner />
+				<CookieBanner.Root>
+					<CookieBanner.Content className="bottom-4 left-4">
+						<CookieBanner.Title>We value your privacy</CookieBanner.Title>
+						<CookieBanner.Description>
+							This site uses cookies to improve your browsing experience,
+							analyze site traffic, and show personalized content.
+						</CookieBanner.Description>
+						<CookieBanner.Actions>
+							<CookieBanner.RejectButton>Reject All</CookieBanner.RejectButton>
+							<CookieBanner.CustomizeButton>Customize</CookieBanner.CustomizeButton>
+							<CookieBanner.AcceptButton>Accept All</CookieBanner.AcceptButton>
+						</CookieBanner.Actions>
+					</CookieBanner.Content>
+				</CookieBanner.Root>
+				<ConsentCustomizationDialog />
 				<KoroflowDevTool />
 			</ConsentManagerProvider>
 		</main>

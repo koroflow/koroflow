@@ -1,10 +1,15 @@
 {
 	"name": "@koroflow/core-react",
-	"version": "0.0.1-beta.1",
+	"version": "0.0.1-beta.3",
 	"type": "module",
-	"main": "dist/cjs/index.js",
-	"module": "dist/esm/index.js",
-	"types": "dist/types/index.d.ts",
+
+	"exports": {
+		".": {
+			"types": "./dist/types/index.d.ts",
+			"main": "./dist/cjs/index.js",
+			"default": "./dist/cjs/index.js"
+		}
+	},
 	"publishConfig": {
 		"access": "public"
 	},
@@ -26,9 +31,11 @@
 		"react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
 	},
 	"dependencies": {
-		"@koroflow/core-js": "0.0.1-beta.1",
+		"@koroflow/core-js": "0.0.1-beta.3",
 		"@radix-ui/react-accordion": "1.2.2",
+		"@radix-ui/react-slot": "1.1.1",
 		"class-variance-authority": "^0.7.1",
+		"client-only": "^0.0.1",
 		"clsx": "2.1.1",
 		"lucide-react": "^0.471.1",
 		"motion": "^11.18.0",

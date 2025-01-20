@@ -6,15 +6,15 @@ import {
 	Accordion,
 	AccordionContent,
 	AccordionItem,
-} from "./primitives/accordion";
+} from "../primitives/accordion";
 
 import type { AllConsentNames } from "@koroflow/core-js";
 import { ChevronDown } from "lucide-react";
 
-import { useConsentManager } from "../hooks/use-consent-manager";
-import { Button } from "./primitives/button";
-import { CardFooter } from "./primitives/card";
-import { Switch } from "./primitives/switch";
+import { useConsentManager } from "../../hooks/use-consent-manager";
+import { Button } from "../primitives/button";
+import { CardFooter } from "../primitives/card";
+import { Switch } from "../primitives/switch";
 
 interface ConsentCustomizationWidgetProps
 	extends React.HTMLAttributes<HTMLDivElement> {

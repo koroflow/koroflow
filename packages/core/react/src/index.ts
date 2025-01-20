@@ -1,5 +1,5 @@
 // src/index.ts
-export { ConsentManagerProvider } from "./consent-Manager";
+export { ConsentManagerProvider } from "./consent-manager";
 export { useConsentManager } from "./hooks/use-consent-manager";
 
 // Re-export types and constants
@@ -16,6 +16,5 @@ export type {
 	HasConsentedProps,
 } from "@koroflow/core-js";
 
-export { CookieBanner } from "./components/cookie-banner";
-export { ConsentCustomizationDialog } from "./components/consent-customization-dialog";
-export { ConsentCustomizationWidget } from "./components/consent-customization-widget";
+export * as CookieBanner from "./components/cookie-banner";
+export {ConsentCustomizationDialog} from './components/old/consent-customization-dialog'
