@@ -15,7 +15,7 @@ import {
 	useMemo,
 	useState,
 } from "react";
-
+import { injectStyles } from "../../libs/inject-styles";
 /**
  * @packageDocumentation
  * Provides a React context-based consent management system for handling cookie and privacy preferences.
@@ -63,6 +63,13 @@ interface ConsentManagerProviderProps extends NamespaceProps {
 	 * ```
 	 */
 	initialComplianceSettings?: Record<ComplianceRegion, ComplianceSettings>;
+
+	/**
+	 * @remarks
+	 * Whether to skip injecting default styles
+	 * @default false
+	 */
+	noStyle?: boolean;
 }
 
 /**
@@ -103,6 +110,7 @@ export const ConsentStateContext = createContext<
  * - Detecting user's region for compliance
  * - Managing consent state updates
  * - Providing access to consent management throughout the app
+ * - Injecting default styles (unless noStyle is true)
  *
  * @example
  * Basic usage:
@@ -126,6 +134,7 @@ export const ConsentStateContext = createContext<
  *     'EU': { requireConsent: true, showBanner: true },
  *     'US': { requireConsent: false, showBanner: false }
  *   }}
+ *   noStyle={false}
  * >
  *   <YourApp />
  * </ConsentManagerProvider>
@@ -138,6 +147,7 @@ export function ConsentManagerProvider({
 	initialGdprTypes,
 	initialComplianceSettings,
 	namespace = "KoroflowStore",
+	noStyle = false,
 }: ConsentManagerProviderProps) {
 	// Create a stable reference to the store
 	const store = useMemo(
@@ -178,11 +188,14 @@ export function ConsentManagerProvider({
 			setState(newState);
 		});
 
+		// Inject styles unless noStyle is true
+		!!noStyle && injectStyles({ noStyle });
+
 		// Cleanup subscription on unmount
 		return () => {
 			unsubscribe();
 		};
-	}, [store, initialGdprTypes, initialComplianceSettings]);
+	}, [store, initialGdprTypes, initialComplianceSettings, noStyle]);
 
 	// Memoize the context value to prevent unnecessary re-renders
 	const contextValue = useMemo(

@@ -14,8 +14,9 @@
 		"jsx": "react-jsx",
 		"declaration": true,
 		"declarationDir": "dist",
+		"types": ["node"],
 		"outDir": "dist"
 	},
-	"include": ["src"],
+	"include": ["src", "src/declaration.d.ts"],
 	"exclude": ["node_modules", "dist"]
 }

@@ -2,7 +2,7 @@
 
 import { createContext, useContext } from "react";
 import type { useConsentManager } from "../common/store/consent-manager";
-import type { CookieBannerStyles } from "./types";
+import type { CookieBannerStyles, StyleValue } from "./types";
 
 /**
  * The value type for the CookieBannerContext.
@@ -13,10 +13,14 @@ import type { CookieBannerStyles } from "./types";
  * @typedef {Object} CookieBannerContextValue
  * @property {boolean} noStyle - Indicates whether default styles should be disabled.
  * @property {CookieBannerStyles} styles - Custom styles to apply to the CookieBanner and its children.
+ * @property {boolean} disableAnimation - Indicates whether all animations should be disabled.
+ * @property {boolean} showPopup - Indicates whether the cookie banner popup should be shown.
  */
 export type CookieBannerContextValue = ReturnType<typeof useConsentManager> & {
 	noStyle: boolean;
 	styles: CookieBannerStyles;
+	disableAnimation: boolean;
+	showPopup: boolean;
 };
 
 /**

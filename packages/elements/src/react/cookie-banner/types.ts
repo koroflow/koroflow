@@ -4,7 +4,7 @@ import type { CSSProperties } from "react";
  * Represents a class name string or undefined value.
  * @public
  */
-export type ClassName = string | undefined;
+export type ClassName = string | undefined  | null;
 
 /**
  * Represents a style configuration that can include both inline styles and class names.
@@ -44,6 +44,8 @@ export interface CookieBannerStyles {
 	customizeButton?: StyleValue;
 	/** @remarks Styles for the accept button */
 	acceptButton?: StyleValue;
+	/** @remarks Styles for the overlay background */
+	overlay?: StyleValue;
 }
 
 /**

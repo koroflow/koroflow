@@ -154,6 +154,6 @@ export function useConsentManager(): PrivacyConsentState &
 	return {
 		...context.state,
 		...storeState,
-	} as PrivacyConsentState &
+	} as unknown as PrivacyConsentState &
 		ReturnType<typeof createConsentManagerStore>["getState"];
 }

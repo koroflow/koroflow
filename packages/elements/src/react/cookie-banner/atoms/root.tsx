@@ -37,6 +37,13 @@ interface CookieBannerRootProps extends HTMLAttributes<HTMLDivElement> {
 	 * These styles are made available through the CookieBanner context.
 	 */
 	styles?: CookieBannerStyles;
+
+	/**
+	 * @remarks
+	 * When true, disables the entrance/exit animations.
+	 * Useful for environments where animations are not desired.
+	 */
+	disableAnimation?: boolean;
 }
 
 /**
@@ -80,6 +87,7 @@ export const CookieBannerRoot: FC<CookieBannerRootProps> = ({
 	children,
 	className,
 	noStyle = false,
+	disableAnimation = false,
 	styles = {},
 	...props
 }) => {
@@ -92,6 +100,7 @@ export const CookieBannerRoot: FC<CookieBannerRootProps> = ({
 	 */
 	const contextValue: CookieBannerContextValue = {
 		...consentManager,
+		disableAnimation,
 		noStyle,
 		styles,
 	};
@@ -125,7 +134,7 @@ const CookieBannerRootChildren: FC<CookieBannerRootProps> = ({
 	 * Uses the 'root' style key for consistent theming.
 	 */
 	const rootStyle = useStyles({
-		baseClassName: "cookie-banner-root",
+		baseClassName: "bg-gray-2 ring-gray-a3 rounded-xl ring-1",
 		componentStyle: className,
 		styleKey: "root",
 	});

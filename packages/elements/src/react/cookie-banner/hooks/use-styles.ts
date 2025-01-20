@@ -88,35 +88,36 @@ export function useStyles({
 	const { noStyle, styles } = useCookieBannerContext();
 
 	return useMemo(() => {
-		const contextStyle = styleKey ? styles[styleKey] : undefined;
+		const contextStyle = styleKey ? styles[styleKey] : null;
 
+		// When noStyle is true, only apply component styles
 		if (noStyle) {
-			return {
-				className:
-					typeof componentStyle === "string"
-						? componentStyle
-						: (componentStyle?.className ?? ""),
-				style:
-					typeof componentStyle === "object" ? componentStyle.style : undefined,
-			};
+			if (!componentStyle) return {};
+
+			return typeof componentStyle === "string"
+				? { className: componentStyle }
+				: { className: componentStyle.className, style: componentStyle.style };
 		}
 
-		let className = baseClassName;
+		let className = noStyle ? undefined : baseClassName;
 		let style: CSSProperties | undefined;
 
 		if (contextStyle) {
 			const mergedStyle = mergeStyles({ className, style }, contextStyle);
-			className = mergedStyle.className ?? "";
+			className = mergedStyle.className || undefined;
 			style = mergedStyle.style;
 		}
 
 		if (componentStyle) {
 			const mergedStyle = mergeStyles({ className, style }, componentStyle);
-			className = mergedStyle.className ?? "";
+			className = mergedStyle.className || undefined;
 			style = mergedStyle.style;
 		}
 
-		return { className, style };
+		return {
+			className: className || undefined,
+			style: style || undefined,
+		};
 	}, [baseClassName, componentStyle, noStyle, styleKey, styles]);
 }
 
@@ -157,27 +158,44 @@ export function useStyles({
  *
  * @internal
  */
-function mergeStyles(style1: StyleValue, style2: StyleValue) {
+function mergeStyles(
+	style1: StyleValue,
+	style2: StyleValue,
+	baseClassName?: string | null,
+) {
 	if (typeof style1 === "string" && typeof style2 === "string") {
-		return { className: `${style1} ${style2}`.trim() };
+		return {
+			className:
+				`${baseClassName || ""} ${style1} ${style2}`.trim() || undefined,
+		};
 	}
 
 	const base: ClassNameStyle = {
-		className: undefined,
+		className: baseClassName || undefined,
 		style: {},
 	};
 
 	const applyStyle = (style: StyleValue) => {
 		if (typeof style === "string") {
-			base.className = `${base.className} ${style}`.trim();
+			base.className = base.className
+				? `${base.className} ${style}`.trim()
+				: style;
 		} else if (style) {
-			base.className = `${base.className} ${style.className || ""}`.trim();
-			base.style = { ...base.style, ...style.style };
+			base.className = base.className
+				? `${base.className} ${style.className || ""}`.trim()
+				: style.className;
+			if (style.style) {
+				base.style = { ...base.style, ...style.style };
+			}
 		}
 	};
 
 	applyStyle(style1);
 	applyStyle(style2);
 
-	return base;
+	return {
+		className: base.className || undefined,
+		style:
+			base.style && Object.keys(base.style).length > 0 ? base.style : undefined,
+	};
 }

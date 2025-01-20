@@ -12,6 +12,7 @@ import {
 import { createPortal } from "react-dom";
 import { useCookieBannerContext } from "../context";
 import { useStyles } from "../hooks/use-styles";
+import { Overlay } from "./overlay";
 
 /**
  * Props for the content section of the CookieBanner.
@@ -40,12 +41,12 @@ interface CookieBannerContentProps extends HTMLAttributes<HTMLDivElement> {
  * @remarks
  * This component manages the main content area of the cookie banner, including:
  * - Client-side portal rendering to ensure proper stacking context
- * - Smooth entrance/exit animations using Framer Motion
+ * - Optional entrance/exit animations (controlled via CookieBanner.Root)
  * - Conditional rendering based on banner visibility state
  * - Style composition through the CookieBanner context
  *
  * @example
- * Basic usage with default styling:
+ * Basic usage with default styling and animations:
  * ```tsx
  * <CookieBannerContent>
  *   <CookieBanner.Title>Privacy Notice</CookieBanner.Title>
@@ -75,15 +76,15 @@ export const CookieBannerContent = forwardRef<
 	HTMLDivElement,
 	CookieBannerContentProps
 >(({ asChild, children, className, style, ...props }, ref) => {
-	const { showPopup } = useCookieBannerContext();
-	const Comp = asChild ? Slot : "div";
+	const { showPopup, disableAnimation } = useCookieBannerContext();
 
 	/**
 	 * Apply styles from the CookieBanner context and merge with local styles.
 	 * Uses the 'content' style key for consistent theming.
 	 */
 	const contentStyle = useStyles({
-		baseClassName: "cookie-banner-content",
+		baseClassName:
+			"fixed inset-x-0 bottom-0 z-50 flex items-center justify-center p-4",
 		componentStyle: className,
 		styleKey: "content",
 	});
@@ -110,23 +111,32 @@ export const CookieBannerContent = forwardRef<
 	// Only render when the banner should be shown
 	return showPopup
 		? createPortal(
-				<AnimatePresence>
-					<motion.div
-						initial={{ opacity: 0, y: 50 }}
-						animate={{ opacity: 1, y: 0 }}
-						exit={{ opacity: 0, y: 50 }}
-						transition={{ type: "spring", stiffness: 300, damping: 30 }}
-					>
-						<Comp
+				<>
+					<Overlay />
+					{disableAnimation ? (
+						<div
 							ref={ref}
 							{...contentStyle}
 							style={{ ...style, ...contentStyle.style }}
 							{...props}
 						>
 							{children}
-						</Comp>
-					</motion.div>
-				</AnimatePresence>,
+						</div>
+					) : (
+						<AnimatePresence>
+							<motion.div
+								initial={{ opacity: 0, y: 50 }}
+								animate={{ opacity: 1, y: 0 }}
+								exit={{ opacity: 0, y: 50 }}
+								transition={{ type: "spring", stiffness: 300, damping: 30 }}
+								{...contentStyle}
+								style={{ ...style, ...contentStyle.style }}
+							>
+								{children}
+							</motion.div>
+						</AnimatePresence>
+					)}
+				</>,
 				document.body,
 			)
 		: null;

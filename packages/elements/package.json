@@ -25,7 +25,9 @@
 			}
 		}
 	},
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"publishConfig": {
 		"access": "public"
 	},
@@ -35,10 +37,17 @@
 		"dev": "tsup --watch",
 		"typecheck": "tsc --noEmit"
 	},
-	"browserslist": [">0.2%", "not dead", "not op_mini all"],
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not op_mini all"
+	],
 	"devDependencies": {
+		"@types/node": "22.10.7",
 		"@types/react": "^19.0.7",
 		"@types/react-dom": "^19.0.3",
+		"postcss": "^8.5.1",
+		"tailwindcss": "^3.4.17",
 		"tsup": "^8.3.5",
 		"typescript": "^5.7.3"
 	},
@@ -48,6 +57,7 @@
 	},
 	"dependencies": {
 		"@koroflow/core-js": "0.0.1-beta.3",
+		"@koroflow/tailwindcss-transformer": "workspace:*",
 		"@radix-ui/react-accordion": "1.2.2",
 		"@radix-ui/react-slot": "1.1.1",
 		"@radix-ui/react-switch": "1.1.2",

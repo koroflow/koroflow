@@ -5,22 +5,57 @@ import CookieBanner, {
 } from "@koroflow/elements/cookie-banner";
 
 export default function PrivacyConsentPage() {
-	const customStyles: CookieBannerStyles = {
-		root: "fixed bottom-0 left-0 right-0 z-50",
-		content: "bg-gray-800 text-white p-4 md:p-6",
-		title: "text-xl font-bold mb-2",
-		description: "text-sm mb-4",
-		actions: "flex justify-end space-x-2",
-		rejectButton: "px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700",
-		customizeButton:
-			"px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600",
-		acceptButton:
-			"px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600",
-	};
+	// const customStyles: CookieBannerStyles = {
+	// 	root: {
+	// 		style: { position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 50 },
+	// 	},
+	// 	content: {
+	// 		style: { backgroundColor: "#1a202c", color: "white", padding: "1rem" },
+	// 		className: "rounded-lg shadow-lg",
+	// 	},
+	// 	title: {
+	// 		style: {
+	// 			fontSize: "1.25rem",
+	// 			fontWeight: "bold",
+	// 			marginBottom: "0.5rem",
+	// 		},
+	// 	},
+	// 	description: { style: { fontSize: "0.875rem", marginBottom: "1rem" } },
+	// 	actions: {
+	// 		style: { display: "flex", justifyContent: "flex-end", gap: "0.5rem" },
+	// 	},
+	// 	rejectButton: {
+	// 		style: {
+	// 			padding: "0.5rem 1rem",
+	// 			backgroundColor: "#4a5568",
+	// 			color: "white",
+	// 			borderRadius: "0.25rem",
+	// 		},
+	// 		className: "hover:bg-gray-700 transition-colors",
+	// 	},
+	// 	customizeButton: {
+	// 		style: {
+	// 			padding: "0.5rem 1rem",
+	// 			backgroundColor: "#3182ce",
+	// 			color: "white",
+	// 			borderRadius: "0.25rem",
+	// 		},
+	// 		className: "hover:bg-blue-600 transition-colors",
+	// 	},
+	// 	acceptButton: {
+	// 		style: {
+	// 			padding: "0.5rem 1rem",
+	// 			backgroundColor: "#38a169",
+	// 			color: "white",
+	// 			borderRadius: "0.25rem",
+	// 		},
+	// 		className: "hover:bg-green-600 transition-colors",
+	// 	},
+	// };
 
 	return (
 		<main className="container py-10">
-			<ConsentManagerProvider
+			<ConsentManagerProvider 
 				initialGdprTypes={[
 					"necessary",
 					"marketing",
@@ -44,8 +79,7 @@ export default function PrivacyConsentPage() {
 						Explore our privacy consent management tools
 					</p>
 				</div>
-				<CookieBanner styles={customStyles} />
-				{/* <ConsentCustomizationDialog /> */}
+				<CookieBanner />
 				<KoroflowDevTool />
 			</ConsentManagerProvider>
 		</main>
