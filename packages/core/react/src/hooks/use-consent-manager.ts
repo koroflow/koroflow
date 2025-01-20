@@ -4,7 +4,7 @@ import type {
 	createConsentManagerStore,
 } from "@koroflow/core-js";
 import { useContext } from "react";
-import { ConsentStateContext } from "../privacy-consent-widget";
+import { ConsentStateContext } from "../consent-Manager";
 
 /**
  * A custom React hook that provides access to the privacy consent state and methods.

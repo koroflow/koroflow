@@ -1,8 +1,7 @@
-import { ConsentManagerProvider } from "@koroflow/core-react";
+import { ConsentManagerProvider, ConsentCustomizationDialog, CookieBanner} from "@koroflow/core-react";
 
 import { Button } from "@/components/ui/button";
-import { ConsentCustomizationDialog } from "@/registry/default/components/consent/consent-customization-dialog";
-import { CookieBanner } from "@/registry/default/components/consent/cookie-banner";
+
 import KoroflowDevTool from "@koroflow/dev-tools";
 
 export default function PrivacyConsentPage() {
