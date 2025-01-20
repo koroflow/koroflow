@@ -99,7 +99,6 @@ const config = {
 				warning: {
 					DEFAULT: "hsl(var(--kf-color-warning))",
 				},
-                
 			},
 			ringWidth: {
 				DEFAULT: "0.1875rem",
@@ -128,6 +127,7 @@ const config = {
 		},
 	},
 	plugins: [
+		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 		plugin(({ addBase, addVariant, theme }: any) => {
 			/**
 			 * Extends Tailwind's built-in `addBase` function by scoping styles to

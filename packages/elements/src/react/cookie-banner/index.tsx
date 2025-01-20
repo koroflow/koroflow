@@ -7,9 +7,11 @@
 import {
 	CookieBannerAcceptButton,
 	CookieBannerActions,
+	CookieBannerActionsSubGroup,
 	CookieBannerCustomizeButton,
 	CookieBannerRejectButton,
 } from "./atoms/actions";
+import { CookieBannerCard } from "./atoms/card";
 import { CookieBannerContent } from "./atoms/content";
 import { CookieBannerDescription } from "./atoms/description";
 import { CookieBannerRoot } from "./atoms/root";
@@ -75,6 +77,8 @@ EnhancedCookieBanner.Actions = CookieBannerActions;
 EnhancedCookieBanner.RejectButton = CookieBannerRejectButton;
 EnhancedCookieBanner.AcceptButton = CookieBannerAcceptButton;
 EnhancedCookieBanner.CustomizeButton = CookieBannerCustomizeButton;
+EnhancedCookieBanner.ActionsSubGroup = CookieBannerActionsSubGroup;
+EnhancedCookieBanner.Card = CookieBannerCard;
 
 export {
 	EnhancedCookieBanner as default,

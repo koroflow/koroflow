@@ -55,7 +55,7 @@ export default function PrivacyConsentPage() {
 
 	return (
 		<main className="container py-10">
-			<ConsentManagerProvider 
+			<ConsentManagerProvider
 				initialGdprTypes={[
 					"necessary",
 					"marketing",

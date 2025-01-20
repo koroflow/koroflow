@@ -36,4 +36,4 @@ export const CookieBannerRoot: FC<CookieBannerRootProps> = ({
 			{children}
 		</CookieBannerContext.Provider>
 	);
-}; 
+};

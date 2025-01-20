@@ -1,9 +1,11 @@
+import fs from "node:fs";
+import path from "node:path";
+import {
+	generateStylesheet,
+	transform,
+} from "@koroflow/tailwindcss-transformer";
 import { type Options, defineConfig } from "tsup";
 import { name, version } from "./package.json";
-import { generateStylesheet, transform } from '@koroflow/tailwindcss-transformer';
-import fs from 'node:fs';
-import path from 'node:path';
-
 
 export const runAfterLast =
 	(commands: (false | string)[]) =>
@@ -18,33 +20,30 @@ export const runAfterLast =
 		];
 	};
 
-
-	const tailwindcssTransformerCode = {
-		name: 'tailwindcss-transformer-code',
-		setup(build) {
-		  const outDir = path.join(process.cwd(), build.initialOptions.outdir);
-		  const styleCache = new Map();
-		  build.onLoad({ filter: /.*/ }, async args => {
-			const code = await fs.promises.readFile(args.path, 'utf8');
+const tailwindcssTransformerCode = {
+	name: "tailwindcss-transformer-code",
+	setup(build) {
+		const outDir = path.join(process.cwd(), build.initialOptions.outdir);
+		const styleCache = new Map();
+		build.onLoad({ filter: /.*/ }, async (args) => {
+			const code = await fs.promises.readFile(args.path, "utf8");
 			const transformedCode = transform(code, { styleCache });
 			return {
-			  contents: transformedCode,
-			  resolveDir: path.dirname(args.path),
-			  loader: 'tsx',
+				contents: transformedCode,
+				resolveDir: path.dirname(args.path),
+				loader: "tsx",
 			};
-		  });
-	  
-		  build.onEnd(async () => {
+		});
+
+		build.onEnd(async () => {
 			const styleSheet = await generateStylesheet(styleCache, {
-			  tailwindConfig: path.join(process.cwd(), 'src', 'tailwind.config.ts'),
+				tailwindConfig: path.join(process.cwd(), "src", "tailwind.config.ts"),
 			});
 			await fs.promises.mkdir(outDir, { recursive: true });
-			await fs.promises.writeFile(path.join(outDir, 'styles.css'), styleSheet);
-		  });
-		},
-	  };
-	  
-
+			await fs.promises.writeFile(path.join(outDir, "styles.css"), styleSheet);
+		});
+	},
+};
 
 export default defineConfig((overrideOptions) => {
 	const isProd = overrideOptions.env?.NODE_ENV === "production";

@@ -1,43 +1,41 @@
 {
-  "name": "@koroflow/tailwindcss-transformer",
-  "version": "0.1.1",
-  "private": true,
-  "license": "MIT",
-  "author": {
-    "name": "Clerk, Inc.",
-    "email": "support@clerk.com",
-    "url": "git+https://github.com/clerk/javascript.git"
-  },
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      }
-    }
-  },
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "test": "jest"
-  },
-  "dependencies": {
-    "@babel/parser": "^7.26.5",
-    "cssnano": "7.0.6",
-    "postcss": "^8.5.1",
-    "postcss-value-parser": "^4.2.0",
-    "recast": "^0.23.9",
-    "tailwindcss": "^3.4.17"
-  },
-  "devDependencies": {
-    "@types/node": "22.10.7",
-    "tsup": "^8.3.5"
-  }
+	"name": "@koroflow/tailwindcss-transformer",
+	"version": "0.1.1",
+	"private": true,
+	"license": "MIT",
+	"author": {
+		"name": "Clerk, Inc.",
+		"email": "support@clerk.com",
+		"url": "git+https://github.com/clerk/javascript.git"
+	},
+	"exports": {
+		".": {
+			"import": {
+				"types": "./dist/index.d.mts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			}
+		}
+	},
+	"files": ["dist"],
+	"scripts": {
+		"build": "tsup",
+		"dev": "tsup --watch",
+		"test": "jest"
+	},
+	"dependencies": {
+		"@babel/parser": "^7.26.5",
+		"cssnano": "7.0.6",
+		"postcss": "^8.5.1",
+		"postcss-value-parser": "^4.2.0",
+		"recast": "^0.23.9",
+		"tailwindcss": "^3.4.17"
+	},
+	"devDependencies": {
+		"@types/node": "22.10.7",
+		"tsup": "^8.3.5"
+	}
 }

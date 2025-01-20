@@ -25,9 +25,7 @@
 			}
 		}
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"publishConfig": {
 		"access": "public"
 	},
@@ -37,11 +35,7 @@
 		"dev": "tsup --watch",
 		"typecheck": "tsc --noEmit"
 	},
-	"browserslist": [
-		">0.2%",
-		"not dead",
-		"not op_mini all"
-	],
+	"browserslist": [">0.2%", "not dead", "not op_mini all"],
 	"devDependencies": {
 		"@types/node": "22.10.7",
 		"@types/react": "^19.0.7",

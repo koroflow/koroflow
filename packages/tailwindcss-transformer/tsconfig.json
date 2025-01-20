@@ -1,28 +1,28 @@
 {
-    "compilerOptions": {
-      "allowJs": true,
-      "baseUrl": ".",
-      "declaration": true,
-      "declarationMap": true,
-      "esModuleInterop": true,
-      "importHelpers": true,
-      "isolatedModules": true,
-      "lib": ["es2021.intl", "dom", "ESNext"],
-      "module": "NodeNext",
-      "moduleResolution": "NodeNext",
-      "noImplicitReturns": true,
-      "noUnusedLocals": true,
-      "noUnusedParameters": true,
-      "outDir": "dist",
-      "resolveJsonModule": true,
-      "skipLibCheck": true,
-      "sourceMap": false,
-      "strict": true,
-      "target": "ESNext",
-      "types": ["node"],
-      "paths": {
-        "~/*": ["src/*"]
-      }
-    },
-    "include": ["src"]
-  }
+	"compilerOptions": {
+		"allowJs": true,
+		"baseUrl": ".",
+		"declaration": true,
+		"declarationMap": true,
+		"esModuleInterop": true,
+		"importHelpers": true,
+		"isolatedModules": true,
+		"lib": ["es2021.intl", "dom", "ESNext"],
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"noImplicitReturns": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"outDir": "dist",
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"sourceMap": false,
+		"strict": true,
+		"target": "ESNext",
+		"types": ["node"],
+		"paths": {
+			"~/*": ["src/*"]
+		}
+	},
+	"include": ["src"]
+}

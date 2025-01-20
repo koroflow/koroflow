@@ -4,9 +4,11 @@ import type { FC, ReactNode } from "react";
 import {
 	CookieBannerAcceptButton,
 	CookieBannerActions,
+	CookieBannerActionsSubGroup,
 	CookieBannerCustomizeButton,
 	CookieBannerRejectButton,
 } from "./atoms/actions";
+import { CookieBannerCard } from "./atoms/card";
 import { CookieBannerContent } from "./atoms/content";
 import { CookieBannerDescription } from "./atoms/description";
 import { CookieBannerRoot } from "./atoms/root";
@@ -62,6 +64,10 @@ export interface CookieBannerComponent extends FC<CookieBannerProps> {
 	AcceptButton: typeof CookieBannerAcceptButton;
 	/** Customize button component */
 	CustomizeButton: typeof CookieBannerCustomizeButton;
+	/** Card component */
+	Card: typeof CookieBannerCard;
+	/** Actions sub group component */
+	ActionsSubGroup: typeof CookieBannerActionsSubGroup;
 }
 
 /**
@@ -133,21 +139,25 @@ const CookieBanner: FC<CookieBannerProps> = ({
 			fallback={<div>Something went wrong with the Cookie Banner.</div>}
 		>
 			<CookieBannerRoot styles={styles} noStyle={noStyle}>
-				<CookieBannerContent>
-					<CookieBannerTitle>{title}</CookieBannerTitle>
-					<CookieBannerDescription>{description}</CookieBannerDescription>
+				<CookieBannerCard>
+					<CookieBannerContent>
+						<CookieBannerTitle>{title}</CookieBannerTitle>
+						<CookieBannerDescription>{description}</CookieBannerDescription>
+					</CookieBannerContent>
 					<CookieBannerActions>
-						<CookieBannerRejectButton>
-							{rejectButtonText}
-						</CookieBannerRejectButton>
-						<CookieBannerCustomizeButton>
-							{customizeButtonText}
-						</CookieBannerCustomizeButton>
+						<CookieBannerActionsSubGroup>
+							<CookieBannerRejectButton>
+								{rejectButtonText}
+							</CookieBannerRejectButton>
+							<CookieBannerCustomizeButton>
+								{customizeButtonText}
+							</CookieBannerCustomizeButton>
+						</CookieBannerActionsSubGroup>
 						<CookieBannerAcceptButton>
 							{acceptButtonText}
 						</CookieBannerAcceptButton>
 					</CookieBannerActions>
-				</CookieBannerContent>
+				</CookieBannerCard>
 			</CookieBannerRoot>
 		</ErrorBoundary>
 	);

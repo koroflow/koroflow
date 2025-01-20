@@ -45,7 +45,8 @@ export const CookieBannerActions = forwardRef<
 	CookieBannerActionsProps
 >(({ asChild, className, style, ...props }, ref) => {
 	const actionsStyle = useStyles({
-		baseClassName: "cookie-banner-actions",
+		baseClassName:
+			"items-center flex flex-col sm:flex-row justify-between gap-4 p-4 sm:p-6",
 		componentStyle: className,
 		styleKey: "actions",
 	});
@@ -63,6 +64,65 @@ export const CookieBannerActions = forwardRef<
 });
 
 CookieBannerActions.displayName = "CookieBannerActions";
+
+type CookieBannerActionsSubGroupElement = ComponentRef<"div">;
+
+/**
+ * Props for the actions container component of the CookieBanner.
+ *
+ * @public
+ */
+interface CookieBannerActionsSubGroupProps
+	extends HTMLAttributes<HTMLDivElement> {
+	/**
+	 * @remarks
+	 * When true, the component will render its children directly without wrapping them in a DOM element.
+	 * This enables better composition with other components.
+	 */
+	asChild?: boolean;
+}
+
+/**
+ * Container component for CookieBanner action buttons.
+ *
+ * @remarks
+ * This component provides the layout container for the cookie banner's action buttons
+ * (accept, reject, customize). It handles proper spacing and alignment of the buttons.
+ *
+ * @example
+ * ```tsx
+ * <CookieBannerActions>
+ *   <CookieBannerRejectButton>Reject</CookieBannerRejectButton>
+ *   <CookieBannerCustomizeButton>Customize</CookieBannerCustomizeButton>
+ *   <CookieBannerAcceptButton>Accept</CookieBannerAcceptButton>
+ * </CookieBannerActions>
+ * ```
+ *
+ * @public
+ */
+export const CookieBannerActionsSubGroup = forwardRef<
+	CookieBannerActionsSubGroupElement,
+	CookieBannerActionsSubGroupProps
+>(({ asChild, className, style, ...props }, ref) => {
+	const actionsStyle = useStyles({
+		baseClassName: "space-x-4",
+		componentStyle: className,
+		styleKey: "actions",
+	});
+
+	const Comp = asChild ? Slot : "div";
+
+	return (
+		<Comp
+			ref={ref}
+			{...actionsStyle}
+			style={{ ...style, ...actionsStyle.style }}
+			{...props}
+		/>
+	);
+});
+
+CookieBannerActionsSubGroup.displayName = "CookieBannerActionsSubGroup";
 
 type CookieBannerButtonElement = ComponentRef<"button">;
 
@@ -101,6 +161,8 @@ export const CookieBannerRejectButton = forwardRef<
 >(({ asChild, className, style, ...props }, ref) => {
 	const { setShowPopup, saveConsents } = useCookieBannerContext();
 	const buttonStyle = useStyles({
+		baseClassName:
+			"inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 w-full sm:w-auto",
 		componentStyle: className,
 		styleKey: "rejectButton",
 	});
@@ -149,6 +211,8 @@ export const CookieBannerAcceptButton = forwardRef<
 >(({ asChild, className, style, ...props }, ref) => {
 	const { setShowPopup, saveConsents } = useCookieBannerContext();
 	const buttonStyle = useStyles({
+		baseClassName:
+			"inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3 w-full sm:w-auto",
 		componentStyle: className,
 		styleKey: "acceptButton",
 	});
@@ -199,6 +263,8 @@ export const CookieBannerCustomizeButton = forwardRef<
 	const { setIsPrivacyDialogOpen } = useCookieBannerContext();
 	const Comp = asChild ? Slot : "button";
 	const buttonStyle = useStyles({
+		baseClassName:
+			"inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 w-full sm:w-auto",
 		componentStyle: className,
 		styleKey: "customizeButton",
 	});

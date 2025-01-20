@@ -1,24 +1,24 @@
 {
-    "extends": ["//"],
-    "tasks": {
-      "test": {
-        "dependsOn": ["^build"],
-        "inputs": [
-          "*.d.ts",
-          "jest.*",
-          "src/**",
-          "tests/**",
-          "tsconfig.json",
-          "tsconfig.*.json",
-          "tsup.config.ts",
-          "!**/__snapshots__/**",
-          "!CHANGELOG.md",
-          "!coverage/**",
-          "!dist/**",
-          "!node_modules/**"
-        ],
-        "outputLogs": "new-only",
-        "outputs": []
-      }
-    }
-  }
+	"extends": ["//"],
+	"tasks": {
+		"test": {
+			"dependsOn": ["^build"],
+			"inputs": [
+				"*.d.ts",
+				"jest.*",
+				"src/**",
+				"tests/**",
+				"tsconfig.json",
+				"tsconfig.*.json",
+				"tsup.config.ts",
+				"!**/__snapshots__/**",
+				"!CHANGELOG.md",
+				"!coverage/**",
+				"!dist/**",
+				"!node_modules/**"
+			],
+			"outputLogs": "new-only",
+			"outputs": []
+		}
+	}
+}

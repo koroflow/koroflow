@@ -5,14 +5,14 @@ import { type HTMLAttributes, forwardRef } from "react";
 import type { ComponentRef } from "react";
 import { useStyles } from "../hooks/use-styles";
 
-type CookieBannerContentElement = ComponentRef<"div">;
+type CookieBannerCardElement = ComponentRef<"div">;
 
 /**
  * Props for the actions container component of the CookieBanner.
  *
  * @public
  */
-interface CookieBannerContentProps extends HTMLAttributes<HTMLDivElement> {
+interface CookieBannerCardProps extends HTMLAttributes<HTMLDivElement> {
 	/**
 	 * @remarks
 	 * When true, the component will render its children directly without wrapping them in a DOM element.
@@ -30,21 +30,22 @@ interface CookieBannerContentProps extends HTMLAttributes<HTMLDivElement> {
  *
  * @example
  * ```tsx
- * <CookieBannerContent>
+ * <CookieBannerCard>
  *   <CookieBannerRejectButton>Reject</CookieBannerRejectButton>
  *   <CookieBannerCustomizeButton>Customize</CookieBannerCustomizeButton>
  *   <CookieBannerAcceptButton>Accept</CookieBannerAcceptButton>
- * </CookieBannerContent>
+ * </CookieBannerCard>
  * ```
  *
  * @public
  */
-export const CookieBannerContent = forwardRef<
-	CookieBannerContentElement,
-	CookieBannerContentProps
+export const CookieBannerCard = forwardRef<
+	CookieBannerCardElement,
+	CookieBannerCardProps
 >(({ asChild, className, style, ...props }, ref) => {
 	const actionsStyle = useStyles({
-		baseClassName: "flex flex-col space-y-2 px-4 sm:px-6 pt-4 sm:pt-6",
+		baseClassName:
+			"rounded-xl border bg-card text-card-foreground shadow w-full max-w-md",
 		componentStyle: className,
 		styleKey: "actions",
 	});
@@ -61,4 +62,4 @@ export const CookieBannerContent = forwardRef<
 	);
 });
 
-CookieBannerContent.displayName = "CookieBannerContent";
+CookieBannerCard.displayName = "CookieBannerCard";

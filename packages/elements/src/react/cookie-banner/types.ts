@@ -4,7 +4,7 @@ import type { CSSProperties } from "react";
  * Represents a class name string or undefined value.
  * @public
  */
-export type ClassName = string | undefined  | null;
+export type ClassName = string | undefined;
 
 /**
  * Represents a style configuration that can include both inline styles and class names.

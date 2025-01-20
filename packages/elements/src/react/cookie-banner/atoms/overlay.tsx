@@ -19,9 +19,9 @@ import type { StyleValue } from "../types";
  * @public
  */
 interface OverlayProps {
-	/** 
+	/**
 	 * Custom styles to override default overlay styling.
-	 * 
+	 *
 	 * @remarks
 	 * Can be either a string class name or an object with className and style properties.
 	 * These styles will be merged with the theme styles and default styles.
@@ -38,7 +38,7 @@ interface OverlayProps {
  * - Fade in/out animations (when animations are enabled)
  * - Proper z-indexing for modal behavior
  * - Theme-based styling
- * 
+ *
  * The overlay visibility is controlled by the `showPopup` state from CookieBanner context,
  * and its animation behavior is controlled by the `disableAnimation` flag.
  *
@@ -47,7 +47,7 @@ interface OverlayProps {
 export const Overlay: FC<OverlayProps> = ({ style }) => {
 	const { disableAnimation, showPopup } = useCookieBannerContext();
 	const { className, style: overlayStyle } = useStyles({
-		baseClassName: "fixed inset-0 bg-black/50 z-40",
+		baseClassName: "fixed inset-0 bg-black/50 z-[999999998]",
 		componentStyle: style,
 		styleKey: "overlay",
 	});
