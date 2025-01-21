@@ -1,4 +1,4 @@
-import { cn } from "../../libs/utils";
+import { cn } from "../../common/libs/cn";
 import type { StyleResult, StyleValue } from "../types";
 
 /**

@@ -3,14 +3,13 @@
 import type { FC, ReactNode } from "react";
 import {
 	CookieBannerAcceptButton,
-	CookieBannerActions,
-	CookieBannerActionsSubGroup,
 	CookieBannerCustomizeButton,
 	CookieBannerRejectButton,
 } from "./atoms/actions";
 import { CookieBannerCard } from "./atoms/card";
-import { CookieBannerContent } from "./atoms/content";
+import { CookieBannerHeader } from "./atoms/content";
 import { CookieBannerDescription } from "./atoms/description";
+import { CookieBannerFooter, CookieBannerFooterSubGroup } from "./atoms/footer";
 import { CookieBannerRoot } from "./atoms/root";
 import { CookieBannerTitle } from "./atoms/title";
 import { ErrorBoundary } from "./error-boundary";
@@ -51,13 +50,13 @@ export interface CookieBannerComponent extends FC<CookieBannerProps> {
 	/** Root container component */
 	Root: typeof CookieBannerRoot;
 	/** Content wrapper component */
-	Content: typeof CookieBannerContent;
+	Header: typeof CookieBannerHeader;
 	/** Title component */
 	Title: typeof CookieBannerTitle;
 	/** Description component */
 	Description: typeof CookieBannerDescription;
 	/** Actions container component */
-	Actions: typeof CookieBannerActions;
+	Footer: typeof CookieBannerFooter;
 	/** Reject button component */
 	RejectButton: typeof CookieBannerRejectButton;
 	/** Accept button component */
@@ -67,7 +66,7 @@ export interface CookieBannerComponent extends FC<CookieBannerProps> {
 	/** Card component */
 	Card: typeof CookieBannerCard;
 	/** Actions sub group component */
-	ActionsSubGroup: typeof CookieBannerActionsSubGroup;
+	FooterSubGroup: typeof CookieBannerFooterSubGroup;
 }
 
 /**
@@ -140,23 +139,23 @@ const CookieBanner: FC<CookieBannerProps> = ({
 		>
 			<CookieBannerRoot styles={styles} noStyle={noStyle}>
 				<CookieBannerCard>
-					<CookieBannerContent>
+					<CookieBannerHeader>
 						<CookieBannerTitle>{title}</CookieBannerTitle>
 						<CookieBannerDescription>{description}</CookieBannerDescription>
-					</CookieBannerContent>
-					<CookieBannerActions>
-						<CookieBannerActionsSubGroup>
+					</CookieBannerHeader>
+					<CookieBannerFooter>
+						<CookieBannerFooterSubGroup>
 							<CookieBannerRejectButton>
 								{rejectButtonText}
 							</CookieBannerRejectButton>
 							<CookieBannerCustomizeButton>
 								{customizeButtonText}
 							</CookieBannerCustomizeButton>
-						</CookieBannerActionsSubGroup>
+						</CookieBannerFooterSubGroup>
 						<CookieBannerAcceptButton>
 							{acceptButtonText}
 						</CookieBannerAcceptButton>
-					</CookieBannerActions>
+					</CookieBannerFooter>
 				</CookieBannerCard>
 			</CookieBannerRoot>
 		</ErrorBoundary>

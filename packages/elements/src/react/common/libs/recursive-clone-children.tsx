@@ -13,14 +13,14 @@ import * as React from "react";
  */
 export function recursiveCloneChildren(
 	children: React.ReactNode,
-	additionalProps: any,
+	additionalProps: Record<string, unknown>,
 	displayNames: string[],
 	uniqueId: string,
 	asChild?: boolean,
 ): React.ReactNode | React.ReactNode[] {
 	const mappedChildren = React.Children.map(
 		children,
-		(child: React.ReactNode, index) => {
+		(child: React.ReactNode) => {
 			if (!React.isValidElement(child)) {
 				return child;
 			}
@@ -31,17 +31,18 @@ export function recursiveCloneChildren(
 				? additionalProps
 				: {};
 
-			const childProps = (child as React.ReactElement<any>).props;
+			const childProps = (child as React.ReactElement<Record<string, unknown>>)
+				.props;
 
 			return React.cloneElement(
 				child,
-				{ ...newProps, key: `${uniqueId}-${index}` },
+				{ ...newProps, key: `${uniqueId}-${child.key || displayName}` },
 				recursiveCloneChildren(
-					childProps?.children,
+					childProps?.children as React.ReactNode,
 					additionalProps,
 					displayNames,
 					uniqueId,
-					childProps?.asChild,
+					childProps?.asChild as boolean | undefined,
 				),
 			);
 		},

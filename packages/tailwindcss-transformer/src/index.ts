@@ -91,7 +91,6 @@ function transformBaseClassName(
 		node.value.type === "StringLiteral"
 	) {
 		const value = node.value.value;
-		console.log(value);
 		const cn = generateHashedClassName(value);
 		ctx.styleCache.set(cn, value);
 		node.value.value = cn;

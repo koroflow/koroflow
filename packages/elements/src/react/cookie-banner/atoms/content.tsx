@@ -30,16 +30,16 @@ interface CookieBannerContentProps extends HTMLAttributes<HTMLDivElement> {
  *
  * @example
  * ```tsx
- * <CookieBannerContent>
+ * <CookieBannerHeader>
  *   <CookieBannerRejectButton>Reject</CookieBannerRejectButton>
  *   <CookieBannerCustomizeButton>Customize</CookieBannerCustomizeButton>
  *   <CookieBannerAcceptButton>Accept</CookieBannerAcceptButton>
- * </CookieBannerContent>
+ * </CookieBannerHeader>
  * ```
  *
  * @public
  */
-export const CookieBannerContent = forwardRef<
+export const CookieBannerHeader = forwardRef<
 	CookieBannerContentElement,
 	CookieBannerContentProps
 >(({ asChild, className, style, ...props }, ref) => {
@@ -62,4 +62,4 @@ export const CookieBannerContent = forwardRef<
 	);
 });
 
-CookieBannerContent.displayName = "CookieBannerContent";
+CookieBannerHeader.displayName = "CookieBannerHeader";

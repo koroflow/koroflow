@@ -7,14 +7,13 @@
  */
 import {
 	CookieBannerAcceptButton,
-	CookieBannerActions,
-	CookieBannerActionsSubGroup,
 	CookieBannerCustomizeButton,
 	CookieBannerRejectButton,
 } from "./atoms/actions";
 import { CookieBannerCard } from "./atoms/card";
-import { CookieBannerContent } from "./atoms/content";
+import { CookieBannerHeader } from "./atoms/content";
 import { CookieBannerDescription } from "./atoms/description";
+import { CookieBannerFooter, CookieBannerFooterSubGroup } from "./atoms/footer";
 import { CookieBannerRoot } from "./atoms/root";
 import { CookieBannerTitle } from "./atoms/title";
 import CookieBanner, {
@@ -71,28 +70,28 @@ import type { CookieBannerStyles } from "./types";
  */
 const EnhancedCookieBanner = CookieBanner as CookieBannerComponent;
 EnhancedCookieBanner.Root = CookieBannerRoot;
-EnhancedCookieBanner.Content = CookieBannerContent;
+EnhancedCookieBanner.Header = CookieBannerHeader;
 EnhancedCookieBanner.Title = CookieBannerTitle;
 EnhancedCookieBanner.Description = CookieBannerDescription;
-EnhancedCookieBanner.Actions = CookieBannerActions;
+EnhancedCookieBanner.Footer = CookieBannerFooter;
 EnhancedCookieBanner.RejectButton = CookieBannerRejectButton;
 EnhancedCookieBanner.AcceptButton = CookieBannerAcceptButton;
 EnhancedCookieBanner.CustomizeButton = CookieBannerCustomizeButton;
-EnhancedCookieBanner.ActionsSubGroup = CookieBannerActionsSubGroup;
+EnhancedCookieBanner.FooterSubGroup = CookieBannerFooterSubGroup;
 EnhancedCookieBanner.Card = CookieBannerCard;
 
 export {
 	EnhancedCookieBanner as default,
 	CookieBannerRoot,
-	CookieBannerContent,
+	CookieBannerHeader,
 	CookieBannerDescription,
-	CookieBannerActions,
+	CookieBannerFooter,
 	CookieBannerRejectButton,
 	CookieBannerAcceptButton,
 	CookieBannerCustomizeButton,
 	CookieBannerTitle,
 	CookieBannerCard,
-	CookieBannerActionsSubGroup,
+	CookieBannerFooterSubGroup,
 };
 
 /**

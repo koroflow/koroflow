@@ -7,7 +7,7 @@ import {
 	type ComponentRef,
 	forwardRef,
 } from "react";
-import { cn } from "../../libs/utils";
+import { cn } from "../libs/cn";
 
 const Switch = forwardRef<
 	ComponentRef<typeof SwitchPrimitives.Root>,
