@@ -1,39 +1,15 @@
 "use client";
 import { type CSSProperties, useMemo } from "react";
+import { cnExt } from "../../common/libs/cn";
 import { useCookieBannerContext } from "../context";
 import type { ClassName, ClassNameStyle, StyleKey, StyleValue } from "../types";
 
-/**
- * Configuration options for the useStyles hook.
- *
- * @remarks
- * This interface defines the configuration options that control how styles
- * are merged and applied to components within the CookieBanner.
- *
- * @public
- */
-interface UseStylesProps {
-	/**
-	 * @remarks
-	 * Base class name that will be applied before any other styles.
-	 * Useful for setting default styling that can be overridden.
-	 */
-	baseClassName?: ClassName;
-
-	/**
-	 * @remarks
-	 * Component-specific styles that take precedence over context styles.
-	 * Can be either a string class name or an object with className and style properties.
-	 */
-	componentStyle?: StyleValue;
-
-	/**
-	 * @remarks
-	 * Key to access specific styles from the CookieBanner context.
-	 * Maps to the corresponding key in CookieBannerStyles.
-	 */
+// Define the UseStylesProps type
+type UseStylesProps = {
+	baseClassName?: string;
+	componentStyle?: ClassNameStyle | string;
 	styleKey?: StyleKey;
-}
+};
 
 /**
  * Custom hook for managing styles within the CookieBanner component system.
@@ -114,6 +90,13 @@ export function useStyles({
 			style = mergedStyle.style;
 		}
 
+		// Use cnExt to merge class names
+		className = cnExt(
+			className,
+			typeof componentStyle === "object" ? componentStyle.className : undefined,
+			typeof contextStyle === "object" ? contextStyle?.className : undefined,
+		);
+
 		return {
 			className: className || undefined,
 			style: style || undefined,
@@ -158,44 +141,19 @@ export function useStyles({
  *
  * @internal
  */
-function mergeStyles(
-	style1: StyleValue,
-	style2: StyleValue,
-	baseClassName?: string | null,
-) {
-	if (typeof style1 === "string" && typeof style2 === "string") {
-		return {
-			className:
-				`${baseClassName || ""} ${style1} ${style2}`.trim() || undefined,
-		};
-	}
+function mergeStyles(style1: StyleValue, style2: StyleValue) {
+	const className = cnExt(
+		typeof style1 === "string" ? style1 : style1?.className,
+		typeof style2 === "string" ? style2 : style2?.className,
+	);
 
-	const base: ClassNameStyle = {
-		className: baseClassName || undefined,
-		style: {},
+	const style = {
+		...(typeof style1 === "object" && style1?.style),
+		...(typeof style2 === "object" && style2?.style),
 	};
-
-	const applyStyle = (style: StyleValue) => {
-		if (typeof style === "string") {
-			base.className = base.className
-				? `${base.className} ${style}`.trim()
-				: style;
-		} else if (style) {
-			base.className = base.className
-				? `${base.className} ${style.className || ""}`.trim()
-				: style.className;
-			if (style.style) {
-				base.style = { ...base.style, ...style.style };
-			}
-		}
-	};
-
-	applyStyle(style1);
-	applyStyle(style2);
 
 	return {
-		className: base.className || undefined,
-		style:
-			base.style && Object.keys(base.style).length > 0 ? base.style : undefined,
+		className: className || undefined,
+		style: Object.keys(style).length > 0 ? style : undefined,
 	};
 }
