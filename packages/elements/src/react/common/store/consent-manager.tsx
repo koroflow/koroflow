@@ -15,7 +15,6 @@ import {
 	useMemo,
 	useState,
 } from "react";
-import { injectStyles } from "../../libs/inject-styles";
 /**
  * @packageDocumentation
  * Provides a React context-based consent management system for handling cookie and privacy preferences.
@@ -188,14 +187,11 @@ export function ConsentManagerProvider({
 			setState(newState);
 		});
 
-		// Inject styles unless noStyle is true
-		!!noStyle && injectStyles({ noStyle });
-
 		// Cleanup subscription on unmount
 		return () => {
 			unsubscribe();
 		};
-	}, [store, initialGdprTypes, initialComplianceSettings, noStyle]);
+	}, [store, initialGdprTypes, initialComplianceSettings]);
 
 	// Memoize the context value to prevent unnecessary re-renders
 	const contextValue = useMemo(

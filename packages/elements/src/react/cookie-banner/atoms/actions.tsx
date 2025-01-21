@@ -3,6 +3,7 @@
 import { Slot } from "@radix-ui/react-slot";
 import { type HTMLAttributes, forwardRef } from "react";
 import type { ComponentRef } from "react";
+import { buttonVariants } from "../../common/primitives/button";
 import { useCookieBannerContext } from "../context";
 import { useStyles } from "../hooks/use-styles";
 
@@ -46,7 +47,7 @@ export const CookieBannerActions = forwardRef<
 >(({ asChild, className, style, ...props }, ref) => {
 	const actionsStyle = useStyles({
 		baseClassName:
-			"items-center flex flex-col sm:flex-row justify-between gap-4 p-4 sm:p-6",
+			"flex items-center justify-between gap-3 px-5 py-4 bg-bg-weak-50",
 		componentStyle: className,
 		styleKey: "actions",
 	});
@@ -162,7 +163,7 @@ export const CookieBannerRejectButton = forwardRef<
 	const { setShowPopup, saveConsents } = useCookieBannerContext();
 	const buttonStyle = useStyles({
 		baseClassName:
-			"inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 w-full sm:w-auto",
+			"relative inline-flex items-center justify-center whitespace-nowrap outline-none transition duration-200 ease-out focus:outline-none disabled:pointer-events-none disabled:bg-bg-weak-50 disabled:text-text-disabled-300 disabled:ring-transparent ring-1 ring-inset h-10 gap-3 rounded-5 px-3.5 text-label-sm bg-bg-white-0 text-text-sub-600 shadow-regular-xs ring-stroke-sub-300 hover:bg-bg-soft-200 hover:text-text-strong-950 hover:shadow-none focus-visible:text-text-strong-950 focus-visible:shadow-button-important-focus focus-visible:ring-stroke-strong-950",
 		componentStyle: className,
 		styleKey: "rejectButton",
 	});
@@ -212,7 +213,7 @@ export const CookieBannerAcceptButton = forwardRef<
 	const { setShowPopup, saveConsents } = useCookieBannerContext();
 	const buttonStyle = useStyles({
 		baseClassName:
-			"inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3 w-full sm:w-auto",
+			"relative inline-flex items-center justify-center whitespace-nowrap outline-none transition duration-200 ease-out focus:outline-none disabled:pointer-events-none disabled:bg-bg-weak-50 disabled:text-text-disabled-300 disabled:ring-transparent h-10 gap-3 rounded-5 px-3.5 text-label-sm bg-primary-base text-static-white hover:bg-primary-darker focus-visible:shadow-button-primary-focus",
 		componentStyle: className,
 		styleKey: "acceptButton",
 	});
@@ -264,7 +265,7 @@ export const CookieBannerCustomizeButton = forwardRef<
 	const Comp = asChild ? Slot : "button";
 	const buttonStyle = useStyles({
 		baseClassName:
-			"inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 w-full sm:w-auto",
+			"relative inline-flex items-center justify-center whitespace-nowrap outline-none transition duration-200 ease-out focus:outline-none disabled:pointer-events-none disabled:bg-bg-weak-50 disabled:text-text-disabled-300 disabled:ring-transparent ring-1 ring-inset h-10 gap-3 rounded-5 px-3.5 text-label-sm bg-bg-white-0 text-text-sub-600 shadow-regular-xs ring-stroke-sub-300 hover:bg-bg-soft-200 hover:text-text-strong-950 hover:shadow-none focus-visible:text-text-strong-950 focus-visible:shadow-button-important-focus focus-visible:ring-stroke-strong-950",
 		componentStyle: className,
 		styleKey: "customizeButton",
 	});

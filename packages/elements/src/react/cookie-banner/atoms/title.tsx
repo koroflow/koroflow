@@ -63,7 +63,7 @@ export const CookieBannerTitle = forwardRef<
 	 * Uses the 'title' style key for consistent theming.
 	 */
 	const titleStyle = useStyles({
-		baseClassName: "font-semibold tracking-tight text-lg sm:text-xl",
+		baseClassName: "text-label-md text-text-strong-950",
 		componentStyle: className,
 		styleKey: "title",
 	});

@@ -85,7 +85,7 @@ interface CookieBannerRootProps extends HTMLAttributes<HTMLDivElement> {
  * ```tsx
  * <CookieBanner.Root
  *   styles={{
- *     root: "fixed bottom-0 w-full bg-white shadow-lg",
+ *     root: "fixed bottom-0 w-full bg-white ",
  *     content: "max-w-4xl mx-auto p-4",
  *     title: "text-xl font-bold",
  *     description: "mt-2 text-gray-600"
@@ -197,7 +197,8 @@ export const CookieBannerRootChildren = forwardRef<
 	 * Uses the 'content' style key for consistent theming.
 	 */
 	const contentStyle = useStyles({
-		baseClassName: "flex z-[999999999] flex-col space-y-2 p-4 sm:p-6",
+		baseClassName:
+			"flex z-[999999999] flex-col space-y-2 p-4 sm:p-6 fixed bottom-0 left-0",
 		componentStyle: className,
 		styleKey: "content",
 	});

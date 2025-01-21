@@ -66,7 +66,7 @@ interface ApplyStyleOptions {
  * const result = applyStyle({
  *   baseClassName: "card",
  *   styleValue: {
- *     className: "shadow-lg",
+ *     className: "",
  *     style: {
  *       backgroundColor: "#fff",
  *       borderRadius: "8px"
@@ -75,7 +75,7 @@ interface ApplyStyleOptions {
  *   defaultClassName: "p-4"
  * });
  * // => {
- * //   className: "card p-4 shadow-lg",
+ * //   className: "card p-4 ",
  * //   style: {
  * //     backgroundColor: "#fff",
  * //     borderRadius: "8px"

@@ -37,7 +37,7 @@ interface CookieBannerDescriptionProps extends HTMLAttributes<HTMLDivElement> {
  * With custom styling:
  * ```tsx
  * <CookieBanner.Description
- *   className="text-gray-600 text-sm"
+ *   className="text-gray-600"
  *   style={{ maxWidth: '500px' }}
  * >
  *   By using our site, you acknowledge that you have read and understand our
@@ -56,7 +56,7 @@ export const CookieBannerDescription = forwardRef<
 	 * Uses the 'description' style key for consistent theming.
 	 */
 	const descriptionStyle = useStyles({
-		baseClassName: "text-muted-foreground text-sm sm:text-base",
+		baseClassName: "text-paragraph-sm text-text-sub-600",
 		componentStyle: className,
 		styleKey: "description",
 	});

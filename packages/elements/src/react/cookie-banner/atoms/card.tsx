@@ -45,7 +45,7 @@ export const CookieBannerCard = forwardRef<
 >(({ asChild, className, style, ...props }, ref) => {
 	const actionsStyle = useStyles({
 		baseClassName:
-			"rounded-xl border bg-card text-card-foreground shadow w-full max-w-md",
+			"relative w-full rounded-10 bg-bg-white-0 rounded-20 overflow-hidden shadow-regular-md focus:outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 max-w-[440px]",
 		componentStyle: className,
 		styleKey: "actions",
 	});

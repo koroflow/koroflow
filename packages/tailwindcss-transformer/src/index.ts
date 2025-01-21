@@ -81,17 +81,44 @@ function visitNode(
 	});
 }
 
+function transformBaseClassName(
+	node: recast.types.namedTypes.ObjectProperty,
+	ctx: { styleCache: StyleCache },
+) {
+	if (
+		node.key.type === "Identifier" &&
+		node.key.name === "baseClassName" &&
+		node.value.type === "StringLiteral"
+	) {
+		const value = node.value.value;
+		console.log(value);
+		const cn = generateHashedClassName(value);
+		ctx.styleCache.set(cn, value);
+		node.value.value = cn;
+		return true;
+	}
+	return false;
+}
+
 export function transform(code: string, ctx: { styleCache: StyleCache }) {
 	const ast = recast.parse(code, { parser: tsParser });
 
 	recast.visit(ast, {
-		// visit className attributes containing TW classes
+		//@ts-expect-error
+		visitObjectProperty(path) {
+			const node = path.node;
+			if (transformBaseClassName(node, ctx)) {
+				return false;
+			}
+			if (node.key.type === "Identifier" && node.key.name === "className") {
+				visitNode(node, ctx);
+			}
+			this.traverse(path);
+		},
 		visitJSXAttribute(path) {
 			const node = path.node;
 			if (node.name.name === "className") {
 				visitNode(node, ctx, {
-					// Stop traversal if we encounter a function call
-					// cn/cx/clsx/cva are handled by the `visitCallExpression` visitor
 					visitCallExpression() {
 						return false;
 					},
@@ -99,28 +126,14 @@ export function transform(code: string, ctx: { styleCache: StyleCache }) {
 			}
 			this.traverse(path);
 		},
-		// visit a `className` property within any object containing TW classes
-		visitObjectProperty(path) {
-			const node = path.node;
-			if (
-				path.node.key.type === "Identifier" &&
-				path.node.key.name === "className"
-			) {
-				visitNode(node, ctx);
-			}
-			this.traverse(path);
-		},
-		// visit function calls containing TW classes
 		visitCallExpression(path) {
 			const node = path.node;
-			// `className` concatenation functions
 			if (
 				node.callee.type === "Identifier" &&
 				["cn", "cx", "clsx"].includes(node.callee.name)
 			) {
 				visitNode(node, ctx);
 			}
-			// cva functions (note: only compatible with cva@1.0)
 			if (
 				node.callee.type === "Identifier" &&
 				node.callee.name === "cva" &&

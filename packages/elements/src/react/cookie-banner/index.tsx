@@ -1,9 +1,10 @@
+"use client";
+
 /**
  * A customizable cookie consent banner component with compound components pattern.
  *
  * @packageDocumentation
  */
-
 import {
 	CookieBannerAcceptButton,
 	CookieBannerActions,
@@ -90,6 +91,8 @@ export {
 	CookieBannerAcceptButton,
 	CookieBannerCustomizeButton,
 	CookieBannerTitle,
+	CookieBannerCard,
+	CookieBannerActionsSubGroup,
 };
 
 /**

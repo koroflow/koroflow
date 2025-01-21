@@ -17,7 +17,7 @@ export const ObjectStyledCookieBanner: FC = () => {
 		},
 		content: {
 			style: { backgroundColor: "#1a202c", color: "white", padding: "1rem" },
-			className: "rounded-lg shadow-lg",
+			className: "rounded-lg ",
 		},
 		title: {
 			style: {

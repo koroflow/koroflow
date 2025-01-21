@@ -15,7 +15,7 @@ export const StringStyledCookieBanner: FC = () => {
 		root: "fixed bottom-0 left-0 right-0 z-50",
 		content: "bg-gray-800 text-white p-4 md:p-6",
 		title: "text-xl font-bold mb-2",
-		description: "text-sm mb-4",
+		description: "mb-4",
 		actions: "flex justify-end space-x-2",
 		rejectButton: "px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700",
 		customizeButton:

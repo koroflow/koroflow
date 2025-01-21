@@ -44,7 +44,8 @@ export const CookieBannerContent = forwardRef<
 	CookieBannerContentProps
 >(({ asChild, className, style, ...props }, ref) => {
 	const actionsStyle = useStyles({
-		baseClassName: "flex flex-col space-y-2 px-4 sm:px-6 pt-4 sm:pt-6",
+		baseClassName:
+			"flex flex-col space-y-2 px-4 sm:px-6 py-4 sm:py-6 bg-bg-white-0 text-text-strong-950",
 		componentStyle: className,
 		styleKey: "actions",
 	});

@@ -10,7 +10,7 @@ export const Overlay: React.FC<OverlayProps> = ({ show }) => {
 		<AnimatePresence>
 			{show && (
 				<motion.div
-					className="fixed inset-0 bg-black/50 z-40"
+					className="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-y-auto bg-overlay p-4 backdrop-blur-[10px] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
