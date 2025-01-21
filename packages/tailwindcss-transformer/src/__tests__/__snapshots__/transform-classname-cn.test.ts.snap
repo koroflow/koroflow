@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`transform > should transform className with cn/cx/clsx 1`] = `
+"const ButtonCn: React.FC<ButtonProps> = ({ children, className }) => {
+        return <button className={cn("kf-c2153e59")}>{children}</button>;
+      }
+    
+      const ButtonCx: React.FC<ButtonProps> = ({ children, className }) => {
+        return <button className={cx("kf-c2153e59")}>{children}</button>;
+      }
+      
+      const ButtonClsx: React.FC<ButtonProps> = ({ children, className }) => {
+        return <button className={clsx("kf-c2153e59")}>{children}</button>;
+      }"
+`;
