@@ -3,7 +3,7 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"build": "cp -r node_modules/@koroflow/shadcn/src/public/r ./public/r && next build",
+		"build": "cp -r node_modules/@koroflow/shadcn/src/public/r ./src/public/r && next build",
 		"dev": "next dev",
 		"start": "next start",
 		"postinstall": "fumadocs-mdx",
