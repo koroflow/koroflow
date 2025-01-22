@@ -258,7 +258,7 @@ export const Index: Record<string, any> = {
 			};
 		});
 	const registryJson = JSON.stringify(items, null, 2);
-	rimraf.sync(path.join(REGISTRY_PATH, "index.json"));
+	await fs.mkdir(path.join(REGISTRY_PATH), { recursive: true });
 	await fs.writeFile(path.join(REGISTRY_PATH, "index.json"), registryJson, "utf8");
 
 	// Write style index.
