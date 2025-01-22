@@ -5,14 +5,8 @@
 	"sideEffects": false,
 	"exports": {
 		"./*": {
-			"import": {
-				"types": "./dist/types/react/*/index.d.ts",
-				"default": "./dist/esm/react/*/index.js"
-			},
-			"require": {
-				"types": "./dist/types/react/*/index.d.cts",
-				"default": "./dist/cjs/react/*/index.cjs"
-			}
+			"types": "./dist/react/*/index.d.ts",
+			"import": "./dist/react/*/index.js"
 		},
 		".": {
 			"import": {
@@ -24,7 +18,7 @@
 				"default": "./dist/cjs/index.cjs"
 			}
 		},
-		"./styles.css": "./dist/esm/styles.css"
+		"./globals.css": "./dist/globals.css"
 	},
 	"files": ["dist"],
 	"publishConfig": {
@@ -32,16 +26,22 @@
 	},
 	"scripts": {
 		"build:declarations": "tsc -p tsconfig.declarations.json",
-		"build": "tsup",
+		"build": "rslib build",
 		"check-types": "tsc --noEmit",
-		"dev": "tsup --watch"
+		"dev": "rslib build --watch"
 	},
 	"browserslist": [">0.2%", "not dead", "not op_mini all"],
 	"devDependencies": {
 		"@koroflow/tsup-config": "workspace:*",
+		"esbuild-css-modules-plugin": "^3.1.4",
 		"postcss": "^8.5.1",
+		"postcss-nesting": "^13.0.1",
+		"sass": "^1.83.4",
+		"tailwindcss": "^3.4.17",
 		"tailwindcss-animate": "^1.0.7",
-		"tailwindcss": "^3.4.17"
+		"@rsbuild/core": "1.2.0-beta.1",
+		"@rsbuild/plugin-react": "^1.1.0",
+		"@rslib/core": "^0.3.2"
 	},
 	"peerDependencies": {
 		"react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
@@ -49,7 +49,9 @@
 	},
 	"dependencies": {
 		"@koroflow/core-js": "0.0.1-beta.3",
+		"@radix-ui/react-accordion": "1.2.2",
 		"@radix-ui/react-slot": "1.1.1",
+		"@radix-ui/react-switch": "1.1.2",
 		"clsx": "2.1.1",
 		"lucide-react": "^0.473.0",
 		"motion": "^12.0.0",

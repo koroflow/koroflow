@@ -1,7 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`transform > should transform render prop with className 1`] = `
-"const Button: React.FC<ButtonProps> = ({ children, className }) => {
-      return <div render={() => <button className="kf-c2153e59">{children}</button>} />;
-    }"
-`;

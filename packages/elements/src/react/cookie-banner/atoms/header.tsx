@@ -56,8 +56,7 @@ export const CookieBannerHeader = forwardRef<CookieBannerHeaderElement, CookieBa
 	({ asChild, className, style, noStyle, showCloseButton, children, ...props }, ref) => {
 		const { setShowPopup, callbacks } = useConsentManager();
 		const actionsStyle = useStyles({
-			baseClassName:
-				"flex flex-col space-y-2 px-4 sm:px-6 py-4 sm:py-6 bg-bg-white-0 text-text-strong-950",
+			baseClassName: "cookie-banner-header",
 			componentStyle: className,
 			styleKey: "actions",
 			noStyle,

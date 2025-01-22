@@ -16,7 +16,6 @@ Privacy-first consent management and unified event streaming system. Koroflow he
 ├── docs/            # Documentation site
 └── configs/         # Shared configurations
     ├── eslint-config/
-    ├── tailwindcss-transformer/ # ESBuild plugin for compress tailwind classes
     ├── tsup-config/ # Common config for tsup
     └── typescript-config/ # Common config for typescript
 ```

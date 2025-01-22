@@ -51,15 +51,15 @@ interface OverlayProps {
  * @public
  */
 export const Overlay: FC<OverlayProps> = ({ style, noStyle }) => {
-	const { disableAnimation, showPopup } = useCookieBannerContext();
+	const { disableAnimation, isPrivacyDialogOpen } = useCookieBannerContext();
 	const { className, style: overlayStyle } = useStyles({
-		baseClassName: "cookie-banner-overlay",
+		baseClassName: "fixed inset-0 bg-black/50 z-[999999998]",
 		componentStyle: style,
 		styleKey: "overlay",
 		noStyle,
 	});
 
-	return showPopup ? (
+	return isPrivacyDialogOpen ? (
 		disableAnimation ? (
 			<div className={className} style={overlayStyle} />
 		) : (

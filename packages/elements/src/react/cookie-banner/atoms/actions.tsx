@@ -3,7 +3,7 @@
 import { Slot } from "@radix-ui/react-slot";
 import { type HTMLAttributes, forwardRef } from "react";
 import type { ComponentRef } from "react";
-import { cnExt } from "../../common/libs/cn";
+import { cn } from "../../common/libs/cn";
 import * as Button from "../../common/primitives/button";
 import { useCookieBannerContext } from "../context";
 import { useStyles } from "../hooks/use-styles";
@@ -50,13 +50,13 @@ export const CookieBannerRejectButton = forwardRef<
 >(({ asChild, className, style, noStyle, ...props }, ref) => {
 	const { setShowPopup, saveConsents } = useCookieBannerContext();
 	const buttonStyle = useStyles({
-		baseClassName: cnExt(
+		baseClassName: cn(
 			Button.buttonVariants({
 				variantStyle: "neutral",
 				mode: "lighter",
 				size: "small",
 			}).root(),
-			"w-full sm:w-auto",
+			"cookie-banner-reject-button",
 		),
 		componentStyle: className,
 		styleKey: "rejectButton",
@@ -107,13 +107,13 @@ export const CookieBannerAcceptButton = forwardRef<
 >(({ asChild, className, style, noStyle, ...props }, ref) => {
 	const { setShowPopup, saveConsents } = useCookieBannerContext();
 	const buttonStyle = useStyles({
-		baseClassName: cnExt(
+		baseClassName: cn(
 			Button.buttonVariants({
 				variantStyle: "primary",
 				mode: "lighter",
 				size: "small",
 			}).root(),
-			"w-full sm:w-auto",
+			"cookie-banner-accept-button",
 		),
 		componentStyle: className,
 		styleKey: "acceptButton",
@@ -166,13 +166,13 @@ export const CookieBannerCustomizeButton = forwardRef<
 	const { setIsPrivacyDialogOpen } = useCookieBannerContext();
 	const Comp = asChild ? Slot : "button";
 	const buttonStyle = useStyles({
-		baseClassName: cnExt(
+		baseClassName: cn(
 			Button.buttonVariants({
 				variantStyle: "neutral",
 				mode: "lighter",
 				size: "small",
 			}).root(),
-			"w-full sm:w-auto",
+			"cookie-banner-customize-button",
 		),
 		componentStyle: className,
 		styleKey: "customizeButton",

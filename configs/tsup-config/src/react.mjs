@@ -1,38 +1,5 @@
-import fs from "node:fs";
-import path from "node:path";
-import { generateStylesheet, transform } from "@koroflow/tailwindcss-transformer";
 import { defineConfig } from "tsup";
 import { runAfterLast } from "./shared.mjs";
-
-/**
- * Creates a tailwind transformer plugin for esbuild
- * @param {string} [tailwindConfigPath] - Optional path to tailwind config file
- * @returns {Object} esbuild plugin configuration
- */
-const createTailwindTransformer = (tailwindConfigPath) => ({
-	name: "tailwindcss-transformer-code",
-	setup(build) {
-		const outDir = path.join(process.cwd(), build.initialOptions.outdir);
-		const styleCache = new Map();
-		build.onLoad({ filter: /.*/ }, async (args) => {
-			const code = await fs.promises.readFile(args.path, "utf8");
-			const transformedCode = transform(code, { styleCache });
-			return {
-				contents: transformedCode,
-				resolveDir: path.dirname(args.path),
-				loader: "tsx",
-			};
-		});
-
-		build.onEnd(async () => {
-			const styleSheet = await generateStylesheet(styleCache, {
-				tailwindConfig: tailwindConfigPath || path.join(process.cwd(), "src", "tailwind.config.ts"),
-			});
-			await fs.promises.mkdir(outDir, { recursive: true });
-			await fs.promises.writeFile(path.join(outDir, "styles.css"), styleSheet);
-		});
-	},
-});
 
 /**
  * Creates a tsup configuration for React packages with tailwind support
@@ -62,10 +29,8 @@ const createTailwindTransformer = (tailwindConfigPath) => ({
 export const createConfig = ({
 	name,
 	version,
-	tailwindConfigPath,
 	additionalOptions = {},
 	postBuildCommands = ["pnpm run build:declarations"],
-	disableTailwind = false,
 }) => {
 	return defineConfig((overrideOptions) => {
 		const isProd = overrideOptions.env?.NODE_ENV === "production";
@@ -78,7 +43,6 @@ export const createConfig = ({
 			minify: false,
 			sourcemap: true,
 			legacyOutput: true,
-			esbuildPlugins: disableTailwind ? [] : [createTailwindTransformer(tailwindConfigPath)],
 			define: {
 				PACKAGE_NAME: `"${name}"`,
 				PACKAGE_VERSION: `"${version}"`,

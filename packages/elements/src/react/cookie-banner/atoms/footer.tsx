@@ -48,7 +48,7 @@ interface CookieBannerFooterProps extends HTMLAttributes<HTMLDivElement> {
 export const CookieBannerFooter = forwardRef<CookieBannerFooterElement, CookieBannerFooterProps>(
 	({ asChild, className, noStyle, style, ...props }, ref) => {
 		const actionsStyle = useStyles({
-			baseClassName: "flex flex-col sm:flex-row justify-between gap-3 px-5 py-4 bg-bg-weak-50",
+			baseClassName: "cookie-banner-footer",
 			componentStyle: className,
 			styleKey: "actions",
 			noStyle,
@@ -108,7 +108,7 @@ export const CookieBannerFooterSubGroup = forwardRef<
 	CookieBannerFooterSubGroupProps
 >(({ asChild, className, style, noStyle, ...props }, ref) => {
 	const actionsStyle = useStyles({
-		baseClassName: "flex flex-col sm:flex-row justify-between gap-4",
+		baseClassName: "cookie-banner-footer-sub-group",
 		componentStyle: className,
 		styleKey: "actions",
 		noStyle,

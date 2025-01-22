@@ -8,7 +8,16 @@
 	},
 	"files": {
 		"ignoreUnknown": true,
-		"ignore": [".next", ".source", ".vitest", ".wrangler", "dist", "node_modules", "prism.css"]
+		"ignore": [
+			".next",
+			".source",
+			".vitest",
+			".wrangler",
+			"dist",
+			"node_modules",
+			"prism.css",
+			"*.css"
+		]
 	},
 	"formatter": {
 		"enabled": true,

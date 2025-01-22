@@ -14,7 +14,7 @@ import { CookieBannerRoot } from "./atoms/root";
 import { CookieBannerTitle } from "./atoms/title";
 import { ErrorBoundary } from "./error-boundary";
 import type { CookieBannerStyles } from "./types";
-
+import "./cookie-banner.css";
 /**
  * Props for configuring and customizing the CookieBanner component.
  *
@@ -135,7 +135,7 @@ const CookieBanner: FC<CookieBannerProps> = ({
 }) => {
 	return (
 		<ErrorBoundary fallback={<div>Something went wrong with the Cookie Banner.</div>}>
-			<CookieBannerRoot styles={styles} noStyle={noStyle}>
+			<CookieBannerRoot className="w-full sm:w-auto" styles={styles} noStyle={noStyle}>
 				<CookieBannerCard>
 					<CookieBannerHeader>
 						<CookieBannerTitle>{title}</CookieBannerTitle>

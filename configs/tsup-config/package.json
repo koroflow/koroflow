@@ -8,7 +8,6 @@
 		"./node": "./src/node.mjs"
 	},
 	"devDependencies": {
-		"@koroflow/tailwindcss-transformer": "workspace:*",
 		"@koroflow/typescript-config": "workspace:*"
 	}
 }

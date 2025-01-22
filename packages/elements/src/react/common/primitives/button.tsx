@@ -1,10 +1,10 @@
 import { Slot } from "@radix-ui/react-slot";
 import * as React from "react";
 
+import { type VariantProps, tv } from "tailwind-variants";
 import type { PolymorphicComponentProps } from "../libs/polymorphic";
 import { recursiveCloneChildren } from "../libs/recursive-clone-children";
-import { type VariantProps, tv } from "../libs/tv";
-
+import "./button.css";
 /**
  * Constants for component display names
  * @internal
@@ -25,19 +25,8 @@ const BUTTON_ICON_NAME = "ButtonIcon";
  */
 export const buttonVariants = tv({
 	slots: {
-		root: [
-			// base
-			"relative inline-flex items-center justify-center whitespace-nowrap outline-none",
-			"transition duration-200 ease-out",
-			// focus
-			"focus:outline-none",
-			// disabled
-			"disabled:pointer-events-none disabled:bg-bg-weak-50 disabled:text-text-disabled-300 disabled:ring-transparent",
-		],
-		icon: [
-			// base
-			"flex size-5 shrink-0 items-center justify-center",
-		],
+		root: ["button"],
+		icon: ["button-icon"],
 	},
 	variants: {
 		variantStyle: {
@@ -47,212 +36,83 @@ export const buttonVariants = tv({
 		},
 		mode: {
 			filled: {},
-			stroke: {
-				root: "ring-1 ring-inset",
-			},
-			lighter: {
-				root: "ring-1 ring-inset",
-			},
-			ghost: {
-				root: "ring-1 ring-inset",
-			},
+			stroke: {},
+			lighter: {},
+			ghost: {},
 		},
 		size: {
-			medium: {
-				root: "h-10 gap-3 rounded-10 px-3.5 text-label-sm",
-				icon: "-mx-1",
-			},
-			small: {
-				root: "h-9 gap-3 rounded-lg px-3 text-label-sm",
-				icon: "-mx-1",
-			},
-			xsmall: {
-				root: "h-8 gap-2.5 rounded-lg px-2.5 text-label-sm",
-				icon: "-mx-1",
-			},
-			xxsmall: {
-				root: "h-7 gap-2.5 rounded-lg px-2 text-label-sm",
-				icon: "-mx-1",
-			},
+			medium: { root: "button-medium" },
+			small: { root: "button-small" },
+			xsmall: { root: "button-xsmall" },
+			xxsmall: { root: "button-xxsmall" },
 		},
 	},
 	compoundVariants: [
-		//#region variant=primary
+		// Primary variants
 		{
 			variantStyle: "primary",
 			mode: "filled",
-			class: {
-				root: [
-					// base
-					"bg-primary-base text-static-white",
-					// hover
-					"hover:bg-primary-darker",
-					// focus
-					"focus-visible:shadow-button-primary-focus",
-				],
-			},
+			class: { root: "button-primary-filled" },
 		},
 		{
 			variantStyle: "primary",
 			mode: "stroke",
-			class: {
-				root: [
-					// base
-					"bg-bg-white-0 text-primary-base ring-primary-base",
-					// hover
-					"hover:bg-primary-alpha-10 hover:ring-transparent",
-					// focus
-					"focus-visible:shadow-button-primary-focus",
-				],
-			},
+			class: { root: "button-primary-stroke" },
 		},
 		{
 			variantStyle: "primary",
 			mode: "lighter",
-			class: {
-				root: [
-					// base
-					"bg-primary-alpha-10 text-primary-base ring-transparent",
-					// hover
-					"hover:bg-bg-white-0 hover:ring-primary-base",
-					// focus
-					"focus-visible:bg-bg-white-0 focus-visible:shadow-button-primary-focus focus-visible:ring-primary-base",
-				],
-			},
+			class: { root: "button-primary-lighter" },
 		},
 		{
 			variantStyle: "primary",
 			mode: "ghost",
-			class: {
-				root: [
-					// base
-					"bg-transparent text-primary-base ring-transparent",
-					// hover
-					"hover:bg-primary-alpha-10",
-					// focus
-					"focus-visible:bg-bg-white-0 focus-visible:shadow-button-primary-focus focus-visible:ring-primary-base",
-				],
-			},
+			class: { root: "button-primary-ghost" },
 		},
-		//#endregion
 
-		//#region variant=neutral
+		// Neutral variants
 		{
 			variantStyle: "neutral",
 			mode: "filled",
-			class: {
-				root: [
-					// base
-					"bg-bg-strong-950 text-text-white-0",
-					// hover
-					"hover:bg-bg-surface-800",
-					// focus
-					"focus-visible:shadow-button-important-focus",
-				],
-			},
+			class: { root: "button-neutral-filled" },
 		},
 		{
 			variantStyle: "neutral",
 			mode: "stroke",
-			class: {
-				root: [
-					// base
-					"bg-bg-white-0 text-text-sub-600 shadow-regular-xs ring-stroke-soft-200",
-					// hover
-					"hover:bg-bg-weak-50 hover:text-text-strong-950 hover:shadow-none hover:ring-transparent",
-					// focus
-					"focus-visible:text-text-strong-950 focus-visible:shadow-button-important-focus focus-visible:ring-stroke-strong-950",
-				],
-			},
+			class: { root: "button-neutral-stroke" },
 		},
 		{
 			variantStyle: "neutral",
 			mode: "lighter",
-			class: {
-				root: [
-					// base
-					"bg-bg-weak-50 text-text-sub-600 ring-transparent",
-					// hover
-					"hover:bg-bg-white-0 hover:text-text-strong-950 hover:shadow-regular-xs hover:ring-stroke-soft-200",
-					// focus
-					"focus-visible:bg-bg-white-0 focus-visible:text-text-strong-950 focus-visible:shadow-button-important-focus focus-visible:ring-stroke-strong-950",
-				],
-			},
+			class: { root: "button-neutral-lighter" },
 		},
 		{
 			variantStyle: "neutral",
 			mode: "ghost",
-			class: {
-				root: [
-					// base
-					"bg-transparent text-text-sub-600 ring-transparent",
-					// hover
-					"hover:bg-bg-weak-50 hover:text-text-strong-950",
-					// focus
-					"focus-visible:bg-bg-white-0 focus-visible:text-text-strong-950 focus-visible:shadow-button-important-focus focus-visible:ring-stroke-strong-950",
-				],
-			},
+			class: { root: "button-neutral-ghost" },
 		},
-		//#endregion
 
-		//#region variant=error
+		// Error variants
 		{
 			variantStyle: "error",
 			mode: "filled",
-			class: {
-				root: [
-					// base
-					"bg-error-base text-static-white",
-					// hover
-					"hover:bg-red-700",
-					// focus
-					"focus-visible:shadow-button-error-focus",
-				],
-			},
+			class: { root: "button-error-filled" },
 		},
 		{
 			variantStyle: "error",
 			mode: "stroke",
-			class: {
-				root: [
-					// base
-					"bg-bg-white-0 text-error-base ring-error-base",
-					// hover
-					"hover:bg-red-alpha-10 hover:ring-transparent",
-					// focus
-					"focus-visible:shadow-button-error-focus",
-				],
-			},
+			class: { root: "button-error-stroke" },
 		},
 		{
 			variantStyle: "error",
 			mode: "lighter",
-			class: {
-				root: [
-					// base
-					"bg-red-alpha-10 text-error-base ring-transparent",
-					// hover
-					"hover:bg-bg-white-0 hover:ring-error-base",
-					// focus
-					"focus-visible:bg-bg-white-0 focus-visible:shadow-button-error-focus focus-visible:ring-error-base",
-				],
-			},
+			class: { root: "button-error-lighter" },
 		},
 		{
 			variantStyle: "error",
 			mode: "ghost",
-			class: {
-				root: [
-					// base
-					"bg-transparent text-error-base ring-transparent",
-					// hover
-					"hover:bg-red-alpha-10",
-					// focus
-					"focus-visible:bg-bg-white-0 focus-visible:shadow-button-error-focus focus-visible:ring-error-base",
-				],
-			},
+			class: { root: "button-error-ghost" },
 		},
-		//#endregion
 	],
 	defaultVariants: {
 		variantStyle: "primary",

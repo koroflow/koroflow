@@ -58,7 +58,7 @@ export const CookieBannerDescription = forwardRef<HTMLDivElement, CookieBannerDe
 		 * Uses the 'description' style key for consistent theming.
 		 */
 		const descriptionStyle = useStyles({
-			baseClassName: "text-paragraph-sm text-text-sub-600",
+			baseClassName: "cookie-banner-description",
 			componentStyle: className,
 			styleKey: "description",
 			noStyle,

@@ -1,0 +1,155 @@
+/* Base accordion variables */
+.accordion {
+	/* Layout variables */
+	--kf-accordion-padding: 0.875rem;
+	--kf-accordion-radius: 0.625rem;
+	--kf-accordion-duration: 200ms;
+	--kf-accordion-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+	/* Icon sizes */
+	--kf-accordion-icon-size: 1.25rem;
+
+	/* Colors - defaulting to design system colors but can be overridden */
+	--kf-accordion-bg-default: var(--kf-bg-white-0);
+	--kf-accordion-bg-hover: var(--kf-bg-weak-50);
+	--kf-accordion-border-color: var(--kf-stroke-soft-200);
+	--kf-accordion-text-color: var(--kf-text-strong-950);
+	--kf-accordion-icon-color: var(--kf-text-sub-600);
+	--kf-accordion-arrow-color: var(--kf-text-soft-400);
+	--kf-accordion-content-color: var(--kf-text-sub-600);
+	--kf-accordion-focus-ring: var(--kf-focus-ring);
+}
+
+/* Accordion item wrapper */
+.accordion-item {
+	position: relative;
+	padding: var(--kf-accordion-padding);
+	background-color: hsl(var(--kf-accordion-bg-default));
+	box-shadow: inset 0 0 0 1px hsl(var(--kf-accordion-border-color));
+	transition: all var(--kf-accordion-duration) var(--kf-accordion-ease);
+
+	&:first-child {
+		border-top-left-radius: var(--kf-accordion-radius);
+		border-top-right-radius: var(--kf-accordion-radius);
+	}
+
+	&:last-child {
+		border-bottom-left-radius: var(--kf-accordion-radius);
+		border-bottom-right-radius: var(--kf-accordion-radius);
+	}
+}
+
+.accordion-item:is(:hover, :focus-within, [data-state="open"]) {
+	background-color: hsl(var(--kf-accordion-bg-hover));
+	box-shadow: inset 0 0 0 1px transparent;
+}
+
+/* Trigger button */
+.accordion-trigger {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: center;
+	gap: 0.625rem;
+	width: calc(100% + (var(--kf-accordion-padding) * 2));
+	margin: calc(-1 * var(--kf-accordion-padding));
+	padding: var(--kf-accordion-padding);
+
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+	letter-spacing: -0.006em;
+	font-weight: 500;
+	text-align: left;
+	color: hsl(var(--kf-accordion-text-color));
+
+	border: 0;
+	background: none;
+	cursor: pointer;
+}
+
+.accordion-trigger:focus-visible {
+	outline: 2px solid hsl(var(--kf-accordion-focus-ring));
+	outline-offset: -2px;
+	border-radius: calc(var(--kf-accordion-radius) - 2px);
+}
+
+/* Icons */
+.accordion-icon {
+	width: var(--kf-accordion-icon-size);
+	height: var(--kf-accordion-icon-size);
+	color: hsl(var(--kf-accordion-icon-color));
+	flex-shrink: 0;
+}
+
+/* Arrow states */
+.accordion-arrow-open,
+.accordion-arrow-close {
+	width: var(--kf-accordion-icon-size);
+	height: var(--kf-accordion-icon-size);
+	transition: color var(--kf-accordion-duration) var(--kf-accordion-ease);
+	flex-shrink: 0;
+}
+
+.accordion-arrow-open {
+	color: hsl(var(--kf-accordion-arrow-color));
+}
+
+.accordion-item:hover .accordion-arrow-open {
+	color: hsl(var(--kf-accordion-icon-color));
+}
+
+.accordion-arrow-close {
+	color: hsl(var(--kf-accordion-icon-color));
+	display: none;
+}
+
+.accordion-item[data-state="open"] .accordion-arrow-open {
+	display: none;
+}
+
+.accordion-item[data-state="open"] .accordion-arrow-close {
+	display: block;
+}
+
+/* Content animations */
+.accordion-content {
+	overflow: hidden;
+}
+
+@keyframes accordion-down {
+	from {
+		height: 0;
+		opacity: 0;
+	}
+	to {
+		height: var(--radix-accordion-content-height);
+		opacity: 1;
+	}
+}
+
+@keyframes accordion-up {
+	from {
+		height: var(--radix-accordion-content-height);
+		opacity: 1;
+	}
+	to {
+		height: 0;
+		opacity: 0;
+	}
+}
+
+.accordion-content[data-state="open"] {
+	animation: accordion-down var(--kf-accordion-duration) var(--kf-accordion-ease);
+}
+
+.accordion-content[data-state="closed"] {
+	animation: accordion-up var(--kf-accordion-duration) var(--kf-accordion-ease);
+}
+
+/* Content text */
+.accordion-content-inner {
+	padding-top: 0.375rem;
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+	letter-spacing: -0.006em;
+	color: hsl(var(--kf-accordion-content-color));
+}

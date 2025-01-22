@@ -201,7 +201,7 @@ export const CookieBannerRootChildren = forwardRef<HTMLDivElement, CookieBannerR
 		 * Uses the 'content' style key for consistent theming.
 		 */
 		const contentStyle = useStyles({
-			baseClassName: "flex z-[999999999] flex-col space-y-2 p-4 sm:p-6 fixed bottom-0 left-0",
+			baseClassName: "cookie-banner cookie-banner-root cookie-banner-root-bottom-left",
 			componentStyle: className,
 			styleKey: "content",
 			noStyle,
