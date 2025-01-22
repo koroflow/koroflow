@@ -3,7 +3,7 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"build:copy-registry": "cp -r node_modules/@koroflow/shadcn/src/public/r ./src/public/r",
+		"build:copy-registry": "cp -r ../packages/shadcn/src/public/r ./src/public/r",
 		"build": "pnpm build:copy-registry && next build",
 		"dev": "next dev",
 		"start": "next start",
