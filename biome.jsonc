@@ -16,7 +16,8 @@
 			"dist",
 			"node_modules",
 			"prism.css",
-			"*.css"
+			"*.css",
+			"packages/shadcn/src/public/r"
 		]
 	},
 	"formatter": {

@@ -44,7 +44,6 @@
 	}
 }
 
-
 .consent-manager-widget-branding {
 	display: flex;
 	justify-content: center;
@@ -52,14 +51,13 @@
 	border-top-width: 1px;
 	border-top-color: hsl(var(--kf-stroke-soft-200));
 	padding-top: 1rem;
-	padding-bottom: 1rem;
+}
 
-	.consent-manager-widget-branding-link {
-		text-decoration: none;
-		text-align: center;
+.consent-manager-widget-branding-link {
+	text-decoration: none;
+	text-align: center;
 
-		.consent-manager-widget-branding-link-span {
-			color: #47c2ff;
-		}
+	.consent-manager-widget-branding-link-span {
+		color: #47c2ff;
 	}
 }

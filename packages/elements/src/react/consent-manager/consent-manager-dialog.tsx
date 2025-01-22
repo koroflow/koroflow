@@ -5,6 +5,7 @@ import {
 	Card,
 	CardContent,
 	CardDescription,
+	CardFooter,
 	CardHeader,
 	CardTitle,
 } from "../common/primitives/card";
@@ -77,8 +78,13 @@ const ConsentCustomizationCard = ({
 			</CardDescription>
 		</CardHeader>
 		<CardContent>
-			<ConsentManagerWidget onSave={handleSave} />
+			<ConsentManagerWidget hideBranding={true} onSave={handleSave} />
 		</CardContent>
+		<CardFooter>
+			<a className="consent-manager-widget-branding-link" href="https://koroflow.com">
+				Secured by <span className="consent-manager-widget-branding-link-span">Koroflow</span>
+			</a>
+		</CardFooter>
 	</Card>
 );
 

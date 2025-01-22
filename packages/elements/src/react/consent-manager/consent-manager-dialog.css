@@ -29,3 +29,12 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+.consent-manager-dialog-card .card-footer {
+	width: 100%;
+	justify-content: center;
+	font-size: 14px;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	border-top-width: 1px;
+	border-top-color: hsl(var(--kf-stroke-soft-200));
+}

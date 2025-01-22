@@ -26,6 +26,7 @@ export default function PrivacyConsentPage() {
 				</div>
 				<CookieBanner />
 				<ConsentManagerDialog />
+				<ConsentManagerWidget />
 				<KoroflowDevTool />
 			</ConsentManagerProvider>
 		</main>
