@@ -1,7 +1,7 @@
 import { createMDX } from "fumadocs-mdx/next";
 
 const withMDX = createMDX({
-	rootDir: "src",
+	rootDir: 'src'
 });
 
 /** @type {import('next').NextConfig} */
