@@ -45,10 +45,8 @@ export const getComponentCode = async (
 	}
 
 	const fetchFile = path.join(process.cwd(), Component.files[0].path);
-	console.log(fetchFile, Component.files[0].path);
 	try {
 		const code = await fs.readFile(fetchFile, "utf-8");
-		console.log(code);
 		const ClientComponent = React.memo(() => React.createElement(Component.component));
 		ClientComponent.displayName = `ClientComponent(${name})`;
 
