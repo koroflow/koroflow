@@ -3,11 +3,11 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"build": "cp -r node_modules/@koroflow/shadcn/src/public/r ./src/public/r && next build",
+		"build:copy-registry": "cp -r node_modules/@koroflow/shadcn/src/public/r ./src/public/r",
+		"build": "pnpm build:copy-registry && next build",
 		"dev": "next dev",
 		"start": "next start",
-		"postinstall": "fumadocs-mdx",
-		"build:registry": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-registry.mts"
+		"postinstall": "fumadocs-mdx"
 	},
 	"dependencies": {
 		"@koroflow/shadcn": "workspace:*",
@@ -45,8 +45,6 @@
 		"autoprefixer": "^10.4.20",
 		"postcss": "^8.5.1",
 		"tailwindcss": "^3.4.17",
-		"tailwindcss-animate": "^1.0.7",
-		"tsx": "^4.19.2",
-		"typescript": "^5.7.3"
+		"tailwindcss-animate": "^1.0.7"
 	}
 }
