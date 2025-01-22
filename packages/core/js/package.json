@@ -12,14 +12,11 @@
 		"build": "tsup",
 		"build:declarations": "tsc -p tsconfig.declarations.json",
 		"dev": "tsup --watch",
-		"typecheck": "tsc --noEmit"
+		"check-types": "tsc --noEmit"
 	},
 	"browserslist": [">0.2%", "not dead", "not op_mini all"],
 	"devDependencies": {
-		"@types/react": "^19.0.7",
-		"@types/react-dom": "^19.0.3",
-		"tsup": "^8.3.5",
-		"typescript": "^5.7.3"
+		"@koroflow/tsup-config": "workspace:*"
 	},
 	"dependencies": {
 		"zustand": "^5.0.3"

@@ -49,9 +49,6 @@
 	},
 	"devDependencies": {
 		"@types/mdx": "^2.0.13",
-		"@types/node": "22.10.7",
-		"@types/react": "^19.0.7",
-		"@types/react-dom": "^19.0.3",
 		"autoprefixer": "^10.4.20",
 		"lodash": "^4.17.21",
 		"lodash.template": "^4.5.0",

@@ -3,16 +3,21 @@
 	"private": true,
 	"scripts": {
 		"build": "turbo build",
+		"check-types": "turbo check-types",
 		"dev": "turbo dev",
-		"lint": "turbo lint",
+		"fmt:check": "biome check . && turbo lint",
 		"fmt": "biome check --write --unsafe .",
-		"fmt:check": "biome check . && turbo lint"
+		"lint": "turbo lint"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
-		"prettier": "^3.4.2",
+		"@types/node": "22.10.7",
+		"@types/react-dom": "^19.0.3",
+		"@types/react": "^19.0.7",
+		"tsup": "^8.3.5",
 		"turbo": "^2.3.3",
-		"typescript": "5.7.3"
+		"typescript": "5.7.3",
+		"vitest": "^3.0.3"
 	},
 	"packageManager": "pnpm@9.0.0",
 	"engines": {
