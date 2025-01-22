@@ -10,7 +10,11 @@ import { useStyles } from "../hooks/use-styles";
  * @public
  */
 interface CookieBannerTitleProps extends HTMLAttributes<HTMLDivElement> {
-	// All props are inherited from HTMLAttributes<HTMLDivElement>
+	/**
+	 * @remarks
+	 * When true, the component will not apply any styles.
+	 */
+	noStyle?: boolean;
 }
 
 /**
@@ -57,7 +61,7 @@ interface CookieBannerTitleProps extends HTMLAttributes<HTMLDivElement> {
 export const CookieBannerTitle = forwardRef<
 	HTMLDivElement,
 	CookieBannerTitleProps
->(({ className, style, ...props }, ref) => {
+>(({ className, style, noStyle, ...props }, ref) => {
 	/**
 	 * Apply styles from the CookieBanner context and merge with local styles.
 	 * Uses the 'title' style key for consistent theming.
@@ -66,6 +70,7 @@ export const CookieBannerTitle = forwardRef<
 		baseClassName: "text-label-md text-text-strong-950",
 		componentStyle: className,
 		styleKey: "title",
+		noStyle,
 	});
 
 	return (

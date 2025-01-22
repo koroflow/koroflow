@@ -27,6 +27,12 @@ interface OverlayProps {
 	 * These styles will be merged with the theme styles and default styles.
 	 */
 	style?: StyleValue;
+
+	/**
+	 * @remarks
+	 * When true, the component will not apply any styles.
+	 */
+	noStyle?: boolean;
 }
 
 /**
@@ -44,12 +50,13 @@ interface OverlayProps {
  *
  * @public
  */
-export const Overlay: FC<OverlayProps> = ({ style }) => {
+export const Overlay: FC<OverlayProps> = ({ style, noStyle }) => {
 	const { disableAnimation, showPopup } = useCookieBannerContext();
 	const { className, style: overlayStyle } = useStyles({
 		baseClassName: "fixed inset-0 bg-black/50 z-[999999998]",
 		componentStyle: style,
 		styleKey: "overlay",
+		noStyle,
 	});
 
 	return showPopup ? (

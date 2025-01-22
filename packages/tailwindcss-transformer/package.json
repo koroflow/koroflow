@@ -1,8 +1,6 @@
 {
 	"name": "@koroflow/tailwindcss-transformer",
-	"version": "0.0.0.beta.1",
-	"private": true,
-	"license": "MIT",
+	"version": "0.0.1-beta.3",
 	"type": "module",
 	"exports": {
 		".": {

@@ -20,6 +20,11 @@ interface CookieBannerFooterProps extends HTMLAttributes<HTMLDivElement> {
 	 * This enables better composition with other components.
 	 */
 	asChild?: boolean;
+	/**
+	 * @remarks
+	 * When true, the component will not apply any styles.
+	 */
+	noStyle?: boolean;
 }
 
 /**
@@ -43,12 +48,13 @@ interface CookieBannerFooterProps extends HTMLAttributes<HTMLDivElement> {
 export const CookieBannerFooter = forwardRef<
 	CookieBannerFooterElement,
 	CookieBannerFooterProps
->(({ asChild, className, style, ...props }, ref) => {
+>(({ asChild, className, noStyle, style, ...props }, ref) => {
 	const actionsStyle = useStyles({
 		baseClassName:
-			"flex items-center justify-between gap-3 px-5 py-4 bg-bg-weak-50",
+			"flex flex-col sm:flex-row justify-between gap-3 px-5 py-4 bg-bg-weak-50",
 		componentStyle: className,
 		styleKey: "actions",
+		noStyle,
 	});
 
 	const Comp = asChild ? Slot : "div";
@@ -80,6 +86,11 @@ interface CookieBannerFooterSubGroupProps
 	 * This enables better composition with other components.
 	 */
 	asChild?: boolean;
+	/**
+	 * @remarks
+	 * When true, the component will not apply any styles.
+	 */
+	noStyle?: boolean;
 }
 
 /**
@@ -103,11 +114,12 @@ interface CookieBannerFooterSubGroupProps
 export const CookieBannerFooterSubGroup = forwardRef<
 	CookieBannerFooterSubGroupElement,
 	CookieBannerFooterSubGroupProps
->(({ asChild, className, style, ...props }, ref) => {
+>(({ asChild, className, style, noStyle, ...props }, ref) => {
 	const actionsStyle = useStyles({
-		baseClassName: "space-x-4",
+		baseClassName: "flex flex-col sm:flex-row justify-between gap-4",
 		componentStyle: className,
 		styleKey: "actions",
+		noStyle,
 	});
 
 	const Comp = asChild ? Slot : "div";

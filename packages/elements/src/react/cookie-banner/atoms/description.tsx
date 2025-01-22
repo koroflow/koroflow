@@ -10,7 +10,11 @@ import { useStyles } from "../hooks/use-styles";
  * @public
  */
 interface CookieBannerDescriptionProps extends HTMLAttributes<HTMLDivElement> {
-	// All props are inherited from HTMLAttributes<HTMLDivElement>
+	/**
+	 * @remarks
+	 * When true, the component will not apply any styles.
+	 */
+	noStyle?: boolean;
 }
 
 /**
@@ -50,7 +54,7 @@ interface CookieBannerDescriptionProps extends HTMLAttributes<HTMLDivElement> {
 export const CookieBannerDescription = forwardRef<
 	HTMLDivElement,
 	CookieBannerDescriptionProps
->(({ className, style, ...props }, ref) => {
+>(({ className, style, noStyle, ...props }, ref) => {
 	/**
 	 * Apply styles from the CookieBanner context and merge with local styles.
 	 * Uses the 'description' style key for consistent theming.
@@ -59,6 +63,7 @@ export const CookieBannerDescription = forwardRef<
 		baseClassName: "text-paragraph-sm text-text-sub-600",
 		componentStyle: className,
 		styleKey: "description",
+		noStyle,
 	});
 
 	return (

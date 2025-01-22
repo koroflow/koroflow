@@ -19,6 +19,11 @@ interface CookieBannerCardProps extends HTMLAttributes<HTMLDivElement> {
 	 * This enables better composition with other components.
 	 */
 	asChild?: boolean;
+	/**
+	 * @remarks
+	 * When true, the component will not apply any styles.
+	 */
+	noStyle?: boolean;
 }
 
 /**
@@ -42,12 +47,13 @@ interface CookieBannerCardProps extends HTMLAttributes<HTMLDivElement> {
 export const CookieBannerCard = forwardRef<
 	CookieBannerCardElement,
 	CookieBannerCardProps
->(({ asChild, className, style, ...props }, ref) => {
+>(({ asChild, className, style, noStyle, ...props }, ref) => {
 	const actionsStyle = useStyles({
 		baseClassName:
 			"relative w-full rounded-5 border border-bg-soft-200 divide-y divide-bg-soft-200 bg-bg-white-0 rounded-20 overflow-hidden shadow-regular-md focus:outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 max-w-[440px]",
 		componentStyle: className,
 		styleKey: "actions",
+		noStyle,
 	});
 
 	const Comp = asChild ? Slot : "div";

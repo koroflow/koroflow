@@ -1,14 +1,15 @@
 "use client";
-import { type CSSProperties, useMemo } from "react";
+import { useMemo } from "react";
 import { cnExt } from "../../common/libs/cn";
 import { useCookieBannerContext } from "../context";
-import type { ClassName, ClassNameStyle, StyleKey, StyleValue } from "../types";
+import type { ClassNameStyle, StyleKey, StyleValue } from "../types";
 
 // Define the UseStylesProps type
 type UseStylesProps = {
 	baseClassName?: string;
 	componentStyle?: ClassNameStyle | string;
 	styleKey?: StyleKey;
+	noStyle?: boolean;
 };
 
 /**
@@ -60,48 +61,47 @@ export function useStyles({
 	baseClassName,
 	componentStyle,
 	styleKey,
+	noStyle,
 }: UseStylesProps) {
-	const { noStyle, styles } = useCookieBannerContext();
+	// Retrieve style-related context values
+	const { noStyle: contextNoStyle, styles } = useCookieBannerContext();
+
+	// Merge noStyle from props and context
+	const mergedNoStyle = noStyle !== undefined ? noStyle : contextNoStyle;
 
 	return useMemo(() => {
+		// Get the style from context using the styleKey, if provided
 		const contextStyle = styleKey ? styles[styleKey] : null;
 
-		// When noStyle is true, only apply component styles
-		if (noStyle) {
-			if (!componentStyle) return {};
+		// If noStyle is true, bypass base and context styles, using only component styles
+		if (mergedNoStyle) {
+			if (!componentStyle) return {}; // Return empty if no component style is provided
 
+			// Return a new object to ensure immutability
 			return typeof componentStyle === "string"
 				? { className: componentStyle }
 				: { className: componentStyle.className, style: componentStyle.style };
 		}
 
-		let className = noStyle ? undefined : baseClassName;
-		let style: CSSProperties | undefined;
-
-		if (contextStyle) {
-			const mergedStyle = mergeStyles({ className, style }, contextStyle);
-			className = mergedStyle.className || undefined;
-			style = mergedStyle.style;
-		}
-
-		if (componentStyle) {
-			const mergedStyle = mergeStyles({ className, style }, componentStyle);
-			className = mergedStyle.className || undefined;
-			style = mergedStyle.style;
-		}
-
-		// Use cnExt to merge class names
-		className = cnExt(
-			className,
-			typeof componentStyle === "object" ? componentStyle.className : undefined,
-			typeof contextStyle === "object" ? contextStyle?.className : undefined,
-		);
-
-		return {
-			className: className || undefined,
-			style: style || undefined,
+		// Initialize mergedStyle with baseClassName if noStyle is false
+		const initialStyle: StyleValue = {
+			className: baseClassName,
+			style: undefined,
 		};
-	}, [baseClassName, componentStyle, noStyle, styleKey, styles]);
+
+		// Merge context style if available, creating a new object
+		const mergedWithContext = contextStyle
+			? mergeStyles(initialStyle, contextStyle)
+			: initialStyle;
+
+		// Merge component style if provided, creating a new object
+		const finalMergedStyle = componentStyle
+			? mergeStyles(mergedWithContext, componentStyle)
+			: mergedWithContext;
+
+		// Return the final merged style, ensuring immutability
+		return { ...finalMergedStyle };
+	}, [baseClassName, componentStyle, mergedNoStyle, styleKey, styles]);
 }
 
 /**
@@ -135,23 +135,28 @@ export function useStyles({
  * // }
  * ```
  *
- * @param style1 - First style to merge
+ * @param existingStyle - First style to merge
  * @param style2 - Second style to merge (takes precedence)
  * @returns Merged style result
  *
  * @internal
  */
-function mergeStyles(style1: StyleValue, style2: StyleValue) {
+function mergeStyles(existingStyle: StyleValue, newStyle: StyleValue) {
+	// Use cnExt to concatenate class names immutably
 	const className = cnExt(
-		typeof style1 === "string" ? style1 : style1?.className,
-		typeof style2 === "string" ? style2 : style2?.className,
+		typeof existingStyle === "string"
+			? existingStyle
+			: existingStyle?.className,
+		typeof newStyle === "string" ? newStyle : newStyle?.className,
 	);
 
+	// Create a new style object by merging existing and new styles immutably
 	const style = {
-		...(typeof style1 === "object" && style1?.style),
-		...(typeof style2 === "object" && style2?.style),
+		...(typeof existingStyle === "object" && existingStyle?.style),
+		...(typeof newStyle === "object" && newStyle?.style),
 	};
 
+	// Return a new object to ensure immutability
 	return {
 		className: className || undefined,
 		style: Object.keys(style).length > 0 ? style : undefined,

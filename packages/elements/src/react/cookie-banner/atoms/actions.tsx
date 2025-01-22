@@ -3,6 +3,8 @@
 import { Slot } from "@radix-ui/react-slot";
 import { type HTMLAttributes, forwardRef } from "react";
 import type { ComponentRef } from "react";
+import { cnExt } from "../../common/libs/cn";
+import * as Button from "../../common/primitives/button";
 import { useCookieBannerContext } from "../context";
 import { useStyles } from "../hooks/use-styles";
 
@@ -14,6 +16,11 @@ type CookieBannerButtonElement = ComponentRef<"button">;
  * @public
  */
 interface CookieBannerButtonProps extends HTMLAttributes<HTMLButtonElement> {
+	/**
+	 * @remarks
+	 * When true, the button will not apply any styles.
+	 */
+	noStyle?: boolean;
 	/**
 	 * @remarks
 	 * When true, the button will render its children directly without wrapping them in a button element.
@@ -40,16 +47,23 @@ interface CookieBannerButtonProps extends HTMLAttributes<HTMLButtonElement> {
 export const CookieBannerRejectButton = forwardRef<
 	CookieBannerButtonElement,
 	CookieBannerButtonProps
->(({ asChild, className, style, ...props }, ref) => {
+>(({ asChild, className, style, noStyle, ...props }, ref) => {
 	const { setShowPopup, saveConsents } = useCookieBannerContext();
 	const buttonStyle = useStyles({
-		baseClassName:
-			"relative inline-flex items-center justify-center whitespace-nowrap outline-none transition duration-200 ease-out focus:outline-none disabled:pointer-events-none disabled:bg-bg-weak-50 disabled:text-text-disabled-300 disabled:ring-transparent ring-1 ring-inset h-10 gap-3 rounded-5 px-3.5 text-label-sm bg-bg-white-0 text-text-sub-600 shadow-regular-xs ring-stroke-sub-300 hover:bg-bg-soft-200 hover:text-text-strong-950 hover:shadow-none focus-visible:text-text-strong-950 focus-visible:shadow-button-important-focus focus-visible:ring-stroke-strong-950",
+		baseClassName: cnExt(
+			Button.buttonVariants({
+				variantStyle: "neutral",
+				mode: "lighter",
+				size: "small",
+			}).root(),
+			"w-full sm:w-auto",
+		),
 		componentStyle: className,
 		styleKey: "rejectButton",
+		noStyle,
 	});
 
-	const Comp = asChild ? Slot : "button";
+	const Comp = asChild ? Slot : Button.Root;
 	/**
 	 * Handles the rejection of all non-essential cookies.
 	 * Saves only necessary consents and closes the popup.
@@ -90,13 +104,20 @@ CookieBannerRejectButton.displayName = "CookieBannerRejectButton";
 export const CookieBannerAcceptButton = forwardRef<
 	CookieBannerButtonElement,
 	CookieBannerButtonProps
->(({ asChild, className, style, ...props }, ref) => {
+>(({ asChild, className, style, noStyle, ...props }, ref) => {
 	const { setShowPopup, saveConsents } = useCookieBannerContext();
 	const buttonStyle = useStyles({
-		baseClassName:
-			"relative inline-flex items-center justify-center whitespace-nowrap outline-none transition duration-200 ease-out focus:outline-none disabled:pointer-events-none disabled:bg-bg-weak-50 disabled:text-text-disabled-300 disabled:ring-transparent h-10 gap-3 rounded-5 px-3.5 text-label-sm bg-primary-base text-static-white hover:bg-primary-darker focus-visible:shadow-button-primary-focus",
+		baseClassName: cnExt(
+			Button.buttonVariants({
+				variantStyle: "primary",
+				mode: "lighter",
+				size: "small",
+			}).root(),
+			"w-full sm:w-auto",
+		),
 		componentStyle: className,
 		styleKey: "acceptButton",
+		noStyle,
 	});
 	const Comp = asChild ? Slot : "button";
 
@@ -141,14 +162,21 @@ CookieBannerAcceptButton.displayName = "CookieBannerAcceptButton";
 export const CookieBannerCustomizeButton = forwardRef<
 	CookieBannerButtonElement,
 	CookieBannerButtonProps
->(({ asChild, className, style, ...props }, ref) => {
+>(({ asChild, className, style, noStyle, ...props }, ref) => {
 	const { setIsPrivacyDialogOpen } = useCookieBannerContext();
 	const Comp = asChild ? Slot : "button";
 	const buttonStyle = useStyles({
-		baseClassName:
-			"relative inline-flex items-center justify-center whitespace-nowrap outline-none transition duration-200 ease-out focus:outline-none disabled:pointer-events-none disabled:bg-bg-weak-50 disabled:text-text-disabled-300 disabled:ring-transparent ring-1 ring-inset h-10 gap-3 rounded-5 px-3.5 text-label-sm bg-bg-white-0 text-text-sub-600 shadow-regular-xs ring-stroke-sub-300 hover:bg-bg-soft-200 hover:text-text-strong-950 hover:shadow-none focus-visible:text-text-strong-950 focus-visible:shadow-button-important-focus focus-visible:ring-stroke-strong-950",
+		baseClassName: cnExt(
+			Button.buttonVariants({
+				variantStyle: "neutral",
+				mode: "lighter",
+				size: "small",
+			}).root(),
+			"w-full sm:w-auto",
+		),
 		componentStyle: className,
 		styleKey: "customizeButton",
+		noStyle,
 	});
 
 	/**

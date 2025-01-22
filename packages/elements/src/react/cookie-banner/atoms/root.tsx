@@ -143,6 +143,12 @@ interface CookieBannerRootChildrenProps extends HTMLAttributes<HTMLDivElement> {
 
 	/**
 	 * @remarks
+	 * When true, the component will not apply any styles.
+	 */
+	noStyle?: boolean;
+
+	/**
+	 * @remarks
 	 * When true, the component will render its children directly without wrapping them in a DOM element.
 	 * This enables better composition with other components.
 	 */
@@ -189,7 +195,7 @@ interface CookieBannerRootChildrenProps extends HTMLAttributes<HTMLDivElement> {
 export const CookieBannerRootChildren = forwardRef<
 	HTMLDivElement,
 	CookieBannerRootChildrenProps
->(({ asChild, children, className, style, ...props }, ref) => {
+>(({ asChild, children, className, style, noStyle, ...props }, ref) => {
 	const { showPopup, disableAnimation } = useCookieBannerContext();
 
 	/**
@@ -201,6 +207,7 @@ export const CookieBannerRootChildren = forwardRef<
 			"flex z-[999999999] flex-col space-y-2 p-4 sm:p-6 fixed bottom-0 left-0",
 		componentStyle: className,
 		styleKey: "content",
+		noStyle,
 	});
 
 	/**

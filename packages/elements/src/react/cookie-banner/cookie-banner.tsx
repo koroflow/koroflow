@@ -7,9 +7,9 @@ import {
 	CookieBannerRejectButton,
 } from "./atoms/actions";
 import { CookieBannerCard } from "./atoms/card";
-import { CookieBannerHeader } from "./atoms/content";
 import { CookieBannerDescription } from "./atoms/description";
 import { CookieBannerFooter, CookieBannerFooterSubGroup } from "./atoms/footer";
+import { CookieBannerHeader } from "./atoms/header";
 import { CookieBannerRoot } from "./atoms/root";
 import { CookieBannerTitle } from "./atoms/title";
 import { ErrorBoundary } from "./error-boundary";

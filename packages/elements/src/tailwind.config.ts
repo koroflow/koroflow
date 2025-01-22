@@ -1,8 +1,8 @@
 import type { Config } from "tailwindcss";
 import animate from "tailwindcss-animate";
-import defaultTheme, { stroke } from "tailwindcss/defaultTheme";
+import defaultTheme from "tailwindcss/defaultTheme";
 import plugin from "tailwindcss/plugin";
-// fix hr
+import type { ThemeConfig } from "tailwindcss/types/config";
 
 export const texts = {
 	"title-h1": [
@@ -181,7 +181,7 @@ export const texts = {
 			fontWeight: "400",
 		},
 	],
-} as unknown as Record<string, string>;
+} as ThemeConfig["fontSize"];
 
 export const shadows = {
 	"regular-xs": "0 1px 2px 0 #0a0d1408",
@@ -251,13 +251,13 @@ export const shadows = {
 		"0 96px 96px -32px rgba(51, 51, 51, 0.06)",
 		"inset 0 -1px 1px -0.5px rgba(51, 51, 51, 0.06)",
 	],
-} as unknown as Record<string, string>;
+} as ThemeConfig["boxShadow"];
 
 export const borderRadii = {
 	"5": ".3125rem",
 	"10": ".625rem",
 	"20": "1.25rem",
-} as unknown as Record<string, string>;
+} as ThemeConfig["borderRadius"];
 
 const config = {
 	corePlugins: {
