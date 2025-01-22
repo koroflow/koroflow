@@ -3,7 +3,7 @@
     "name": "consent-solution",
     "type": "registry:ui",
     "dependencies": [
-      "@koroflow/core-react"
+      "@koroflow/elements"
     ],
     "registryDependencies": [],
     "files": [
@@ -18,14 +18,14 @@
         "target": "components/consent/overlay.tsx"
       },
       {
-        "path": "components/consent/consent-customization-dialog.tsx",
+        "path": "components/consent/consent-manager-dialog.tsx",
         "type": "registry:ui",
-        "target": "components/consent/consent-customization-dialog.tsx"
+        "target": "components/consent/consent-manager-dialog.tsx"
       },
       {
-        "path": "components/consent/consent-customization-widget.tsx",
+        "path": "components/consent/consent-manager-widget.tsx",
         "type": "registry:ui",
-        "target": "components/consent/consent-customization-widget.tsx"
+        "target": "components/consent/consent-manager-widget.tsx"
       }
     ]
   }

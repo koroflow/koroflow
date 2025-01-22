@@ -1,6 +1,6 @@
 "use client";
 
-import { useConsentManager } from "@koroflow/core-react";
+import { useConsentManager } from "@koroflow/elements/common";
 import { X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
@@ -9,7 +9,7 @@ import { createPortal } from "react-dom";
 import { cn } from "../../lib/utils";
 import { Button } from "../button";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "../card";
-import { ConsentCustomizationDialog } from "./consent-customization-dialog";
+import { ConsentManagerDialog } from "./consent-manager-dialog";
 import { Overlay } from "./overlay";
 
 type HorizontalPosition = "left" | "center" | "right";
@@ -164,11 +164,11 @@ export const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
 													Reject All
 												</Button>
 											)}
-											<ConsentCustomizationDialog>
+											<ConsentManagerDialog>
 												<Button variant="outline" size="sm" className="w-full sm:w-auto">
 													Customise Consent
 												</Button>
-											</ConsentCustomizationDialog>
+											</ConsentManagerDialog>
 										</div>
 										<Button size="sm" onClick={acceptAll} className="w-full sm:w-auto">
 											Accept All

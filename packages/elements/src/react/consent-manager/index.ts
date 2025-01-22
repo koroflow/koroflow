@@ -5,5 +5,5 @@
  *
  * @packageDocumentation
  */
-export { ConsentCustomizationWidget } from "./consent-customization-widget";
-export { ConsentCustomizationDialog } from "./consent-customization-dialog";
+export { ConsentManagerWidget } from "./consent-manager-widget";
+export { ConsentManagerDialog } from "./consent-manager-dialog";

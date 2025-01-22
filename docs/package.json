@@ -10,7 +10,6 @@
 		"postinstall": "fumadocs-mdx"
 	},
 	"dependencies": {
-		"@koroflow/core-react": "workspace:*",
 		"@koroflow/dev-tools": "workspace:*",
 		"@koroflow/elements": "workspace:*",
 		"@koroflow/shadcn": "workspace:*",

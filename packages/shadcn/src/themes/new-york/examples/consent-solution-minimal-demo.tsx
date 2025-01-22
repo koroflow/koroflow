@@ -1,10 +1,10 @@
 "use client";
 
-import { ConsentManagerProvider, useConsentManager } from "@koroflow/core-react";
+import { ConsentManagerProvider, useConsentManager } from "@koroflow/elements/common";
 import { Cookie, Lock, RefreshCw } from "lucide-react";
 import { useCallback } from "react";
 import { Button } from "../components/button";
-import { ConsentCustomizationDialog } from "../components/consent/consent-customization-dialog";
+import { ConsentManagerDialog } from "../components/consent/consent-manager-dialog";
 import { CookieBanner } from "../components/consent/cookie-banner";
 
 export default function PrivacyPopupMinimalDemo() {
@@ -38,12 +38,12 @@ export function DemoWidget() {
 				<Cookie className="h-4 w-4 mr-2" />
 				Open Cookie Banner
 			</Button>
-			<ConsentCustomizationDialog>
+			<ConsentManagerDialog>
 				<Button>
 					<Lock className="h-4 w-4 mr-2" />
 					Open Consent Customization{" "}
 				</Button>
-			</ConsentCustomizationDialog>
+			</ConsentManagerDialog>
 			<Button onClick={handleResetConsent}>
 				<RefreshCw className="h-4 w-4 mr-2" />
 				Reset Local Storage Consent

@@ -5,7 +5,7 @@ export const ui: Registry["items"] = [
 		name: "consent-solution",
 		type: "registry:ui",
 		registryDependencies: [],
-		dependencies: ["@koroflow/core-react"],
+		dependencies: ["@koroflow/elements"],
 		files: [
 			{
 				path: "components/consent/cookie-banner.tsx",
@@ -18,13 +18,13 @@ export const ui: Registry["items"] = [
 				type: "registry:ui",
 			},
 			{
-				path: "components/consent/consent-customization-dialog.tsx",
-				target: "components/consent/consent-customization-dialog.tsx",
+				path: "components/consent/consent-manager-dialog.tsx",
+				target: "components/consent/consent-manager-dialog.tsx",
 				type: "registry:ui",
 			},
 			{
-				path: "components/consent/consent-customization-widget.tsx",
-				target: "components/consent/consent-customization-widget.tsx",
+				path: "components/consent/consent-manager-widget.tsx",
+				target: "components/consent/consent-manager-widget.tsx",
 				type: "registry:ui",
 			},
 		],

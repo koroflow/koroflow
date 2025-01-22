@@ -12,22 +12,22 @@ Koroflow provides a complete consent management system out of the box. Here's ho
 <Tabs groupId="manual-install" items={["npm", "pnpm", "yarn", "bun"]}>
   <Tab value="npm">
   ```bash 
-  npm install @koroflow/core-react @koroflow/dev-tools
+  npm install @koroflow/elements @koroflow/dev-tools
   ```
   </Tab>
   <Tab value="pnpm">
   ```bash 
-  pnpm install @koroflow/core-react @koroflow/dev-tools
+  pnpm install @koroflow/elements @koroflow/dev-tools
   ```
   </Tab>
   <Tab value="yarn">
   ```bash
-   yarn add @koroflow/core-react @koroflow/dev-tools
+   yarn add @koroflow/elements @koroflow/dev-tools
    ```
    </Tab>
   <Tab value="bun">
   ```bash
-   <bun add @koroflow/core-react @koroflow/dev-tools 
+   <bun add @koroflow/elements @koroflow/dev-tools 
    ```
    </Tab>
 </Tabs>
@@ -52,7 +52,7 @@ First Install the Consent Manager:
 Then Wrap your application with the ConsentManagerProvider:
 
 ```tsx
-import { ConsentManagerProvider } from "@koroflow/core-react";
+import { ConsentManagerProvider } from "@koroflow/elements/common";
 
 export default function App() {
   return (
@@ -94,7 +94,7 @@ That's it! You now have a fully functional consent management system.
 Koroflow makes it easy to integrate with your analytics tools. Here's how to track consent changes:
 
 ```tsx
-import { useConsentManager } from "@koroflow/core-react";
+import { useConsentManager } from "@koroflow/elements/common";
 import { PostHog } from "posthog-js";
 
 function ConsentTracker() {
