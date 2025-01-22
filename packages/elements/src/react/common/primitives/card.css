@@ -2,7 +2,7 @@
 .card {
 	/* Layout */
 	--kf-card-padding: 1.5rem;
-	--kf-card-radius: 0.5rem;
+	--kf-card-radius: 1.25rem;
 	--kf-card-gap: 0.375rem;
 
 	/* Colors - defaulting to design system colors */
