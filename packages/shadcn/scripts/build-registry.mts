@@ -262,6 +262,7 @@ export const Index: Record<string, any> = {
 	await fs.writeFile(path.join(REGISTRY_PATH, "index.json"), registryJson, "utf8");
 
 	// Write style index.
+	await fs.mkdir(path.join(process.cwd(), "src", "__registry__"), { recursive: true });
 	rimraf.sync(path.join(process.cwd(), "src", "__registry__/index.tsx"));
 	await fs.writeFile(path.join(process.cwd(), "src", "__registry__/index.tsx"), index);
 }
