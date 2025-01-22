@@ -39,3 +39,5 @@ yarn-error.log*
 
 docs/public/r/*
 packages/shadcn/src/public/r/*
+
+*.tsbuildinfo
