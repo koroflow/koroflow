@@ -4,12 +4,12 @@ import { createPreset } from "fumadocs-ui/tailwind-plugin";
 export default {
 	darkMode: ["class"],
 	content: [
-		"./components/**/*.{ts,tsx}",
-		"./registry/**/*.{ts,tsx}",
-		"./docs/**/*.mdx",
-		"./app/**/*.{ts,tsx}",
-		"./content/**/*.{md,mdx}",
-		"./mdx-components.{ts,tsx}",
+		"./src/components/**/*.{ts,tsx}",
+		"./src/registry/**/*.{ts,tsx}",
+		"./src/docs/**/*.mdx",
+		"./src/app/**/*.{ts,tsx}",
+		"./src/content/**/*.{md,mdx}",
+		"./src/mdx-components.{ts,tsx}",
 		"./node_modules/fumadocs-ui/dist/**/*.js",
 		"./node_modules/@koroflow/dev-tools/dist/**/*.js",
 		"./node_modules/@koroflow/elements/dist/**/*.js",

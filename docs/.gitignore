@@ -27,4 +27,4 @@ yarn-error.log*
 .vercel
 next-env.d.ts
 
-docs/public/r
+src/public/r
