@@ -36,3 +36,6 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+
+docs/public/r/*
+packages/shadcn/src/public/r/*

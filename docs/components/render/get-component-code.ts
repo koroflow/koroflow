@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { Index } from "__registry__";
+import { Index } from "@koroflow/shadcn/__registry__";
 import React from "react";
 
 /**
@@ -45,14 +45,15 @@ export const getComponentCode = async (
 	}
 
 	const fetchFile = path.join(process.cwd(), Component.files[0].path);
-
+	console.log(fetchFile, Component.files[0].path);
 	try {
 		const code = await fs.readFile(fetchFile, "utf-8");
+		console.log(code);
 		const ClientComponent = React.memo(() => React.createElement(Component.component));
 		ClientComponent.displayName = `ClientComponent(${name})`;
 
 		return {
-			code: code.replace(`@/registry/${styleName}/`, "@/components/"),
+			code: code.replace(/\.\.\/components\//g, "@components/ui/"),
 			preview: React.createElement(ClientComponent),
 		};
 	} catch (error) {

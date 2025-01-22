@@ -3,13 +3,14 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"build": "next build",
+		"build": "cp -r node_modules/@koroflow/shadcn/src/public/r ./public/r && next build",
 		"dev": "next dev",
 		"start": "next start",
 		"postinstall": "fumadocs-mdx",
 		"build:registry": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-registry.mts"
 	},
 	"dependencies": {
+		"@koroflow/shadcn": "workspace:*",
 		"@koroflow/core-react": "workspace:*",
 		"@koroflow/dev-tools": "workspace:*",
 		"@koroflow/elements": "workspace:*",
@@ -23,7 +24,6 @@
 		"@radix-ui/react-switch": "1.1.2",
 		"@radix-ui/react-tabs": "^1.1.2",
 		"@splinetool/react-spline": "^4.0.0",
-		"@types/unist": "^3.0.3",
 		"@vercel/analytics": "^1.4.1",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "2.1.1",
@@ -31,8 +31,6 @@
 		"fumadocs-mdx": "11.3.0",
 		"fumadocs-typescript": "^3.0.3",
 		"fumadocs-ui": "14.7.6",
-		"jotai": "^2.11.0",
-		"jotai-xstate": "^0.6.0",
 		"lucide-react": "^0.473.0",
 		"motion": "^12.0.0",
 		"next": "15.1.5",
@@ -40,24 +38,15 @@
 		"react-dom": "^19.0.0",
 		"react-hook-form": "7.54.2",
 		"shadcn": "2.2.0-canary.2",
-		"source-map-support": "^0.5.21",
-		"tailwind-merge": "2.6.0",
-		"ts-morph": "^25.0.0",
-		"unist-builder": "^4.0.0",
-		"unist-util-visit": "^5.0.0",
-		"xstate": "^5.19.2"
+		"tailwind-merge": "2.6.0"
 	},
 	"devDependencies": {
 		"@types/mdx": "^2.0.13",
 		"autoprefixer": "^10.4.20",
-		"lodash": "^4.17.21",
-		"lodash.template": "^4.5.0",
 		"postcss": "^8.5.1",
-		"rimraf": "^6.0.1",
 		"tailwindcss": "^3.4.17",
 		"tailwindcss-animate": "^1.0.7",
 		"tsx": "^4.19.2",
-		"typescript": "^5.7.3",
-		"zod": "^3.24.1"
+		"typescript": "^5.7.3"
 	}
 }

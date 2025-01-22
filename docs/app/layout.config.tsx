@@ -1,6 +1,5 @@
-import { Badge } from "@/registry/default/components/badge";
 import type { LinkItemType } from "fumadocs-ui/layouts/docs";
-
+// import { Index } from "@koroflow/shadcn/themes/default/components/consent/cookie-banner";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 export const linkItems: LinkItemType[] = [
 	{
@@ -29,7 +28,7 @@ export const baseOptions: BaseLayoutProps = {
 		title: (
 			<>
 				<span className="font-medium">Koroflow</span>
-				<Badge>Beta</Badge>
+				{/* <Badge>Beta</Badge> */}
 			</>
 		),
 		transparentMode: "top",
