@@ -134,9 +134,7 @@ const CookieBanner: FC<CookieBannerProps> = ({
 	acceptButtonText = "Accept All",
 }) => {
 	return (
-		<ErrorBoundary
-			fallback={<div>Something went wrong with the Cookie Banner.</div>}
-		>
+		<ErrorBoundary fallback={<div>Something went wrong with the Cookie Banner.</div>}>
 			<CookieBannerRoot styles={styles} noStyle={noStyle}>
 				<CookieBannerCard>
 					<CookieBannerHeader>
@@ -145,16 +143,10 @@ const CookieBanner: FC<CookieBannerProps> = ({
 					</CookieBannerHeader>
 					<CookieBannerFooter>
 						<CookieBannerFooterSubGroup>
-							<CookieBannerRejectButton>
-								{rejectButtonText}
-							</CookieBannerRejectButton>
-							<CookieBannerCustomizeButton>
-								{customizeButtonText}
-							</CookieBannerCustomizeButton>
+							<CookieBannerRejectButton>{rejectButtonText}</CookieBannerRejectButton>
+							<CookieBannerCustomizeButton>{customizeButtonText}</CookieBannerCustomizeButton>
 						</CookieBannerFooterSubGroup>
-						<CookieBannerAcceptButton>
-							{acceptButtonText}
-						</CookieBannerAcceptButton>
+						<CookieBannerAcceptButton>{acceptButtonText}</CookieBannerAcceptButton>
 					</CookieBannerFooter>
 				</CookieBannerCard>
 			</CookieBannerRoot>

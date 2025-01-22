@@ -13,11 +13,7 @@ export function Body({
 }): React.ReactElement {
 	const mode = useMode();
 
-	return (
-		<body className={cn(mode, "relative flex min-h-screen flex-col")}>
-			{children}
-		</body>
-	);
+	return <body className={cn(mode, "relative flex min-h-screen flex-col")}>{children}</body>;
 }
 
 export function useMode(): string | undefined {

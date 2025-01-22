@@ -1,13 +1,6 @@
 import { Icons } from "@/components/icons";
 
-import {
-	ActivityIcon,
-	BoxIcon,
-	GlobeIcon,
-	ServerIcon,
-	SparklesIcon,
-	ZapIcon,
-} from "lucide-react";
+import { ActivityIcon, BoxIcon, GlobeIcon, ServerIcon, SparklesIcon, ZapIcon } from "lucide-react";
 
 export const BLUR_FADE_DELAY = 0.15;
 
@@ -78,8 +71,7 @@ export const siteConfig = {
 	],
 	testimonials: [
 		{
-			quote:
-				"Finally, a privacy solution that puts developer experience first.",
+			quote: "Finally, a privacy solution that puts developer experience first.",
 			author: "Jane Developer",
 			role: "Senior Engineer",
 			company: "Tech Co",

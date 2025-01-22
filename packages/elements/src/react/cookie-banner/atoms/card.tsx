@@ -44,28 +44,22 @@ interface CookieBannerCardProps extends HTMLAttributes<HTMLDivElement> {
  *
  * @public
  */
-export const CookieBannerCard = forwardRef<
-	CookieBannerCardElement,
-	CookieBannerCardProps
->(({ asChild, className, style, noStyle, ...props }, ref) => {
-	const actionsStyle = useStyles({
-		baseClassName:
-			"relative w-full rounded-5 border border-bg-soft-200 divide-y divide-bg-soft-200 bg-bg-white-0 rounded-20 overflow-hidden shadow-regular-md focus:outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 max-w-[440px]",
-		componentStyle: className,
-		styleKey: "actions",
-		noStyle,
-	});
+export const CookieBannerCard = forwardRef<CookieBannerCardElement, CookieBannerCardProps>(
+	({ asChild, className, style, noStyle, ...props }, ref) => {
+		const actionsStyle = useStyles({
+			baseClassName:
+				"relative w-full rounded-5 border border-bg-soft-200 divide-y divide-bg-soft-200 bg-bg-white-0 rounded-20 overflow-hidden shadow-regular-md focus:outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 max-w-[440px]",
+			componentStyle: className,
+			styleKey: "actions",
+			noStyle,
+		});
 
-	const Comp = asChild ? Slot : "div";
+		const Comp = asChild ? Slot : "div";
 
-	return (
-		<Comp
-			ref={ref}
-			{...actionsStyle}
-			style={{ ...style, ...actionsStyle.style }}
-			{...props}
-		/>
-	);
-});
+		return (
+			<Comp ref={ref} {...actionsStyle} style={{ ...style, ...actionsStyle.style }} {...props} />
+		);
+	},
+);
 
 CookieBannerCard.displayName = "CookieBannerCard";

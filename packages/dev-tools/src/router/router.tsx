@@ -69,12 +69,10 @@ export function Router({ onClose }: RouterProps) {
 					status: value ? "Enabled" : "Disabled",
 				}))
 			: activeSection === "Compliance"
-				? Object.entries(privacyConsent.complianceSettings).map(
-						([region, settings]) => ({
-							title: region,
-							status: settings.enabled ? "Active" : "Inactive",
-						}),
-					)
+				? Object.entries(privacyConsent.complianceSettings).map(([region, settings]) => ({
+						title: region,
+						status: settings.enabled ? "Active" : "Inactive",
+					}))
 				: activeSection === "Conditional"
 					? renderingState.map((item) => ({
 							title: item.componentName,
@@ -124,9 +122,7 @@ export function Router({ onClose }: RouterProps) {
 							<div className="flex flex-col">
 								<span className="text-sm font-medium">{item.title}</span>
 								{item.details && (
-									<span className="text-xs text-muted-foreground">
-										{item.details}
-									</span>
+									<span className="text-xs text-muted-foreground">{item.details}</span>
 								)}
 							</div>
 							<span

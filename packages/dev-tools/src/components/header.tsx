@@ -14,12 +14,7 @@ export function Header({ onClose }: HeaderProps) {
 					<Shield className="h-4 w-4" />
 					<span className="text-sm font-medium">Koroflow Dev Tool</span>
 				</div>
-				<Button
-					variant="ghost"
-					size="icon"
-					className="h-8 w-8"
-					onClick={onClose}
-				>
+				<Button variant="ghost" size="icon" className="h-8 w-8" onClick={onClose}>
 					<X className="h-4 w-4" />
 				</Button>
 			</div>

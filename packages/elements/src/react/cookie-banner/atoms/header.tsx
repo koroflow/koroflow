@@ -52,14 +52,8 @@ interface CookieBannerHeaderProps extends HTMLAttributes<HTMLDivElement> {
  *
  * @public
  */
-export const CookieBannerHeader = forwardRef<
-	CookieBannerHeaderElement,
-	CookieBannerHeaderProps
->(
-	(
-		{ asChild, className, style, noStyle, showCloseButton, children, ...props },
-		ref,
-	) => {
+export const CookieBannerHeader = forwardRef<CookieBannerHeaderElement, CookieBannerHeaderProps>(
+	({ asChild, className, style, noStyle, showCloseButton, children, ...props }, ref) => {
 		const { setShowPopup, callbacks } = useConsentManager();
 		const actionsStyle = useStyles({
 			baseClassName:
@@ -79,12 +73,7 @@ export const CookieBannerHeader = forwardRef<
 		const Comp = asChild ? Slot : "div";
 
 		return (
-			<Comp
-				ref={ref}
-				{...actionsStyle}
-				style={{ ...style, ...actionsStyle.style }}
-				{...props}
-			>
+			<Comp ref={ref} {...actionsStyle} style={{ ...style, ...actionsStyle.style }} {...props}>
 				{showCloseButton && (
 					<Button.Root
 						variantStyle="neutral"

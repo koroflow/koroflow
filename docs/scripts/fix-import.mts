@@ -1,12 +1,7 @@
 export function fixImport(content: string) {
 	const regex = /@\/(.+?)\/((?:.*?\/)?(?:components|ui|hooks|lib))\/([\w-]+)/g;
 
-	const replacement = (
-		match: string,
-		path: string,
-		type: string,
-		component: string,
-	) => {
+	const replacement = (match: string, path: string, type: string, component: string) => {
 		if (type.endsWith("components")) {
 			return `@/components/${component}`;
 		}

@@ -68,10 +68,7 @@ export function transform(code: string, ctx: { styleCache: StyleCache }) {
 		visitCallExpression(path) {
 			const node = path.node;
 
-			if (
-				node.callee.type === "Identifier" &&
-				["cn", "cx", "clsx"].includes(node.callee.name)
-			) {
+			if (node.callee.type === "Identifier" && ["cn", "cx", "clsx"].includes(node.callee.name)) {
 				visitNode(node, ctx);
 			}
 			if (
@@ -96,15 +93,9 @@ export function transform(code: string, ctx: { styleCache: StyleCache }) {
 			) {
 				// Process the tv options object
 				for (const property of node.arguments[0].properties) {
-					if (
-						property.type === "ObjectProperty" &&
-						property.key.type === "Identifier"
-					) {
+					if (property.type === "ObjectProperty" && property.key.type === "Identifier") {
 						// Handle slots
-						if (
-							property.key.name === "slots" &&
-							property.value.type === "ObjectExpression"
-						) {
+						if (property.key.name === "slots" && property.value.type === "ObjectExpression") {
 							for (const slot of property.value.properties) {
 								if (slot.type === "ObjectProperty") {
 									if (slot.value.type === "ArrayExpression") {
@@ -125,10 +116,7 @@ export function transform(code: string, ctx: { styleCache: StyleCache }) {
 						}
 
 						// Handle variants
-						if (
-							property.key.name === "variants" &&
-							property.value.type === "ObjectExpression"
-						) {
+						if (property.key.name === "variants" && property.value.type === "ObjectExpression") {
 							for (const variantProperty of property.value.properties) {
 								if (
 									variantProperty.type === "ObjectProperty" &&
@@ -137,23 +125,16 @@ export function transform(code: string, ctx: { styleCache: StyleCache }) {
 									for (const variantValue of variantProperty.value.properties) {
 										if (variantValue.type === "ObjectProperty") {
 											if (variantValue.value.type === "StringLiteral") {
-												const hash = generateHashedClassName(
-													variantValue.value.value,
-												);
+												const hash = generateHashedClassName(variantValue.value.value);
 												ctx.styleCache.set(hash, variantValue.value.value);
 												variantValue.value.value = hash;
-											} else if (
-												variantValue.value.type === "ObjectExpression"
-											) {
-												for (const slotProperty of variantValue.value
-													.properties) {
+											} else if (variantValue.value.type === "ObjectExpression") {
+												for (const slotProperty of variantValue.value.properties) {
 													if (
 														slotProperty.type === "ObjectProperty" &&
 														slotProperty.value.type === "StringLiteral"
 													) {
-														const hash = generateHashedClassName(
-															slotProperty.value.value,
-														);
+														const hash = generateHashedClassName(slotProperty.value.value);
 														ctx.styleCache.set(hash, slotProperty.value.value);
 														slotProperty.value.value = hash;
 													}
@@ -181,34 +162,25 @@ export function transform(code: string, ctx: { styleCache: StyleCache }) {
 
 									if (classProperty?.type === "ObjectProperty") {
 										if (classProperty.value.type === "ObjectExpression") {
-											for (const slotProperty of classProperty.value
-												.properties) {
+											for (const slotProperty of classProperty.value.properties) {
 												if (slotProperty.type === "ObjectProperty") {
 													if (slotProperty.value.type === "ArrayExpression") {
 														for (const element of slotProperty.value.elements) {
 															if (element?.type === "StringLiteral") {
-																const hash = generateHashedClassName(
-																	element.value,
-																);
+																const hash = generateHashedClassName(element.value);
 																ctx.styleCache.set(hash, element.value);
 																element.value = hash;
 															}
 														}
-													} else if (
-														slotProperty.value.type === "StringLiteral"
-													) {
-														const hash = generateHashedClassName(
-															slotProperty.value.value,
-														);
+													} else if (slotProperty.value.type === "StringLiteral") {
+														const hash = generateHashedClassName(slotProperty.value.value);
 														ctx.styleCache.set(hash, slotProperty.value.value);
 														slotProperty.value.value = hash;
 													}
 												}
 											}
 										} else if (classProperty.value.type === "StringLiteral") {
-											const hash = generateHashedClassName(
-												classProperty.value.value,
-											);
+											const hash = generateHashedClassName(classProperty.value.value);
 											ctx.styleCache.set(hash, classProperty.value.value);
 											classProperty.value.value = hash;
 										}

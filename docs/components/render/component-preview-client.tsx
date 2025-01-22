@@ -11,8 +11,7 @@ import React, { useState, useMemo, useEffect } from "react";
 /**
  * Props for the ComponentPreviewClient component.
  */
-interface ComponentPreviewClientProps
-	extends React.HTMLAttributes<HTMLDivElement> {
+interface ComponentPreviewClientProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * The name of the component being previewed.
 	 */
@@ -97,17 +96,10 @@ export function ComponentPreviewClient({
 
 	return (
 		<div
-			className={cn(
-				"relative my-4 flex flex-col space-y-2 lg:max-w-[120ch]",
-				className,
-			)}
+			className={cn("relative my-4 flex flex-col space-y-2 lg:max-w-[120ch]", className)}
 			{...props}
 		>
-			<Tabs
-				groupId={`${name}-preview`}
-				items={["Preview", "Code"]}
-				defaultIndex={defaultIndex}
-			>
+			<Tabs groupId={`${name}-preview`} items={["Preview", "Code"]} defaultIndex={defaultIndex}>
 				<Tab value="Preview" className="p-0 rounded-none">
 					<div className="relative" key={key}>
 						<ComponentWrapper>

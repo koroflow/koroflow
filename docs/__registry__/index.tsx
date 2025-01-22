@@ -69,9 +69,7 @@ export const Index = {
 				},
 			],
 			categories: undefined,
-			component: React.lazy(
-				() => import("@/registry/default/examples/consent-solution-demo.tsx"),
-			),
+			component: React.lazy(() => import("@/registry/default/examples/consent-solution-demo.tsx")),
 			source: "",
 			meta: undefined,
 		},
@@ -89,10 +87,7 @@ export const Index = {
 			],
 			categories: undefined,
 			component: React.lazy(
-				() =>
-					import(
-						"@/registry/default/examples/consent-solution-minimal-demo.tsx"
-					),
+				() => import("@/registry/default/examples/consent-solution-minimal-demo.tsx"),
 			),
 			source: "",
 			meta: undefined,
@@ -111,10 +106,7 @@ export const Index = {
 			],
 			categories: undefined,
 			component: React.lazy(
-				() =>
-					import(
-						"@/registry/default/examples/consent-solution-callback-demo.tsx"
-					),
+				() => import("@/registry/default/examples/consent-solution-callback-demo.tsx"),
 			),
 			source: "",
 			meta: undefined,
@@ -132,9 +124,7 @@ export const Index = {
 				},
 			],
 			categories: undefined,
-			component: React.lazy(
-				() => import("@/registry/default/examples/dev-tool-example.tsx"),
-			),
+			component: React.lazy(() => import("@/registry/default/examples/dev-tool-example.tsx")),
 			source: "",
 			meta: undefined,
 		},

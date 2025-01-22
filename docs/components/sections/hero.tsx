@@ -34,9 +34,7 @@ function HeroTitles() {
 						ease,
 					}}
 				>
-					<AuroraText className="leading-normal">
-						{siteConfig.hero.title}
-					</AuroraText>
+					<AuroraText className="leading-normal">{siteConfig.hero.title}</AuroraText>
 				</motion.span>
 			</motion.h1>
 			<motion.p

@@ -57,12 +57,7 @@ type UseStylesProps = {
  * @returns An object containing the merged className and style properties
  * @public
  */
-export function useStyles({
-	baseClassName,
-	componentStyle,
-	styleKey,
-	noStyle,
-}: UseStylesProps) {
+export function useStyles({ baseClassName, componentStyle, styleKey, noStyle }: UseStylesProps) {
 	// Retrieve style-related context values
 	const { noStyle: contextNoStyle, styles } = useCookieBannerContext();
 
@@ -90,9 +85,7 @@ export function useStyles({
 		};
 
 		// Merge context style if available, creating a new object
-		const mergedWithContext = contextStyle
-			? mergeStyles(initialStyle, contextStyle)
-			: initialStyle;
+		const mergedWithContext = contextStyle ? mergeStyles(initialStyle, contextStyle) : initialStyle;
 
 		// Merge component style if provided, creating a new object
 		const finalMergedStyle = componentStyle
@@ -144,9 +137,7 @@ export function useStyles({
 function mergeStyles(existingStyle: StyleValue, newStyle: StyleValue) {
 	// Use cnExt to concatenate class names immutably
 	const className = cnExt(
-		typeof existingStyle === "string"
-			? existingStyle
-			: existingStyle?.className,
+		typeof existingStyle === "string" ? existingStyle : existingStyle?.className,
 		typeof newStyle === "string" ? newStyle : newStyle?.className,
 	);
 

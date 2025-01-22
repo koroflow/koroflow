@@ -7,8 +7,7 @@ import { createElement } from "react";
 export const source = loader({
 	baseUrl: "/docs",
 	icon(icon) {
-		if (icon && icon in icons)
-			return createElement(icons[icon as keyof typeof icons]);
+		if (icon && icon in icons) return createElement(icons[icon as keyof typeof icons]);
 	},
 	source: createMDXSource(docs, meta),
 });

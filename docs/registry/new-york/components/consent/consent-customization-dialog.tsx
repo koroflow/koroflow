@@ -68,8 +68,8 @@ const ConsentCustomizationCard = ({
 			)}
 			<CardTitle id="privacy-settings-title">Privacy Settings</CardTitle>
 			<CardDescription>
-				Customize your privacy settings here. You can choose which types of
-				cookies and tracking technologies you allow.
+				Customize your privacy settings here. You can choose which types of cookies and tracking
+				technologies you allow.
 			</CardDescription>
 		</CardHeader>
 		<CardContent>
@@ -82,12 +82,8 @@ export const ConsentCustomizationDialog = React.forwardRef<
 	HTMLDivElement,
 	ConsentCustomizationDialogProps
 >(({ children, triggerClassName, showCloseButton = false }, ref) => {
-	const {
-		isPrivacyDialogOpen,
-		setIsPrivacyDialogOpen,
-		setShowPopup,
-		saveConsents,
-	} = useConsentManager();
+	const { isPrivacyDialogOpen, setIsPrivacyDialogOpen, setShowPopup, saveConsents } =
+		useConsentManager();
 	const [isMounted, setIsMounted] = React.useState(false);
 	const contentRef = React.useRef<HTMLDivElement>(null);
 

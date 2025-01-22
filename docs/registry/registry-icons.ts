@@ -11,10 +11,7 @@ export const iconLibraries = {
 	},
 } as const;
 
-export const icons: Record<
-	string,
-	Record<keyof typeof iconLibraries, string>
-> = {
+export const icons: Record<string, Record<keyof typeof iconLibraries, string>> = {
 	AlertCircle: {
 		lucide: "AlertCircle",
 		radix: "ExclamationTriangleIcon",

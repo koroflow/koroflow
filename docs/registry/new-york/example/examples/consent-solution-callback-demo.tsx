@@ -1,21 +1,13 @@
 "use client";
 
 import { CookieBanner } from "@/registry/default/components/consent/cookie-banner";
-import {
-	ConsentManagerProvider,
-	useConsentManager,
-} from "@koroflow/core-react";
+import { ConsentManagerProvider, useConsentManager } from "@koroflow/core-react";
 import { useEffect } from "react";
 
 export default function PrivacyPopupMinimalDemo() {
 	return (
 		<ConsentManagerProvider
-			initialGdprTypes={[
-				"necessary",
-				"marketing",
-				"functionality",
-				"measurement",
-			]}
+			initialGdprTypes={["necessary", "marketing", "functionality", "measurement"]}
 		>
 			<ConsentCallbacks />
 		</ConsentManagerProvider>

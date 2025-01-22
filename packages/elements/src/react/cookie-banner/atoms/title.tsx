@@ -58,29 +58,21 @@ interface CookieBannerTitleProps extends HTMLAttributes<HTMLDivElement> {
  *
  * @public
  */
-export const CookieBannerTitle = forwardRef<
-	HTMLDivElement,
-	CookieBannerTitleProps
->(({ className, style, noStyle, ...props }, ref) => {
-	/**
-	 * Apply styles from the CookieBanner context and merge with local styles.
-	 * Uses the 'title' style key for consistent theming.
-	 */
-	const titleStyle = useStyles({
-		baseClassName: "text-label-md text-text-strong-950",
-		componentStyle: className,
-		styleKey: "title",
-		noStyle,
-	});
+export const CookieBannerTitle = forwardRef<HTMLDivElement, CookieBannerTitleProps>(
+	({ className, style, noStyle, ...props }, ref) => {
+		/**
+		 * Apply styles from the CookieBanner context and merge with local styles.
+		 * Uses the 'title' style key for consistent theming.
+		 */
+		const titleStyle = useStyles({
+			baseClassName: "text-label-md text-text-strong-950",
+			componentStyle: className,
+			styleKey: "title",
+			noStyle,
+		});
 
-	return (
-		<div
-			ref={ref}
-			{...titleStyle}
-			style={{ ...style, ...titleStyle.style }}
-			{...props}
-		/>
-	);
-});
+		return <div ref={ref} {...titleStyle} style={{ ...style, ...titleStyle.style }} {...props} />;
+	},
+);
 
 CookieBannerTitle.displayName = "CookieBannerTitle";

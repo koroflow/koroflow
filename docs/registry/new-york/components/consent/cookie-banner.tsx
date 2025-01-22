@@ -152,9 +152,7 @@ const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
 												<X className="h-4 w-4" />
 											</Button>
 										)}
-										<CardTitle id="cookie-consent-title">
-											{bannerTitle}
-										</CardTitle>
+										<CardTitle id="cookie-consent-title">{bannerTitle}</CardTitle>
 										<CardDescription>{bannerDescription}</CardDescription>
 									</CardHeader>
 									<CardContent />

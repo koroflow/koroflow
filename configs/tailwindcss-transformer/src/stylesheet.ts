@@ -17,10 +17,7 @@ import type { StyleCache, StylesheetConfig } from "./types";
  *
  * @public
  */
-export async function generateStylesheet(
-	styleCache: StyleCache,
-	ctx: StylesheetConfig,
-) {
+export async function generateStylesheet(styleCache: StyleCache, ctx: StylesheetConfig) {
 	let stylesheet = "@tailwind base;\n";
 	stylesheet += ctx?.globalCss || "";
 

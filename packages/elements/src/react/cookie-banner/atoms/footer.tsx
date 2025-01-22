@@ -45,29 +45,22 @@ interface CookieBannerFooterProps extends HTMLAttributes<HTMLDivElement> {
  *
  * @public
  */
-export const CookieBannerFooter = forwardRef<
-	CookieBannerFooterElement,
-	CookieBannerFooterProps
->(({ asChild, className, noStyle, style, ...props }, ref) => {
-	const actionsStyle = useStyles({
-		baseClassName:
-			"flex flex-col sm:flex-row justify-between gap-3 px-5 py-4 bg-bg-weak-50",
-		componentStyle: className,
-		styleKey: "actions",
-		noStyle,
-	});
+export const CookieBannerFooter = forwardRef<CookieBannerFooterElement, CookieBannerFooterProps>(
+	({ asChild, className, noStyle, style, ...props }, ref) => {
+		const actionsStyle = useStyles({
+			baseClassName: "flex flex-col sm:flex-row justify-between gap-3 px-5 py-4 bg-bg-weak-50",
+			componentStyle: className,
+			styleKey: "actions",
+			noStyle,
+		});
 
-	const Comp = asChild ? Slot : "div";
+		const Comp = asChild ? Slot : "div";
 
-	return (
-		<Comp
-			ref={ref}
-			{...actionsStyle}
-			style={{ ...style, ...actionsStyle.style }}
-			{...props}
-		/>
-	);
-});
+		return (
+			<Comp ref={ref} {...actionsStyle} style={{ ...style, ...actionsStyle.style }} {...props} />
+		);
+	},
+);
 
 CookieBannerFooter.displayName = "CookieBannerFooter";
 
@@ -78,8 +71,7 @@ type CookieBannerFooterSubGroupElement = ComponentRef<"div">;
  *
  * @public
  */
-interface CookieBannerFooterSubGroupProps
-	extends HTMLAttributes<HTMLDivElement> {
+interface CookieBannerFooterSubGroupProps extends HTMLAttributes<HTMLDivElement> {
 	/**
 	 * @remarks
 	 * When true, the component will render its children directly without wrapping them in a DOM element.
@@ -125,12 +117,7 @@ export const CookieBannerFooterSubGroup = forwardRef<
 	const Comp = asChild ? Slot : "div";
 
 	return (
-		<Comp
-			ref={ref}
-			{...actionsStyle}
-			style={{ ...style, ...actionsStyle.style }}
-			{...props}
-		/>
+		<Comp ref={ref} {...actionsStyle} style={{ ...style, ...actionsStyle.style }} {...props} />
 	);
 });
 

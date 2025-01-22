@@ -7,12 +7,7 @@ import KoroflowDevTool from "@koroflow/dev-tools";
 export default function PrivacyPopupDemo() {
 	return (
 		<ConsentManagerProvider
-			initialGdprTypes={[
-				"necessary",
-				"marketing",
-				"functionality",
-				"measurement",
-			]}
+			initialGdprTypes={["necessary", "marketing", "functionality", "measurement"]}
 		>
 			<div className="text-center space-y-4">
 				<div className="space-x-4">

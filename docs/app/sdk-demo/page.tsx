@@ -7,12 +7,7 @@ export default function PrivacyConsentPage() {
 	return (
 		<main className="container py-10">
 			<ConsentManagerProvider
-				initialGdprTypes={[
-					"necessary",
-					"marketing",
-					"functionality",
-					"measurement",
-				]}
+				initialGdprTypes={["necessary", "marketing", "functionality", "measurement"]}
 				initialComplianceSettings={{
 					gdpr: { enabled: true, appliesGlobally: true, applies: true },
 					ccpa: { enabled: true, appliesGlobally: false, applies: undefined },
@@ -26,9 +21,7 @@ export default function PrivacyConsentPage() {
 			>
 				<div className="text-center space-y-4">
 					<h1 className="text-4xl font-bold">Koroflow SDK Demo</h1>
-					<p className="text-xl">
-						Explore our privacy consent management tools
-					</p>
+					<p className="text-xl">Explore our privacy consent management tools</p>
 				</div>
 				<CookieBanner />
 				<KoroflowDevTool />

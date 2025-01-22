@@ -47,12 +47,7 @@ export const GradientIcon: React.FC<GradientIconProps> = ({
 						/>
 					</mask>
 				</defs>
-				<rect
-					width="24"
-					height="24"
-					fill={`url(#${gradientId})`}
-					mask={`url(#${maskId})`}
-				/>
+				<rect width="24" height="24" fill={`url(#${gradientId})`} mask={`url(#${maskId})`} />
 			</svg>
 		</div>
 	);

@@ -18,18 +18,11 @@ interface SectionProperties {
 }
 
 const Section = forwardRef<HTMLElement, SectionProperties>(
-	(
-		{ align, children, className, description, id, subtitle, title },
-		forwardedReference,
-	) => {
+	({ align, children, className, description, id, subtitle, title }, forwardedReference) => {
 		const internalReference = useRef<HTMLElement>(null);
 		const reference = forwardedReference || internalReference;
 		const alignmentClass =
-			align === "left"
-				? "text-left"
-				: align === "right"
-					? "text-right"
-					: "text-center";
+			align === "left" ? "text-left" : align === "right" ? "text-right" : "text-center";
 
 		return (
 			<section id={id} ref={reference}>
@@ -51,11 +44,7 @@ const Section = forwardRef<HTMLElement, SectionProperties>(
 								<h3
 									className={cn(
 										"mx-0 mt-4 max-w-lg text-5xl text-balance font-bold sm:max-w-none sm:text-4xl md:text-5xl lg:text-6xl leading-[1.2] tracking-tighter text-foreground lowercase",
-										align === "center"
-											? "mx-auto"
-											: align === "right"
-												? "ml-auto"
-												: "",
+										align === "center" ? "mx-auto" : align === "right" ? "ml-auto" : "",
 									)}
 								>
 									{subtitle}
@@ -65,11 +54,7 @@ const Section = forwardRef<HTMLElement, SectionProperties>(
 								<p
 									className={cn(
 										"mt-6 text-lg leading-8 text-muted-foreground text-balance max-w-2xl",
-										align === "center"
-											? "mx-auto"
-											: align === "right"
-												? "ml-auto"
-												: "",
+										align === "center" ? "mx-auto" : align === "right" ? "ml-auto" : "",
 									)}
 								>
 									{description}

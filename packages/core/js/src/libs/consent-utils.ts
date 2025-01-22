@@ -11,11 +11,7 @@ export function getEffectiveConsents(
 	consents: ConsentState,
 	honorDoNotTrack: boolean,
 ): ConsentState {
-	if (
-		honorDoNotTrack &&
-		typeof window !== "undefined" &&
-		window.navigator.doNotTrack === "1"
-	) {
+	if (honorDoNotTrack && typeof window !== "undefined" && window.navigator.doNotTrack === "1") {
 		return Object.keys(consents).reduce((acc, key) => {
 			if (key in consents) {
 				acc[key as AllConsentNames] = key === "necessary";
@@ -62,9 +58,6 @@ export function hasConsented(
  * @param consents - The current state of user consents.
  * @returns True if the consent type is enabled, false otherwise.
  */
-export function isConsentEnabled(
-	consentType: AllConsentNames,
-	consents: ConsentState,
-): boolean {
+export function isConsentEnabled(consentType: AllConsentNames, consents: ConsentState): boolean {
 	return consents[consentType] || false;
 }

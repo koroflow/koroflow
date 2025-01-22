@@ -34,9 +34,7 @@ export const getComponentCode = async (
 	name: string,
 	styleName: string,
 ): Promise<{ code: string; preview: React.ReactNode }> => {
-	const Component = (Index as Record<string, Record<string, ComponentInfo>>)[
-		styleName
-	]?.[name];
+	const Component = (Index as Record<string, Record<string, ComponentInfo>>)[styleName]?.[name];
 
 	if (!Component) {
 		console.error(`Component ${name} not found in ${styleName} style.`);
@@ -50,9 +48,7 @@ export const getComponentCode = async (
 
 	try {
 		const code = await fs.readFile(fetchFile, "utf-8");
-		const ClientComponent = React.memo(() =>
-			React.createElement(Component.component),
-		);
+		const ClientComponent = React.memo(() => React.createElement(Component.component));
 		ClientComponent.displayName = `ClientComponent(${name})`;
 
 		return {

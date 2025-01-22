@@ -47,12 +47,7 @@ export default function Icon() {
 					color-interpolation-filters="sRGB"
 				>
 					<feFlood flood-opacity="0" result="BackgroundImageFix" />
-					<feBlend
-						mode="normal"
-						in="SourceGraphic"
-						in2="BackgroundImageFix"
-						result="shape"
-					/>
+					<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
 					<feColorMatrix
 						in="SourceAlpha"
 						type="matrix"
@@ -62,15 +57,8 @@ export default function Icon() {
 					<feOffset dy="-50" />
 					<feGaussianBlur stdDeviation="50" />
 					<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-					<feColorMatrix
-						type="matrix"
-						values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.64 0"
-					/>
-					<feBlend
-						mode="normal"
-						in2="shape"
-						result="effect1_innerShadow_12_9"
-					/>
+					<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.64 0" />
+					<feBlend mode="normal" in2="shape" result="effect1_innerShadow_12_9" />
 				</filter>
 				<linearGradient
 					id="paint0_linear_12_9"

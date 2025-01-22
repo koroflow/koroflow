@@ -1,17 +1,8 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 
-export async function getComponentCode(
-	name: string,
-	styleName = "default",
-): Promise<string> {
-	const registryPath = path.join(
-		process.cwd(),
-		"registry",
-		styleName,
-		"examples",
-		`${name}.tsx`,
-	);
+export async function getComponentCode(name: string, styleName = "default"): Promise<string> {
+	const registryPath = path.join(process.cwd(), "registry", styleName, "examples", `${name}.tsx`);
 	try {
 		const code = await fs.readFile(registryPath, "utf-8");
 		return code.replace(`@/registry/${styleName}/`, "@/components/");

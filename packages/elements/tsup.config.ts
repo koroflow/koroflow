@@ -1,9 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import {
-	generateStylesheet,
-	transform,
-} from "@koroflow/tailwindcss-transformer";
+import { generateStylesheet, transform } from "@koroflow/tailwindcss-transformer";
 import { type Options, defineConfig } from "tsup";
 import { name, version } from "./package.json";
 

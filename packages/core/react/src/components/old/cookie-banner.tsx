@@ -8,13 +8,7 @@ import { useConsentManager } from "../../hooks/use-consent-manager";
 import { cn } from "../../libs/utils";
 
 import { Button } from "../primitives/button";
-import {
-	Card,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "../primitives/card";
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "../primitives/card";
 import { Overlay } from "../primitives/overlay";
 
 type HorizontalPosition = "left" | "center" | "right";
@@ -155,10 +149,7 @@ export const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
 												<X className="h-4 w-4" />
 											</Button>
 										)}
-										<CardTitle
-											id="cookie-consent-title"
-											className="text-lg sm:text-xl"
-										>
+										<CardTitle id="cookie-consent-title" className="text-lg sm:text-xl">
 											{bannerTitle}
 										</CardTitle>
 										<CardDescription className="text-sm sm:text-base">
@@ -186,11 +177,7 @@ export const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
 												Customise Consent
 											</Button>
 										</div>
-										<Button
-											size="sm"
-											onPress={acceptAll}
-											className="w-full sm:w-auto"
-										>
+										<Button size="sm" onPress={acceptAll} className="w-full sm:w-auto">
 											Accept All
 										</Button>
 									</CardFooter>

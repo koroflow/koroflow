@@ -6,9 +6,7 @@ export function Footer() {
 		<footer className="mt-24 flex flex-col gap-y-5 rounded-lg px-7 py-5 container">
 			<div className="flex items-center justify-between">
 				<div className="flex items-center gap-x-2">
-					<h2 className="text-lg font-bold text-foreground">
-						{siteConfig.name}
-					</h2>
+					<h2 className="text-lg font-bold text-foreground">{siteConfig.name}</h2>
 				</div>
 
 				<div className="flex gap-x-4">

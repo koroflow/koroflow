@@ -22,14 +22,11 @@ const buttonVariants = cva(
 	{
 		variants: {
 			variant: {
-				default:
-					"bg-primary text-primary-foreground data-[hovered]:bg-primary/90",
-				destructive:
-					"bg-destructive text-destructive-foreground data-[hovered]:bg-destructive/90",
+				default: "bg-primary text-primary-foreground data-[hovered]:bg-primary/90",
+				destructive: "bg-destructive text-destructive-foreground data-[hovered]:bg-destructive/90",
 				outline:
 					"border border-input bg-background data-[hovered]:bg-accent data-[hovered]:text-accent-foreground",
-				secondary:
-					"bg-secondary text-secondary-foreground data-[hovered]:bg-secondary/80",
+				secondary: "bg-secondary text-secondary-foreground data-[hovered]:bg-secondary/80",
 				ghost: "data-[hovered]:bg-accent data-[hovered]:text-accent-foreground",
 				link: "text-primary underline-offset-4 data-[hovered]:underline",
 			},
@@ -47,9 +44,7 @@ const buttonVariants = cva(
 	},
 );
 
-interface ButtonProps
-	extends AriaButtonProps,
-		VariantProps<typeof buttonVariants> {}
+interface ButtonProps extends AriaButtonProps, VariantProps<typeof buttonVariants> {}
 
 const Button = ({ className, variant, size, ...props }: ButtonProps) => {
 	return (

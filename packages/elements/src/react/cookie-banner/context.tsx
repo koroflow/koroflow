@@ -32,8 +32,7 @@ export type CookieBannerContextValue = ReturnType<typeof useConsentManager> & {
  * @constant
  * @type {React.Context<CookieBannerContextValue | null>}
  */
-export const CookieBannerContext =
-	createContext<CookieBannerContextValue | null>(null);
+export const CookieBannerContext = createContext<CookieBannerContextValue | null>(null);
 
 /**
  * Hook to access the CookieBannerContext.
@@ -48,9 +47,7 @@ export const CookieBannerContext =
 export const useCookieBannerContext = () => {
 	const context = useContext(CookieBannerContext);
 	if (!context) {
-		throw new Error(
-			"CookieBanner components must be used within CookieBanner.Root",
-		);
+		throw new Error("CookieBanner components must be used within CookieBanner.Root");
 	}
 	return context;
 };

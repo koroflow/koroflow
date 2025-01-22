@@ -192,75 +192,73 @@ interface CookieBannerRootChildrenProps extends HTMLAttributes<HTMLDivElement> {
  *
  * @public
  */
-export const CookieBannerRootChildren = forwardRef<
-	HTMLDivElement,
-	CookieBannerRootChildrenProps
->(({ asChild, children, className, style, noStyle, ...props }, ref) => {
-	const { showPopup, disableAnimation } = useCookieBannerContext();
+export const CookieBannerRootChildren = forwardRef<HTMLDivElement, CookieBannerRootChildrenProps>(
+	({ asChild, children, className, style, noStyle, ...props }, ref) => {
+		const { showPopup, disableAnimation } = useCookieBannerContext();
 
-	/**
-	 * Apply styles from the CookieBanner context and merge with local styles.
-	 * Uses the 'content' style key for consistent theming.
-	 */
-	const contentStyle = useStyles({
-		baseClassName:
-			"flex z-[999999999] flex-col space-y-2 p-4 sm:p-6 fixed bottom-0 left-0",
-		componentStyle: className,
-		styleKey: "content",
-		noStyle,
-	});
+		/**
+		 * Apply styles from the CookieBanner context and merge with local styles.
+		 * Uses the 'content' style key for consistent theming.
+		 */
+		const contentStyle = useStyles({
+			baseClassName: "flex z-[999999999] flex-col space-y-2 p-4 sm:p-6 fixed bottom-0 left-0",
+			componentStyle: className,
+			styleKey: "content",
+			noStyle,
+		});
 
-	/**
-	 * Track client-side mounting state to prevent SSR hydration issues
-	 * with the portal rendering
-	 */
-	const [isMounted, setIsMounted] = useState(false);
+		/**
+		 * Track client-side mounting state to prevent SSR hydration issues
+		 * with the portal rendering
+		 */
+		const [isMounted, setIsMounted] = useState(false);
 
-	/**
-	 * Initialize mounting state after initial render
-	 * This ensures we only render the portal on the client side
-	 */
-	useEffect(() => {
-		setIsMounted(true);
-	}, []);
+		/**
+		 * Initialize mounting state after initial render
+		 * This ensures we only render the portal on the client side
+		 */
+		useEffect(() => {
+			setIsMounted(true);
+		}, []);
 
-	// Prevent rendering until client-side mount is complete
-	if (!isMounted) {
-		return null;
-	}
+		// Prevent rendering until client-side mount is complete
+		if (!isMounted) {
+			return null;
+		}
 
-	// Only render when the banner should be shown
-	return showPopup
-		? createPortal(
-				<>
-					<Overlay />
-					{disableAnimation ? (
-						<div
-							ref={ref}
-							{...contentStyle}
-							style={{ ...style, ...contentStyle.style }}
-							{...props}
-						>
-							{children}
-						</div>
-					) : (
-						<AnimatePresence>
-							<motion.div
-								initial={{ opacity: 0, y: 50 }}
-								animate={{ opacity: 1, y: 0 }}
-								exit={{ opacity: 0, y: 50 }}
-								transition={{ type: "spring", stiffness: 300, damping: 30 }}
+		// Only render when the banner should be shown
+		return showPopup
+			? createPortal(
+					<>
+						<Overlay />
+						{disableAnimation ? (
+							<div
+								ref={ref}
 								{...contentStyle}
 								style={{ ...style, ...contentStyle.style }}
+								{...props}
 							>
 								{children}
-							</motion.div>
-						</AnimatePresence>
-					)}
-				</>,
-				document.body,
-			)
-		: null;
-});
+							</div>
+						) : (
+							<AnimatePresence>
+								<motion.div
+									initial={{ opacity: 0, y: 50 }}
+									animate={{ opacity: 1, y: 0 }}
+									exit={{ opacity: 0, y: 50 }}
+									transition={{ type: "spring", stiffness: 300, damping: 30 }}
+									{...contentStyle}
+									style={{ ...style, ...contentStyle.style }}
+								>
+									{children}
+								</motion.div>
+							</AnimatePresence>
+						)}
+					</>,
+					document.body,
+				)
+			: null;
+	},
+);
 
 CookieBannerRootChildren.displayName = "CookieBannerRootChildren";

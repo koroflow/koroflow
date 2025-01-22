@@ -11,12 +11,7 @@ import { Step, Steps } from "fumadocs-ui/components/steps";
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { TypeTable } from "fumadocs-ui/components/type-table";
 import defaultMdxComponents from "fumadocs-ui/mdx";
-import {
-	DocsBody,
-	DocsDescription,
-	DocsPage,
-	DocsTitle,
-} from "fumadocs-ui/page";
+import { DocsBody, DocsDescription, DocsPage, DocsTitle } from "fumadocs-ui/page";
 import { notFound } from "next/navigation";
 
 export default async function Page(props: {
@@ -31,11 +26,7 @@ export default async function Page(props: {
 	const MDX = page.data.body;
 
 	return (
-		<DocsPage
-			toc={page.data.toc}
-			tableOfContent={{ style: "clerk" }}
-			full={page.data.full}
-		>
+		<DocsPage toc={page.data.toc} tableOfContent={{ style: "clerk" }} full={page.data.full}>
 			<DocsTitle>{page.data.title}</DocsTitle>
 			<DocsDescription>{page.data.description}</DocsDescription>
 			<DocsBody>
@@ -58,10 +49,7 @@ export default async function Page(props: {
 								<Pre>{props.children}</Pre>
 							</CodeBlock>
 						),
-						LinkedCard: ({
-							className,
-							...props
-						}: React.ComponentProps<typeof Link>) => (
+						LinkedCard: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
 							<Link
 								className={cn(
 									"flex w-full flex-col items-center rounded-xl border bg-card p-6 text-card-foreground shadow transition-colors hover:bg-muted/50 sm:p-10",

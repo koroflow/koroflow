@@ -16,14 +16,12 @@ export function ErrorState({
 		>
 			<Alert variant="destructive" className="max-w-2xl rounded-t-none">
 				<AlertCircle className="h-4 w-4" />
-				<AlertTitle className="text-lg font-semibold">
-					SDK Initialization Failed
-				</AlertTitle>
+				<AlertTitle className="text-lg font-semibold">SDK Initialization Failed</AlertTitle>
 
 				<AlertDescription className="mt-2 -ml-7">
 					<p className="mb-2">
-						The @koroflow/core SDK could not be found in the global scope. This
-						usually means either:
+						The @koroflow/core SDK could not be found in the global scope. This usually means
+						either:
 					</p>
 					<ul className="list-disc pl-6 space-y-1">
 						<li>The namespace has been changed from its default value</li>
@@ -32,9 +30,7 @@ export function ErrorState({
 					{namespace && (
 						<p className="mt-3 text-sm">
 							Current namespace:{" "}
-							<code className="bg-red-100/10 px-1 py-0.5 rounded">
-								{namespace}
-							</code>
+							<code className="bg-red-100/10 px-1 py-0.5 rounded">{namespace}</code>
 						</p>
 					)}
 				</AlertDescription>

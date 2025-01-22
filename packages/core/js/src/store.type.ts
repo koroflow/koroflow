@@ -118,10 +118,7 @@ export interface PrivacyConsentState {
 	 * @param region - The region to update
 	 * @param settings - New compliance settings
 	 */
-	setComplianceSetting: (
-		region: ComplianceRegion,
-		settings: Partial<ComplianceSettings>,
-	) => void;
+	setComplianceSetting: (region: ComplianceRegion, settings: Partial<ComplianceSettings>) => void;
 
 	/** Resets compliance settings to their default values */
 	resetComplianceSettings: () => void;
@@ -131,10 +128,7 @@ export interface PrivacyConsentState {
 	 * @param name - The callback event name
 	 * @param callback - The callback function
 	 */
-	setCallback: (
-		name: keyof Callbacks,
-		callback: CallbackFunction | undefined,
-	) => void;
+	setCallback: (name: keyof Callbacks, callback: CallbackFunction | undefined) => void;
 
 	/**
 	 * Updates the user's detected country.

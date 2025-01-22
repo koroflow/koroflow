@@ -24,10 +24,7 @@ interface ComponentWrapperProps {
  * @remarks
  * This component is used to wrap components that are being previewed, providing a consistent layout and styling.
  */
-const ComponentWrapper: React.FC<ComponentWrapperProps> = ({
-	className,
-	children,
-}) => {
+const ComponentWrapper: React.FC<ComponentWrapperProps> = ({ className, children }) => {
 	return (
 		<div
 			className={cn(

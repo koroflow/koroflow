@@ -200,18 +200,9 @@ export const shadows = {
 		"0 0 0 4px theme(colors.red[alpha-10])",
 	],
 	"fancy-buttons-neutral": ["0 1px 2px 0 #1b1c1d7a", "0 0 0 1px #242628"],
-	"fancy-buttons-primary": [
-		"0 1px 2px 0 #0e121b3d",
-		"0 0 0 1px theme(colors.primary[base])",
-	],
-	"fancy-buttons-error": [
-		"0 1px 2px 0 #0e121b3d",
-		"0 0 0 1px theme(colors.error[base])",
-	],
-	"fancy-buttons-stroke": [
-		"0 1px 3px 0 #0e121b1f",
-		"0 0 0 1px theme(colors.stroke[soft-200])",
-	],
+	"fancy-buttons-primary": ["0 1px 2px 0 #0e121b3d", "0 0 0 1px theme(colors.primary[base])"],
+	"fancy-buttons-error": ["0 1px 2px 0 #0e121b3d", "0 0 0 1px theme(colors.error[base])"],
+	"fancy-buttons-stroke": ["0 1px 3px 0 #0e121b1f", "0 0 0 1px theme(colors.stroke[soft-200])"],
 	"toggle-switch": ["0 6px 10px 0 #0e121b0f", "0 2px 4px 0 #0e121b08"],
 	"switch-thumb": ["0 4px 8px 0 #1b1c1d0f", "0 2px 4px 0 #0e121b14"],
 	tooltip: ["0 12px 24px 0 #0e121b0f", "0 1px 2px 0 #0e121b08"],
@@ -635,9 +626,7 @@ const config = {
 			 * Selectors are wrapped in a `:where()` pseudo-selector to keep
 			 * specificity to 0,0,0.
 			 */
-			const addScopedBase = (
-				styles: Record<string, string | Record<string, string>>,
-			) => {
+			const addScopedBase = (styles: Record<string, string | Record<string, string>>) => {
 				const scopedStyles = Object.entries(styles).reduce(
 					(acc, [selectors, properties]) => ({
 						// biome-ignore lint/performance/noAccumulatingSpread: <explanation>
@@ -742,14 +731,8 @@ const config = {
 						"fontFamily.sans",
 						'ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
 					),
-					fontFeatureSettings: theme(
-						"fontFamily.sans[1].fontFeatureSettings",
-						"normal",
-					),
-					fontVariationSettings: theme(
-						"fontFamily.sans[1].fontVariationSettings",
-						"normal",
-					),
+					fontFeatureSettings: theme("fontFamily.sans[1].fontFeatureSettings", "normal"),
+					fontVariationSettings: theme("fontFamily.sans[1].fontVariationSettings", "normal"),
 					WebkitTapHighlightColor: "transparent",
 				},
 				hr: { height: "0", color: "inherit", borderTopWidth: "1px" },
@@ -765,14 +748,8 @@ const config = {
 						"fontFamily.mono",
 						'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
 					),
-					fontFeatureSettings: theme(
-						"fontFamily.mono[1].fontFeatureSettings",
-						"normal",
-					),
-					fontVariationSettings: theme(
-						"fontFamily.mono[1].fontVariationSettings",
-						"normal",
-					),
+					fontFeatureSettings: theme("fontFamily.mono[1].fontFeatureSettings", "normal"),
+					fontVariationSettings: theme("fontFamily.mono[1].fontVariationSettings", "normal"),
 					fontSize: "1em",
 				},
 				small: { fontSize: "80%" },

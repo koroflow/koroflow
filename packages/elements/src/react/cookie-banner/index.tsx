@@ -16,10 +16,7 @@ import { CookieBannerFooter, CookieBannerFooterSubGroup } from "./atoms/footer";
 import { CookieBannerHeader } from "./atoms/header";
 import { CookieBannerRoot } from "./atoms/root";
 import { CookieBannerTitle } from "./atoms/title";
-import CookieBanner, {
-	type CookieBannerProps,
-	type CookieBannerComponent,
-} from "./cookie-banner";
+import CookieBanner, { type CookieBannerProps, type CookieBannerComponent } from "./cookie-banner";
 import type { CookieBannerStyles } from "./types";
 
 /**

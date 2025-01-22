@@ -12,12 +12,7 @@ export function AuroraText({
 	children: React.ReactNode;
 }) {
 	return (
-		<span
-			className={cn(
-				"relative overflow-hidden inline-flex bg-background",
-				className,
-			)}
-		>
+		<span className={cn("relative overflow-hidden inline-flex bg-background", className)}>
 			{children}
 			<div className="aurora absolute inset-0 pointer-events-none mix-blend-lighten dark:mix-blend-darken">
 				{[...Array(5)].map((_, index) => (
