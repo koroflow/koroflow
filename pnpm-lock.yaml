@@ -61,6 +61,46 @@ importers:
         specifier: ^8.20.0
         version: 8.20.0(eslint@9.18.0(jiti@2.4.2))(typescript@5.7.3)
 
+  configs/tailwindcss-transformer:
+    dependencies:
+      '@babel/parser':
+        specifier: ^7.26.5
+        version: 7.26.5
+      ast-types:
+        specifier: ^0.14.2
+        version: 0.14.2
+      cssnano:
+        specifier: 7.0.6
+        version: 7.0.6(postcss@8.5.1)
+      flatted:
+        specifier: ^3.3.2
+        version: 3.3.2
+      postcss:
+        specifier: ^8.5.1
+        version: 8.5.1
+      postcss-value-parser:
+        specifier: ^4.2.0
+        version: 4.2.0
+      recast:
+        specifier: ^0.23.9
+        version: 0.23.9
+      tailwind-variants:
+        specifier: ^0.3.1
+        version: 0.3.1(tailwindcss@3.4.17)
+      tailwindcss:
+        specifier: ^3.4.17
+        version: 3.4.17
+    devDependencies:
+      '@types/node':
+        specifier: 22.10.7
+        version: 22.10.7
+      tsup:
+        specifier: ^8.3.5
+        version: 8.3.5(@swc/core@1.10.8(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
+      vitest:
+        specifier: ^3.0.3
+        version: 3.0.3(@types/node@22.10.7)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.7.0)
+
   configs/typescript-config: {}
 
   docs:
@@ -408,7 +448,7 @@ importers:
     devDependencies:
       '@koroflow/tailwindcss-transformer':
         specifier: workspace:*
-        version: link:../tailwindcss-transformer
+        version: link:../../configs/tailwindcss-transformer
       '@types/node':
         specifier: 22.10.7
         version: 22.10.7
@@ -433,46 +473,6 @@ importers:
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
-
-  packages/tailwindcss-transformer:
-    dependencies:
-      '@babel/parser':
-        specifier: ^7.26.5
-        version: 7.26.5
-      ast-types:
-        specifier: ^0.14.2
-        version: 0.14.2
-      cssnano:
-        specifier: 7.0.6
-        version: 7.0.6(postcss@8.5.1)
-      flatted:
-        specifier: ^3.3.2
-        version: 3.3.2
-      postcss:
-        specifier: ^8.5.1
-        version: 8.5.1
-      postcss-value-parser:
-        specifier: ^4.2.0
-        version: 4.2.0
-      recast:
-        specifier: ^0.23.9
-        version: 0.23.9
-      tailwind-variants:
-        specifier: ^0.3.1
-        version: 0.3.1(tailwindcss@3.4.17)
-      tailwindcss:
-        specifier: ^3.4.17
-        version: 3.4.17
-    devDependencies:
-      '@types/node':
-        specifier: 22.10.7
-        version: 22.10.7
-      tsup:
-        specifier: ^8.3.5
-        version: 8.3.5(@swc/core@1.10.8(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
-      vitest:
-        specifier: ^3.0.3
-        version: 3.0.3(@types/node@22.10.7)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.7.0)
 
 packages:
 
