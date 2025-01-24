@@ -1,20 +1,25 @@
 "use client";
 
 import type { FC, ReactNode } from "react";
-import {
-	CookieBannerAcceptButton,
-	CookieBannerCustomizeButton,
-	CookieBannerRejectButton,
-} from "./atoms/actions";
-import { CookieBannerCard } from "./atoms/card";
-import { CookieBannerDescription } from "./atoms/description";
-import { CookieBannerFooter, CookieBannerFooterSubGroup } from "./atoms/footer";
-import { CookieBannerHeader } from "./atoms/header";
-import { CookieBannerRoot } from "./atoms/root";
-import { CookieBannerTitle } from "./atoms/title";
+
 import { ErrorBoundary } from "./error-boundary";
 import type { CookieBannerStyles } from "./types";
 import "./cookie-banner.css";
+
+import {
+	CookieBannerAcceptButton,
+	CookieBannerCard,
+	CookieBannerCustomizeButton,
+	CookieBannerDescription,
+	CookieBannerFooter,
+	CookieBannerFooterSubGroup,
+	CookieBannerHeader,
+	CookieBannerRejectButton,
+	CookieBannerRoot,
+	CookieBannerTitle,
+} from ".";
+import { ConsentButton } from "../primitives/button";
+
 /**
  * Props for configuring and customizing the CookieBanner component.
  *
@@ -35,38 +40,6 @@ export interface CookieBannerProps {
 	customizeButtonText?: ReactNode;
 	/** @remarks Content to display on the accept button */
 	acceptButtonText?: ReactNode;
-}
-
-/**
- * Component type definition for the CookieBanner with its compound components.
- *
- * @remarks
- * This interface extends the base CookieBanner component with additional sub-components
- * that can be used to compose the banner's structure.
- *
- * @public
- */
-export interface CookieBannerComponent extends FC<CookieBannerProps> {
-	/** Root container component */
-	Root: typeof CookieBannerRoot;
-	/** Content wrapper component */
-	Header: typeof CookieBannerHeader;
-	/** Title component */
-	Title: typeof CookieBannerTitle;
-	/** Description component */
-	Description: typeof CookieBannerDescription;
-	/** Actions container component */
-	Footer: typeof CookieBannerFooter;
-	/** Reject button component */
-	RejectButton: typeof CookieBannerRejectButton;
-	/** Accept button component */
-	AcceptButton: typeof CookieBannerAcceptButton;
-	/** Customize button component */
-	CustomizeButton: typeof CookieBannerCustomizeButton;
-	/** Card component */
-	Card: typeof CookieBannerCard;
-	/** Actions sub group component */
-	FooterSubGroup: typeof CookieBannerFooterSubGroup;
 }
 
 /**
@@ -124,7 +97,7 @@ export interface CookieBannerComponent extends FC<CookieBannerProps> {
  *
  * @public
  */
-const CookieBanner: FC<CookieBannerProps> = ({
+const SingaltonCookieBanner: FC<CookieBannerProps> = ({
 	styles = {},
 	noStyle = false,
 	title = "We value your privacy",
@@ -135,7 +108,7 @@ const CookieBanner: FC<CookieBannerProps> = ({
 }) => {
 	return (
 		<ErrorBoundary fallback={<div>Something went wrong with the Cookie Banner.</div>}>
-			<CookieBannerRoot className="w-full sm:w-auto" styles={styles} noStyle={noStyle}>
+			<CookieBannerRoot styles={styles} noStyle={noStyle}>
 				<CookieBannerCard>
 					<CookieBannerHeader>
 						<CookieBannerTitle>{title}</CookieBannerTitle>
@@ -143,15 +116,63 @@ const CookieBanner: FC<CookieBannerProps> = ({
 					</CookieBannerHeader>
 					<CookieBannerFooter>
 						<CookieBannerFooterSubGroup>
-							<CookieBannerRejectButton>{rejectButtonText}</CookieBannerRejectButton>
-							<CookieBannerCustomizeButton>{customizeButtonText}</CookieBannerCustomizeButton>
+							<ConsentButton action="reject-consent" closeCookieBanner>
+								{rejectButtonText}
+							</ConsentButton>
+							<ConsentButton action="open-consent-dialog">{customizeButtonText}</ConsentButton>
 						</CookieBannerFooterSubGroup>
-						<CookieBannerAcceptButton>{acceptButtonText}</CookieBannerAcceptButton>
+						<ConsentButton action="accept-consent" variant="primary" closeCookieBanner>
+							{acceptButtonText}
+						</ConsentButton>
 					</CookieBannerFooter>
 				</CookieBannerCard>
 			</CookieBannerRoot>
 		</ErrorBoundary>
 	);
 };
+
+/**
+ * Component type definition for the CookieBanner with its compound components.
+ *
+ * @remarks
+ * This interface extends the base CookieBanner component with additional sub-components
+ * that can be used to compose the banner's structure.
+ *
+ * @public
+ */
+export interface CookieBannerComponent extends FC<CookieBannerProps> {
+	/** Root container component */
+	Root: typeof CookieBannerRoot;
+	/** Content wrapper component */
+	Header: typeof CookieBannerHeader;
+	/** Title component */
+	Title: typeof CookieBannerTitle;
+	/** Description component */
+	Description: typeof CookieBannerDescription;
+	/** Actions container component */
+	Footer: typeof CookieBannerFooter;
+	/** Reject button component */
+	RejectButton: typeof CookieBannerRejectButton;
+	/** Accept button component */
+	AcceptButton: typeof CookieBannerAcceptButton;
+	/** Customize button component */
+	CustomizeButton: typeof CookieBannerCustomizeButton;
+	/** Card component */
+	Card: typeof CookieBannerCard;
+	/** Actions sub group component */
+	FooterSubGroup: typeof CookieBannerFooterSubGroup;
+}
+
+const CookieBanner = SingaltonCookieBanner as CookieBannerComponent;
+CookieBanner.Root = CookieBannerRoot;
+CookieBanner.Header = CookieBannerHeader;
+CookieBanner.Title = CookieBannerTitle;
+CookieBanner.Description = CookieBannerDescription;
+CookieBanner.Footer = CookieBannerFooter;
+CookieBanner.RejectButton = CookieBannerRejectButton;
+CookieBanner.AcceptButton = CookieBannerAcceptButton;
+CookieBanner.CustomizeButton = CookieBannerCustomizeButton;
+CookieBanner.FooterSubGroup = CookieBannerFooterSubGroup;
+CookieBanner.Card = CookieBannerCard;
 
 export default CookieBanner;

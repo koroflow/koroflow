@@ -1,23 +1,4 @@
-"use client";
-
-/**
- * A customizable cookie consent banner component with compound components pattern.
- *
- * @packageDocumentation
- */
-import {
-	CookieBannerAcceptButton,
-	CookieBannerCustomizeButton,
-	CookieBannerRejectButton,
-} from "./atoms/actions";
-import { CookieBannerCard } from "./atoms/card";
-import { CookieBannerDescription } from "./atoms/description";
-import { CookieBannerFooter, CookieBannerFooterSubGroup } from "./atoms/footer";
-import { CookieBannerHeader } from "./atoms/header";
-import { CookieBannerRoot } from "./atoms/root";
-import { CookieBannerTitle } from "./atoms/title";
-import CookieBanner, { type CookieBannerProps, type CookieBannerComponent } from "./cookie-banner";
-import type { CookieBannerStyles } from "./types";
+import CookieBanner, { type CookieBannerComponent, type CookieBannerProps } from "./cookie-banner";
 
 /**
  * Enhanced CookieBanner component with compound components attached.
@@ -65,55 +46,9 @@ import type { CookieBannerStyles } from "./types";
  *   );
  * }
  */
-const EnhancedCookieBanner = CookieBanner as CookieBannerComponent;
-EnhancedCookieBanner.Root = CookieBannerRoot;
-EnhancedCookieBanner.Header = CookieBannerHeader;
-EnhancedCookieBanner.Title = CookieBannerTitle;
-EnhancedCookieBanner.Description = CookieBannerDescription;
-EnhancedCookieBanner.Footer = CookieBannerFooter;
-EnhancedCookieBanner.RejectButton = CookieBannerRejectButton;
-EnhancedCookieBanner.AcceptButton = CookieBannerAcceptButton;
-EnhancedCookieBanner.CustomizeButton = CookieBannerCustomizeButton;
-EnhancedCookieBanner.FooterSubGroup = CookieBannerFooterSubGroup;
-EnhancedCookieBanner.Card = CookieBannerCard;
 
-export {
-	EnhancedCookieBanner as default,
-	CookieBannerRoot,
-	CookieBannerHeader,
-	CookieBannerDescription,
-	CookieBannerFooter,
-	CookieBannerRejectButton,
-	CookieBannerAcceptButton,
-	CookieBannerCustomizeButton,
-	CookieBannerTitle,
-	CookieBannerCard,
-	CookieBannerFooterSubGroup,
-};
+export * from "./components";
+export type { CookieBannerComponent, CookieBannerProps };
+export type { CookieBannerStyles } from "./types";
 
-/**
- * Types for configuring and extending the CookieBanner component.
- *
- * @remarks
- * These types provide TypeScript support for:
- * - Component props and configuration
- * - Style customization
- * - Component composition
- */
-export type {
-	/**
-	 * Configuration options for the CookieBanner component.
-	 * Includes styling, content, and behavior options.
-	 */
-	CookieBannerProps,
-	/**
-	 * Style configuration for the CookieBanner and its sub-components.
-	 * Supports both class names and inline styles.
-	 */
-	CookieBannerStyles,
-	/**
-	 * Type definition for the enhanced CookieBanner component with its
-	 * compound components attached.
-	 */
-	CookieBannerComponent,
-};
+export default CookieBanner;

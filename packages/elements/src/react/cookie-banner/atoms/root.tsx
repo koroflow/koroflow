@@ -10,15 +10,13 @@ import {
 	useState,
 } from "react";
 import { createPortal } from "react-dom";
-import { useConsentManager } from "../../common/store/consent-manager";
-import {
-	CookieBannerContext,
-	type CookieBannerContextValue,
-	useCookieBannerContext,
-} from "../context";
-import { useStyles } from "../hooks/use-styles";
-import type { CookieBannerStyles } from "../types";
+
+import { ThemeContext } from "../../theme/context";
+import { useStyles } from "../../theme/useStyle";
 import { Overlay } from "./overlay";
+
+import { useConsentManager } from "../../common";
+import type { CookieBannerStyles } from "../types";
 
 /**
  * Props for the root component of the CookieBanner.
@@ -112,7 +110,7 @@ export const CookieBannerRoot: FC<CookieBannerRootProps> = ({
 	 * Combine consent manager state with styling configuration
 	 * to create the context value for child components
 	 */
-	const contextValue: CookieBannerContextValue = {
+	const contextValue = {
 		...consentManager,
 		disableAnimation,
 		noStyle,
@@ -120,11 +118,15 @@ export const CookieBannerRoot: FC<CookieBannerRootProps> = ({
 	};
 
 	return (
-		<CookieBannerContext.Provider value={contextValue}>
-			<CookieBannerRootChildren className={className} {...props}>
+		<ThemeContext.Provider value={contextValue}>
+			<CookieBannerRootChildren
+				disableAnimation={disableAnimation}
+				className={className}
+				{...props}
+			>
 				{children}
 			</CookieBannerRootChildren>
-		</CookieBannerContext.Provider>
+		</ThemeContext.Provider>
 	);
 };
 
@@ -153,6 +155,8 @@ interface CookieBannerRootChildrenProps extends HTMLAttributes<HTMLDivElement> {
 	 * This enables better composition with other components.
 	 */
 	asChild?: boolean;
+
+	disableAnimation?: boolean;
 }
 
 /**
@@ -193,18 +197,32 @@ interface CookieBannerRootChildrenProps extends HTMLAttributes<HTMLDivElement> {
  * @public
  */
 export const CookieBannerRootChildren = forwardRef<HTMLDivElement, CookieBannerRootChildrenProps>(
-	({ asChild, children, className, style, noStyle, ...props }, ref) => {
-		const { showPopup, disableAnimation } = useCookieBannerContext();
+	(
+		{
+			asChild,
+			children,
+			className,
+			style,
+			className: forwardedClassName,
+			disableAnimation,
+			noStyle,
+			...props
+		},
+		ref,
+	) => {
+		const { showPopup } = useConsentManager();
 
 		/**
 		 * Apply styles from the CookieBanner context and merge with local styles.
 		 * Uses the 'content' style key for consistent theming.
 		 */
-		const contentStyle = useStyles({
-			baseClassName: "cookie-banner cookie-banner-root cookie-banner-root-bottom-left",
-			componentStyle: className,
-			styleKey: "content",
-			noStyle,
+		const contentStyle = useStyles("root", {
+			baseClassName: ["cookie-banner cookie-banner-root cookie-banner-root-bottom-left"],
+			// componentStyle: className,
+			// styleKey: "content",
+			// noStyle,
+			style,
+			className: forwardedClassName,
 		});
 
 		/**

@@ -29,7 +29,7 @@ export const buttonVariants = tv({
 		icon: ["button-icon"],
 	},
 	variants: {
-		variantStyle: {
+		variant: {
 			primary: {},
 			neutral: {},
 			error: {},
@@ -46,78 +46,96 @@ export const buttonVariants = tv({
 			xsmall: { root: "button-xsmall" },
 			xxsmall: { root: "button-xxsmall" },
 		},
+		styleType: {
+			full: {},
+			layout: {},
+			none: {},
+		},
 	},
 	compoundVariants: [
 		// Primary variants
 		{
-			variantStyle: "primary",
+			variant: "primary",
+			styleType: "full",
 			mode: "filled",
 			class: { root: "button-primary-filled" },
 		},
 		{
-			variantStyle: "primary",
+			variant: "primary",
+			styleType: "full",
 			mode: "stroke",
 			class: { root: "button-primary-stroke" },
 		},
 		{
-			variantStyle: "primary",
+			variant: "primary",
+			styleType: "full",
 			mode: "lighter",
 			class: { root: "button-primary-lighter" },
 		},
 		{
-			variantStyle: "primary",
+			variant: "primary",
+			styleType: "full",
 			mode: "ghost",
 			class: { root: "button-primary-ghost" },
 		},
 
 		// Neutral variants
 		{
-			variantStyle: "neutral",
+			variant: "neutral",
+			styleType: "full",
 			mode: "filled",
 			class: { root: "button-neutral-filled" },
 		},
 		{
-			variantStyle: "neutral",
+			variant: "neutral",
+			styleType: "full",
 			mode: "stroke",
 			class: { root: "button-neutral-stroke" },
 		},
 		{
-			variantStyle: "neutral",
+			variant: "neutral",
+			styleType: "full",
 			mode: "lighter",
 			class: { root: "button-neutral-lighter" },
 		},
 		{
-			variantStyle: "neutral",
+			variant: "neutral",
+			styleType: "full",
 			mode: "ghost",
 			class: { root: "button-neutral-ghost" },
 		},
 
 		// Error variants
 		{
-			variantStyle: "error",
+			variant: "error",
+			styleType: "full",
 			mode: "filled",
 			class: { root: "button-error-filled" },
 		},
 		{
-			variantStyle: "error",
+			variant: "error",
+			styleType: "full",
 			mode: "stroke",
 			class: { root: "button-error-stroke" },
 		},
 		{
-			variantStyle: "error",
+			variant: "error",
+			styleType: "full",
 			mode: "lighter",
 			class: { root: "button-error-lighter" },
 		},
 		{
-			variantStyle: "error",
+			variant: "error",
+			styleType: "full",
 			mode: "ghost",
 			class: { root: "button-error-ghost" },
 		},
 	],
 	defaultVariants: {
-		variantStyle: "primary",
+		variant: "primary",
 		mode: "filled",
 		size: "medium",
+		styleType: "full",
 	},
 });
 
@@ -125,7 +143,7 @@ export const buttonVariants = tv({
  * Type definitions for button props
  * @internal
  */
-type ButtonSharedProps = VariantProps<typeof buttonVariants>;
+export type ButtonSharedProps = VariantProps<typeof buttonVariants>;
 
 /**
  * Props interface for the ButtonRoot component
@@ -148,7 +166,7 @@ type ButtonRootProps = VariantProps<typeof buttonVariants> &
  *
  * @example
  * ```tsx
- * <ButtonRoot variantStyle="primary" mode="filled" size="medium">
+ * <ButtonRoot variant="primary" mode="filled" size="medium">
  *   <ButtonIcon as={IconComponent} />
  *   Click me
  * </ButtonRoot>
@@ -160,13 +178,13 @@ type ButtonRootProps = VariantProps<typeof buttonVariants> &
  * @public
  */
 const ButtonRoot = React.forwardRef<HTMLButtonElement, ButtonRootProps>(
-	({ children, variantStyle, mode, size, asChild, className, ...rest }, forwardedRef) => {
+	({ children, variant, mode, size, asChild, className, ...rest }, forwardedRef) => {
 		const uniqueId = React.useId();
 		const Component = asChild ? Slot : "button";
-		const { root } = buttonVariants({ variantStyle, mode, size });
+		const { root } = buttonVariants({ variant, mode, size });
 
 		const sharedProps: ButtonSharedProps = {
-			variantStyle,
+			variant,
 			mode,
 			size,
 		};
@@ -209,7 +227,7 @@ ButtonRoot.displayName = BUTTON_ROOT_NAME;
  * @public
  */
 function ButtonIcon<T extends React.ElementType>({
-	variantStyle,
+	variant,
 	mode,
 	size,
 	as,
@@ -217,7 +235,7 @@ function ButtonIcon<T extends React.ElementType>({
 	...rest
 }: PolymorphicComponentProps<T, ButtonSharedProps>) {
 	const Component = as || "div";
-	const { icon } = buttonVariants({ mode, variantStyle, size });
+	const { icon } = buttonVariants({ mode, variant, size });
 
 	return <Component className={icon({ class: className })} {...rest} />;
 }

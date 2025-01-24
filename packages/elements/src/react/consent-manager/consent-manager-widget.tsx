@@ -1,119 +1,99 @@
 "use client";
 
-import * as React from "react";
-
-import * as Accordion from "../common/primitives/accordion";
-import * as Button from "../common/primitives/button";
-import * as Switch from "../common/primitives/switch";
-
-import type { AllConsentNames } from "@koroflow/core-js";
-import { useConsentManager } from "../common";
 import "./consent-manager-widget.css";
+import { Box } from "../primitives/box";
 
-interface ConsentManagerWidgetProps extends React.HTMLAttributes<HTMLDivElement> {
+import { type FC, type HTMLAttributes, forwardRef, useCallback, useState } from "react";
+import {
+	ConsentManagerWidgetAcceptAllButton,
+	ConsentManagerWidgetAccordion,
+	ConsentManagerWidgetAccordionArrow,
+	ConsentManagerWidgetAccordionContent,
+	ConsentManagerWidgetAccordionItem,
+	ConsentManagerWidgetAccordionItems,
+	ConsentManagerWidgetAccordionSubGroup,
+	ConsentManagerWidgetAccordionTrigger,
+	ConsentManagerWidgetFooter,
+	ConsentManagerWidgetFooterSubGroup,
+	ConsentManagerWidgetRejectButton,
+	ConsentManagerWidgetSaveButton,
+	ConsentManagerWidgetSwitch,
+} from "./components";
+import { ConsentManagerWidgetRoot } from "./root";
+import type { ConsentManagerWidgetStyles } from "./types";
+
+export interface ConsentManagerWidgetProps extends HTMLAttributes<HTMLDivElement> {
 	onSave?: () => void;
 	hideBranding?: boolean;
+	styles?: ConsentManagerWidgetStyles;
 }
 
-export const ConsentManagerWidget = React.forwardRef<HTMLDivElement, ConsentManagerWidgetProps>(
-	({ onSave, hideBranding, ...props }, ref) => {
-		const { consents, setConsent, saveConsents, getDisplayedConsents, resetConsents } =
-			useConsentManager();
-		const [openItems, setOpenItems] = React.useState<string[]>([]);
+const SingaltonConsentManagerWidget = ({
+	onSave,
+	hideBranding,
+	...props
+}: ConsentManagerWidgetProps) => {
+	const [openItems, setOpenItems] = useState<string[]>([]);
 
-		const handleSaveConsents = React.useCallback(() => {
-			saveConsents("custom");
-			if (onSave) {
-				onSave();
-			}
-		}, [saveConsents, onSave]);
+	return (
+		<ConsentManagerWidgetRoot {...props}>
+			<ConsentManagerWidgetAccordion
+				styleKey="accordion"
+				type="multiple"
+				value={openItems}
+				onValueChange={setOpenItems}
+			>
+				<ConsentManagerWidgetAccordionItems />
+			</ConsentManagerWidgetAccordion>
+			<ConsentManagerWidgetFooter>
+				<ConsentManagerWidgetFooterSubGroup>
+					<ConsentManagerWidgetRejectButton>Deny</ConsentManagerWidgetRejectButton>
+					<ConsentManagerWidgetAcceptAllButton>Accept All</ConsentManagerWidgetAcceptAllButton>
+				</ConsentManagerWidgetFooterSubGroup>
+				<ConsentManagerWidgetSaveButton>Save</ConsentManagerWidgetSaveButton>
+			</ConsentManagerWidgetFooter>
+			{!hideBranding && (
+				<Box baseClassName="consent-manager-widget-branding" styleKey="branding">
+					<a className="consent-manager-widget-branding-link" href="https://koroflow.com">
+						Secured by <span className="consent-manager-widget-branding-link-span">Koroflow</span>
+					</a>
+				</Box>
+			)}
+		</ConsentManagerWidgetRoot>
+	);
+};
 
-		const handleDenyConsents = React.useCallback(() => {
-			saveConsents("necessary");
-			if (onSave) {
-				onSave();
-			}
-		}, [saveConsents, onSave]);
+SingaltonConsentManagerWidget.displayName = "ConsentManagerWidget";
 
-		const handleAcceptAllConsents = React.useCallback(() => {
-			saveConsents("all");
-			if (onSave) {
-				onSave();
-			}
-		}, [saveConsents, onSave]);
+export interface ConsentManagerWidgetComponent extends FC<ConsentManagerWidgetProps> {
+	AccordionItems: typeof ConsentManagerWidgetAccordionItems;
+	AcceptAllButton: typeof ConsentManagerWidgetAcceptAllButton;
+	Accordion: typeof ConsentManagerWidgetAccordion;
+	AccordionArrow: typeof ConsentManagerWidgetAccordionArrow;
+	AccordionContent: typeof ConsentManagerWidgetAccordionContent;
+	AccordionItem: typeof ConsentManagerWidgetAccordionItem;
+	AccordionSubGroup: typeof ConsentManagerWidgetAccordionSubGroup;
+	AccordionTrigger: typeof ConsentManagerWidgetAccordionTrigger;
+	Footer: typeof ConsentManagerWidgetFooter;
+	FooterSubGroup: typeof ConsentManagerWidgetFooterSubGroup;
+	RejectButton: typeof ConsentManagerWidgetRejectButton;
+	SaveButton: typeof ConsentManagerWidgetSaveButton;
+	Switch: typeof ConsentManagerWidgetSwitch;
+}
 
-		const handleConsentChange = React.useCallback(
-			(name: AllConsentNames, checked: boolean) => {
-				setConsent(name, checked);
-			},
-			[setConsent],
-		);
+const ConsentManagerWidget = SingaltonConsentManagerWidget as ConsentManagerWidgetComponent;
+ConsentManagerWidget.AccordionItems = ConsentManagerWidgetAccordionItems;
+ConsentManagerWidget.AcceptAllButton = ConsentManagerWidgetAcceptAllButton;
+ConsentManagerWidget.Accordion = ConsentManagerWidgetAccordion;
+ConsentManagerWidget.AccordionArrow = ConsentManagerWidgetAccordionArrow;
+ConsentManagerWidget.AccordionContent = ConsentManagerWidgetAccordionContent;
+ConsentManagerWidget.AccordionItem = ConsentManagerWidgetAccordionItem;
+ConsentManagerWidget.AccordionSubGroup = ConsentManagerWidgetAccordionSubGroup;
+ConsentManagerWidget.AccordionTrigger = ConsentManagerWidgetAccordionTrigger;
+ConsentManagerWidget.Footer = ConsentManagerWidgetFooter;
+ConsentManagerWidget.FooterSubGroup = ConsentManagerWidgetFooterSubGroup;
+ConsentManagerWidget.RejectButton = ConsentManagerWidgetRejectButton;
+ConsentManagerWidget.SaveButton = ConsentManagerWidgetSaveButton;
+ConsentManagerWidget.Switch = ConsentManagerWidgetSwitch;
 
-		return (
-			<div className="consent-manager-widget" ref={ref} {...props}>
-				<Accordion.Root type="multiple" value={openItems} onValueChange={setOpenItems}>
-					{getDisplayedConsents().map((consent) => (
-						<Accordion.Item value={consent.name} key={consent.name}>
-							<Accordion.Trigger>
-								<div className="accordion-trigger-sub-group">
-									<Accordion.Arrow />
-									{consent.name.replace("_", " ").charAt(0).toUpperCase() +
-										consent.name.replace("_", " ").slice(1)}
-								</div>
-
-								<Switch.Root
-									slot="div"
-									asChild
-									checked={consents[consent.name]}
-									onClick={(e) => e.stopPropagation()}
-									onKeyUp={(e) => e.stopPropagation()}
-									onKeyDown={(e) => e.stopPropagation()}
-									onCheckedChange={(checked) => handleConsentChange(consent.name, checked)}
-									disabled={consent.disabled}
-								/>
-							</Accordion.Trigger>
-							<Accordion.Content>{consent.description}</Accordion.Content>
-						</Accordion.Item>
-					))}
-				</Accordion.Root>
-				<div className="consent-manager-widget-footer">
-					<div className="consent-manager-widget-footer-sub-group">
-						<Button.Root
-							onClick={handleDenyConsents}
-							variantStyle="neutral"
-							mode="stroke"
-							size="small"
-						>
-							Deny
-						</Button.Root>
-						<Button.Root
-							onClick={handleAcceptAllConsents}
-							variantStyle="neutral"
-							mode="stroke"
-							size="small"
-						>
-							Accept All
-						</Button.Root>
-					</div>
-					<Button.Root
-						onClick={handleSaveConsents}
-						variantStyle="primary"
-						mode="stroke"
-						size="small"
-					>
-						Save
-					</Button.Root>
-				</div>
-				{!hideBranding && (
-					<div className="consent-manager-widget-branding">
-						<a className="consent-manager-widget-branding-link" href="https://koroflow.com">
-							Secured by <span className="consent-manager-widget-branding-link-span">Koroflow</span>
-						</a>
-					</div>
-				)}
-			</div>
-		);
-	},
-);
-
-ConsentManagerWidget.displayName = "ConsentManagerWidget";
+export default ConsentManagerWidget;

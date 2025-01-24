@@ -1,7 +1,10 @@
 "use client";
 
 import { type HTMLAttributes, forwardRef } from "react";
-import { useStyles } from "../hooks/use-styles";
+
+import { Slot } from "@radix-ui/react-slot";
+import type { ClassNameStyle } from "../theme/types";
+import { type NestedStyleKey, useStyles } from "../theme/useStyle";
 
 /**
  * Props for the description text component of the CookieBanner.
@@ -9,12 +12,15 @@ import { useStyles } from "../hooks/use-styles";
  *
  * @public
  */
-interface CookieBannerDescriptionProps extends HTMLAttributes<HTMLDivElement> {
+export interface BoxProps extends HTMLAttributes<HTMLDivElement>, ClassNameStyle {
 	/**
 	 * @remarks
-	 * When true, the component will not apply any styles.
+	 * When true, the component will render its children directly without wrapping them in a DOM element.
+	 * This enables better composition with other components.
 	 */
-	noStyle?: boolean;
+	asChild?: boolean;
+
+	styleKey: NestedStyleKey;
 }
 
 /**
@@ -51,28 +57,22 @@ interface CookieBannerDescriptionProps extends HTMLAttributes<HTMLDivElement> {
  *
  * @public
  */
-export const CookieBannerDescription = forwardRef<HTMLDivElement, CookieBannerDescriptionProps>(
-	({ className, style, noStyle, ...props }, ref) => {
+export const Box = forwardRef<HTMLDivElement, BoxProps>(
+	({ asChild, className, style, styleType, styleKey, baseClassName, ...props }, ref) => {
 		/**
 		 * Apply styles from the CookieBanner context and merge with local styles.
 		 * Uses the 'description' style key for consistent theming.
 		 */
-		const descriptionStyle = useStyles({
-			baseClassName: "cookie-banner-description",
-			componentStyle: className,
-			styleKey: "description",
-			noStyle,
+		const descriptionStyle = useStyles(styleKey, {
+			baseClassName,
+			className,
+			styleType,
+			style,
 		});
 
-		return (
-			<div
-				ref={ref}
-				{...descriptionStyle}
-				style={{ ...style, ...descriptionStyle.style }}
-				{...props}
-			/>
-		);
+		const Comp = asChild ? Slot : "div";
+		return <Comp ref={ref} {...props} {...descriptionStyle} />;
 	},
 );
 
-CookieBannerDescription.displayName = "CookieBannerDescription";
+Box.displayName = "Box";

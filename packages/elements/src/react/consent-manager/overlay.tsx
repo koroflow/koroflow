@@ -6,7 +6,8 @@
 import { AnimatePresence, motion } from "motion/react";
 import type { FC } from "react";
 import { useConsentManager } from "../common";
-import type { StyleValue } from "./types";
+import type { StyleValue } from "../theme/types";
+
 // import { useStyles } from "./hooks/use-styles";
 
 /**

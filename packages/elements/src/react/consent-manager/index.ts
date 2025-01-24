@@ -5,5 +5,5 @@
  *
  * @packageDocumentation
  */
-export { ConsentManagerWidget } from "./consent-manager-widget";
+export { default as ConsentManagerWidget } from "./consent-manager-widget";
 export { ConsentManagerDialog } from "./consent-manager-dialog";
