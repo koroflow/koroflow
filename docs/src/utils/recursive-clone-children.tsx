@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 /**
  * Recursively clones React children, adding additional props to components with matched display names.
@@ -12,43 +12,42 @@ import * as React from 'react';
  * @returns The cloned node(s) with the additional props applied to the matched components.
  */
 export function recursiveCloneChildren(
-  children: React.ReactNode,
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  additionalProps: any,
-  displayNames: string[],
-  uniqueId: string,
-  asChild?: boolean,
+	children: React.ReactNode,
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	additionalProps: any,
+	displayNames: string[],
+	uniqueId: string,
+	asChild?: boolean,
 ): React.ReactNode | React.ReactNode[] {
-  const mappedChildren = React.Children.map(
-    children,
-    (child: React.ReactNode, index) => {
-      if (!React.isValidElement(child)) {
-        return child;
-      }
+	const mappedChildren = React.Children.map(children, (child: React.ReactNode, index) => {
+		if (!React.isValidElement(child)) {
+			return child;
+		}
 
-      const displayName =
-        (child.type as React.ComponentType)?.displayName || '';
-      const newProps = displayNames.includes(displayName)
-        ? additionalProps
-        : {};
+		const displayName = (child.type as React.ComponentType)?.displayName || "";
+		const newProps = displayNames.includes(displayName) ? additionalProps : {};
 
-      // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-      const childProps = (child as React.ReactElement<any>).props;
+		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+		const childProps = (child as React.ReactElement<any>).props;
 
-      return React.cloneElement(
-        child,
-        { ...newProps, key: `${uniqueId}-${// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-index}` },
-        recursiveCloneChildren(
-          childProps?.children,
-          additionalProps,
-          displayNames,
-          uniqueId,
-          childProps?.asChild,
-        ),
-      );
-    },
-  );
+		return React.cloneElement(
+			child,
+			{
+				...newProps,
+				key: `${uniqueId}-${
+					// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+					index
+				}`,
+			},
+			recursiveCloneChildren(
+				childProps?.children,
+				additionalProps,
+				displayNames,
+				uniqueId,
+				childProps?.asChild,
+			),
+		);
+	});
 
-  return asChild ? mappedChildren?.[0] : mappedChildren;
+	return asChild ? mappedChildren?.[0] : mappedChildren;
 }

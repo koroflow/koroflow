@@ -2,11 +2,11 @@
 
 import { Icons } from "@/components/icons";
 import ComponentWrapper from "@/components/render/component-wrapper";
-import  * as Button from "~/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { RotateCcw } from "lucide-react";
 import React, { useState, useMemo, useEffect } from "react";
+import * as Button from "~/components/ui/button";
 
 /**
  * Props for the ComponentPreviewClient component.
@@ -109,7 +109,7 @@ export function ComponentPreviewClient({
 								variant="neutral"
 								mode="ghost"
 							>
-								<Button.Icon icon={RotateCcw}/>
+								<Button.Icon icon={RotateCcw} />
 							</Button.Root>
 							<React.Suspense
 								fallback={
