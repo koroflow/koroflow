@@ -14,7 +14,7 @@ import { createPortal } from "react-dom";
 import { ThemeContext, useStyles } from "../../theme";
 import { Overlay } from "./overlay";
 
-import { useConsentManager } from "../../common";
+import { useConsentManager } from "../../headless";
 import type { CookieBannerTheme } from "../types";
 
 /**

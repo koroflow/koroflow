@@ -1,3 +1,9 @@
+/**
+ * @packageDocumentation
+ * Provides the core components for building privacy consent management interfaces.
+ * Implements compound component pattern with accessibility and customization support.
+ */
+
 import {
 	type ComponentPropsWithoutRef,
 	type ComponentRef,
@@ -6,7 +12,7 @@ import {
 	forwardRef,
 	useCallback,
 } from "react";
-import { type AllConsentNames, useConsentManager } from "../common";
+import { type AllConsentNames, useConsentManager } from "../headless";
 import { Box, type BoxProps } from "../primitives/box";
 import { ConsentButton } from "../primitives/button";
 import type { ConsentButtonProps } from "../primitives/button.types";
@@ -17,6 +23,14 @@ import * as Switch from "../ui/components/switch";
 import type { ConsentManagerWidgetRoot } from "./atoms/root";
 import type { ConsentManagerWidgetTheme } from "./theme";
 
+/**
+ * Accordion sub-group component for organizing consent options.
+ * 
+ * @remarks
+ * - Provides visual grouping for related consent options
+ * - Supports theme customization
+ * - Maintains accessibility structure
+ */
 const ConsentManagerWidgetAccordionSubGroup = forwardRef<
 	HTMLDivElement,
 	Omit<BoxProps, "themeKey">
@@ -39,6 +53,23 @@ const ConsentManagerWidgetAccordionArrow = Accordion.Arrow;
 const ConsentManagerWidgetAccordion = Accordion.Root;
 const ConsentManagerWidgetSwitch = Switch.Root;
 
+/**
+ * Renders a list of consent options as accordion items.
+ * 
+ * @remarks
+ * Key features:
+ * - Automatically generates items from consent configuration
+ * - Handles consent state management
+ * - Implements accessible toggle controls
+ * - Supports keyboard navigation
+ * 
+ * @example
+ * ```tsx
+ * <ConsentManagerWidgetAccordion>
+ *   <ConsentManagerWidgetAccordionItems />
+ * </ConsentManagerWidgetAccordion>
+ * ```
+ */
 export const ConsentManagerWidgetAccordionItems = () => {
 	const { consents, setConsent, getDisplayedConsents } = useConsentManager();
 	const handleConsentChange = useCallback(
@@ -90,6 +121,14 @@ const ConsentManagerWidgetAccordionItem = forwardRef<
 	return <AccordionItem ref={forwardedRef} baseClassName="accordion-item" {...rest} />;
 });
 
+/**
+ * Footer component for consent management actions.
+ * 
+ * @remarks
+ * - Contains primary action buttons
+ * - Supports customization through theme
+ * - Maintains consistent layout
+ */
 const ConsentManagerWidgetFooter = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
 	({ children, ...props }, ref) => {
 		return (
@@ -120,6 +159,14 @@ const ConsentManagerWidgetFooterSubGroup = forwardRef<HTMLDivElement, BoxProps>(
 	},
 );
 
+/**
+ * Button to reject all non-essential cookies.
+ * 
+ * @remarks
+ * - Sets all optional consents to false
+ * - Maintains required consents
+ * - Closes dialog after action
+ */
 const ConsentManagerWidgetRejectButton = forwardRef<HTMLButtonElement, ConsentButtonProps>(
 	({ children, ...props }, ref) => {
 		return (
@@ -137,6 +184,15 @@ const ConsentManagerWidgetRejectButton = forwardRef<HTMLButtonElement, ConsentBu
 		);
 	},
 );
+
+/**
+ * Button to accept all available cookies.
+ * 
+ * @remarks
+ * - Enables all consent options
+ * - Closes dialog after action
+ * - Triggers necessary callbacks
+ */
 const ConsentManagerWidgetAcceptAllButton = forwardRef<HTMLButtonElement, ConsentButtonProps>(
 	({ children, ...props }, ref) => {
 		return (
@@ -191,8 +247,8 @@ const ConsentManagerWidgetSaveButton = forwardRef<HTMLButtonElement, ConsentButt
  * Component type definition for the ConsentManagerWidget with its compound components.
  *
  * @remarks
- * This interface extends the base ConsentManagerWidget component with additional sub-components
- * that can be used to compose the banner's structure.
+ * This interface defines the complete API surface of the consent manager widget,
+ * including all sub-components needed to build the interface.
  *
  * @public
  */
@@ -200,21 +256,21 @@ export interface ConsentManagerWidgetComponent
 	extends FC<ThemeContextValue<ConsentManagerWidgetTheme>> {
 	/** Root container component */
 	Root: typeof ConsentManagerWidgetRoot;
-	/** Content wrapper component */
+	/** Accordion item for individual consent options */
 	AccordionItem: typeof ConsentManagerWidgetAccordionItem;
-	/** Title component */
+	/** Visual grouping for related consent options */
 	AccordionSubGroup: typeof ConsentManagerWidgetAccordionSubGroup;
-	/** Accordion items component */
+	/** Renders all consent options */
 	AccordionItems: typeof ConsentManagerWidgetAccordionItems;
-	/** Actions container component */
+	/** Container for action buttons */
 	Footer: typeof ConsentManagerWidgetFooter;
-	/** Actions sub group component */
+	/** Groups related footer elements */
 	FooterSubGroup: typeof ConsentManagerWidgetFooter;
-	/** Reject button component */
+	/** Button to reject optional consents */
 	RejectButton: typeof ConsentManagerWidgetRejectButton;
-	/** Customize button component */
+	/** Button to open detailed settings */
 	CustomizeButton: typeof ConsentManagerWidgetCustomizeButton;
-	/** Accept button component */
+	/** Button to save current selections */
 	SaveButton: typeof ConsentManagerWidgetSaveButton;
 }
 

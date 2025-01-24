@@ -1,53 +1,118 @@
+/**
+ * @packageDocumentation
+ * Provides theme context and hooks for Koroflow Elements components.
+ * Implements a flexible theming system with TypeScript support and runtime safety.
+ */
+
 "use client";
 
 import { createContext, useContext } from "react";
-import type { useConsentManager } from "../common/store/consent-manager";
+import type { useConsentManager } from "../headless/store/consent-manager";
 
 /**
- * The value type for the ThemeContext.
- *
- * This type extends the return type of `useConsentManager` and includes additional
- * properties for styling the cookie banner.
- *
- * @typedef {Object} ThemeContextValue
- * @property {boolean} noStyle - Indicates whether default styles should be disabled.
- * @property {CookieBannerTheme} styles - Custom styles to apply to the CookieBanner and its children.
- * @property {boolean} disableAnimation - Indicates whether all animations should be disabled.
- * @property {boolean} showPopup - Indicates whether the cookie banner popup should be shown.
+ * Configuration value type for the ThemeContext.
+ * 
+ * @remarks
+ * Provides type-safe theme customization options for components.
+ * Supports generic theme types for different component variants.
+ * Includes animation and style control features.
+ * 
+ * @typeParam Theme - The theme configuration type for the component
+ * 
+ * @example
+ * ```tsx
+ * type MyTheme = {
+ *   colors: {
+ *     primary: string;
+ *     secondary: string;
+ *   };
+ * };
+ * 
+ * const value: ThemeContextValue<MyTheme> = {
+ *   theme: {
+ *     colors: {
+ *       primary: '#007bff',
+ *       secondary: '#6c757d'
+ *     }
+ *   },
+ *   noStyle: false,
+ *   disableAnimation: false
+ * };
+ * ```
+ * 
+ * @public
  */
 export type ThemeContextValue<Theme> = {
-	theme?: Partial<Theme>;
-	disableAnimation?: boolean;
-	noStyle?: boolean;
+  /** 
+   * Theme configuration object for styling components
+   * @remarks Partial to allow incremental theme overrides
+   */
+  theme?: Partial<Theme>;
+
+  /** 
+   * Disables all animations when true
+   * @remarks Useful for reduced motion preferences
+   */
+  disableAnimation?: boolean;
+
+  /** 
+   * Removes default styles when true
+   * @remarks Enables fully custom styling
+   */
+  noStyle?: boolean;
 };
 
 /**
- * The context for the CookieBanner components.
- *
- * This context provides access to the consent management state and styling options
- * for the cookie banner. It must be used within a `CookieBanner.Root` component.
- *
- * @constant
- * @type {React.Context<ThemeContextValue | null>}
+ * Context for providing theme values to components.
+ * 
+ * @remarks
+ * Combines consent management state with theme configuration.
+ * Must be provided by a parent Theme.Root component.
+ * Supports TypeScript generic themes for type safety.
+ * 
+ * @example
+ * ```tsx
+ * <ThemeContext.Provider value={{ theme: myTheme, noStyle: false }}>
+ *   <App />
+ * </ThemeContext.Provider>
+ * ```
+ * 
+ * @public
  */
 export const ThemeContext = createContext<
-	(ReturnType<typeof useConsentManager> & ThemeContextValue<unknown>) | null
+  (ReturnType<typeof useConsentManager> & ThemeContextValue<unknown>) | null
 >(null);
 
 /**
- * Hook to access the ThemeContext.
- *
- * This hook provides the context value for the cookie banner, ensuring that it is
- * used within a `CookieBanner.Root` component. If the context is not available,
- * it throws an error.
- *
- * @returns {ThemeContextValue} The context value for the cookie banner.
- * @throws Will throw an error if the context is used outside of a `Theme.Root`.
+ * Hook to access the current theme context.
+ * 
+ * @remarks
+ * Provides type-safe access to theme values and consent management state.
+ * Throws an error if used outside of a Theme.Root component.
+ * Supports TypeScript inference for theme types.
+ * 
+ * @throws {Error} When used outside of a Theme.Root component
+ * 
+ * @example
+ * ```tsx
+ * const MyComponent = () => {
+ *   const { theme, noStyle, disableAnimation } = useThemeContext();
+ *   
+ *   return (
+ *     <div className={theme?.myClass}>
+ *       {!disableAnimation && <AnimatedContent />}
+ *     </div>
+ *   );
+ * };
+ * ```
+ * 
+ * @returns The current theme context value
+ * @public
  */
 export const useThemeContext = () => {
-	const context = useContext(ThemeContext);
-	if (!context) {
-		throw new Error("Theme components must be used within Theme.Root");
-	}
-	return context;
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error("Theme components must be used within Theme.Root");
+  }
+  return context;
 };

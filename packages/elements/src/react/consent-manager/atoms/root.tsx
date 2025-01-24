@@ -1,21 +1,48 @@
+/**
+ * @packageDocumentation
+ * Provides the root component for the consent management interface.
+ * Implements context provider pattern with theme support and state management.
+ */
+
 "use client";
 
-import type { FC, HTMLAttributes, ReactNode } from "react";
-import { useConsentManager } from "../../common";
+import type { FC, ReactNode } from "react";
+import { useConsentManager } from "../../headless";
 import { Box } from "../../primitives/box";
 import { ThemeContext, type ThemeContextValue } from "../../theme";
 import type { ConsentManagerWidgetTheme } from "../theme";
 
 /**
+ * Props for the ConsentManagerWidgetRoot component.
+ * 
+ * @remarks
+ * Extends ThemeContextValue to provide comprehensive theming support
+ * while maintaining type safety for consent management specific features.
+ *
+ * @public
+ */
+interface ConsentManagerWidgetRootProps extends ThemeContextValue<ConsentManagerWidgetTheme> {
+	/**
+	 * Child components to be rendered within the consent manager context.
+	 * 
+	 * @remarks
+	 * - Should include ConsentManagerWidget.Content and related components
+	 * - Receives context and theming from the root provider
+	 */
+	children: ReactNode;
+}
+
+/**
  * Root component of the ConsentManagerWidget that provides context and styling.
  *
  * @remarks
- * This component:
+ * Key features:
  * - Provides the ConsentManagerWidget context to all child components
  * - Manages consent state through the consent manager
- * - Handles style distribution to child components
- * - Serves as the main container for the banner
- *
+ * - Handles theme distribution to child components
+ * - Supports animation toggling
+ * - Allows complete style customization
+ * 
  * @example
  * Basic usage:
  * ```tsx
@@ -31,23 +58,25 @@ import type { ConsentManagerWidgetTheme } from "../theme";
  * ```tsx
  * <ConsentManagerWidget.Root
  *   styles={{
- *     root: "fixed bottom-0 w-full bg-white ",
+ *     root: "fixed bottom-0 w-full bg-white",
  *     content: "max-w-4xl mx-auto p-4",
  *     title: "text-xl font-bold",
  *     description: "mt-2 text-gray-600"
  *   }}
  * >
- *   { Banner content}
+ *   {Banner content}
  * </ConsentManagerWidget.Root>
  * ```
  *
  * @public
  */
-export const ConsentManagerWidgetRoot: FC<
-	ThemeContextValue<ConsentManagerWidgetTheme> & {
-		children: ReactNode;
-	}
-> = ({ children, noStyle = false, disableAnimation = false, theme = {}, ...props }) => {
+export const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
+	children,
+	noStyle = false,
+	disableAnimation = false,
+	theme = {},
+	...props
+}) => {
 	/** Access the consent manager for handling cookie preferences */
 	const consentManager = useConsentManager();
 
@@ -60,14 +89,15 @@ export const ConsentManagerWidgetRoot: FC<
 		disableAnimation,
 		noStyle,
 		theme,
-	}; /**
-	 * Apply styles from the ConsentManagerWidget context and merge with local styles.
-	 * Uses the 'content' style key for consistent theming.
-	 */
+	};
 
 	return (
 		<ThemeContext.Provider value={contextValue}>
-			<Box baseClassName="consent-manager-widget" themeKey="consent-manager-widget.root" {...props}>
+			<Box 
+				baseClassName="consent-manager-widget" 
+				themeKey="consent-manager-widget.root" 
+				{...props}
+			>
 				{children}
 			</Box>
 		</ThemeContext.Provider>

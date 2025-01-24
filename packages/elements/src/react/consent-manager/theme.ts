@@ -1,6 +1,6 @@
 import type { ThemeValue } from "../theme";
 /**
- * Configuration object for styling different parts of the CookieBanner component.
+ * Configuration object for styling different parts of the ConsentManagerWidget component.
  * @public
  */
 export interface ConsentManagerWidgetTheme {

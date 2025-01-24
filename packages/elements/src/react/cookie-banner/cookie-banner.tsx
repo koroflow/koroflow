@@ -1,3 +1,9 @@
+/**
+ * @packageDocumentation
+ * Provides the main cookie banner component for privacy consent management.
+ * Implements an accessible, customizable banner following GDPR and CCPA requirements.
+ */
+
 "use client";
 
 import type { FC, ReactNode } from "react";
@@ -23,22 +29,53 @@ import { CookieBannerRoot } from "./atoms/root";
 /**
  * Props for configuring and customizing the CookieBanner component.
  *
+ * @remarks
+ * Provides comprehensive customization options for the cookie banner's appearance
+ * and behavior while maintaining compliance with privacy regulations.
+ * 
  * @public
  */
 export interface CookieBannerProps {
-	/** @remarks Custom styles to apply to the banner and its child components */
+	/** 
+	 * Custom styles to apply to the banner and its child components 
+	 * @remarks Allows for deep customization of the banner's appearance while maintaining accessibility
+	 */
 	theme?: Partial<CookieBannerTheme>;
-	/** @remarks When true, removes all default styling from the component */
+	
+	/** 
+	 * When true, removes all default styling from the component 
+	 * @remarks Useful for implementing completely custom designs
+	 */
 	noStyle?: boolean;
-	/** @remarks Content to display as the banner's title */
+	
+	/** 
+	 * Content to display as the banner's title 
+	 * @remarks Supports string or ReactNode for rich content
+	 */
 	title?: ReactNode;
-	/** @remarks Content to display as the banner's description */
+	
+	/** 
+	 * Content to display as the banner's description 
+	 * @remarks Supports string or ReactNode for rich content
+	 */
 	description?: ReactNode;
-	/** @remarks Content to display on the reject button */
+	
+	/** 
+	 * Content to display on the reject button 
+	 * @remarks Required by GDPR for explicit consent rejection
+	 */
 	rejectButtonText?: ReactNode;
-	/** @remarks Content to display on the customize button */
+	
+	/** 
+	 * Content to display on the customize button 
+	 * @remarks Opens detailed consent preferences
+	 */
 	customizeButtonText?: ReactNode;
-	/** @remarks Content to display on the accept button */
+	
+	/** 
+	 * Content to display on the accept button 
+	 * @remarks Primary action for accepting cookie preferences
+	 */
 	acceptButtonText?: ReactNode;
 }
 
@@ -49,9 +86,14 @@ export interface CookieBannerProps {
  * This component serves as the main entry point for rendering a cookie consent banner.
  * It provides a structured layout with customizable title, description, and action buttons
  * for accepting, rejecting, or customizing cookie preferences.
- *
- * The component uses a compound component pattern, allowing for flexible composition
- * of its sub-components while maintaining a consistent state and styling context.
+ * 
+ * Key features:
+ * - Fully accessible by default
+ * - GDPR and CCPA compliant
+ * - Customizable appearance
+ * - Responsive design
+ * - Error boundary protection
+ * - Compound component pattern support
  *
  * @example
  * Simple usage with default settings:
@@ -63,7 +105,7 @@ export interface CookieBannerProps {
  * Customized usage with all props:
  * ```tsx
  * <CookieBanner
- *   styles={{
+ *   theme={{
  *     root: "bg-white p-4",
  *     title: "text-xl font-bold",
  *     description: "text-gray-600",
@@ -151,7 +193,8 @@ const SingaltonCookieBanner: FC<CookieBannerProps> = ({
  *
  * @remarks
  * This interface extends the base CookieBanner component with additional sub-components
- * that can be used to compose the banner's structure.
+ * that can be used to compose the banner's structure. Each component is designed to be
+ * fully accessible and customizable while maintaining compliance with privacy regulations.
  *
  * @public
  */
@@ -179,6 +222,8 @@ export interface CookieBannerComponent extends FC<CookieBannerProps> {
 }
 
 const CookieBanner = SingaltonCookieBanner as CookieBannerComponent;
+
+// Attach all sub-components
 CookieBanner.Root = CookieBannerRoot;
 CookieBanner.Header = CookieBannerHeader;
 CookieBanner.Title = CookieBannerTitle;

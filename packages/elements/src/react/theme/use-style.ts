@@ -1,3 +1,9 @@
+/**
+ * @packageDocumentation
+ * Provides hooks and utilities for managing component styles with theme support.
+ * Implements a flexible styling system that merges theme and component-level styles.
+ */
+
 "use client";
 
 import { useMemo } from "react";
@@ -7,6 +13,34 @@ import type { ClassNameStyle, StylesObject, ThemeValue } from "./types/style-typ
 import { getNestedStyle } from "./utils/get-nested-style";
 import { mergeStyles } from "./utils/merge-styles";
 
+/**
+ * Hook for retrieving and merging styles from theme context and component props.
+ * 
+ * @remarks
+ * This hook manages the style resolution process by:
+ * - Retrieving styles from theme context
+ * - Merging with component-level styles
+ * - Handling style disabling through noStyle flags
+ * - Memoizing results for performance
+ * 
+ * @param themeKey - The theme key to lookup styles
+ * @param componentStyle - Optional component-level styles to merge
+ * 
+ * @example
+ * ```tsx
+ * const MyComponent = () => {
+ *   const styles = useStyles('cookie-banner.root', {
+ *     className: 'custom-class',
+ *     style: { backgroundColor: 'white' }
+ *   });
+ *   
+ *   return <div {...styles} />;
+ * };
+ * ```
+ * 
+ * @returns An object containing merged className and style properties
+ * @public
+ */
 export function useStyles(themeKey: AllThemeKeys, componentStyle?: ThemeValue): ClassNameStyle {
 	const { theme, noStyle: contextNoStyle } = useThemeContext();
 
