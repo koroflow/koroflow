@@ -4,13 +4,15 @@ import { AnimatePresence, motion } from "motion/react";
 
 import { createPortal } from "react-dom";
 
-import { useConsentManager } from "../common";
-import "./consent-manager-dialog.css";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ThemeContext } from "../theme";
+import { useConsentManager } from "../common";
+import { ThemeContext, type ThemeContextValue } from "../theme";
 import { ConsentCustomizationCard } from "./atoms/dialog-card";
 import { Overlay } from "./atoms/overlay";
 import type { ConsentManagerWidgetTheme } from "./theme";
+
+import "./consent-manager-dialog.css";
+import "../ui/components/card.css";
 
 const dialogVariants = {
 	hidden: { opacity: 0 },
@@ -33,8 +35,10 @@ const contentVariants = {
 };
 
 export const ConsentManagerDialog = ({
-	theme = {},
-}: { theme: Partial<ConsentManagerWidgetTheme> }) => {
+	theme,
+	disableAnimation,
+	noStyle,
+}: ThemeContextValue<ConsentManagerWidgetTheme>) => {
 	const consentManager = useConsentManager();
 	const [isMounted, setIsMounted] = useState(false);
 	const contentRef = useRef<HTMLDivElement>(null);
@@ -54,7 +58,8 @@ export const ConsentManagerDialog = ({
 			value={{
 				...consentManager,
 				theme,
-				disableAnimation: false,
+				disableAnimation,
+				noStyle,
 			}}
 		>
 			<AnimatePresence mode="wait">
@@ -78,7 +83,7 @@ export const ConsentManagerDialog = ({
 								animate="visible"
 								exit="exit"
 							>
-								<ConsentCustomizationCard handleSave={handleSave} />
+								<ConsentCustomizationCard noStyle={noStyle} />
 							</motion.div>
 						</motion.dialog>
 					</>

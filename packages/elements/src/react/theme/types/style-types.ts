@@ -12,7 +12,7 @@ export type ClassNameStyle = {
 	/** @remarks CSS class names to be applied to the component */
 	className?: string;
 	/** @remarks The type of style to apply to the component */
-	themeType?: "full" | "layout" | "none";
+	noStyle?: boolean;
 	/** @internal used to pass default class names to the component */
 	baseClassName?: clsx.ClassValue;
 };

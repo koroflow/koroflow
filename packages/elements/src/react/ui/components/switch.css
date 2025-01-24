@@ -46,7 +46,7 @@
 
 /* Track states */
 .switch-track:not(.switch-track-disabled) {
-    background-color: hsl(var(--kf-switch-bg-checked));
+    background-color: hsl(var(--kf-switch-bg-default));
 
   &:hover {
     background-color: hsl(var(--kf-switch-bg-hover));
@@ -95,6 +95,9 @@
   }
 }
 
+.switch-track-disabled[data-state="checked"] .switch-thumb {
+  transform: translateX(var(--kf-switch-thumb-translate));
+}
 /* Switch thumb */
 .switch-thumb {
   position: relative;

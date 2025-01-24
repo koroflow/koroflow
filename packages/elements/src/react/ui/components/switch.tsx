@@ -26,11 +26,11 @@ export interface SwitchProps
 }
 
 const Switch = forwardRef<ComponentRef<typeof SwitchPrimitives.Root>, SwitchProps>(
-	({ className, disabled, themeKey, themeType, style, ...rest }, forwardedRef) => {
+	({ className, disabled, themeKey, noStyle, style, ...rest }, forwardedRef) => {
 		const switchRoot = useStyles(themeKey ?? "switch.root", {
 			baseClassName: ["switch switch-root"],
 			className,
-			themeType,
+			noStyle,
 			style,
 		});
 

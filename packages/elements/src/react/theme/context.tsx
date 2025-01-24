@@ -2,7 +2,6 @@
 
 import { createContext, useContext } from "react";
 import type { useConsentManager } from "../common/store/consent-manager";
-// import type { CookieBannerTheme } from "./types";
 
 /**
  * The value type for the ThemeContext.
@@ -16,11 +15,10 @@ import type { useConsentManager } from "../common/store/consent-manager";
  * @property {boolean} disableAnimation - Indicates whether all animations should be disabled.
  * @property {boolean} showPopup - Indicates whether the cookie banner popup should be shown.
  */
-export type ThemeContextValue = ReturnType<typeof useConsentManager> & {
-	// noStyle: boolean;
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	theme: any;
-	disableAnimation: boolean;
+export type ThemeContextValue<Theme> = {
+	theme?: Partial<Theme>;
+	disableAnimation?: boolean;
+	noStyle?: boolean;
 };
 
 /**
@@ -32,7 +30,9 @@ export type ThemeContextValue = ReturnType<typeof useConsentManager> & {
  * @constant
  * @type {React.Context<ThemeContextValue | null>}
  */
-export const ThemeContext = createContext<ThemeContextValue | null>(null);
+export const ThemeContext = createContext<
+	(ReturnType<typeof useConsentManager> & ThemeContextValue<unknown>) | null
+>(null);
 
 /**
  * Hook to access the ThemeContext.

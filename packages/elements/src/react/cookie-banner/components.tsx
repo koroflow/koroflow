@@ -1,10 +1,9 @@
 import { type FC, type ReactNode, type Ref, forwardRef } from "react";
 import { Box, type BoxProps } from "../primitives/box";
 
-
 import { ConsentButton } from "../primitives/button";
 import type { ConsentButtonProps } from "../primitives/button.types";
-
+import { useThemeContext } from "../theme";
 
 const COOKIE_BANNER_ROOT_NAME = "CookieBannerRoot";
 const COOKIE_BANNER_TITLE_NAME = "CookieBannerTitle";
@@ -16,9 +15,6 @@ const COOKIE_BANNER_FOOTER_SUB_GROUP_NAME = "CookieBannerFooterSubGroup";
 const COOKIE_BANNER_REJECT_BUTTON_NAME = "CookieBannerRejectButton";
 const COOKIE_BANNER_CUSTOMIZE_BUTTON_NAME = "CookieBannerCustomizeButton";
 const COOKIE_BANNER_ACCEPT_BUTTON_NAME = "CookieBannerAcceptButton";
-
-
-
 
 export const CookieBannerTitle = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
 	({ children, ...props }, ref) => {
@@ -153,12 +149,14 @@ CookieBannerCustomizeButton.displayName = COOKIE_BANNER_CUSTOMIZE_BUTTON_NAME;
 
 export const CookieBannerAcceptButton = forwardRef<HTMLButtonElement, ConsentButtonProps>(
 	({ children, ...props }, ref) => {
+		const { noStyle } = useThemeContext();
 		return (
 			<ConsentButton
 				ref={ref as Ref<HTMLButtonElement>}
 				action="accept-consent"
 				variant="primary"
 				closeCookieBanner
+				noStyle={noStyle}
 				{...props}
 			>
 				{children}

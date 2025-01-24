@@ -5,6 +5,7 @@ import "../ui/components/card.css";
 import { Box } from "../primitives/box";
 
 import { type FC, type HTMLAttributes, useState } from "react";
+import type { ThemeContextValue } from "../theme";
 import { ConsentManagerWidgetRoot } from "./atoms/root";
 import {
 	ConsentManagerWidgetAcceptAllButton,
@@ -23,17 +24,10 @@ import {
 } from "./components";
 import type { ConsentManagerWidgetTheme } from "./theme";
 
-export interface ConsentManagerWidgetProps extends HTMLAttributes<HTMLDivElement> {
-	onSave?: () => void;
-	hideBranding?: boolean;
-	styles?: ConsentManagerWidgetTheme;
-}
-
 const SingaltonConsentManagerWidget = ({
-	onSave,
-	hideBranding,
+	hideBrading,
 	...props
-}: ConsentManagerWidgetProps) => {
+}: ThemeContextValue<ConsentManagerWidgetTheme> & { hideBrading?: boolean }) => {
 	const [openItems, setOpenItems] = useState<string[]>([]);
 
 	return (
@@ -59,7 +53,7 @@ const SingaltonConsentManagerWidget = ({
 					Save
 				</ConsentManagerWidgetSaveButton>
 			</ConsentManagerWidgetFooter>
-			{!hideBranding && (
+			{!hideBrading && (
 				<Box
 					baseClassName="consent-manager-widget-branding"
 					themeKey="consent-manager-widget.branding"
@@ -75,7 +69,8 @@ const SingaltonConsentManagerWidget = ({
 
 SingaltonConsentManagerWidget.displayName = "ConsentManagerWidget";
 
-export interface ConsentManagerWidgetComponent extends FC<ConsentManagerWidgetProps> {
+export interface ConsentManagerWidgetComponent
+	extends FC<ThemeContextValue<ConsentManagerWidgetTheme> & { hideBrading?: boolean }> {
 	AccordionItems: typeof ConsentManagerWidgetAccordionItems;
 	AcceptAllButton: typeof ConsentManagerWidgetAcceptAllButton;
 	Accordion: typeof ConsentManagerWidgetAccordion;

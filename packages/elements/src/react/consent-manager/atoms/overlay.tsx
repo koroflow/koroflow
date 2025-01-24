@@ -6,7 +6,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import type { FC } from "react";
 import { useConsentManager } from "../../common";
-import type { ThemeValue } from "../../theme";
+import { type ThemeValue, useStyles, useThemeContext } from "../../theme";
 
 // import { useStyles } from "./hooks/use-styles";
 
@@ -51,28 +51,26 @@ interface OverlayProps {
  *
  * @public
  */
-export const Overlay: FC<OverlayProps> = ({ style, noStyle }) => {
+export const Overlay: FC<OverlayProps> = ({ noStyle }) => {
 	const { isPrivacyDialogOpen } = useConsentManager();
-	// const { className, style: overlayStyle } = useStyles({
-	// 	baseClassName: "cookie-banner-overlay",
-	// 	componentStyle: style,
-	// 	themeKey: "overlay",
-	// 	noStyle,
-	// });
+	const { disableAnimation } = useThemeContext();
+	const theme = useStyles("consent-manager.overlay", {
+		baseClassName: "consent-manager-overlay",
+		noStyle,
+	});
 
 	return isPrivacyDialogOpen ? (
-		// disableAnimation ? (
-		// 	<div className={className} style={overlayStyle} />
-		// ) : (
-		<AnimatePresence>
-			<motion.div
-				className={"cookie-banner-overlay"}
-				// style={overlayStyle}
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-				exit={{ opacity: 0 }}
-			/>
-		</AnimatePresence>
-		// )
+		disableAnimation ? (
+			<div {...theme} />
+		) : (
+			<AnimatePresence>
+				<motion.div
+					{...theme}
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					exit={{ opacity: 0 }}
+				/>
+			</AnimatePresence>
+		)
 	) : null;
 };

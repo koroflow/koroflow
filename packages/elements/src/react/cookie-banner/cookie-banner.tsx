@@ -15,7 +15,6 @@ import {
 	CookieBannerFooterSubGroup,
 	CookieBannerHeader,
 	CookieBannerRejectButton,
-
 	CookieBannerTitle,
 } from ".";
 import { ConsentButton } from "../primitives/button";
@@ -99,8 +98,8 @@ export interface CookieBannerProps {
  * @public
  */
 const SingaltonCookieBanner: FC<CookieBannerProps> = ({
-	theme = {},
-	noStyle = false,
+	theme,
+	noStyle,
 	title = "We value your privacy",
 	description = "This site uses cookies to improve your browsing experience, analyze site traffic, and show personalized content.",
 	rejectButtonText = "Reject All",
@@ -126,6 +125,7 @@ const SingaltonCookieBanner: FC<CookieBannerProps> = ({
 							</ConsentButton>
 							<ConsentButton
 								action="open-consent-dialog"
+								closeCookieBanner
 								themeKey="cookie-banner.footer.customize-button"
 							>
 								{customizeButtonText}

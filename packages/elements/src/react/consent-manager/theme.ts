@@ -33,4 +33,5 @@ export interface ConsentManagerWidgetTheme {
 	"consent-manager-widget.dialog.description": ThemeValue;
 	"consent-manager-widget.dialog.content": ThemeValue;
 	"consent-manager-widget.dialog.footer": ThemeValue;
+	"consent-manager.overlay": ThemeValue;
 }

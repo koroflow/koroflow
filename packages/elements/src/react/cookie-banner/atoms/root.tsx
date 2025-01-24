@@ -97,9 +97,9 @@ interface CookieBannerRootProps extends HTMLAttributes<HTMLDivElement> {
 export const CookieBannerRoot: FC<CookieBannerRootProps> = ({
 	children,
 	className,
-	noStyle = false,
-	disableAnimation = false,
-	theme = {},
+	noStyle,
+	disableAnimation,
+	theme,
 	...props
 }) => {
 	/** Access the consent manager for handling cookie preferences */
@@ -204,9 +204,8 @@ export const CookieBannerRootChildren = forwardRef<HTMLDivElement, CookieBannerR
 			style,
 			className: forwardedClassName,
 			disableAnimation,
-			noStyle,
 			...props
-		},
+		}: CookieBannerRootChildrenProps & { style?: React.CSSProperties; className?: string },
 		ref,
 	) => {
 		const { showPopup } = useConsentManager();
@@ -240,8 +239,7 @@ export const CookieBannerRootChildren = forwardRef<HTMLDivElement, CookieBannerR
 			return null;
 		}
 
-		console.log(contentStyle);
-
+		console.log("showPopup", showPopup);
 		// Only render when the banner should be shown
 		return showPopup
 			? createPortal(

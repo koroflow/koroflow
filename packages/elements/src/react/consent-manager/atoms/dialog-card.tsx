@@ -97,11 +97,7 @@ const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(({ .
 	);
 });
 
-export const ConsentCustomizationCard = ({
-	handleSave,
-}: {
-	handleSave: () => void;
-}) => (
+export const ConsentCustomizationCard = ({ noStyle }: { noStyle?: boolean }) => (
 	<DialogCard>
 		<DialogHeader>
 			<DialogHeaderTitle>Privacy Settings</DialogHeaderTitle>
@@ -111,7 +107,7 @@ export const ConsentCustomizationCard = ({
 			</DialogHeaderDescription>
 		</DialogHeader>
 		<DialogContent>
-			<ConsentManagerWidget hideBranding={true} onSave={handleSave} />
+			<ConsentManagerWidget hideBrading noStyle={noStyle} />
 		</DialogContent>
 		<DialogFooter>
 			<a className="consent-manager-widget-branding-link" href="https://koroflow.com">

@@ -3,48 +3,8 @@
 import type { FC, HTMLAttributes, ReactNode } from "react";
 import { useConsentManager } from "../../common";
 import { Box } from "../../primitives/box";
-import { ThemeContext } from "../../theme";
+import { ThemeContext, type ThemeContextValue } from "../../theme";
 import type { ConsentManagerWidgetTheme } from "../theme";
-
-/**
- * Props for the root component of the ConsentManagerWidget.
- *
- * @remarks
- * The root component serves as the top-level container and context provider
- * for the cookie banner. It manages the consent state and styling configuration
- * for all child components.
- *
- * @public
- */
-interface ConsentManagerWidgetRootProps extends HTMLAttributes<HTMLDivElement> {
-	/**
-	 * @remarks
-	 * React elements to be rendered within the cookie banner.
-	 * Typically includes Content, Title, Description, and Actions components.
-	 */
-	children: ReactNode;
-
-	/**
-	 * @remarks
-	 * When true, removes all default styling from the banner and its children.
-	 * Useful when implementing completely custom styles.
-	 */
-	noStyle?: boolean;
-
-	/**
-	 * @remarks
-	 * Custom styles to be applied to the banner and its child components.
-	 * These styles are made available through the ConsentManagerWidget context.
-	 */
-	theme?: ConsentManagerWidgetTheme;
-
-	/**
-	 * @remarks
-	 * When true, disables the entrance/exit animations.
-	 * Useful for environments where animations are not desired.
-	 */
-	disableAnimation?: boolean;
-}
 
 /**
  * Root component of the ConsentManagerWidget that provides context and styling.
@@ -83,14 +43,11 @@ interface ConsentManagerWidgetRootProps extends HTMLAttributes<HTMLDivElement> {
  *
  * @public
  */
-export const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
-	children,
-	className,
-	noStyle = false,
-	disableAnimation = false,
-	theme = {},
-	...props
-}) => {
+export const ConsentManagerWidgetRoot: FC<
+	ThemeContextValue<ConsentManagerWidgetTheme> & {
+		children: ReactNode;
+	}
+> = ({ children, noStyle = false, disableAnimation = false, theme = {}, ...props }) => {
 	/** Access the consent manager for handling cookie preferences */
 	const consentManager = useConsentManager();
 

@@ -49,18 +49,25 @@ export const ConsentButton = forwardRef<
 		},
 		ref,
 	) => {
-		const { saveConsents, setShowPopup, setIsPrivacyDialogOpen } = useThemeContext();
+		const {
+			saveConsents,
+			setShowPopup,
+			setIsPrivacyDialogOpen,
+			noStyle: contextNoStyle,
+		} = useThemeContext();
 		const buttonStyle = useStyles(themeKey ?? "button", {
 			baseClassName: [
-				Button.buttonVariants({
-					variant,
-					mode,
-					size,
-				}).root(),
+				(!contextNoStyle || !noStyle) &&
+					Button.buttonVariants({
+						variant,
+						mode,
+						size,
+					}).root(),
 				baseClassName ? baseClassName : "consent-button",
 			],
 			style,
 			className: forwardedClassName,
+			noStyle: noStyle,
 		});
 
 		const buttonClick = useCallback(() => {
@@ -76,6 +83,7 @@ export const ConsentButton = forwardRef<
 					break;
 				case "open-consent-dialog":
 					setIsPrivacyDialogOpen(true);
+					setShowPopup(false);
 					break;
 			}
 			if (closeCookieBanner) {
@@ -97,7 +105,7 @@ export const ConsentButton = forwardRef<
 			action,
 		]);
 
-		const Comp = asChild ? Slot : Button.Root;
+		const Comp = asChild ? Slot : "button";
 
 		return <Comp ref={ref} {...buttonStyle} onClick={buttonClick} {...props} />;
 	},

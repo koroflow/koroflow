@@ -46,35 +46,26 @@ export const buttonVariants = tv({
 			xsmall: { root: "button-xsmall" },
 			xxsmall: { root: "button-xxsmall" },
 		},
-		themeType: {
-			full: {},
-			layout: {},
-			none: {},
-		},
 	},
 	compoundVariants: [
 		// Primary variants
 		{
 			variant: "primary",
-			themeType: "full",
 			mode: "filled",
 			class: { root: "button-primary-filled" },
 		},
 		{
 			variant: "primary",
-			themeType: "full",
 			mode: "stroke",
 			class: { root: "button-primary-stroke" },
 		},
 		{
 			variant: "primary",
-			themeType: "full",
 			mode: "lighter",
 			class: { root: "button-primary-lighter" },
 		},
 		{
 			variant: "primary",
-			themeType: "full",
 			mode: "ghost",
 			class: { root: "button-primary-ghost" },
 		},
@@ -82,25 +73,21 @@ export const buttonVariants = tv({
 		// Neutral variants
 		{
 			variant: "neutral",
-			themeType: "full",
 			mode: "filled",
 			class: { root: "button-neutral-filled" },
 		},
 		{
 			variant: "neutral",
-			themeType: "full",
 			mode: "stroke",
 			class: { root: "button-neutral-stroke" },
 		},
 		{
 			variant: "neutral",
-			themeType: "full",
 			mode: "lighter",
 			class: { root: "button-neutral-lighter" },
 		},
 		{
 			variant: "neutral",
-			themeType: "full",
 			mode: "ghost",
 			class: { root: "button-neutral-ghost" },
 		},
@@ -108,25 +95,21 @@ export const buttonVariants = tv({
 		// Error variants
 		{
 			variant: "error",
-			themeType: "full",
 			mode: "filled",
 			class: { root: "button-error-filled" },
 		},
 		{
 			variant: "error",
-			themeType: "full",
 			mode: "stroke",
 			class: { root: "button-error-stroke" },
 		},
 		{
 			variant: "error",
-			themeType: "full",
 			mode: "lighter",
 			class: { root: "button-error-lighter" },
 		},
 		{
 			variant: "error",
-			themeType: "full",
 			mode: "ghost",
 			class: { root: "button-error-ghost" },
 		},
@@ -135,7 +118,6 @@ export const buttonVariants = tv({
 		variant: "primary",
 		mode: "filled",
 		size: "medium",
-		themeType: "full",
 	},
 });
 

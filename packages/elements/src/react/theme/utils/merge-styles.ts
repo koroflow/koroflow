@@ -6,7 +6,7 @@ export function mergeStyles(style1: ThemeValue, style2?: ThemeValue): ClassNameS
 		if (typeof style === "string" || style === undefined) {
 			return style;
 		}
-		if ("className" in style || "style" in style || "themeType" in style) {
+		if ("className" in style || "style" in style || "noStyle" in style) {
 			return style;
 		}
 		return undefined;
@@ -14,6 +14,14 @@ export function mergeStyles(style1: ThemeValue, style2?: ThemeValue): ClassNameS
 
 	const s1 = getThemeValue(Array.isArray(style1) ? style1[0] : style1);
 	const s2 = getThemeValue(style2);
+
+	// If either style has noStyle, return empty styles
+	if ((typeof s1 === "object" && s1?.noStyle) || (typeof s2 === "object" && s2?.noStyle)) {
+		return {
+			className: undefined,
+			style: undefined,
+		};
+	}
 
 	const className = cnExt([
 		typeof s1 === "string" ? s1 : s1?.className,

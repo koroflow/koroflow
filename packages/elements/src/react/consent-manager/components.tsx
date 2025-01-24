@@ -10,11 +10,12 @@ import { type AllConsentNames, useConsentManager } from "../common";
 import { Box, type BoxProps } from "../primitives/box";
 import { ConsentButton } from "../primitives/button";
 import type { ConsentButtonProps } from "../primitives/button.types";
+import type { ThemeContextValue } from "../theme";
 import { Item as AccordionItem } from "../ui/components/accordion";
 import * as Accordion from "../ui/components/accordion";
 import * as Switch from "../ui/components/switch";
 import type { ConsentManagerWidgetRoot } from "./atoms/root";
-import type { ConsentManagerWidgetProps } from "./consent-manager-widget";
+import type { ConsentManagerWidgetTheme } from "./theme";
 
 const ConsentManagerWidgetAccordionSubGroup = forwardRef<
 	HTMLDivElement,
@@ -195,7 +196,8 @@ const ConsentManagerWidgetSaveButton = forwardRef<HTMLButtonElement, ConsentButt
  *
  * @public
  */
-export interface ConsentManagerWidgetComponent extends FC<ConsentManagerWidgetProps> {
+export interface ConsentManagerWidgetComponent
+	extends FC<ThemeContextValue<ConsentManagerWidgetTheme>> {
 	/** Root container component */
 	Root: typeof ConsentManagerWidgetRoot;
 	/** Content wrapper component */

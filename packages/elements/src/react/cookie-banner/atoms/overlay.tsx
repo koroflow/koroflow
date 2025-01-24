@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { type FC, type HTMLAttributes, forwardRef } from "react";
 
 import { useConsentManager } from "../../common";
-import { useStyles } from "../../theme";
+import { useStyles, useThemeContext } from "../../theme";
 
 /**
  * Props for the Overlay component.
@@ -30,8 +30,6 @@ interface OverlayProps extends HTMLAttributes<HTMLDivElement> {
 	 * This enables better composition with other components.
 	 */
 	asChild?: boolean;
-
-	disableAnimation?: boolean;
 }
 
 /**
@@ -50,26 +48,22 @@ interface OverlayProps extends HTMLAttributes<HTMLDivElement> {
  * @public
  */
 export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
-	({ className, style, noStyle, disableAnimation, asChild, ...props }, ref) => {
+	({ className, style, noStyle, asChild, ...props }, ref) => {
 		const { showPopup } = useConsentManager();
-		/**
-		 * Apply styles from the CookieBanner context and merge with local styles.
-		 * Uses the 'description' style key for consistent theming.
-		 */
-		const overlayStyle = useStyles("cookie-banner.overlay", {
-			baseClassName: ["cookie-banner-description"],
-			className: className,
-			style,
+		const { disableAnimation } = useThemeContext();
+		const theme = useStyles("cookie-banner.overlay", {
+			baseClassName: "cookie-banner-overlay",
+			noStyle,
 		});
 
 		return showPopup ? (
 			disableAnimation ? (
-				<div ref={ref} {...props} {...overlayStyle} />
+				<div ref={ref} {...props} {...theme} />
 			) : (
 				<AnimatePresence>
 					<motion.div
 						ref={ref}
-						{...overlayStyle}
+						{...theme}
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}

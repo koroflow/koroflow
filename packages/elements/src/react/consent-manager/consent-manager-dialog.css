@@ -45,3 +45,11 @@
 	border-top-width: 1px;
 	border-top-color: hsl(var(--kf-stroke-soft-200));
 }
+
+
+.consent-manager-overlay {
+	position: fixed;
+	inset: 0px;
+	background-color: rgb(0 0 0 / 0.5);
+	z-index: 999999997;
+}

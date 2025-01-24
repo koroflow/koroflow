@@ -51,7 +51,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLDivElement>, ExtendTh
  * @public
  */
 export const Box = forwardRef<HTMLDivElement, BoxProps>(
-	({ asChild, className, style, themeType, themeKey, baseClassName, ...props }, ref) => {
+	({ asChild, className, style, themeKey, baseClassName, ...props }, ref) => {
 		/**
 		 * Apply styles from the CookieBanner context and merge with local styles.
 		 * Uses the 'description' style key for consistent theming.
@@ -59,7 +59,6 @@ export const Box = forwardRef<HTMLDivElement, BoxProps>(
 		const descriptionStyle = useStyles(themeKey, {
 			baseClassName,
 			className,
-			themeType,
 			style,
 		});
 
