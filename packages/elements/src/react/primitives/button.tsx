@@ -2,8 +2,8 @@ import { Slot } from "@radix-ui/react-slot";
 import { forwardRef, useCallback } from "react";
 import * as Button from "../ui/components/button";
 
-import { useThemeContext } from "../theme/context";
-import { useStyles } from "../theme/useStyle";
+import type { VariantProps } from "tailwind-variants";
+import { useStyles, useThemeContext } from "../theme";
 import type { ConsentButtonElement, ConsentButtonProps } from "./button.types";
 
 /**
@@ -23,11 +23,12 @@ import type { ConsentButtonElement, ConsentButtonProps } from "./button.types";
  */
 export const ConsentButton = forwardRef<
 	ConsentButtonElement,
-	ConsentButtonProps<string> & {
-		action: "accept-consent" | "reject-consent" | "custom-consent" | "open-consent-dialog";
-		closeCustomizeDialog?: boolean;
-		closeCookieBanner?: boolean;
-	}
+	ConsentButtonProps &
+		VariantProps<typeof Button.buttonVariants> & {
+			action: "accept-consent" | "reject-consent" | "custom-consent" | "open-consent-dialog";
+			closeCustomizeDialog?: boolean;
+			closeCookieBanner?: boolean;
+		}
 >(
 	(
 		{
@@ -36,7 +37,7 @@ export const ConsentButton = forwardRef<
 			style,
 			noStyle,
 			action,
-			styleKey = "acceptButton",
+			themeKey,
 			baseClassName,
 			variant = "neutral",
 			mode = "stroke",
@@ -49,7 +50,7 @@ export const ConsentButton = forwardRef<
 		ref,
 	) => {
 		const { saveConsents, setShowPopup, setIsPrivacyDialogOpen } = useThemeContext();
-		const buttonStyle = useStyles(styleKey, {
+		const buttonStyle = useStyles(themeKey ?? "button", {
 			baseClassName: [
 				Button.buttonVariants({
 					variant,

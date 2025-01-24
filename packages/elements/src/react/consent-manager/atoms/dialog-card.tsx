@@ -1,42 +1,35 @@
 "use client";
 
-import { X } from "lucide-react";
 import { type Ref, forwardRef } from "react";
 import { Box, type BoxProps } from "../../primitives/box";
-import * as Button from "../../ui/components/button";
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "../../ui/components/card";
+import type { ClassNameStyle } from "../../theme";
 import ConsentManagerWidget from "../consent-manager-widget";
 
-const DialogCard = forwardRef<HTMLDivElement, Omit<BoxProps, "styleKey">>(
-	({ children, ...props }, ref) => {
-		return (
-			<Box
-				ref={ref as Ref<HTMLDivElement>}
-				baseClassName="card consent-manager-dialog-card"
-				styleKey={["dialog", "root"]}
-				{...props}
-			>
-				{children}
-			</Box>
-		);
-	},
-);
+type DialogCardProps = {
+	children?: React.ReactNode;
+} & ClassNameStyle;
 
-const DialogHeader = forwardRef<HTMLDivElement, Omit<BoxProps, "styleKey">>(
+const DialogCard = forwardRef<HTMLDivElement, DialogCardProps>(({ children, ...props }, ref) => {
+	return (
+		<Box
+			ref={ref as Ref<HTMLDivElement>}
+			baseClassName="card consent-manager-dialog-card"
+			{...props}
+			themeKey="consent-manager-widget.dialog.root"
+		>
+			{children}
+		</Box>
+	);
+});
+
+const DialogHeader = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
 	({ children, ...props }, ref) => {
 		return (
 			<Box
 				ref={ref as Ref<HTMLDivElement>}
 				baseClassName="card-header consent-manager-dialog-card"
-				styleKey={["dialog", "header"]}
 				{...props}
+				themeKey="consent-manager-widget.dialog.header"
 			>
 				{children}
 			</Box>
@@ -44,13 +37,13 @@ const DialogHeader = forwardRef<HTMLDivElement, Omit<BoxProps, "styleKey">>(
 	},
 );
 
-const DialogHeaderTitle = forwardRef<HTMLDivElement, Omit<BoxProps, "styleKey">>(
+const DialogHeaderTitle = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
 	({ children, ...props }, ref) => {
 		return (
 			<Box
 				ref={ref as Ref<HTMLDivElement>}
 				baseClassName="card-title"
-				styleKey={["dialog", "title"]}
+				themeKey="consent-manager-widget.dialog.title"
 				{...props}
 			>
 				{children}
@@ -59,13 +52,13 @@ const DialogHeaderTitle = forwardRef<HTMLDivElement, Omit<BoxProps, "styleKey">>
 	},
 );
 
-const DialogHeaderDescription = forwardRef<HTMLDivElement, Omit<BoxProps, "styleKey">>(
+const DialogHeaderDescription = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
 	({ children, ...props }, ref) => {
 		return (
 			<Box
 				ref={ref as Ref<HTMLDivElement>}
 				baseClassName="card-title"
-				styleKey={["dialog", "title"]}
+				themeKey="consent-manager-widget.dialog.title"
 				{...props}
 			>
 				{children}
@@ -74,13 +67,13 @@ const DialogHeaderDescription = forwardRef<HTMLDivElement, Omit<BoxProps, "style
 	},
 );
 
-const DialogContent = forwardRef<HTMLDivElement, Omit<BoxProps, "styleKey">>(
+const DialogContent = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
 	({ children, ...props }, ref) => {
 		return (
 			<Box
 				ref={ref as Ref<HTMLDivElement>}
 				baseClassName="card-content"
-				styleKey={["dialog", "content"]}
+				themeKey="consent-manager-widget.dialog.content"
 				{...props}
 			>
 				{children}
@@ -89,12 +82,12 @@ const DialogContent = forwardRef<HTMLDivElement, Omit<BoxProps, "styleKey">>(
 	},
 );
 
-const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, "styleKey">>(({ ...props }, ref) => {
+const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(({ ...props }, ref) => {
 	return (
 		<Box
 			ref={ref as Ref<HTMLDivElement>}
 			baseClassName="card-footer"
-			styleKey={["dialog", "footer"]}
+			themeKey="consent-manager-widget.dialog.footer"
 			{...props}
 		>
 			<a className="consent-manager-widget-branding-link" href="https://koroflow.com">
@@ -109,8 +102,8 @@ export const ConsentCustomizationCard = ({
 }: {
 	handleSave: () => void;
 }) => (
-	<DialogCard className="consent-manager-dialog-card">
-		<DialogHeader className="relative">
+	<DialogCard>
+		<DialogHeader>
 			<DialogHeaderTitle>Privacy Settings</DialogHeaderTitle>
 			<DialogHeaderDescription>
 				Customize your privacy settings here. You can choose which types of cookies and tracking

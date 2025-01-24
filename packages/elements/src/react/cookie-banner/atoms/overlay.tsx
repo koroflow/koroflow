@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { type FC, type HTMLAttributes, forwardRef } from "react";
 
 import { useConsentManager } from "../../common";
-import { useStyles } from "../../theme/useStyle";
+import { useStyles } from "../../theme";
 
 /**
  * Props for the Overlay component.
@@ -56,7 +56,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
 		 * Apply styles from the CookieBanner context and merge with local styles.
 		 * Uses the 'description' style key for consistent theming.
 		 */
-		const overlayStyle = useStyles("overlay", {
+		const overlayStyle = useStyles("cookie-banner.overlay", {
 			baseClassName: ["cookie-banner-description"],
 			className: className,
 			style,

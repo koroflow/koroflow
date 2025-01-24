@@ -1,0 +1,37 @@
+import type clsx from "clsx";
+import type { CSSProperties } from "react";
+import type { AllThemeKeys } from "../use-style";
+
+/**
+ * Represents a style configuration that can include both inline styles and class names.
+ * @public
+ */
+export type ClassNameStyle = {
+	/** @remarks CSS properties to be applied inline to the component */
+	style?: CSSProperties;
+	/** @remarks CSS class names to be applied to the component */
+	className?: string;
+	/** @remarks The type of style to apply to the component */
+	themeType?: "full" | "layout" | "none";
+	/** @internal used to pass default class names to the component */
+	baseClassName?: clsx.ClassValue;
+};
+
+/**
+ * Represents a style value that can be either a class name string or a {@link ClassNameStyle} object.
+ * @public
+ */
+export type ThemeValue = string | ClassNameStyle | undefined;
+
+export type NestedThemeValue =
+	| ThemeValue
+	| {
+			readonly [key: string]: NestedThemeValue;
+	  };
+
+export interface ExtendThemeKeys extends ClassNameStyle {
+	themeKey: AllThemeKeys;
+}
+export type StylesObject = Readonly<{
+	[K in keyof AllThemeKeys]: NestedThemeValue;
+}>;

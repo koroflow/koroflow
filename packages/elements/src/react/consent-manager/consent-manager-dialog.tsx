@@ -1,13 +1,16 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import * as React from "react";
+
 import { createPortal } from "react-dom";
 
 import { useConsentManager } from "../common";
 import "./consent-manager-dialog.css";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { ThemeContext } from "../theme";
 import { ConsentCustomizationCard } from "./atoms/dialog-card";
-import { Overlay } from "./overlay";
+import { Overlay } from "./atoms/overlay";
+import type { ConsentManagerWidgetTheme } from "./theme";
 
 const dialogVariants = {
 	hidden: { opacity: 0 },
@@ -29,49 +32,59 @@ const contentVariants = {
 	},
 };
 
-export const ConsentManagerDialog = () => {
-	const { isPrivacyDialogOpen, setIsPrivacyDialogOpen, saveConsents } = useConsentManager();
-	const [isMounted, setIsMounted] = React.useState(false);
-	const contentRef = React.useRef<HTMLDivElement>(null);
+export const ConsentManagerDialog = ({
+	theme = {},
+}: { theme: Partial<ConsentManagerWidgetTheme> }) => {
+	const consentManager = useConsentManager();
+	const [isMounted, setIsMounted] = useState(false);
+	const contentRef = useRef<HTMLDivElement>(null);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		setIsMounted(true);
 		return () => setIsMounted(false);
 	}, []);
 
-	const handleSave = React.useCallback(() => {
-		saveConsents("custom");
-		setIsPrivacyDialogOpen(false);
-	}, [setIsPrivacyDialogOpen, saveConsents]);
+	const handleSave = useCallback(() => {
+		consentManager.saveConsents("custom");
+		consentManager.setIsPrivacyDialogOpen(false);
+	}, [consentManager]);
 
 	const dialogContent = (
-		<AnimatePresence mode="wait">
-			{isPrivacyDialogOpen && (
-				<>
-					<Overlay />
-					<motion.dialog
-						className="consent-manager-dialog-root"
-						variants={dialogVariants}
-						initial="hidden"
-						animate="visible"
-						exit="exit"
-						aria-modal="true"
-						aria-labelledby="privacy-settings-title"
-					>
-						<motion.div
-							ref={contentRef}
-							className="consent-manager-dialog-container"
-							variants={contentVariants}
+		<ThemeContext.Provider
+			value={{
+				...consentManager,
+				theme,
+				disableAnimation: false,
+			}}
+		>
+			<AnimatePresence mode="wait">
+				{consentManager.isPrivacyDialogOpen && (
+					<>
+						<Overlay />
+						<motion.dialog
+							className="consent-manager-dialog-root"
+							variants={dialogVariants}
 							initial="hidden"
 							animate="visible"
 							exit="exit"
+							aria-modal="true"
+							aria-labelledby="privacy-settings-title"
 						>
-							<ConsentCustomizationCard handleSave={handleSave} />
-						</motion.div>
-					</motion.dialog>
-				</>
-			)}
-		</AnimatePresence>
+							<motion.div
+								ref={contentRef}
+								className="consent-manager-dialog-container"
+								variants={contentVariants}
+								initial="hidden"
+								animate="visible"
+								exit="exit"
+							>
+								<ConsentCustomizationCard handleSave={handleSave} />
+							</motion.div>
+						</motion.dialog>
+					</>
+				)}
+			</AnimatePresence>
+		</ThemeContext.Provider>
 	);
 
 	return isMounted && createPortal(dialogContent, document.body);

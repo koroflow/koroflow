@@ -49,6 +49,6 @@ import CookieBanner, { type CookieBannerComponent, type CookieBannerProps } from
 
 export * from "./components";
 export type { CookieBannerComponent, CookieBannerProps };
-export type { CookieBannerStyles } from "./types";
+export type { CookieBannerTheme } from "./types";
 
 export default CookieBanner;

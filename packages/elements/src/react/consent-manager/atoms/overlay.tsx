@@ -5,8 +5,8 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import type { FC } from "react";
-import { useConsentManager } from "../common";
-import type { StyleValue } from "../theme/types";
+import { useConsentManager } from "../../common";
+import type { ThemeValue } from "../../theme";
 
 // import { useStyles } from "./hooks/use-styles";
 
@@ -27,7 +27,7 @@ interface OverlayProps {
 	 * Can be either a string class name or an object with className and style properties.
 	 * These styles will be merged with the theme styles and default styles.
 	 */
-	style?: StyleValue;
+	style?: ThemeValue;
 
 	/**
 	 * @remarks
@@ -56,7 +56,7 @@ export const Overlay: FC<OverlayProps> = ({ style, noStyle }) => {
 	// const { className, style: overlayStyle } = useStyles({
 	// 	baseClassName: "cookie-banner-overlay",
 	// 	componentStyle: style,
-	// 	styleKey: "overlay",
+	// 	themeKey: "overlay",
 	// 	noStyle,
 	// });
 

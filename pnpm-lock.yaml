@@ -327,6 +327,9 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.17)
+      ts-essentials:
+        specifier: ^10.0.4
+        version: 10.0.4(typescript@5.7.3)
 
   packages/shadcn:
     dependencies:
@@ -4746,6 +4749,14 @@ packages:
     engines: {node: '>=18.12'}
     peerDependencies:
       typescript: '>=4.8.4'
+
+  ts-essentials@10.0.4:
+    resolution: {integrity: sha512-lwYdz28+S4nicm+jFi6V58LaAIpxzhg9rLdgNC1VsdP/xiFBseGhF1M/shwCk6zMmwahBZdXcl34LVHrEang3A==}
+    peerDependencies:
+      typescript: '>=4.5.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
@@ -9971,6 +9982,10 @@ snapshots:
 
   ts-api-utils@2.0.0(typescript@5.7.3):
     dependencies:
+      typescript: 5.7.3
+
+  ts-essentials@10.0.4(typescript@5.7.3):
+    optionalDependencies:
       typescript: 5.7.3
 
   ts-interface-checker@0.1.13: {}

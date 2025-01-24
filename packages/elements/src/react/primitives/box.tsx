@@ -1,10 +1,10 @@
 "use client";
 
-import { type HTMLAttributes, forwardRef } from "react";
+import { forwardRef } from "react";
 
 import { Slot } from "@radix-ui/react-slot";
-import type { ClassNameStyle } from "../theme/types";
-import { type NestedStyleKey, useStyles } from "../theme/useStyle";
+
+import { type ExtendThemeKeys, useStyles } from "../theme";
 
 /**
  * Props for the description text component of the CookieBanner.
@@ -12,15 +12,8 @@ import { type NestedStyleKey, useStyles } from "../theme/useStyle";
  *
  * @public
  */
-export interface BoxProps extends HTMLAttributes<HTMLDivElement>, ClassNameStyle {
-	/**
-	 * @remarks
-	 * When true, the component will render its children directly without wrapping them in a DOM element.
-	 * This enables better composition with other components.
-	 */
+export interface BoxProps extends React.HTMLAttributes<HTMLDivElement>, ExtendThemeKeys {
 	asChild?: boolean;
-
-	styleKey: NestedStyleKey;
 }
 
 /**
@@ -58,15 +51,15 @@ export interface BoxProps extends HTMLAttributes<HTMLDivElement>, ClassNameStyle
  * @public
  */
 export const Box = forwardRef<HTMLDivElement, BoxProps>(
-	({ asChild, className, style, styleType, styleKey, baseClassName, ...props }, ref) => {
+	({ asChild, className, style, themeType, themeKey, baseClassName, ...props }, ref) => {
 		/**
 		 * Apply styles from the CookieBanner context and merge with local styles.
 		 * Uses the 'description' style key for consistent theming.
 		 */
-		const descriptionStyle = useStyles(styleKey, {
+		const descriptionStyle = useStyles(themeKey, {
 			baseClassName,
 			className,
-			styleType,
+			themeType,
 			style,
 		});
 

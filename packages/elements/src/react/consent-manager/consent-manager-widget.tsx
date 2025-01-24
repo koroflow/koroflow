@@ -1,9 +1,11 @@
 "use client";
 
 import "./consent-manager-widget.css";
+import "../ui/components/card.css";
 import { Box } from "../primitives/box";
 
-import { type FC, type HTMLAttributes, forwardRef, useCallback, useState } from "react";
+import { type FC, type HTMLAttributes, useState } from "react";
+import { ConsentManagerWidgetRoot } from "./atoms/root";
 import {
 	ConsentManagerWidgetAcceptAllButton,
 	ConsentManagerWidgetAccordion,
@@ -19,13 +21,12 @@ import {
 	ConsentManagerWidgetSaveButton,
 	ConsentManagerWidgetSwitch,
 } from "./components";
-import { ConsentManagerWidgetRoot } from "./root";
-import type { ConsentManagerWidgetStyles } from "./types";
+import type { ConsentManagerWidgetTheme } from "./theme";
 
 export interface ConsentManagerWidgetProps extends HTMLAttributes<HTMLDivElement> {
 	onSave?: () => void;
 	hideBranding?: boolean;
-	styles?: ConsentManagerWidgetStyles;
+	styles?: ConsentManagerWidgetTheme;
 }
 
 const SingaltonConsentManagerWidget = ({
@@ -38,7 +39,7 @@ const SingaltonConsentManagerWidget = ({
 	return (
 		<ConsentManagerWidgetRoot {...props}>
 			<ConsentManagerWidgetAccordion
-				styleKey="accordion"
+				themeKey="consent-manager-widget.accordion"
 				type="multiple"
 				value={openItems}
 				onValueChange={setOpenItems}
@@ -46,14 +47,23 @@ const SingaltonConsentManagerWidget = ({
 				<ConsentManagerWidgetAccordionItems />
 			</ConsentManagerWidgetAccordion>
 			<ConsentManagerWidgetFooter>
-				<ConsentManagerWidgetFooterSubGroup>
-					<ConsentManagerWidgetRejectButton>Deny</ConsentManagerWidgetRejectButton>
-					<ConsentManagerWidgetAcceptAllButton>Accept All</ConsentManagerWidgetAcceptAllButton>
+				<ConsentManagerWidgetFooterSubGroup themeKey="consent-manager-widget.footer.sub-group">
+					<ConsentManagerWidgetRejectButton themeKey="consent-manager-widget.footer.reject-button">
+						Deny
+					</ConsentManagerWidgetRejectButton>
+					<ConsentManagerWidgetAcceptAllButton themeKey="consent-manager-widget.footer.accept-button">
+						Accept All
+					</ConsentManagerWidgetAcceptAllButton>
 				</ConsentManagerWidgetFooterSubGroup>
-				<ConsentManagerWidgetSaveButton>Save</ConsentManagerWidgetSaveButton>
+				<ConsentManagerWidgetSaveButton themeKey="consent-manager-widget.footer.save-button">
+					Save
+				</ConsentManagerWidgetSaveButton>
 			</ConsentManagerWidgetFooter>
 			{!hideBranding && (
-				<Box baseClassName="consent-manager-widget-branding" styleKey="branding">
+				<Box
+					baseClassName="consent-manager-widget-branding"
+					themeKey="consent-manager-widget.branding"
+				>
 					<a className="consent-manager-widget-branding-link" href="https://koroflow.com">
 						Secured by <span className="consent-manager-widget-branding-link-span">Koroflow</span>
 					</a>

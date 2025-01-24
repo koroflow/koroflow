@@ -11,12 +11,11 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 
-import { ThemeContext } from "../../theme/context";
-import { useStyles } from "../../theme/useStyle";
+import { ThemeContext, useStyles } from "../../theme";
 import { Overlay } from "./overlay";
 
 import { useConsentManager } from "../../common";
-import type { CookieBannerStyles } from "../types";
+import type { CookieBannerTheme } from "../types";
 
 /**
  * Props for the root component of the CookieBanner.
@@ -48,7 +47,7 @@ interface CookieBannerRootProps extends HTMLAttributes<HTMLDivElement> {
 	 * Custom styles to be applied to the banner and its child components.
 	 * These styles are made available through the CookieBanner context.
 	 */
-	styles?: CookieBannerStyles;
+	theme?: Partial<CookieBannerTheme>;
 
 	/**
 	 * @remarks
@@ -100,7 +99,7 @@ export const CookieBannerRoot: FC<CookieBannerRootProps> = ({
 	className,
 	noStyle = false,
 	disableAnimation = false,
-	styles = {},
+	theme = {},
 	...props
 }) => {
 	/** Access the consent manager for handling cookie preferences */
@@ -114,7 +113,7 @@ export const CookieBannerRoot: FC<CookieBannerRootProps> = ({
 		...consentManager,
 		disableAnimation,
 		noStyle,
-		styles,
+		theme,
 	};
 
 	return (
@@ -216,11 +215,8 @@ export const CookieBannerRootChildren = forwardRef<HTMLDivElement, CookieBannerR
 		 * Apply styles from the CookieBanner context and merge with local styles.
 		 * Uses the 'content' style key for consistent theming.
 		 */
-		const contentStyle = useStyles("root", {
+		const contentStyle = useStyles("cookie-banner.root", {
 			baseClassName: ["cookie-banner cookie-banner-root cookie-banner-root-bottom-left"],
-			// componentStyle: className,
-			// styleKey: "content",
-			// noStyle,
 			style,
 			className: forwardedClassName,
 		});
@@ -244,18 +240,15 @@ export const CookieBannerRootChildren = forwardRef<HTMLDivElement, CookieBannerR
 			return null;
 		}
 
+		console.log(contentStyle);
+
 		// Only render when the banner should be shown
 		return showPopup
 			? createPortal(
 					<>
 						<Overlay />
 						{disableAnimation ? (
-							<div
-								ref={ref}
-								{...contentStyle}
-								style={{ ...style, ...contentStyle.style }}
-								{...props}
-							>
+							<div ref={ref} {...props} {...contentStyle}>
 								{children}
 							</div>
 						) : (
@@ -266,7 +259,6 @@ export const CookieBannerRootChildren = forwardRef<HTMLDivElement, CookieBannerR
 									exit={{ opacity: 0, y: 50 }}
 									transition={{ type: "spring", stiffness: 300, damping: 30 }}
 									{...contentStyle}
-									style={{ ...style, ...contentStyle.style }}
 								>
 									{children}
 								</motion.div>

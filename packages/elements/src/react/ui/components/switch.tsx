@@ -1,27 +1,40 @@
 import * as SwitchPrimitives from "@radix-ui/react-switch";
 
-import "./switch.css";
 import { type ComponentPropsWithoutRef, type ComponentRef, forwardRef } from "react";
 import { Box } from "../../primitives/box";
-import type { ClassNameStyleWithKey } from "../../theme/types";
-import { useStyles } from "../../theme/useStyle";
 
-const Switch = forwardRef<
-	ComponentRef<typeof SwitchPrimitives.Root>,
-	ComponentPropsWithoutRef<typeof SwitchPrimitives.Root> & ClassNameStyleWithKey
->(
-	(
-		{ className, disabled, styleKey = ["switch", "root"], styleType, style, ...rest },
-		forwardedRef,
-	) => {
-		const switchRoot = useStyles(styleKey, {
+import { type AllThemeKeys, type ClassNameStyle, type ThemeValue, useStyles } from "../../theme";
+
+import "./switch.css";
+
+export type SwitchStylesKeys = {
+	"switch.root": ThemeValue;
+	"switch.thumb": ThemeValue;
+	"switch.track": ThemeValue;
+};
+/**
+ * Props for the description text component of the CookieBanner.
+ * Extends standard HTML div attributes.
+ *
+ * @public
+ */
+export interface SwitchProps
+	extends ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>,
+		ClassNameStyle {
+	asChild?: boolean;
+	themeKey: AllThemeKeys;
+}
+
+const Switch = forwardRef<ComponentRef<typeof SwitchPrimitives.Root>, SwitchProps>(
+	({ className, disabled, themeKey, themeType, style, ...rest }, forwardedRef) => {
+		const switchRoot = useStyles(themeKey ?? "switch.root", {
 			baseClassName: ["switch switch-root"],
 			className,
-			styleType,
+			themeType,
 			style,
 		});
 
-		const switchThumb = useStyles(["switch", "thumb"], {
+		const switchThumb = useStyles("switch.thumb", {
 			baseClassName: ["switch-thumb", disabled && "switch-thumb-disabled"],
 			style: {
 				["--mask" as string]:
@@ -31,7 +44,7 @@ const Switch = forwardRef<
 		return (
 			<SwitchPrimitives.Root ref={forwardedRef} disabled={disabled} {...rest} {...switchRoot}>
 				<Box
-					styleKey={["switch", "track"]}
+					themeKey="switch.track"
 					baseClassName={["switch-track", disabled && "switch-track-disabled"]}
 				>
 					<SwitchPrimitives.Thumb {...switchThumb} />

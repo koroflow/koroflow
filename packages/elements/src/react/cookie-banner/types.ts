@@ -1,28 +1,25 @@
-import type clsx from "clsx";
-import type { CSSProperties } from "react";
-
-import type { ButtonStyleKeys, ConsentButtonStyles } from "../primitives/button.types";
-import type { ClassNameStyle, Prettify, StyleValue } from "../theme/types";
+import type { ThemeValue } from "../theme";
 
 /**
  * Configuration object for styling different parts of the CookieBanner component.
  * @public
  */
-export interface CookieBannerStyles {
+export type CookieBannerTheme = {
 	/** @remarks Styles for the root container element */
-	root?: StyleValue;
-	card?: StyleValue;
+	"cookie-banner.root"?: ThemeValue;
+	"cookie-banner.card"?: ThemeValue;
 	/** @remarks Styles for the main content wrapper */
-	header?: {
-		root?: ClassNameStyle;
-		/** @remarks Styles for the banner title */
-		title?: StyleValue;
-		/** @remarks Styles for the banner description text */
-		description?: StyleValue;
-	};
-
+	"cookie-banner.header.root": ThemeValue;
+	/** @remarks Styles for the banner title */
+	"cookie-banner.header.title": ThemeValue;
+	/** @remarks Styles for the banner description text */
+	"cookie-banner.header.description": ThemeValue;
 	/** @remarks Styles for the actions container */
-	footer?: ConsentButtonStyles;
+	"cookie-banner.footer": ThemeValue;
+	"cookie-banner.footer.sub-group": ThemeValue;
 	/** @remarks Styles for the overlay background */
-	overlay?: StyleValue;
-}
+	"cookie-banner.overlay": ThemeValue;
+	"cookie-banner.footer.reject-button": ThemeValue;
+	"cookie-banner.footer.customize-button": ThemeValue;
+	"cookie-banner.footer.accept-button": ThemeValue;
+};

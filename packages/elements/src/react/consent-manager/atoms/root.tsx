@@ -1,12 +1,10 @@
 "use client";
 
 import type { FC, HTMLAttributes, ReactNode } from "react";
-
-import { useConsentManager } from "../common/store/consent-manager";
-import { ThemeContext } from "../theme/context";
-
-import { Box } from "../primitives/box";
-import type { ConsentManagerWidgetStyles } from "./types";
+import { useConsentManager } from "../../common";
+import { Box } from "../../primitives/box";
+import { ThemeContext } from "../../theme";
+import type { ConsentManagerWidgetTheme } from "../theme";
 
 /**
  * Props for the root component of the ConsentManagerWidget.
@@ -38,7 +36,7 @@ interface ConsentManagerWidgetRootProps extends HTMLAttributes<HTMLDivElement> {
 	 * Custom styles to be applied to the banner and its child components.
 	 * These styles are made available through the ConsentManagerWidget context.
 	 */
-	styles?: ConsentManagerWidgetStyles;
+	theme?: ConsentManagerWidgetTheme;
 
 	/**
 	 * @remarks
@@ -90,7 +88,7 @@ export const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
 	className,
 	noStyle = false,
 	disableAnimation = false,
-	styles = {},
+	theme = {},
 	...props
 }) => {
 	/** Access the consent manager for handling cookie preferences */
@@ -104,7 +102,7 @@ export const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
 		...consentManager,
 		disableAnimation,
 		noStyle,
-		styles,
+		theme,
 	}; /**
 	 * Apply styles from the ConsentManagerWidget context and merge with local styles.
 	 * Uses the 'content' style key for consistent theming.
@@ -112,7 +110,7 @@ export const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
 
 	return (
 		<ThemeContext.Provider value={contextValue}>
-			<Box baseClassName="consent-manager-widget" styleKey="root">
+			<Box baseClassName="consent-manager-widget" themeKey="consent-manager-widget.root" {...props}>
 				{children}
 			</Box>
 		</ThemeContext.Provider>

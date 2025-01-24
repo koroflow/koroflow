@@ -3,7 +3,7 @@
 import type { FC, ReactNode } from "react";
 
 import { ErrorBoundary } from "./error-boundary";
-import type { CookieBannerStyles } from "./types";
+import type { CookieBannerTheme } from "./types";
 import "./cookie-banner.css";
 
 import {
@@ -15,10 +15,11 @@ import {
 	CookieBannerFooterSubGroup,
 	CookieBannerHeader,
 	CookieBannerRejectButton,
-	CookieBannerRoot,
+
 	CookieBannerTitle,
 } from ".";
 import { ConsentButton } from "../primitives/button";
+import { CookieBannerRoot } from "./atoms/root";
 
 /**
  * Props for configuring and customizing the CookieBanner component.
@@ -27,7 +28,7 @@ import { ConsentButton } from "../primitives/button";
  */
 export interface CookieBannerProps {
 	/** @remarks Custom styles to apply to the banner and its child components */
-	styles?: CookieBannerStyles;
+	theme?: Partial<CookieBannerTheme>;
 	/** @remarks When true, removes all default styling from the component */
 	noStyle?: boolean;
 	/** @remarks Content to display as the banner's title */
@@ -98,7 +99,7 @@ export interface CookieBannerProps {
  * @public
  */
 const SingaltonCookieBanner: FC<CookieBannerProps> = ({
-	styles = {},
+	theme = {},
 	noStyle = false,
 	title = "We value your privacy",
 	description = "This site uses cookies to improve your browsing experience, analyze site traffic, and show personalized content.",
@@ -108,7 +109,7 @@ const SingaltonCookieBanner: FC<CookieBannerProps> = ({
 }) => {
 	return (
 		<ErrorBoundary fallback={<div>Something went wrong with the Cookie Banner.</div>}>
-			<CookieBannerRoot styles={styles} noStyle={noStyle}>
+			<CookieBannerRoot theme={theme} noStyle={noStyle}>
 				<CookieBannerCard>
 					<CookieBannerHeader>
 						<CookieBannerTitle>{title}</CookieBannerTitle>
@@ -116,12 +117,26 @@ const SingaltonCookieBanner: FC<CookieBannerProps> = ({
 					</CookieBannerHeader>
 					<CookieBannerFooter>
 						<CookieBannerFooterSubGroup>
-							<ConsentButton action="reject-consent" closeCookieBanner>
+							<ConsentButton
+								action="reject-consent"
+								closeCookieBanner
+								themeKey="cookie-banner.footer.reject-button"
+							>
 								{rejectButtonText}
 							</ConsentButton>
-							<ConsentButton action="open-consent-dialog">{customizeButtonText}</ConsentButton>
+							<ConsentButton
+								action="open-consent-dialog"
+								themeKey="cookie-banner.footer.customize-button"
+							>
+								{customizeButtonText}
+							</ConsentButton>
 						</CookieBannerFooterSubGroup>
-						<ConsentButton action="accept-consent" variant="primary" closeCookieBanner>
+						<ConsentButton
+							action="accept-consent"
+							variant="primary"
+							closeCookieBanner
+							themeKey="cookie-banner.footer.accept-button"
+						>
 							{acceptButtonText}
 						</ConsentButton>
 					</CookieBannerFooter>

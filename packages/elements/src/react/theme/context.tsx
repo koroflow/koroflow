@@ -2,7 +2,7 @@
 
 import { createContext, useContext } from "react";
 import type { useConsentManager } from "../common/store/consent-manager";
-// import type { CookieBannerStyles } from "./types";
+// import type { CookieBannerTheme } from "./types";
 
 /**
  * The value type for the ThemeContext.
@@ -12,14 +12,14 @@ import type { useConsentManager } from "../common/store/consent-manager";
  *
  * @typedef {Object} ThemeContextValue
  * @property {boolean} noStyle - Indicates whether default styles should be disabled.
- * @property {CookieBannerStyles} styles - Custom styles to apply to the CookieBanner and its children.
+ * @property {CookieBannerTheme} styles - Custom styles to apply to the CookieBanner and its children.
  * @property {boolean} disableAnimation - Indicates whether all animations should be disabled.
  * @property {boolean} showPopup - Indicates whether the cookie banner popup should be shown.
  */
 export type ThemeContextValue = ReturnType<typeof useConsentManager> & {
 	// noStyle: boolean;
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	styles: any;
+	theme: any;
 	disableAnimation: boolean;
 };
 
@@ -42,12 +42,12 @@ export const ThemeContext = createContext<ThemeContextValue | null>(null);
  * it throws an error.
  *
  * @returns {ThemeContextValue} The context value for the cookie banner.
- * @throws Will throw an error if the context is used outside of a `CookieBanner.Root`.
+ * @throws Will throw an error if the context is used outside of a `Theme.Root`.
  */
 export const useThemeContext = () => {
 	const context = useContext(ThemeContext);
 	if (!context) {
-		throw new Error("CookieBanner components must be used within CookieBanner.Root");
+		throw new Error("Theme components must be used within Theme.Root");
 	}
 	return context;
 };

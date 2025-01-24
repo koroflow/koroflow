@@ -46,7 +46,7 @@ export const buttonVariants = tv({
 			xsmall: { root: "button-xsmall" },
 			xxsmall: { root: "button-xxsmall" },
 		},
-		styleType: {
+		themeType: {
 			full: {},
 			layout: {},
 			none: {},
@@ -56,25 +56,25 @@ export const buttonVariants = tv({
 		// Primary variants
 		{
 			variant: "primary",
-			styleType: "full",
+			themeType: "full",
 			mode: "filled",
 			class: { root: "button-primary-filled" },
 		},
 		{
 			variant: "primary",
-			styleType: "full",
+			themeType: "full",
 			mode: "stroke",
 			class: { root: "button-primary-stroke" },
 		},
 		{
 			variant: "primary",
-			styleType: "full",
+			themeType: "full",
 			mode: "lighter",
 			class: { root: "button-primary-lighter" },
 		},
 		{
 			variant: "primary",
-			styleType: "full",
+			themeType: "full",
 			mode: "ghost",
 			class: { root: "button-primary-ghost" },
 		},
@@ -82,25 +82,25 @@ export const buttonVariants = tv({
 		// Neutral variants
 		{
 			variant: "neutral",
-			styleType: "full",
+			themeType: "full",
 			mode: "filled",
 			class: { root: "button-neutral-filled" },
 		},
 		{
 			variant: "neutral",
-			styleType: "full",
+			themeType: "full",
 			mode: "stroke",
 			class: { root: "button-neutral-stroke" },
 		},
 		{
 			variant: "neutral",
-			styleType: "full",
+			themeType: "full",
 			mode: "lighter",
 			class: { root: "button-neutral-lighter" },
 		},
 		{
 			variant: "neutral",
-			styleType: "full",
+			themeType: "full",
 			mode: "ghost",
 			class: { root: "button-neutral-ghost" },
 		},
@@ -108,25 +108,25 @@ export const buttonVariants = tv({
 		// Error variants
 		{
 			variant: "error",
-			styleType: "full",
+			themeType: "full",
 			mode: "filled",
 			class: { root: "button-error-filled" },
 		},
 		{
 			variant: "error",
-			styleType: "full",
+			themeType: "full",
 			mode: "stroke",
 			class: { root: "button-error-stroke" },
 		},
 		{
 			variant: "error",
-			styleType: "full",
+			themeType: "full",
 			mode: "lighter",
 			class: { root: "button-error-lighter" },
 		},
 		{
 			variant: "error",
-			styleType: "full",
+			themeType: "full",
 			mode: "ghost",
 			class: { root: "button-error-ghost" },
 		},
@@ -135,7 +135,7 @@ export const buttonVariants = tv({
 		variant: "primary",
 		mode: "filled",
 		size: "medium",
-		styleType: "full",
+		themeType: "full",
 	},
 });
 
