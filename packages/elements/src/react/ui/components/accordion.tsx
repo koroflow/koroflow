@@ -66,7 +66,7 @@ const AccordionItem = forwardRef<
 	ComponentPropsWithoutRef<typeof AccordionPrimitive.Item> & ExtendThemeKeys
 >(({ className, themeKey, baseClassName, noStyle, style, ...rest }, forwardedRef) => {
 	const accordionItemStyle = useStyles(themeKey ?? "accordion.item", {
-		baseClassName: [baseClassName, "accordion-item"],
+		baseClassName,
 		className,
 		noStyle,
 		style,
@@ -80,7 +80,7 @@ const AccordionTrigger = forwardRef<
 	ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> & ExtendThemeKeys
 >(({ children, className, themeKey, baseClassName, noStyle, style, ...rest }, forwardedRef) => {
 	const accordionTriggerStyle = useStyles(themeKey ?? "accordion.trigger", {
-		baseClassName: [baseClassName, "accordion-trigger"],
+		baseClassName,
 		className,
 		noStyle,
 		style,
@@ -103,7 +103,7 @@ function AccordionIcon<T extends ElementType>({
 	...rest
 }: PolymorphicComponentProps<T> & ExtendThemeKeys) {
 	const accordionIconStyle = useStyles(themeKey ?? "accordion.icon", {
-		baseClassName: [baseClassName, "accordion-icon"],
+		baseClassName,
 		className,
 		noStyle,
 		style,
@@ -116,8 +116,8 @@ function AccordionIcon<T extends ElementType>({
 AccordionIcon.displayName = ACCORDION_ICON_NAME;
 
 type AccordionArrowProps = HTMLAttributes<HTMLDivElement> & {
-	openIcon?: { Element: ElementType; themeKey: AllThemeKeys } & ClassNameStyle;
-	closeIcon?: { Element: ElementType; themeKey: AllThemeKeys } & ClassNameStyle;
+	openIcon?: { Element: ElementType; themeKey: AllThemeKeys } & ExtendThemeKeys;
+	closeIcon?: { Element: ElementType; themeKey: AllThemeKeys } & ExtendThemeKeys;
 };
 
 // open/close
@@ -155,7 +155,7 @@ const AccordionContent = forwardRef<
 	}
 >(({ children, className, theme, ...rest }, forwardedRef) => {
 	const accordionContentStyle = useStyles(theme?.content?.themeKey ?? "accordion.content", {
-		baseClassName: [theme?.content?.baseClassName, "accordion-content"],
+		baseClassName: theme?.content?.baseClassName,
 		className,
 		noStyle: theme?.content?.noStyle,
 		style: theme?.content?.style,

@@ -21,7 +21,8 @@ import type { ConsentManagerWidgetTheme } from "../theme";
  *
  * @public
  */
-export interface ConsentManagerWidgetRootProps extends ThemeContextValue<ConsentManagerWidgetTheme> {
+export interface ConsentManagerWidgetRootProps
+	extends ThemeContextValue<ConsentManagerWidgetTheme> {
 	/**
 	 * Child components to be rendered within the consent manager context.
 	 *

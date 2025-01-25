@@ -51,35 +51,44 @@ export default function PrivacyConsentPage() {
 					theme={{
 						"consent-manager-widget.root": "space-y-6",
 						"consent-manager.overlay": "fixed inset-0 bg-black/50 z-[999999997]",
-						
-						"consent-manager-widget.dialog": "fixed inset-0 z-[999999999] flex items-center justify-center",
-						"consent-manager-widget.dialog.root": "bg-background rounded-lg border shadow-lg w-full max-w-lg mx-4 max-h-[90vh] overflow-y-auto",
+
+						"consent-manager-widget.dialog":
+							"fixed inset-0 z-[999999999] flex items-center justify-center",
+						"consent-manager-widget.dialog.root":
+							"bg-background rounded-lg border shadow-lg w-full max-w-lg mx-4 max-h-[90vh] overflow-y-auto",
 						"consent-manager-widget.dialog.header": "flex flex-col gap-1.5 p-6 border-b",
-						"consent-manager-widget.dialog.title": "text-lg font-semibold leading-none tracking-tight",
+						"consent-manager-widget.dialog.title":
+							"text-lg font-semibold leading-none tracking-tight",
 						"consent-manager-widget.dialog.description": "text-sm text-muted-foreground",
 						"consent-manager-widget.dialog.content": "px-6 py-4",
-						"consent-manager-widget.dialog.footer": "flex items-center p-6 border-t justify-center text-center",
-						
+						"consent-manager-widget.dialog.footer":
+							"flex items-center p-6 border-t justify-center text-center",
+
 						"consent-manager-widget.accordion": "space-y-4",
 						"consent-manager-widget.accordion.item": "border rounded-lg",
-						"consent-manager-widget.accordion.trigger": "w-full flex items-center justify-between p-4 hover:bg-muted/50 transition-colors",
+						"consent-manager-widget.accordion.trigger":
+							"w-full flex items-center justify-between p-4 hover:bg-muted/50 transition-colors",
 						"consent-manager-widget.accordion.trigger-sub-group": "flex items-center gap-4",
 						"consent-manager-widget.accordion.icon": "w-6 h-6",
-						"consent-manager-widget.accordion.arrow.open": "rotate-180 transition-transform duration-200",
+						"consent-manager-widget.accordion.arrow.open":
+							"rotate-180 transition-transform duration-200",
 						"consent-manager-widget.accordion.arrow.close": "transition-transform duration-200",
 						"consent-manager-widget.accordion.content": "overflow-hidden",
 						"consent-manager-widget.accordion.content-inner": "p-4 pt-0",
-						
-						"consent-manager-widget.switch": "peer inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input",
-						// "consent-manager-widget.switch.root": "switch-root",
-						"consent-manager-widget.switch.track": "pointer-events-none block h-4 w-4 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0",
-						// "consent-manager-widget.switch.thumb": "switch-thumb",
-						"consent-manager-widget.footer": "mt-6 space-y-4",
-						"consent-manager-widget.footer.sub-group": "flex justify-between gap-4",
-						"consent-manager-widget.footer.reject-button": "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 py-2",
-						"consent-manager-widget.footer.accept-button": "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 py-2",
-						"consent-manager-widget.footer.customize-button": "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 py-2",
-						"consent-manager-widget.footer.save-button": "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2",
+						"consent-manager-widget.switch.track":
+							"peer inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input",
+						"consent-manager-widget.switch.thumb":
+							"pointer-events-none block h-4 w-4 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0",
+						"consent-manager-widget.footer": "mt-6 space-y-4 flex flex-row justify-between",
+						"consent-manager-widget.footer.sub-group": "flex flex-row justify-between gap-4",
+						"consent-manager-widget.footer.reject-button":
+							"inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 py-2",
+						"consent-manager-widget.footer.accept-button":
+							"inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 py-2",
+						"consent-manager-widget.footer.customize-button":
+							"inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 py-2",
+						"consent-manager-widget.footer.save-button":
+							"inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2",
 						"consent-manager-widget.branding": "consent-manager-widget-branding",
 					}}
 					noStyle

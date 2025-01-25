@@ -100,7 +100,11 @@ export const ConsentManagerWidgetAccordionItems = () => {
 					onKeyDown={(e) => e.stopPropagation()}
 					onCheckedChange={(checked) => handleConsentChange(consent.name, checked)}
 					disabled={consent.disabled}
-					themeKey="consent-manager-widget.switch"
+					theme={{
+						root: { themeKey: "consent-manager-widget.switch" },
+						thumb: { themeKey: "consent-manager-widget.switch.thumb" },
+						track: { themeKey: "consent-manager-widget.switch.track" },
+					}}
 				/>
 			</ConsentManagerWidgetAccordionTrigger>
 			<ConsentManagerWidgetAccordionContent

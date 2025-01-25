@@ -54,11 +54,8 @@ export const ConsentButton = forwardRef<
 			setShowPopup,
 			setIsPrivacyDialogOpen,
 			noStyle: contextNoStyle,
-			theme,
 		} = useThemeContext();
 
-		//@ts-expect-error
-		console.log({themeKey,theme, themeItem: theme?.[themeKey]});
 		const buttonStyle = useStyles(themeKey ?? "button", {
 			baseClassName: [
 				!(contextNoStyle || noStyle) && [

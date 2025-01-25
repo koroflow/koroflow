@@ -23,7 +23,6 @@ export interface ConsentManagerWidgetTheme {
 	"consent-manager-widget.accordion.content": ThemeValue;
 	"consent-manager-widget.accordion.content-inner": ThemeValue;
 	"consent-manager-widget.switch": ThemeValue;
-	"consent-manager-widget.switch.root": ThemeValue;
 	"consent-manager-widget.switch.track": ThemeValue;
 	"consent-manager-widget.switch.thumb": ThemeValue;
 	"consent-manager-widget.dialog": ThemeValue;
