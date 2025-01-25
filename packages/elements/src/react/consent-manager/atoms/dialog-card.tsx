@@ -197,7 +197,7 @@ export const ConsentCustomizationCard = ({ noStyle }: { noStyle?: boolean }) => 
 			</DialogHeaderDescription>
 		</DialogHeader>
 		<DialogContent>
-			<ConsentManagerWidget hideBrading noStyle={noStyle} />
+			<ConsentManagerWidget hideBrading noStyle={noStyle} useProvider={false} />
 		</DialogContent>
 		<DialogFooter>
 			<a className="consent-manager-widget-branding-link" href="https://koroflow.com">

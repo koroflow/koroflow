@@ -98,15 +98,6 @@ export const ConsentManagerDialog: FC<ConsentManagerDialogProps> = ({
 	}, []);
 
 	/**
-	 * Handles saving consent preferences and closing the dialog
-	 * @internal
-	 */
-	const handleSave = useCallback(() => {
-		consentManager.saveConsents("custom");
-		consentManager.setIsPrivacyDialogOpen(false);
-	}, [consentManager]);
-
-	/**
 	 * Dialog content with theme context and animation support
 	 * @internal
 	 */

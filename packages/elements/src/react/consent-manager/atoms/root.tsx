@@ -21,7 +21,7 @@ import type { ConsentManagerWidgetTheme } from "../theme";
  *
  * @public
  */
-interface ConsentManagerWidgetRootProps extends ThemeContextValue<ConsentManagerWidgetTheme> {
+export interface ConsentManagerWidgetRootProps extends ThemeContextValue<ConsentManagerWidgetTheme> {
 	/**
 	 * Child components to be rendered within the consent manager context.
 	 *
@@ -30,6 +30,14 @@ interface ConsentManagerWidgetRootProps extends ThemeContextValue<ConsentManager
 	 * - Receives context and theming from the root provider
 	 */
 	children: ReactNode;
+
+	/**
+	 * Determines whether to use the context provider.
+	 * If false, the component will not wrap children in a context provider.
+	 *
+	 * @defaultValue true
+	 */
+	useProvider?: boolean;
 }
 
 /**
@@ -74,7 +82,8 @@ export const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
 	children,
 	noStyle = false,
 	disableAnimation = false,
-	theme = {},
+	theme,
+	useProvider = true,
 	...props
 }) => {
 	/** Access the consent manager for handling cookie preferences */
@@ -91,11 +100,15 @@ export const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
 		theme,
 	};
 
-	return (
-		<ThemeContext.Provider value={contextValue}>
-			<Box baseClassName="consent-manager-widget" themeKey="consent-manager-widget.root" {...props}>
-				{children}
-			</Box>
-		</ThemeContext.Provider>
+	const content = (
+		<Box baseClassName="consent-manager-widget" themeKey="consent-manager-widget.root" {...props}>
+			{children}
+		</Box>
 	);
+
+	if (useProvider) {
+		return <ThemeContext.Provider value={contextValue}>{content}</ThemeContext.Provider>;
+	}
+
+	return content;
 };

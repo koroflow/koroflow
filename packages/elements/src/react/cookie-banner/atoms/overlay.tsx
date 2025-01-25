@@ -50,9 +50,9 @@ interface OverlayProps extends HTMLAttributes<HTMLDivElement> {
 export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
 	({ className, style, noStyle, asChild, ...props }, ref) => {
 		const { showPopup } = useConsentManager();
-		const { disableAnimation } = useThemeContext();
+		const { disableAnimation, noStyle: contextNoStyle } = useThemeContext();
 		const theme = useStyles("cookie-banner.overlay", {
-			baseClassName: "cookie-banner-overlay",
+			baseClassName: !(contextNoStyle || noStyle) && "cookie-banner-overlay",
 			noStyle,
 		});
 

@@ -10,9 +10,8 @@ import "./consent-manager-widget.css";
 import "../ui/components/card.css";
 import { Box } from "../primitives/box";
 
-import { type FC, type HTMLAttributes, useState } from "react";
-import type { ThemeContextValue } from "../theme";
-import { ConsentManagerWidgetRoot } from "./atoms/root";
+import { type FC, useState } from "react";
+import { ConsentManagerWidgetRoot, type ConsentManagerWidgetRootProps } from "./atoms/root";
 import {
 	ConsentManagerWidgetAcceptAllButton,
 	ConsentManagerWidgetAccordion,
@@ -37,7 +36,7 @@ import type { ConsentManagerWidgetTheme } from "./theme";
  * Extends ThemeContextValue to provide comprehensive theming support
  * while maintaining type safety for consent management specific features.
  */
-interface ConsentManagerWidgetProps extends ThemeContextValue<ConsentManagerWidgetTheme> {
+interface ConsentManagerWidgetProps extends Omit<ConsentManagerWidgetRootProps, "children"> {
 	/** Hides the Koroflow branding when true */
 	hideBrading?: boolean;
 }
