@@ -49,7 +49,6 @@ export function useStyles(themeKey: AllThemeKeys, componentStyle?: ThemeValue): 
 			? componentStyle.noStyle
 			: contextNoStyle;
 
-	console.log({ mergedNoStyle, themeKey, theme });
 	return useMemo(() => {
 		// Get the style from context using the styleKey, if provided
 		const themeStylesObject = themeKey
@@ -86,5 +85,3 @@ export function useStyles(themeKey: AllThemeKeys, componentStyle?: ThemeValue): 
 		return { ...finalMergedStyle };
 	}, [componentStyle, themeKey, mergedNoStyle, theme]);
 }
-
-export { useThemeContext, type AllThemeKeys };

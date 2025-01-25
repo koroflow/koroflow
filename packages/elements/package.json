@@ -6,7 +6,8 @@
 	"exports": {
 		"./*": {
 			"types": "./dist/react/*/index.d.ts",
-			"import": "./dist/react/*/index.js"
+			"import": "./dist/react/*/index.js",
+			"require": "./dist/react/*/index.cjs"
 		},
 		".": {
 			"import": {

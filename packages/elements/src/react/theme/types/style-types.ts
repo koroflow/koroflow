@@ -1,6 +1,6 @@
 import type clsx from "clsx";
 import type { CSSProperties } from "react";
-import type { AllThemeKeys } from "../use-style";
+import type { AllThemeKeys } from "./style-keys";
 
 /**
  * Represents a style configuration that can include both inline styles and class names.
