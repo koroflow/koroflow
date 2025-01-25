@@ -200,8 +200,8 @@ importers:
   packages/dev-tools:
     dependencies:
       '@koroflow/core-js':
-        specifier: 0.0.1-beta.4
-        version: 0.0.1-beta.4(@types/react@19.0.7)(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))
+        specifier: 0.0.1-beta.5
+        version: 0.0.1-beta.5(@types/react@19.0.7)(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))
       '@radix-ui/react-accordion':
         specifier: 1.2.2
         version: 1.2.2(@types/react-dom@19.0.3(@types/react@19.0.7))(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -261,8 +261,8 @@ importers:
   packages/elements:
     dependencies:
       '@koroflow/core-js':
-        specifier: 0.0.1-beta.4
-        version: 0.0.1-beta.4(@types/react@19.0.7)(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))
+        specifier: 0.0.1-beta.5
+        version: 0.0.1-beta.5(@types/react@19.0.7)(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))
       '@radix-ui/react-accordion':
         specifier: 1.2.2
         version: 1.2.2(@types/react-dom@19.0.3(@types/react@19.0.7))(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -307,8 +307,8 @@ importers:
   packages/shadcn:
     dependencies:
       '@koroflow/core-js':
-        specifier: 0.0.1-beta.4
-        version: 0.0.1-beta.4(@types/react@19.0.7)(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))
+        specifier: 0.0.1-beta.5
+        version: 0.0.1-beta.5(@types/react@19.0.7)(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))
       '@koroflow/dev-tools':
         specifier: 0.0.1-beta.1
         version: 0.0.1-beta.1(@types/react-dom@19.0.3(@types/react@19.0.7))(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))
@@ -1105,7 +1105,7 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
 
-  '@koroflow/core-js@0.0.1-beta.4':
+  '@koroflow/core-js@0.0.1-beta.5':
     resolution: {integrity: sha512-ELV+eGh8qa++I2kBgx1lMKUmvyZ+Hs5yM1rP5TBnnTZ2P1L6JTzg3stnUAcuv3zSh/9QWsszSUteObXzhRcLJg==}
 
   '@koroflow/dev-tools@0.0.1-beta.1':
@@ -5668,7 +5668,7 @@ snapshots:
       - immer
       - use-sync-external-store
 
-  '@koroflow/core-js@0.0.1-beta.4(@types/react@19.0.7)(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))':
+  '@koroflow/core-js@0.0.1-beta.5(@types/react@19.0.7)(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))':
     dependencies:
       zustand: 5.0.3(@types/react@19.0.7)(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))
     transitivePeerDependencies:

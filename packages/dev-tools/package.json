@@ -1,6 +1,6 @@
 {
 	"name": "@koroflow/dev-tools",
-	"version": "0.0.1-beta.4",
+	"version": "0.0.1-beta.6",
 	"type": "module",
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",
@@ -24,7 +24,7 @@
 		"react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
 	},
 	"dependencies": {
-		"@koroflow/core-js": "0.0.1-beta.4",
+		"@koroflow/core-js": "0.0.1-beta.6",
 		"@radix-ui/react-accordion": "1.2.2",
 		"@radix-ui/react-scroll-area": "^1.2.2",
 		"@radix-ui/react-slot": "1.1.1",

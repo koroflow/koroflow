@@ -1,6 +1,6 @@
 {
 	"name": "@koroflow/shadcn",
-	"version": "0.0.1-beta.4",
+	"version": "0.0.1-beta.6",
 	"type": "module",
 	"sideEffects": false,
 	"publishConfig": {
@@ -60,7 +60,7 @@
 		"react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
 	},
 	"dependencies": {
-		"@koroflow/core-js": "0.0.1-beta.4",
+		"@koroflow/core-js": "0.0.1-beta.6",
 		"@koroflow/elements": "workspace:*",
 		"@koroflow/dev-tools": "0.0.1-beta.1",
 		"@radix-ui/react-accordion": "1.2.2",
