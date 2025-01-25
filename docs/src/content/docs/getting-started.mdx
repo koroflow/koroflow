@@ -52,7 +52,7 @@ First Install the Consent Manager:
 Then Wrap your application with the ConsentManagerProvider:
 
 ```tsx
-import { ConsentManagerProvider } from "@koroflow/elements/common";
+import { ConsentManagerProvider } from "@koroflow/elements/headless";
 
 export default function App() {
   return (
@@ -94,7 +94,7 @@ That's it! You now have a fully functional consent management system.
 Koroflow makes it easy to integrate with your analytics tools. Here's how to track consent changes:
 
 ```tsx
-import { useConsentManager } from "@koroflow/elements/common";
+import { useConsentManager } from "@koroflow/elements/headless";
 import { PostHog } from "posthog-js";
 
 function ConsentTracker() {

@@ -55,15 +55,16 @@ export const ConsentButton = forwardRef<
 			setIsPrivacyDialogOpen,
 			noStyle: contextNoStyle,
 		} = useThemeContext();
+		console.log({ noStyle, contextNoStyle });
 		const buttonStyle = useStyles(themeKey ?? "button", {
 			baseClassName: [
-				(!contextNoStyle || !noStyle) &&
+				"consent-button",
+				!(contextNoStyle || noStyle) &&
 					Button.buttonVariants({
 						variant,
 						mode,
 						size,
 					}).root(),
-				baseClassName ? baseClassName : "consent-button",
 			],
 			style,
 			className: forwardedClassName,

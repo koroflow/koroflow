@@ -1,24 +1,24 @@
+"use client";
+
 /**
  * @packageDocumentation
  * Provides theme context and hooks for Koroflow Elements components.
  * Implements a flexible theming system with TypeScript support and runtime safety.
  */
 
-"use client";
-
 import { createContext, useContext } from "react";
 import type { useConsentManager } from "../headless/store/consent-manager";
 
 /**
  * Configuration value type for the ThemeContext.
- * 
+ *
  * @remarks
  * Provides type-safe theme customization options for components.
  * Supports generic theme types for different component variants.
  * Includes animation and style control features.
- * 
+ *
  * @typeParam Theme - The theme configuration type for the component
- * 
+ *
  * @example
  * ```tsx
  * type MyTheme = {
@@ -27,7 +27,7 @@ import type { useConsentManager } from "../headless/store/consent-manager";
  *     secondary: string;
  *   };
  * };
- * 
+ *
  * const value: ThemeContextValue<MyTheme> = {
  *   theme: {
  *     colors: {
@@ -39,65 +39,65 @@ import type { useConsentManager } from "../headless/store/consent-manager";
  *   disableAnimation: false
  * };
  * ```
- * 
+ *
  * @public
  */
 export type ThemeContextValue<Theme> = {
-  /** 
-   * Theme configuration object for styling components
-   * @remarks Partial to allow incremental theme overrides
-   */
-  theme?: Partial<Theme>;
+	/**
+	 * Theme configuration object for styling components
+	 * @remarks Partial to allow incremental theme overrides
+	 */
+	theme?: Partial<Theme>;
 
-  /** 
-   * Disables all animations when true
-   * @remarks Useful for reduced motion preferences
-   */
-  disableAnimation?: boolean;
+	/**
+	 * Disables all animations when true
+	 * @remarks Useful for reduced motion preferences
+	 */
+	disableAnimation?: boolean;
 
-  /** 
-   * Removes default styles when true
-   * @remarks Enables fully custom styling
-   */
-  noStyle?: boolean;
+	/**
+	 * Removes default styles when true
+	 * @remarks Enables fully custom styling
+	 */
+	noStyle?: boolean;
 };
 
 /**
  * Context for providing theme values to components.
- * 
+ *
  * @remarks
  * Combines consent management state with theme configuration.
  * Must be provided by a parent Theme.Root component.
  * Supports TypeScript generic themes for type safety.
- * 
+ *
  * @example
  * ```tsx
  * <ThemeContext.Provider value={{ theme: myTheme, noStyle: false }}>
  *   <App />
  * </ThemeContext.Provider>
  * ```
- * 
+ *
  * @public
  */
 export const ThemeContext = createContext<
-  (ReturnType<typeof useConsentManager> & ThemeContextValue<unknown>) | null
+	(ReturnType<typeof useConsentManager> & ThemeContextValue<unknown>) | null
 >(null);
 
 /**
  * Hook to access the current theme context.
- * 
+ *
  * @remarks
  * Provides type-safe access to theme values and consent management state.
  * Throws an error if used outside of a Theme.Root component.
  * Supports TypeScript inference for theme types.
- * 
+ *
  * @throws {Error} When used outside of a Theme.Root component
- * 
+ *
  * @example
  * ```tsx
  * const MyComponent = () => {
  *   const { theme, noStyle, disableAnimation } = useThemeContext();
- *   
+ *
  *   return (
  *     <div className={theme?.myClass}>
  *       {!disableAnimation && <AnimatedContent />}
@@ -105,14 +105,14 @@ export const ThemeContext = createContext<
  *   );
  * };
  * ```
- * 
+ *
  * @returns The current theme context value
  * @public
  */
 export const useThemeContext = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error("Theme components must be used within Theme.Root");
-  }
-  return context;
+	const context = useContext(ThemeContext);
+	if (!context) {
+		throw new Error("Theme components must be used within Theme.Root");
+	}
+	return context;
 };

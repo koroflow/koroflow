@@ -1,10 +1,10 @@
+"use client";
+
 /**
  * @packageDocumentation
  * Provides the root component for the consent management interface.
  * Implements context provider pattern with theme support and state management.
  */
-
-"use client";
 
 import type { FC, ReactNode } from "react";
 import { useConsentManager } from "../../headless";
@@ -14,7 +14,7 @@ import type { ConsentManagerWidgetTheme } from "../theme";
 
 /**
  * Props for the ConsentManagerWidgetRoot component.
- * 
+ *
  * @remarks
  * Extends ThemeContextValue to provide comprehensive theming support
  * while maintaining type safety for consent management specific features.
@@ -24,7 +24,7 @@ import type { ConsentManagerWidgetTheme } from "../theme";
 interface ConsentManagerWidgetRootProps extends ThemeContextValue<ConsentManagerWidgetTheme> {
 	/**
 	 * Child components to be rendered within the consent manager context.
-	 * 
+	 *
 	 * @remarks
 	 * - Should include ConsentManagerWidget.Content and related components
 	 * - Receives context and theming from the root provider
@@ -42,7 +42,7 @@ interface ConsentManagerWidgetRootProps extends ThemeContextValue<ConsentManager
  * - Handles theme distribution to child components
  * - Supports animation toggling
  * - Allows complete style customization
- * 
+ *
  * @example
  * Basic usage:
  * ```tsx
@@ -93,11 +93,7 @@ export const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
 
 	return (
 		<ThemeContext.Provider value={contextValue}>
-			<Box 
-				baseClassName="consent-manager-widget" 
-				themeKey="consent-manager-widget.root" 
-				{...props}
-			>
+			<Box baseClassName="consent-manager-widget" themeKey="consent-manager-widget.root" {...props}>
 				{children}
 			</Box>
 		</ThemeContext.Provider>

@@ -24,11 +24,11 @@ const COOKIE_BANNER_ACCEPT_BUTTON_NAME = "CookieBannerAcceptButton";
 
 /**
  * Title component for the cookie banner.
- * 
+ *
  * @remarks
  * Provides the main heading for the cookie consent notice.
  * Implements proper heading semantics and supports theming.
- * 
+ *
  * @example
  * ```tsx
  * <CookieBannerTitle>
@@ -55,11 +55,11 @@ CookieBannerTitle.displayName = COOKIE_BANNER_TITLE_NAME;
 
 /**
  * Description component for the cookie banner.
- * 
+ *
  * @remarks
  * Provides explanatory text about cookie usage and privacy policies.
  * Supports rich text content and proper accessibility attributes.
- * 
+ *
  * @example
  * ```tsx
  * <CookieBannerDescription>
@@ -86,11 +86,11 @@ CookieBannerDescription.displayName = COOKIE_BANNER_DESCRIPTION_NAME;
 
 /**
  * Footer component for the cookie banner.
- * 
+ *
  * @remarks
  * Contains action buttons and additional information.
  * Implements proper layout and spacing for action items.
- * 
+ *
  * @example
  * ```tsx
  * <CookieBannerFooter>
@@ -118,11 +118,11 @@ CookieBannerFooter.displayName = COOKIE_BANNER_FOOTER_NAME;
 
 /**
  * Card component for the cookie banner.
- * 
+ *
  * @remarks
  * Provides the main container for the cookie notice.
  * Implements proper elevation and layout structure.
- * 
+ *
  * @example
  * ```tsx
  * <CookieBannerCard>
@@ -151,7 +151,7 @@ CookieBannerCard.displayName = COOKIE_BANNER_CARD_NAME;
 
 /**
  * Header component for the cookie banner.
- * 
+ *
  * @remarks
  * Contains the title and description sections.
  * Implements proper spacing and layout for header content.
@@ -175,7 +175,7 @@ CookieBannerHeader.displayName = COOKIE_BANNER_HEADER_NAME;
 
 /**
  * Footer sub-group component for organizing related actions.
- * 
+ *
  * @remarks
  * Groups related buttons or controls in the footer.
  * Implements proper spacing and alignment for button groups.
@@ -199,11 +199,11 @@ CookieBannerFooterSubGroup.displayName = COOKIE_BANNER_FOOTER_SUB_GROUP_NAME;
 
 /**
  * Button to reject all non-essential cookies.
- * 
+ *
  * @remarks
  * Implements the reject action for cookie preferences.
  * Provides proper accessibility attributes and keyboard interaction.
- * 
+ *
  * @example
  * ```tsx
  * <CookieBannerRejectButton>
@@ -230,7 +230,7 @@ CookieBannerRejectButton.displayName = COOKIE_BANNER_REJECT_BUTTON_NAME;
 
 /**
  * Button to open detailed cookie preferences.
- * 
+ *
  * @remarks
  * Opens the detailed consent management interface.
  * Implements proper focus management and keyboard interaction.
@@ -249,12 +249,12 @@ CookieBannerCustomizeButton.displayName = COOKIE_BANNER_CUSTOMIZE_BUTTON_NAME;
 
 /**
  * Button to accept all cookies.
- * 
+ *
  * @remarks
  * Implements the accept action for cookie preferences.
  * Provides proper accessibility attributes and keyboard interaction.
  * Supports theming and style customization.
- * 
+ *
  * @example
  * ```tsx
  * <CookieBannerAcceptButton>

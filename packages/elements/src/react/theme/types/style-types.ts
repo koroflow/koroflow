@@ -23,15 +23,6 @@ export type ClassNameStyle = {
  */
 export type ThemeValue = string | ClassNameStyle | undefined;
 
-export type NestedThemeValue =
-	| ThemeValue
-	| {
-			readonly [key: string]: NestedThemeValue;
-	  };
-
 export interface ExtendThemeKeys extends ClassNameStyle {
 	themeKey: AllThemeKeys;
 }
-export type StylesObject = Readonly<{
-	[K in keyof AllThemeKeys]: NestedThemeValue;
-}>;

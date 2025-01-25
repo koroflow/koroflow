@@ -239,7 +239,6 @@ export const CookieBannerRootChildren = forwardRef<HTMLDivElement, CookieBannerR
 			return null;
 		}
 
-		console.log("showPopup", showPopup);
 		// Only render when the banner should be shown
 		return showPopup
 			? createPortal(

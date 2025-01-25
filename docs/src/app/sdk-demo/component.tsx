@@ -1,6 +1,6 @@
 "use client";
 
-import { useConsentManager } from "@koroflow/elements/common";
+import { useConsentManager } from "@koroflow/elements/headless";
 import * as Button from "~/components/ui/button";
 import "@koroflow/elements/globals.css";
 import { useCallback } from "react";

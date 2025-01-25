@@ -25,7 +25,7 @@ import type { ConsentManagerWidgetTheme } from "./theme";
 
 /**
  * Accordion sub-group component for organizing consent options.
- * 
+ *
  * @remarks
  * - Provides visual grouping for related consent options
  * - Supports theme customization
@@ -55,14 +55,14 @@ const ConsentManagerWidgetSwitch = Switch.Root;
 
 /**
  * Renders a list of consent options as accordion items.
- * 
+ *
  * @remarks
  * Key features:
  * - Automatically generates items from consent configuration
  * - Handles consent state management
  * - Implements accessible toggle controls
  * - Supports keyboard navigation
- * 
+ *
  * @example
  * ```tsx
  * <ConsentManagerWidgetAccordion>
@@ -123,7 +123,7 @@ const ConsentManagerWidgetAccordionItem = forwardRef<
 
 /**
  * Footer component for consent management actions.
- * 
+ *
  * @remarks
  * - Contains primary action buttons
  * - Supports customization through theme
@@ -161,7 +161,7 @@ const ConsentManagerWidgetFooterSubGroup = forwardRef<HTMLDivElement, BoxProps>(
 
 /**
  * Button to reject all non-essential cookies.
- * 
+ *
  * @remarks
  * - Sets all optional consents to false
  * - Maintains required consents
@@ -187,7 +187,7 @@ const ConsentManagerWidgetRejectButton = forwardRef<HTMLButtonElement, ConsentBu
 
 /**
  * Button to accept all available cookies.
- * 
+ *
  * @remarks
  * - Enables all consent options
  * - Closes dialog after action

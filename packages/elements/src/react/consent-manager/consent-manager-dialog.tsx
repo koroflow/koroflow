@@ -1,14 +1,14 @@
+"use client";
+
 /**
  * @packageDocumentation
  * Provides the dialog component for detailed privacy consent management.
  * Implements an accessible, animated modal interface for consent customization.
  */
 
-"use client";
-
 import { AnimatePresence, motion } from "motion/react";
-import { createPortal } from "react-dom";
 import { type FC, useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useConsentManager } from "../headless";
 import { ThemeContext, type ThemeContextValue } from "../theme";
 import { ConsentCustomizationCard } from "./atoms/dialog-card";
@@ -48,7 +48,7 @@ const contentVariants = {
 
 /**
  * Props for the ConsentManagerDialog component
- * 
+ *
  * @remarks
  * Extends ThemeContextValue to provide comprehensive theming support
  * while maintaining type safety for consent management specific features.
@@ -62,7 +62,7 @@ interface ConsentManagerDialogProps extends ThemeContextValue<ConsentManagerWidg
 
 /**
  * A modal dialog component for detailed privacy consent management.
- * 
+ *
  * @remarks
  * Key features:
  * - Provides an accessible modal interface for consent customization
@@ -70,7 +70,7 @@ interface ConsentManagerDialogProps extends ThemeContextValue<ConsentManagerWidg
  * - Manages proper focus handling
  * - Supports theme customization
  * - Handles client-side portal rendering
- * 
+ *
  * @example
  * ```tsx
  * <ConsentManagerDialog
@@ -79,7 +79,7 @@ interface ConsentManagerDialogProps extends ThemeContextValue<ConsentManagerWidg
  *   noStyle={false}
  * />
  * ```
- * 
+ *
  * @public
  */
 export const ConsentManagerDialog: FC<ConsentManagerDialogProps> = ({

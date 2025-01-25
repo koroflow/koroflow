@@ -1,10 +1,10 @@
+"use client";
+
 /**
  * @packageDocumentation
  * A collection of components for building privacy consent management dialogs.
  * Built with accessibility and customization in mind, following GDPR, CCPA, and other privacy regulation requirements.
  */
-
-"use client";
 
 import { type Ref, forwardRef } from "react";
 import { Box, type BoxProps } from "../../primitives/box";

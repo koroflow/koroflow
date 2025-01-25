@@ -1,31 +1,30 @@
+"use client";
+
 /**
  * @packageDocumentation
  * Provides hooks and utilities for managing component styles with theme support.
  * Implements a flexible styling system that merges theme and component-level styles.
  */
 
-"use client";
-
 import { useMemo } from "react";
 import { useThemeContext } from "./context";
 import type { AllThemeKeys } from "./types/style-keys";
-import type { ClassNameStyle, StylesObject, ThemeValue } from "./types/style-types";
-import { getNestedStyle } from "./utils/get-nested-style";
+import type { ClassNameStyle, ThemeValue } from "./types/style-types";
 import { mergeStyles } from "./utils/merge-styles";
 
 /**
  * Hook for retrieving and merging styles from theme context and component props.
- * 
+ *
  * @remarks
  * This hook manages the style resolution process by:
  * - Retrieving styles from theme context
  * - Merging with component-level styles
  * - Handling style disabling through noStyle flags
  * - Memoizing results for performance
- * 
+ *
  * @param themeKey - The theme key to lookup styles
  * @param componentStyle - Optional component-level styles to merge
- * 
+ *
  * @example
  * ```tsx
  * const MyComponent = () => {
@@ -33,37 +32,59 @@ import { mergeStyles } from "./utils/merge-styles";
  *     className: 'custom-class',
  *     style: { backgroundColor: 'white' }
  *   });
- *   
+ *
  *   return <div {...styles} />;
  * };
  * ```
- * 
+ *
  * @returns An object containing merged className and style properties
  * @public
  */
+
 export function useStyles(themeKey: AllThemeKeys, componentStyle?: ThemeValue): ClassNameStyle {
-	const { theme, noStyle: contextNoStyle } = useThemeContext();
+	const { noStyle: contextNoStyle, theme } = useThemeContext();
+	// Merge noStyle from props and context
+	const mergedNoStyle =
+		typeof componentStyle === "object" && "noStyle" in componentStyle
+			? componentStyle.noStyle
+			: contextNoStyle;
 
+	console.log({ mergedNoStyle, themeKey, theme });
 	return useMemo(() => {
-		// If noStyle is set in context or component, return empty styles
-		if (contextNoStyle || (typeof componentStyle === "object" && componentStyle?.noStyle)) {
-			return {
-				className: undefined,
-				style: undefined,
-			};
+		// Get the style from context using the styleKey, if provided
+		const themeStylesObject = themeKey
+			? (theme as Record<AllThemeKeys, ThemeValue>)?.[themeKey]
+			: null;
+		// debugger
+		// If noStyle is true, bypass base and context styles, using only component styles
+		if (mergedNoStyle) {
+			if (!themeStylesObject) return {}; // Return empty if no component style is provided
+
+			// Return a new object to ensure immutability
+			return typeof themeStylesObject === "string"
+				? { className: themeStylesObject }
+				: { className: themeStylesObject.className, style: themeStylesObject.style };
 		}
 
-		// Cast theme to StylesObject to satisfy TypeScript
-		const contextStyle = getNestedStyle(theme as StylesObject, themeKey);
+		// Initialize mergedStyle with empty values if no component style, or component style is a string
+		const initialStyle: ThemeValue = {
+			className: typeof componentStyle === "string" ? componentStyle : componentStyle?.className,
+			style: undefined,
+		};
 
-		// If componentStyle is provided and is of type "none", return it directly
-		if (typeof componentStyle === "object" && componentStyle.noStyle) {
-			return componentStyle as ClassNameStyle;
-		}
+		// Merge context style if available, creating a new object
+		const mergedWithContext = themeStylesObject
+			? mergeStyles(initialStyle, themeStylesObject)
+			: initialStyle;
 
-		// Merge context style with component style
-		return mergeStyles(contextStyle as ThemeValue, componentStyle);
-	}, [componentStyle, themeKey, theme, contextNoStyle]);
+		// Merge component style if provided, creating a new object
+		const finalMergedStyle = componentStyle
+			? mergeStyles(mergedWithContext, componentStyle)
+			: mergedWithContext;
+
+		// Return the final merged style, ensuring immutability
+		return { ...finalMergedStyle };
+	}, [componentStyle, themeKey, mergedNoStyle, theme]);
 }
 
 export { useThemeContext, type AllThemeKeys };
