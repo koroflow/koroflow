@@ -15,11 +15,11 @@ const tailwindConfig: Config = {
     './node_modules/@koroflow/shadcn-ui/index.tsx',
 
     // App
-    './components/**/*.{ts,tsx}',
-    './lib/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './providers/**/*.{ts,tsx}',
-    './content/**/*.mdx',
+    './src/components/**/*.{ts,tsx}',
+    './src/lib/**/*.{ts,tsx}',
+    './src/app/**/*.{ts,tsx}',
+    './src/providers/**/*.{ts,tsx}',
+    './src/content/**/*.mdx',
 
     // Fumadocs UI
     './node_modules/fumadocs-ui/dist/**/*.js',
