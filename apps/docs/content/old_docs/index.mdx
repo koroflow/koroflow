@@ -1,0 +1,157 @@
+---
+title: Introduction to Koroflow
+description: Koroflow transforms privacy consent from a compliance checkbox into a fully observable system. Built for modern development teams, it unifies analytics, consent tracking, and privacy controls into a single performant solution - no more slow cookie banners or blind spots in user privacy choices.
+---
+## What is Koroflow?
+
+Koroflow is an open source platform that transforms privacy consent from a compliance checkbox into a fully observable system. Inspired by the developer experience and quality standards set by platforms like Vercel, Clerk, Resend, and Unkey, we're building privacy infrastructure that developers truly deserve.
+
+Built for modern development teams, Koroflow unifies analytics, consent management, and privacy controls into a single, performant solution that gives you complete visibility into how users interact with your privacy choices.
+
+Gone are the days of:
+- Cookie banners that slow down your site
+- Blind spots in consent tracking
+- Complex multi-vendor implementations
+- Uncertainty about privacy policy changes
+- Poor visibility into consent states
+
+## Open Source Foundation
+
+We believe great developer tools should be built in the open. Taking inspiration from platforms we admire, Koroflow is built with:
+
+- **Core Platform**: GNU3 licensed, free to self-host
+- **UI Components**: Built on shadcn/ui, fully customizable
+- **Server Components**: Next.js app directory ready
+- **Cloud Platform**: Coming soon, optional managed service
+
+Just as Vercel revolutionized deployment workflows, Clerk simplified authentication, Resend modernized email infrastructure, and Unkey simplified API key management, we aim to bring that same level of excellence and simplicity to privacy management.
+## Current Features (Beta)
+
+Koroflow is currently in early alpha with a focus on core privacy management:
+
+✅ **Available Now**:
+- Full-featured consent management 
+- Beautiful shadcn/ui components
+- GDPR-compliant privacy controls
+- Local storage consent state
+- Developer tools for testing
+
+🚧 **Coming Soon**:
+- Cloud-based consent analytics
+- Server-side event relay system
+- Multi-vendor event distribution
+- Advanced consent metrics
+- Enterprise features
+
+## Performance-First Design
+
+Unlike traditional cookie banners that add hundreds of kilobytes to your bundle size, Koroflow's privacy components are designed with performance in mind:
+
+- **Minimal Bundle Impact**: Built on shadcn/ui with only the essentials
+- **Server Components Ready**: Full support for Next.js app directory  
+- **Zero Dependencies**: No bloated third-party libraries
+- **Smart Chunking**: Components are naturally code-split in modern bundlers
+
+```tsx
+// Simple, performant implementation
+import { ConsentManagerProvider } from "@@koroflow/elements/headless"
+import { CookieBanner } from "your-app/ui"
+
+export default function App() {
+  return (
+    <ConsentManagerProvider
+      initialGdprTypes={[
+        "necessary",
+        "marketing",
+        "functionality",
+        "measurement",
+      ]}
+    >
+      <CookieBanner />
+    </ConsentManagerProvider>
+  )
+}
+```
+
+
+## Privacy Management UI
+
+Koroflow provides a complete privacy management system built on shadcn/ui and Tailwind CSS:
+
+### Core Components
+- **Consent Banner**: Customizable, accessible cookie consent notices
+- **Preference Center**: Full-featured privacy settings interface
+- **Policy Display**: Privacy policy and cookie documentation components
+- **Category Management**: Granular consent controls for different tracking types
+
+### Key Features
+- Full TypeScript support
+- Built on shadcn/ui for consistent design patterns
+- Tailwind CSS styling for complete visual control
+- Accessible by default
+- Server-side state management
+- Automatic consent persistence
+
+## Self-Hosting vs Cloud
+
+Koroflow believes in giving you options:
+
+### Self-Hosted (Open Source)
+- Full GNU3 licensed platform
+- Complete control over your infrastructure
+- Free to modify and extend
+- Community-supported
+
+### Cloud Platform (Coming Soon)
+- Managed infrastructure
+- Advanced analytics
+- Team collaboration features
+- Enterprise support
+- Fair pricing model
+
+## Core Principles
+
+### 1. Open Source First
+We believe in building in the open, to improve the developer experience and quality of life, but also trust.
+
+### 2. Developer Experience
+Clean, TypeScript-first APIs that feel natural to use. Privacy management shouldn't be painful.
+
+### 3. Performance as Standard
+No bloated front-ends or slow load times. Every byte is considered.
+
+### 4. Privacy by Design
+Consent management isn't a bolt-on - it's a core part of modern web development.
+
+## Roadmap
+
+We're building Koroflow in public and would love your input:
+
+1. **Q1 2024**: Core consent management
+2. **Q2 2024**: Event relay system
+3. **Q3 2024**: Cloud platform beta
+4. **Q4 2024**: Enterprise features
+
+## Get Started
+
+Ready to modernize your privacy infrastructure? Choose your path:
+
+<Cards>
+  <Card 
+    title="Quick Start Guide" 
+    description="Set up Koroflow in your project in under 5 minutes"
+    href="/docs/getting-started" 
+  />
+  <Card 
+    title="UI Components" 
+    description="Explore our privacy management components"
+    href="/docs/components" 
+  />
+</Cards>
+
+## Join the Community
+
+Koroflow is built in public with our community. Join us:
+- [GitHub Discussion](https://github.com/koroflow/discussions)
+- [Twitter](https://twitter.com/koroflow)
+

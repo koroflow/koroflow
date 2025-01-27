@@ -1,0 +1,17 @@
+{
+  "extends": "@koroflow/typescript-config/react-library.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@koroflow/shadcn-ui/*": ["./*"],
+      "@koroflow/*": ["../*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}
