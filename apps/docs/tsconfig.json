@@ -4,9 +4,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@koroflow/*": ["../../packages/*"],
       "@/components/*": ["../../packages/shadcn-ui/components/*"],
-      "@/lib/*": ["../../packages/shadcn-ui/lib/*"]
+      "@/lib/*": ["../../packages/shadcn-ui/lib/*"],
+      "@koroflow/shadcn-ui/*": ["../../packages/shadcn-ui/*"]
     }
   },
   "include": [

@@ -8,8 +8,8 @@ const loadGoogleFont = async (font: string, text: string, weights: string) => {
   const resource = css.match(
     /src: url\((.+)\) format\('(opentype|truetype)'\)/
   );
-
-  if (resource) {
+  // biome-ignore lint/complexity/useOptionalChain: <explanation>
+  if (resource && resource[1]) {
     const response = await fetch(resource[1]);
     if (response.status === 200) {
       return await response.arrayBuffer();
@@ -31,7 +31,7 @@ export const GET = async (request: NextRequest) => {
   const text = `Korowflow UI ${title} ${description}`;
 
   return new ImageResponse(
-    <div tw="bg-[#1D4ED8] relative flex flex-col justify-between w-full h-full">
+    <div tw="bg-[#000] relative flex flex-col justify-between w-full h-full">
       <div
         tw="flex absolute left-0 top-0 w-full h-full opacity-10"
         style={{

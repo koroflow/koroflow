@@ -44,7 +44,7 @@ export const Preview = async ({
   code,
   dependencies: demoDependencies,
 }: PreviewProps) => {
-  const registry = (await import(`../../public/registry/${name}.json`)) as {
+  const registry = (await import(`../../public/r/${name}.json`)) as {
     dependencies?: Record<string, string>;
     devDependencies?: Record<string, string>;
     registryDependencies?: Record<string, string>;
@@ -90,7 +90,7 @@ export const Preview = async ({
           if (mod.dependencies) {
             for (const dep of Object.values(mod.dependencies)) {
               const { name, version } = parseDependencyVersion(dep);
-
+// @ts-expect-error
               dependencies[name] = version;
             }
           }
@@ -99,7 +99,7 @@ export const Preview = async ({
           if (mod.devDependencies) {
             for (const dep of Object.values(mod.devDependencies)) {
               const { name, version } = parseDependencyVersion(dep);
-
+// @ts-expect-error
               devDependencies[name] = version;
             }
           }
@@ -126,7 +126,7 @@ export const Preview = async ({
   if (registry.dependencies) {
     for (const dep of Object.values(registry.dependencies)) {
       const { name, version } = parseDependencyVersion(dep);
-
+// @ts-expect-error
       dependencies[name] = version;
     }
   }
@@ -135,7 +135,7 @@ export const Preview = async ({
   if (registry.devDependencies) {
     for (const dep of Object.values(registry.devDependencies)) {
       const { name, version } = parseDependencyVersion(dep);
-
+// @ts-expect-error
       devDependencies[name] = version;
     }
   }
@@ -158,7 +158,7 @@ export const Preview = async ({
       if (mod.dependencies) {
         for (const dep of Object.values(mod.dependencies)) {
           const { name, version } = parseDependencyVersion(dep);
-
+// @ts-expect-error
           dependencies[name] = version;
         }
       }
@@ -167,7 +167,7 @@ export const Preview = async ({
       if (mod.devDependencies) {
         for (const dep of Object.values(mod.devDependencies)) {
           const { name, version } = parseDependencyVersion(dep);
-
+// @ts-expect-error
           devDependencies[name] = version;
         }
       }

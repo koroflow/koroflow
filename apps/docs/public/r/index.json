@@ -1,0 +1,32 @@
+[
+  {
+    "name": "consent-solution",
+    "type": "registry:ui",
+    "dependencies": [
+      "@koroflow/elements"
+    ],
+    "registryDependencies": [],
+    "files": [
+      {
+        "path": "components/consent/cookie-banner.tsx",
+        "type": "registry:ui",
+        "target": "components/consent/cookie-banner.tsx"
+      },
+      {
+        "path": "components/consent/overlay.tsx",
+        "type": "registry:ui",
+        "target": "components/consent/overlay.tsx"
+      },
+      {
+        "path": "components/consent/consent-manager-dialog.tsx",
+        "type": "registry:ui",
+        "target": "components/consent/consent-manager-dialog.tsx"
+      },
+      {
+        "path": "components/consent/consent-manager-widget.tsx",
+        "type": "registry:ui",
+        "target": "components/consent/consent-manager-widget.tsx"
+      }
+    ]
+  }
+]

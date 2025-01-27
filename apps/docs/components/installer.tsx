@@ -68,6 +68,7 @@ export const Installer = ({ packageName }: InstallerProps) => {
         <Button
           variant="ghost"
           size="icon"
+          //@ts-expect-error
           onClick={() => copyToClipboard(commands[value])}
           className="opacity-0 transition-opacity group-hover:opacity-100"
         >

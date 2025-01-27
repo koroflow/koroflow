@@ -2,6 +2,7 @@
   "name": "@koroflow/shadcn-ui",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@codesandbox/sandpack-react": "^2.19.10",
     "@hookform/resolvers": "^3.10.0",
