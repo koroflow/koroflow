@@ -1,17 +1,17 @@
 {
-  "name": "@koroflow/tailwind-config",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
-  },
-  "dependencies": {
-    "tailwind-merge": "^2.6.0",
-    "tailwindcss-animate": "^1.0.7"
-  },
-  "devDependencies": {
-    "@koroflow/typescript-config": "workspace:*",
-    "tailwindcss": "^3.4.17"
-  }
+	"name": "@koroflow/tailwind-config",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"clean": "git clean -xdf .cache .turbo dist node_modules",
+		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
+	},
+	"dependencies": {
+		"tailwind-merge": "^2.6.0",
+		"tailwindcss-animate": "^1.0.7"
+	},
+	"devDependencies": {
+		"@koroflow/typescript-config": "workspace:*",
+		"tailwindcss": "^3.4.17"
+	}
 }
