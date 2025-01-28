@@ -14,7 +14,7 @@ export default function HomePage() {
 			{/* <ComponentsSection /> */}
 			<FeaturesSection />
 			<Examples />
-			{/* <CTA /> */}
+			<CTA />
 			<Footer />
 		</>
 	);

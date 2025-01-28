@@ -35,66 +35,81 @@ export function ExamplesClient({ features }: ExamplesClientProps) {
 
 	return (
 		<motion.div
-			className="grid grid-cols-1 md:grid-cols-5 relative gap-6"
+ className="grid grid-cols-1 md:grid-cols-5 relative gap-6"
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 0.5 }}
 		>
-			<motion.div className="md:col-span-2 border-b md:border-b-0 bg-background sticky top-[var(--header-height)]">
-				<div className="flex md:flex-col space-y-8">
-					{features.map((option, index) => (
-						<motion.button
-							key={option.id}
-							onClick={() => {
-								setSelectedIndex(index);
-								setProgress(0);
-							}}
-							className={`flex-shrink-0 w-64 md:w-full text-left p-4 mb-2 mr-2 last:mr-0 md:mr-0 rounded border relative ${
-								selectedIndex === index ? "bg-accent/70" : "hover:bg-muted/50"
-							}`}
-							animate={{
-								opacity: index === selectedIndex ? 1 : 0.7,
-								scale: index === selectedIndex ? 1.02 : 1,
-							}}
-							transition={{ duration: 0.5 }}
-						>
-							<div className="flex items-center gap-4">
-								<motion.div
-									className={`size-8 shrink-0 rounded-full flex items-center justify-center border-2 ${
-										index === selectedIndex
-											? "bg-primary border-primary text-primary-foreground"
-											: "bg-muted border-muted-foreground"
-									}`}
-								>
-									{index <= selectedIndex ? (
-										<span className="text-lg font-bold">✓</span>
-									) : (
-										<span className="text-lg font-semibold">{index + 1}</span>
-									)}
-								</motion.div>
-								<div>
-									<h3 className="font-medium tracking-tight">{option.title}</h3>
-									<p className="text-sm text-muted-foreground">{option.description}</p>
+			{/* Features Selection */}
+			<motion.div className="md:col-span-2 bg-background sticky top-[var(--header-height)] z-20">
+				<div className="flex flex-col space-y-4 pb-4 md:pb-0">
+					<div className="flex flex-col space-y-4 sm:space-y-8 min-w-full relative">
+						{features.map((option, index) => (
+							<motion.button
+								key={option.id}
+								onClick={() => {
+									setSelectedIndex(index);
+									setProgress(0);
+								}}
+								className={`
+									flex-shrink-0 
+									w-[280px] sm:w-[320px] md:w-full 
+									text-left p-4 
+									rounded border relative 
+									${selectedIndex === index ? "bg-accent/70" : "hover:bg-muted/50"}
+								`}
+								animate={{
+									opacity: index === selectedIndex ? 1 : 0.7,
+									scale: index === selectedIndex ? 1.02 : 1,
+								}}
+								transition={{ duration: 0.5 }}
+							>
+								<div className="flex items-center gap-4">
+									<motion.div
+										className={`
+											size-6 sm:size-8 
+											shrink-0 rounded-full 
+											flex items-center justify-center 
+											border-2 
+											${
+												index === selectedIndex
+													? "bg-primary border-primary text-primary-foreground"
+													: "bg-muted border-muted-foreground"
+											}
+										`}
+									>
+										{index <= selectedIndex ? (
+											<span className="text-base sm:text-lg font-bold">✓</span>
+										) : (
+											<span className="text-base sm:text-lg font-semibold">{index + 1}</span>
+										)}
+									</motion.div>
+									<div>
+										<h3 className="font-medium tracking-tight text-sm sm:text-base">{option.title}</h3>
+										<p className="text-xs sm:text-sm text-muted-foreground">{option.description}</p>
+									</div>
 								</div>
-							</div>
-							{index === selectedIndex && (
-								<motion.div
-									className="absolute bottom-0 left-0 h-1 bg-primary mx-4"
-									initial={{ width: "0%" }}
-									animate={{ width: `${progress}%` }}
-									transition={{ duration: 0.1, ease: "linear" }}
-								/>
-							)}
+								{index === selectedIndex && (
+									<motion.div
+										className="absolute bottom-0 left-0 h-1 bg-primary mx-4"
+										initial={{ width: "0%" }}
+										animate={{ width: `${progress}%` }}
+										transition={{ duration: 0.1, ease: "linear" }}
+									/>
+								)}
 
-							<BorderIcon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
-							<BorderIcon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
-							<BorderIcon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
-							<BorderIcon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
-						</motion.button>
-					))}
+								<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -top-3 -left-3 dark:text-white text-black" />
+								<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -bottom-3 -left-3 dark:text-white text-black" />
+								<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -top-3 -right-3 dark:text-white text-black" />
+								<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -bottom-3 -right-3 dark:text-white text-black" />
+							</motion.button>
+						))}
+					</div>
 				</div>
 			</motion.div>
-			<div className="col-span-1 md:col-span-3 relative">
+
+			{/* Code Display */}
+			<div className="md:col-span-3 relative mt-4  sm:mt-0">
 				<AnimatePresence mode="wait">
 					{features.map(
 						(feature, index) =>
@@ -109,10 +124,10 @@ export function ExamplesClient({ features }: ExamplesClientProps) {
 								>
 									{feature.code}
 
-									<BorderIcon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
-									<BorderIcon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
-									<BorderIcon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
-									<BorderIcon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
+									<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -top-3 -left-3 dark:text-white text-black" />
+									<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -bottom-3 -left-3 dark:text-white text-black" />
+									<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -top-3 -right-3 dark:text-white text-black" />
+									<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -bottom-3 -right-3 dark:text-white text-black" />
 								</motion.div>
 							),
 					)}

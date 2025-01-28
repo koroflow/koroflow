@@ -21,7 +21,7 @@ const Root = React.forwardRef<HTMLDivElement, RootProps>(
 			<div
 				ref={ref}
 				className={cn(
-					"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 mx-auto border-y dark:border-neutral-800",
+					"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 mx-auto border sm:border-x-0 border-y dark:border-neutral-800",
 					className,
 				)}
 				{...props}
@@ -39,7 +39,7 @@ const Item = React.forwardRef<HTMLDivElement, FeatureProps>(
 			<div
 				ref={ref}
 				className={cn(
-					"flex flex-col lg:border-r py-10 relative group/feature dark:border-neutral-800",
+					"flex flex-col lg:border-r py-10 relative group/feature dark:border-neutral-800 border-b sm:border-b-0",
 					(index === 0 || index === 4) && "lg:border-l dark:border-neutral-800",
 					index < 4 && "lg:border-b dark:border-neutral-800",
 					className,

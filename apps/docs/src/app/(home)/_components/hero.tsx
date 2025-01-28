@@ -46,50 +46,49 @@ export function Hero() {
 
 	return (
 		<Section id="hero">
-			<div className="relative grid  gap-x-8 w-full border mt-8">
-				<div className="flex flex-col relative justify-start items-start px-12 pt-8 pb-6 space-y-6">
-					<h1 className="text-left text-4xl font-semibold leading-tighter text-foreground sm:text-5xl md:text-6xl tracking-tighter">
+			<div className="relative grid gap-x-8 w-full border mt-8">
+				<div className="flex flex-col relative justify-start items-start px-4 sm:px-12 pt-8 pb-6 space-y-6">
+					<h1 className="text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tighter text-foreground tracking-tighter">
 						<span className="inline-block text-balance">
 							<AuroraText className="leading-normal">{siteConfig.hero.title}</AuroraText>
 						</span>
 					</h1>
-					<div className="flex flex-row justify-between gap-4 w-full">
-						<p className="text-left z-20 max-w-xl leading-normal text-muted-foreground sm:text-lg sm:leading-normal text-balance">
+					<div className="flex flex-col sm:flex-row justify-between gap-6 w-full">
+						<p className="text-left z-20 max-w-xl text-sm sm:text-base lg:text-lg leading-normal text-muted-foreground text-balance">
 							{siteConfig.hero.description}
 						</p>
-						<div className="relative flex flex-row space-x-4 justify-end items-center">
-							<div className="flex w-full max-w-2xl flex-col items-start justify-start space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-								<Link
-									href={siteConfig.hero.cta.href}
-									className={cn(
-										buttonVariants({ variant: "outline" }),
-										"w-full sm:w-auto text-background flex gap-2 rounded-lg",
-									)}
-								>
-									{siteConfig.hero.cta.text}
-									<ArrowRight className="h-6 w-6" />
-								</Link>
-							</div>
-							<div className="flex w-full max-w-2xl flex-col items-start justify-start space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-								<Link
-									href={siteConfig.hero.demo.href}
-									className={cn(
-										buttonVariants({ variant: "ghost" }),
-										"w-full sm:w-auto flex gap-2 rounded-lg",
-									)}
-								>
-									{siteConfig.hero.demo.text}
-								</Link>
-							</div>
+						<div className="relative flex flex-col sm:flex-row gap-4 justify-start sm:justify-end items-start sm:items-center">
+							<Link
+								href={siteConfig.hero.cta.href}
+								className={cn(
+									buttonVariants({ variant: "outline" }),
+									"w-full sm:w-auto text-background flex gap-2 rounded-lg",
+								)}
+							>
+								{siteConfig.hero.cta.text}
+								<ArrowRight className="h-4 w-4 sm:h-6 sm:w-6" />
+							</Link>
+							<Link
+								href={siteConfig.hero.demo.href}
+								className={cn(
+									buttonVariants({ variant: "ghost" }),
+									"w-full sm:w-auto flex gap-2 rounded-lg",
+								)}
+							>
+								{siteConfig.hero.demo.text}
+							</Link>
 						</div>
 					</div>
 				</div>
-				<div className="w-full h-[400px]">
+				<div className="w-full h-[250px] sm:h-[300px] md:h-[400px] scale-100 md:scale-100 ">
 					<div className="w-full rounded-md overflow-clip relative h-full" ref={ref}>
 						{/* <div className="w-full absolute inset-0 bg-gradient-to-r from-background via-background/0 to-background z-30" /> */}
 						<div className="absolute inset-0 flex items-center justify-center z-20">
-							<div className="bg-[#FFF] text-[#000] font-bold rounded-full px-4 py-3">
-								Consent Managent Platform
+							<div className="hidden sm:block bg-[#FFF] text-[#000] font-bold text-xs  md:text-base rounded-full px-4 py-3">
+								Consent Management Platform
+							</div>
+							<div className="block sm:hidden bg-[#FFF] text-[#000] text-center text-[0.6rem]  md:text-base rounded-xl px-2 py-2">
+								Consent <br /> Management <br /> Platform
 							</div>
 						</div>
 						<div className="absolute inset-0 flex items-center justify-center z-10">
@@ -98,10 +97,10 @@ export function Hero() {
 					</div>
 				</div>
 
-				<BorderIcon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
-				<BorderIcon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
-				<BorderIcon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
-				<BorderIcon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
+				<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -top-3 -left-3 dark:text-white text-black" />
+				<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -bottom-3 -left-3 dark:text-white text-black" />
+				<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -top-3 -right-3 dark:text-white text-black" />
+				<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -bottom-3 -right-3 dark:text-white text-black" />
 			</div>
 		</Section>
 	);
