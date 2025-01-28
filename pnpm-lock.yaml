@@ -35,6 +35,9 @@ importers:
 
   apps/docs:
     dependencies:
+      '@koroflow/elements':
+        specifier: 0.0.1-beta.8
+        version: 0.0.1-beta.8(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)(use-sync-external-store@1.4.0(react@19.0.0))
       '@koroflow/shadcn-ui':
         specifier: workspace:*
         version: link:../../packages/shadcn-ui
@@ -1203,6 +1206,12 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@koroflow/elements@0.0.1-beta.8':
+    resolution: {integrity: sha512-tnv4FMkzHlSSVfzmIRNo4Mk8dUlK9P6bD9F/R422jfPS5JiF0528tdGYsj/GqG1cIB0EAMHMFOjOmBts/nAxug==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   '@lezer/common@1.2.3':
     resolution: {integrity: sha512-w7ojc8ejBqr2REPsWxJjrMFsA/ysDCFICn8zEOR9mrqzOu2amhITYuLD8ag6XZf0CFXDrhKqw7+tW8cX66NaDA==}
@@ -6098,6 +6107,27 @@ snapshots:
       - '@types/react'
       - '@types/react-dom'
       - immer
+      - use-sync-external-store
+
+  '@koroflow/elements@0.0.1-beta.8(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)(use-sync-external-store@1.4.0(react@19.0.0))':
+    dependencies:
+      '@koroflow/core-js': 0.0.1-beta.8(@types/react@19.0.8)(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))
+      '@radix-ui/react-accordion': 1.2.2(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@radix-ui/react-slot': 1.1.1(@types/react@19.0.8)(react@19.0.0)
+      '@radix-ui/react-switch': 1.1.2(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      clsx: 2.1.1
+      lucide-react: 0.473.0(react@19.0.0)
+      motion: 12.0.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+      tailwind-variants: 0.3.1(tailwindcss@3.4.17)
+      zustand: 5.0.3(@types/react@19.0.8)(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))
+    transitivePeerDependencies:
+      - '@emotion/is-prop-valid'
+      - '@types/react'
+      - '@types/react-dom'
+      - immer
+      - tailwindcss
       - use-sync-external-store
 
   '@lezer/common@1.2.3': {}

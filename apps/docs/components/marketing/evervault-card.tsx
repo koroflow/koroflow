@@ -1,6 +1,7 @@
 "use client";
+
 import { cn } from "@/lib/utils";
-import { useMotionValue } from "motion/react";
+import { type MotionValue, useMotionValue } from "motion/react";
 import { motion, useMotionTemplate } from "motion/react";
 import React, { useState, useEffect } from "react";
 
@@ -21,7 +22,15 @@ export const EvervaultCard = ({
 		setRandomString(str);
 	}, []);
 
-	function onMouseMove({ currentTarget, clientX, clientY }: any) {
+	function onMouseMove({
+		currentTarget,
+		clientX,
+		clientY,
+	}: {
+		currentTarget: HTMLElement;
+		clientX: number;
+		clientY: number;
+	}) {
 		const { left, top } = currentTarget.getBoundingClientRect();
 		mouseX.set(clientX - left);
 		mouseY.set(clientY - top);
@@ -53,7 +62,15 @@ export const EvervaultCard = ({
 	);
 };
 
-export function CardPattern({ mouseX, mouseY, randomString }: any) {
+export function CardPattern({
+	mouseX,
+	mouseY,
+	randomString,
+}: {
+	mouseX: MotionValue<number>;
+	mouseY: MotionValue<number>;
+	randomString: string;
+}) {
 	const maskImage = useMotionTemplate`radial-gradient(250px at ${mouseX}px ${mouseY}px, white, transparent)`;
 	const style = { maskImage, WebkitMaskImage: maskImage };
 
@@ -83,20 +100,4 @@ export const generateRandomString = (length: number) => {
 		result += characters.charAt(Math.floor(Math.random() * characters.length));
 	}
 	return result;
-};
-
-export const Icon = ({ className, ...rest }: any) => {
-	return (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			fill="none"
-			viewBox="0 0 24 24"
-			strokeWidth="1.5"
-			stroke="currentColor"
-			className={className}
-			{...rest}
-		>
-			<path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
-		</svg>
-	);
 };
