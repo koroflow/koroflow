@@ -14,7 +14,7 @@ export function CTA() {
 
 				<div className="flex justify-center space-x-4">
 					<Button className="flex items-center gap-2" asChild>
-						<Link href="/docs/getting-started">Get Started</Link>
+						<Link href="/docs/elements">Get Started</Link>
 					</Button>
 
 					<Button className="flex items-center gap-2" variant={"ghost"} asChild>

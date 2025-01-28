@@ -60,25 +60,25 @@ export function Hero() {
 						<div className="relative flex flex-row space-x-4 justify-end items-center">
 							<div className="flex w-full max-w-2xl flex-col items-start justify-start space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
 								<Link
-									href="/docs/getting-started"
+									href={siteConfig.hero.cta.href}
 									className={cn(
-										buttonVariants({ variant: "default" }),
+										buttonVariants({ variant: "outline" }),
 										"w-full sm:w-auto text-background flex gap-2 rounded-lg",
 									)}
 								>
-									{siteConfig.hero.cta}
+									{siteConfig.hero.cta.text}
 									<ArrowRight className="h-6 w-6" />
 								</Link>
 							</div>
 							<div className="flex w-full max-w-2xl flex-col items-start justify-start space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
 								<Link
-									href="/demo"
+									href={siteConfig.hero.demo.href}
 									className={cn(
-										buttonVariants({ variant: "outline" }),
+										buttonVariants({ variant: "ghost" }),
 										"w-full sm:w-auto flex gap-2 rounded-lg",
 									)}
 								>
-									{siteConfig.hero.demo}
+									{siteConfig.hero.demo.text}
 								</Link>
 							</div>
 						</div>

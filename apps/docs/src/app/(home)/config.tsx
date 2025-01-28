@@ -26,15 +26,14 @@ export const siteConfig = {
 	links: {
 		email: "support@koroflow.dev",
 		twitter: "https://twitter.com/koroflow",
-		discord: "https://discord.gg/koroflow",
-		github: "https://github.com/koroflow",
+		github: "https://github.com/koroflow/koroflow",
 	},
 	hero: {
 		title: "Privacy infrastructure for the modern web",
 		description:
 			"Transform privacy consent from a compliance checkbox into a fully observable system. Built for developers who care about performance, privacy, and clean code.",
-		cta: "Get Started",
-		demo: "View on GitHub",
+		cta: { text: "Get Started", href: "/docs/elements" },
+		demo: { text: "Book A Demo", href: "https://cal.com/christopherburns/koroflow" },
 	},
 	features: [
 		{
@@ -82,7 +81,7 @@ export const siteConfig = {
 		socialLinks: [
 			{
 				// icon: <Icons.github className="h-5 w-5" />,
-				url: "https://github.com/koroflow",
+				url: "https://github.com/koroflow/koroflow",
 			},
 			{
 				// icon: <Icons.twitter className="h-5 w-5" />,
@@ -91,7 +90,7 @@ export const siteConfig = {
 		],
 		links: [
 			{ text: "Documentation", url: "/docs" },
-			{ text: "GitHub", url: "https://github.com/koroflow" },
+			{ text: "GitHub", url: "https://github.com/koroflow/koroflow" },
 		],
 		bottomText: "Open source privacy infrastructure.",
 		brandText: "KOROFLOW",
