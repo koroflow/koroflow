@@ -50,6 +50,9 @@ importers:
       lucide-react:
         specifier: ^0.474.0
         version: 0.474.0(react@19.0.0)
+      motion:
+        specifier: ^12.0.5
+        version: 12.0.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       next:
         specifier: 15.1.5
         version: 15.1.5(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4)

@@ -14,13 +14,14 @@
     "fumadocs-mdx": "11.3.1",
     "fumadocs-ui": "14.7.7",
     "lucide-react": "^0.474.0",
+    "motion": "^12.0.5",
     "next": "15.1.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@koroflow/typescript-config": "workspace:*",
     "@koroflow/tailwind-config": "workspace:*",
+    "@koroflow/typescript-config": "workspace:*",
     "@types/mdx": "^2.0.13",
     "@types/node": "22.10.7",
     "@types/react": "^19.0.7",
