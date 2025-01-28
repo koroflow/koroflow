@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, AnimatePresence } from "motion/react";
-import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { useEffect, useState } from "react";
 import { BorderIcon } from "~/components/marketing/border-icon";
 
 interface FeatureOption {
@@ -49,12 +49,11 @@ export function ExamplesClient({ features }: ExamplesClientProps) {
 								setSelectedIndex(index);
 								setProgress(0);
 							}}
-							className={`flex-shrink-0 w-64 md:w-full text-left p-4 mb-2 mr-2 last:mr-0 md:mr-0 rounded border border-border relative ${
+							className={`flex-shrink-0 w-64 md:w-full text-left p-4 mb-2 mr-2 last:mr-0 md:mr-0 rounded border relative ${
 								selectedIndex === index ? "bg-accent/70" : "hover:bg-muted/50"
 							}`}
-							initial={{ opacity: 0.3 }}
 							animate={{
-								opacity: index === selectedIndex ? 1 : 0.3,
+								opacity: index === selectedIndex ? 1 : 0.7,
 								scale: index === selectedIndex ? 1.02 : 1,
 							}}
 							transition={{ duration: 0.5 }}

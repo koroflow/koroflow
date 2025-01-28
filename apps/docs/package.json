@@ -1,35 +1,35 @@
 {
-  "name": "new-docs",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "build": "next build",
-    "dev": "next dev",
-    "start": "next start",
-    "postinstall": "fumadocs-mdx"
-  },
-  "dependencies": {
-    "@koroflow/shadcn-ui": "workspace:*",
-    "fumadocs-core": "14.7.7",
-    "fumadocs-mdx": "11.3.1",
-    "fumadocs-ui": "14.7.7",
-    "lucide-react": "^0.474.0",
-    "motion": "^12.0.5",
-    "next": "15.1.5",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "zod": "^3.24.1"
-  },
-  "devDependencies": {
-    "@koroflow/tailwind-config": "workspace:*",
-    "@koroflow/typescript-config": "workspace:*",
-    "@types/mdx": "^2.0.13",
-    "@types/node": "22.10.7",
-    "@types/react": "^19.0.7",
-    "@types/react-dom": "^19.0.3",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.5.1",
-    "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.3"
-  }
+	"name": "new-docs",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"build": "next build",
+		"dev": "next dev",
+		"start": "next start",
+		"postinstall": "fumadocs-mdx"
+	},
+	"dependencies": {
+		"@koroflow/shadcn-ui": "workspace:*",
+		"fumadocs-core": "14.7.7",
+		"fumadocs-mdx": "11.3.1",
+		"fumadocs-ui": "14.7.7",
+		"lucide-react": "^0.474.0",
+		"motion": "^12.0.5",
+		"next": "15.1.5",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"zod": "^3.24.1"
+	},
+	"devDependencies": {
+		"@koroflow/tailwind-config": "workspace:*",
+		"@koroflow/typescript-config": "workspace:*",
+		"@types/mdx": "^2.0.13",
+		"@types/node": "22.10.7",
+		"@types/react": "^19.0.7",
+		"@types/react-dom": "^19.0.3",
+		"autoprefixer": "^10.4.20",
+		"postcss": "^8.5.1",
+		"tailwindcss": "^3.4.17",
+		"typescript": "^5.7.3"
+	}
 }

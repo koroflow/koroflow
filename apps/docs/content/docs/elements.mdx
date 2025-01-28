@@ -25,13 +25,16 @@ npm install @koroflow/elements
 
 ```tsx
 import { CookieBanner } from '@koroflow/elements'
+import { ConsentManagerProvider } from '@koroflow/elements/headless'
+import { ConsentManagerDialog } from '@koroflow/elements/consent-manager'
 
 function App() {
   return (
-    <>
+    <ConsentManagerProvider>
       <YourApp />
       <CookieBanner />
-    </>
+      <ConsentManagerDialog />
+    </ConsentManagerProvider>
   )
 }
 ```
@@ -86,9 +89,9 @@ Every component can be styled to match your brand:
 ```tsx
 <CookieBanner 
   theme={{
-    root: "your-custom-class",
-    title: "text-xl font-bold",
-    description: "text-gray-600"
+    "cookie-banner.root": "your-custom-class",
+    "cookie-banner.title": "text-xl font-bold",
+    "cookie-banner.description": "text-gray-600"
   }}
 />
 ```

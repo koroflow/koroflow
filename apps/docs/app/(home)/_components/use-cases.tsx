@@ -1,8 +1,5 @@
 "use client";
 
-// import { Section } from "@/components/section";
-// import OrbitingCircles from "@/components/ui/orbiting-circles";
-import { cubicBezier, motion } from "motion/react";
 import {
 	AlertTriangleIcon,
 	BrainCircuitIcon,
@@ -16,10 +13,13 @@ import {
 	UserSearch,
 	XCircleIcon,
 } from "lucide-react";
-import { BorderIcon } from "~/components/marketing/border-icon";
-import { Section } from "~/components/marketing/section";
-import OrbitingCircles from "~/components/marketing/orbiting-circles";
+// import { Section } from "@/components/section";
+// import OrbitingCircles from "@/components/ui/orbiting-circles";
+import { cubicBezier, motion } from "motion/react";
 import { useReducedMotion } from "motion/react";
+import { BorderIcon } from "~/components/marketing/border-icon";
+import OrbitingCircles from "~/components/marketing/orbiting-circles";
+import { Section } from "~/components/marketing/section";
 
 // Consolidate variants into a shared object
 const variants = {
@@ -28,8 +28,8 @@ const variants = {
 		whileHover: {
 			transition: {
 				staggerChildren: 0.1,
-			}
-		}
+			},
+		},
 	},
 	card1: {
 		base: {
@@ -37,16 +37,17 @@ const variants = {
 			transition: {
 				duration: 0.2,
 				ease: "linear",
-			}
+			},
 		},
 		hover: {
 			scale: 0.8,
-			boxShadow: "rgba(245,40,145,0.35) 0px 20px 70px -10px, rgba(36,42,66,0.04) 0px 10px 24px -8px, rgba(36,42,66,0.06) 0px 1px 4px -1px",
+			boxShadow:
+				"rgba(245,40,145,0.35) 0px 20px 70px -10px, rgba(36,42,66,0.04) 0px 10px 24px -8px, rgba(36,42,66,0.06) 0px 1px 4px -1px",
 			transition: {
 				duration: 0.2,
 				ease: "linear",
-			}
-		}
+			},
+		},
 	},
 	card2: {
 		initial: {
@@ -61,7 +62,8 @@ const variants = {
 		whileHover: {
 			y: -55,
 			scale: 0.87,
-			boxShadow: "rgba(39,127,245,0.15) 0px 20px 70px -10px, rgba(36,42,66,0.04) 0px 10px 24px -8px, rgba(36,42,66,0.06) 0px 1px 4px -1px",
+			boxShadow:
+				"rgba(39,127,245,0.15) 0px 20px 70px -10px, rgba(36,42,66,0.04) 0px 10px 24px -8px, rgba(36,42,66,0.06) 0px 1px 4px -1px",
 			transition: {
 				delay: 0,
 				duration: 0.2,
@@ -84,7 +86,8 @@ const variants = {
 			y: -45,
 			opacity: 1,
 			scale: 1,
-			boxShadow: "rgba(39,245,76,0.15) 10px 20px 70px -20px, rgba(36,42,66,0.04) 0px 10px 24px -8px, rgba(36,42,66,0.06) 0px 1px 4px -1px",
+			boxShadow:
+				"rgba(39,245,76,0.15) 10px 20px 70px -20px, rgba(36,42,66,0.04) 0px 10px 24px -8px, rgba(36,42,66,0.06) 0px 1px 4px -1px",
 			transition: {
 				delay: 0.05,
 				duration: 0.2,
@@ -238,15 +241,15 @@ const Card2 = () => {
 								key={log.id}
 								className="p-4 bg-transparent backdrop-blur-md shadow-[0px_0px_40px_-25px_rgba(0,0,0,0.25)] border border-border origin-right w-full rounded-md flex items-center"
 								initial={{ y: 0, opacity: 1 }}
-								whileHover={{ 
+								whileHover={{
 									y: -85,
 									opacity: index === 4 ? 1 : 0.6,
 									scale: index === 0 ? 0.85 : index === 4 ? 1.1 : 1,
 									transition: {
 										type: "spring",
 										stiffness: 400,
-										damping: 30
-									}
+										damping: 30,
+									},
 								}}
 							>
 								<div className="mr-3">{log.icon}</div>
@@ -275,7 +278,7 @@ const Card2 = () => {
 const Card3 = () => {
 	return (
 		<div className="p-0 min-h-[500px] lg:min-h-fit overflow-hidden border-b lg:border-b-0 -z-0">
-			<motion.div 
+			<motion.div
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
 				transition={{ duration: 0.5 }}
@@ -328,7 +331,7 @@ export function UseCases() {
 
 	return (
 		<Section id="use-cases" title="Use Cases">
-			<motion.div 
+			<motion.div
 				className="relative border"
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}

@@ -6,7 +6,6 @@ import { notFound } from "next/navigation";
 import { Header } from "~/components/header";
 import { source } from "~/lib/source";
 
-
 export default async function Page(props: {
 	params: Promise<{ slug?: string[] }>;
 }) {
@@ -32,7 +31,7 @@ export default async function Page(props: {
 							"prose-a:border-fd-primary prose-a:border-b-px prose-a:font-semibold prose-a:text-foreground prose-a:decoration-none prose-a:transition-all hover:prose-a:border-b-2",
 						)}
 					>
-						<MDX components={{ ...defaultMdxComponents}} />
+						<MDX components={{ ...defaultMdxComponents }} />
 					</DocsBody>
 				</DocsPage>
 			</div>

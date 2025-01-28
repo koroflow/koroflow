@@ -28,13 +28,13 @@ Then add the dialog to your application:
 
 ```tsx
 import { ConsentManagerDialog } from '@koroflow/elements'
-
+import { ConsentManagerProvider } from '@koroflow/elements/headless'
 function App() {
   return (
-    <>
+    <ConsentManagerProvider>
       <YourApp />
       <ConsentManagerDialog />
-    </>
+    </ConsentManagerProvider>
   )
 }
 ```

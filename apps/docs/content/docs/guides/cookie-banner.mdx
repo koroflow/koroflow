@@ -29,13 +29,14 @@ Then add the banner to your root component:
 
 ```tsx
 import { CookieBanner } from '@koroflow/elements'
+import { ConsentManagerProvider } from '@koroflow/elements/headless'
 
 function App() {
   return (
-    <>
+    <ConsentManagerProvider>
       <YourApp />
       <CookieBanner />
-    </>
+    </ConsentManagerProvider>
   )
 }
 ```
@@ -96,10 +97,10 @@ The theme prop provides a straightforward way to customize the banner's appearan
 ```tsx
 <CookieBanner
   theme={{
-    root: "fixed bottom-0 w-full bg-white p-4",
-    title: "text-xl font-bold",
-    description: "text-gray-600 mt-2",
-    footer: "mt-4 flex justify-end gap-2"
+    "cookie-banner.root": "fixed bottom-0 w-full bg-white p-4",
+    "cookie-banner.title": "text-xl font-bold",
+    "cookie-banner.description": "text-gray-600 mt-2",
+    "cookie-banner.footer": "mt-4 flex justify-end gap-2"
   }}
 />
 ```
@@ -113,9 +114,9 @@ import styles from './cookie-banner.module.css'
 
 <CookieBanner
   theme={{
-    root: styles.banner,
-    title: styles.title,
-    description: styles.description
+    "cookie-banner.root": styles.banner,
+    "cookie-banner.title": styles.title,
+    "cookie-banner.description": styles.description
   }}
 />
 ```
