@@ -1,6 +1,6 @@
 "use client";
 
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@koroflow/shadcn-ui/components/ui/button";
 
 import { cn } from "@/lib/utils";
 import Link from "next/link";

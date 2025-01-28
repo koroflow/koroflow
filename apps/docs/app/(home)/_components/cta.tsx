@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@koroflow/shadcn-ui/components/ui/button";
 import { BorderIcon } from "~/components/marketing/border-icon";
 import { Section } from "~/components/marketing/section";
 
