@@ -17,7 +17,8 @@
     "motion": "^12.0.5",
     "next": "15.1.5",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@koroflow/tailwind-config": "workspace:*",
