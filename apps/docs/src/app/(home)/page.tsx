@@ -1,8 +1,7 @@
-import Link from "next/link";
+
 import { FeaturesSection } from "./_components/features";
 import { Hero } from "./_components/hero";
 
-import type { Metadata } from "next";
 import { CTA } from "./_components/cta";
 import { Examples } from "./_components/examples";
 import { Footer } from "./_components/footer";

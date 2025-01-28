@@ -84,10 +84,10 @@ export function Hero() {
 					<div className="w-full rounded-md overflow-clip relative h-full" ref={ref}>
 						{/* <div className="w-full absolute inset-0 bg-gradient-to-r from-background via-background/0 to-background z-30" /> */}
 						<div className="absolute inset-0 flex items-center justify-center z-20">
-							<div className="hidden sm:block bg-[#FFF] text-[#000] font-bold text-xs  md:text-base rounded-full px-4 py-3">
+							<div className="hidden sm:block dark:bg-[#FFF] dark:text-[#000] bg-[#000] text-[#FFF] font-bold text-xs  md:text-base rounded-full px-4 py-3">
 								Consent Management Platform
 							</div>
-							<div className="block sm:hidden bg-[#FFF] text-[#000] text-center text-[0.6rem]  md:text-base rounded-xl px-2 py-2">
+							<div className="block sm:hidden dark:bg-[#FFF] dark:text-[#000] bg-[#000] text-[#FFF] text-center text-[0.6rem]  md:text-base rounded-xl px-2 py-2">
 								Consent <br /> Management <br /> Platform
 							</div>
 						</div>
