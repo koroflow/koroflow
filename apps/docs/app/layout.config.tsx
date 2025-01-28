@@ -11,7 +11,6 @@ import Image from "next/image";
  */
 export const baseOptions: BaseLayoutProps = {
   nav: {
-    // can be JSX too!
     title: (
 			<Image src={logo} alt="Koroflow" width={93} height={16} className="h-4 w-auto dark:invert" />
 		),
@@ -19,7 +18,7 @@ export const baseOptions: BaseLayoutProps = {
   links: [
     {
       text: 'Get Started',
-      url: '/elements',
+      url: 'docs/elements',
       active: 'nested-url',
     },
   ],
