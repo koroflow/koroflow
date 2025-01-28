@@ -1,4 +1,5 @@
 import { Button } from "@koroflow/shadcn/components";
+import Link from "next/link";
 import { BorderIcon } from "~/components/marketing/border-icon";
 import { Section } from "~/components/marketing/section";
 
@@ -12,10 +13,12 @@ export function CTA() {
 				</p>
 
 				<div className="flex justify-center space-x-4">
-					<Button className="flex items-center gap-2">Get Started</Button>
+					<Button className="flex items-center gap-2" asChild>
+						<Link href="/docs/getting-started">Get Started</Link>
+					</Button>
 
-					<Button className="flex items-center gap-2" variant={"ghost"}>
-						Book A demo
+					<Button className="flex items-center gap-2" variant={"ghost"} asChild>
+						<Link href="https://cal.com/christopherburns/koroflow">Book A demo</Link>
 					</Button>
 				</div>
 				<BorderIcon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />

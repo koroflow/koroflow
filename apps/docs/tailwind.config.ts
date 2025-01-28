@@ -9,13 +9,8 @@ const fumadocs = createPreset({
 const tailwindConfig: Config = {
 	...config,
 	content: [
-
 		// App
-		"./components/**/*.{ts,tsx}",
-		"./lib/**/*.{ts,tsx}",
-		"./app/**/*.{ts,tsx}",
-		"./providers/**/*.{ts,tsx}",
-		"./content/**/*.mdx",
+		"./src/**/*.{ts,tsx,mdx}",
 
 		// Fumadocs UI
 		"./node_modules/fumadocs-ui/dist/**/*.js",
