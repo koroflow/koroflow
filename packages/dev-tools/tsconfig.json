@@ -1,25 +1,12 @@
 {
+	"extends": "@koroflow/typescript-config/react-library.json",
 	"compilerOptions": {
-		"target": "es2018",
-		"lib": ["dom", "dom.iterable", "esnext"],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"strict": true,
-		"forceConsistentCasingInFileNames": true,
-		"esModuleInterop": true,
-		"module": "esnext",
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"jsx": "react-jsx",
-		"declaration": true,
-		"declarationDir": "dist",
-		"outDir": "./dist",
 		"baseUrl": ".",
+		"lib": ["dom", "dom.iterable", "esnext"],
 		"paths": {
-			"~/*": ["src/*"]
+			"~/*": ["./src/*"],
 		}
 	},
 	"include": ["src"],
-	"exclude": ["node_modules", "dist"]
+	"exclude": ["node_modules"]
 }

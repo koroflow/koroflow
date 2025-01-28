@@ -9,10 +9,6 @@ const fumadocs = createPreset({
 const tailwindConfig: Config = {
 	...config,
 	content: [
-		// Shadcn UI
-		"./node_modules/@koroflow/shadcn-ui/components/**/*.{ts,tsx}",
-		"./node_modules/@koroflow/shadcn-ui/lib/**/*.{ts,tsx}",
-		"./node_modules/@koroflow/shadcn-ui/index.tsx",
 
 		// App
 		"./components/**/*.{ts,tsx}",
@@ -25,7 +21,7 @@ const tailwindConfig: Config = {
 		"./node_modules/fumadocs-ui/dist/**/*.js",
 
 		// Repo packages
-		"./node_modules/@koroflow/*/index.tsx",
+		"./node_modules/@koroflow/shadcn/dist/**/*.js",
 	],
 	presets: [fumadocs],
 };

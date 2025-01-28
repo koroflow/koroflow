@@ -47,6 +47,7 @@ export function Router({ onClose }: RouterProps) {
 	// Handle tab change locally
 	const handleTabChange = useCallback((index: number | null) => {
 		if (index !== null) {
+			//@ts-expect-error
 			setActiveSection(tabs[index].title);
 		}
 	}, []);

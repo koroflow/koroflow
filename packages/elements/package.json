@@ -26,20 +26,17 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build:declarations": "tsc -p tsconfig.declarations.json",
 		"build": "rslib build",
 		"check-types": "tsc --noEmit",
 		"dev": "rslib build --watch"
 	},
 	"browserslist": [">0.2%", "not dead", "not op_mini all"],
-	"devDependencies": {
-		"@rsbuild/core": "1.2.0-beta.1",
-		"@rsbuild/plugin-react": "^1.1.0",
-		"@rslib/core": "^0.3.2"
-	},
 	"peerDependencies": {
 		"react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
 		"react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+	},
+	"devDependencies": {
+		"@koroflow/typescript-config": "workspace:*"
 	},
 	"dependencies": {
 		"@koroflow/core-js": "0.0.1-beta.8",

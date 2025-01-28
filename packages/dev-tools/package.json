@@ -17,6 +17,7 @@
 	"browserslist": [">0.2%", "not dead", "not op_mini all"],
 	"devDependencies": {
 		"@koroflow/tsup-config": "workspace:*",
+		"@koroflow/typescript-config": "workspace:*",
 		"postcss": "^8.5.1"
 	},
 	"peerDependencies": {

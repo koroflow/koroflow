@@ -2,7 +2,6 @@
 	"extends": "@koroflow/typescript-config/react-library.json",
 	"compilerOptions": {
 		"baseUrl": ".",
-		"lib": ["dom", "dom.iterable", "esnext"],
 		"paths": {
 			"~/*": ["./src/*"],
 		}

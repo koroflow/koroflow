@@ -1,0 +1,32 @@
+{
+  "name": "@koroflow/shadcn",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./*": {
+      "types": "./dist/*/index.d.ts",
+      "import": "./dist/*/index.js",
+      "require": "./dist/*/index.cjs"
+    },
+	"./globals.css": "./dist/globals.css"
+  },
+  "scripts": {
+    "build": "rslib build",
+    "check-types": "tsc --noEmit",
+    "dev": "rslib build --watch"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.1.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.6.0"
+  },
+  "devDependencies": {
+    "@koroflow/typescript-config": "workspace:*"
+  }
+}

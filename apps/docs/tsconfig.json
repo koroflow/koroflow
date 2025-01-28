@@ -1,12 +1,9 @@
 {
 	"extends": "@koroflow/typescript-config/next.json",
 	"compilerOptions": {
-		"baseUrl": ".",
+		"baseUrl": "./src",
 		"paths": {
 			"~/*": ["./*"],
-			"@/components/*": ["../../packages/shadcn-ui/components/*"],
-			"@/lib/*": ["../../packages/shadcn-ui/lib/*"],
-			"@koroflow/shadcn-ui/*": ["../../packages/shadcn-ui/*"]
 		}
 	},
 	"include": ["next-env.d.ts", "next.config.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
