@@ -8,9 +8,41 @@
 	},
 	"scripts": {
 		"build:registry": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-registry.mts",
-		"check-types": "tsc --noEmit"
+		"build:declarations": "tsc -p tsconfig.declarations.json && resolve-tspaths --out ./dist ",
+		"build": "pnpm build:registry && tsup",
+		"check-types": "tsc --noEmit",
+		"dev": "tsup --watch"
 	},
 	"browserslist": [">0.2%", "not dead", "not op_mini all"],
+	"files": ["dist", "src"],
+	"exports": {
+		"./*": {
+			"import": {
+				"types": "./dist/types/*.d.ts",
+				"default": "./dist/esm/*.js"
+			},
+			"require": {
+				"types": "./dist/types/*.d.ts",
+				"default": "./dist/cjs/*.js"
+			}
+		},
+		"./src/themes/*": {
+			"import": {
+				"types": "./src/themes/*",
+				"default": "./src/themes/*"
+			}
+		},
+		"./__registry__": {
+			"import": {
+				"types": "./src/__registry__/index.d.ts",
+				"default": "./dist/esm/__registry__/index.js"
+			},
+			"require": {
+				"types": "./dist/types/*/index.d.ts",
+				"default": "./dist/cjs/__registry__/index.js"
+			}
+		}
+	},
 	"devDependencies": {
 		"@koroflow/typescript-config": "workspace:*",
 		"@koroflow/tsup-config": "workspace:*",

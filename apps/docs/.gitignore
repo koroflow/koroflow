@@ -26,3 +26,7 @@ yarn-error.log*
 .env*.local
 .vercel
 next-env.d.ts
+
+
+# Don't commit registry to github
+src/public/r

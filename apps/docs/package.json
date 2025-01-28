@@ -3,7 +3,8 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"build": "next build",
+		"build:copy-registry": "cp -r ../../packages/shadcn-registry/src/public/r ./src/public/r",
+		"build": "pnpm build:copy-registry && next build",
 		"dev": "next dev",
 		"start": "next start",
 		"postinstall": "fumadocs-mdx"
