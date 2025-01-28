@@ -79,8 +79,8 @@ async function syncStyles() {
 				// Replace all @/registry/new-york/ with @/registry/default/.
 				const content = await fs.readFile(targetPath, "utf8");
 				const fixedContent = content.replace(
-					new RegExp(`@/registry/${sourceStyle}/`, "g"),
-					`@/registry/${targetStyle}/`,
+					new RegExp(`@/r/${sourceStyle}/`, "g"),
+					`@/r/${targetStyle}/`,
 				);
 				await fs.writeFile(targetPath, fixedContent, "utf8");
 			}
