@@ -88,7 +88,7 @@ export function Hero() {
 					<div className="w-full rounded-md overflow-clip relative h-full" ref={ref}>
 						{/* <div className="w-full absolute inset-0 bg-gradient-to-r from-background via-background/0 to-background z-30" /> */}
 						<div className="absolute inset-0 flex items-center justify-center z-20">
-							<div className="bg-[#FFF] text-[#000] font-bold rounded-full px-4 py-2">
+							<div className="bg-[#FFF] text-[#000] font-bold rounded-full px-4 py-3">
 								Consent Managent Platform
 							</div>
 						</div>
