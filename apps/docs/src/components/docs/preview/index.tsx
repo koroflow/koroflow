@@ -183,23 +183,23 @@ export const Preview = async ({ name, code, dependencies: demoDependencies }: Pr
 			}}
 			customSetup={{
 				dependencies: {
-					// shadcn/ui global dependencies
-					"@radix-ui/react-icons": "latest",
-					clsx: "latest",
-					"tailwind-merge": "latest",
-					"class-variance-authority": "latest",
+					// // shadcn/ui global dependencies
+					// "@radix-ui/react-icons": "latest",
+					// clsx: "latest",
+					// "tailwind-merge": "latest",
+					// "class-variance-authority": "latest",
 
-					// Tailwind dependencies
-					tailwindcss: "latest",
-					"tailwindcss-animate": "latest",
+					// // Tailwind dependencies
+					// tailwindcss: "latest",
+					// "tailwindcss-animate": "latest",
 					...dependencies,
 
 					// koroflow
 					"@koroflow/elements": "latest",
 				},
 				devDependencies: {
-					autoprefixer: "latest",
-					postcss: "latest",
+					// autoprefixer: "latest",
+					// postcss: "latest",
 					...devDependencies,
 				},
 			}}
