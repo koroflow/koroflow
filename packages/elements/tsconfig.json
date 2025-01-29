@@ -1,7 +1,11 @@
 {
 	"extends": "@koroflow/typescript-config/react-library.json",
 	"compilerOptions": {
-		"moduleResolution": "node10",
+		"target": "ESNext",
+		"lib": ["esnext", "dom"],
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"types": ["vitest/globals", "@vitest/browser/providers/playwright"],
 		"baseUrl": ".",
 		"paths": {
 			"~/*": ["./src/*"]

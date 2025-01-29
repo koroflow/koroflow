@@ -28,7 +28,10 @@
 	"scripts": {
 		"build": "rslib build",
 		"check-types": "tsc --noEmit",
-		"dev": "rslib build --watch"
+		"dev": "rslib build --watch",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"test:coverage": "vitest run --coverage"
 	},
 	"browserslist": [">0.2%", "not dead", "not op_mini all"],
 	"peerDependencies": {
@@ -44,8 +47,8 @@
 		"@radix-ui/react-slot": "1.1.1",
 		"@radix-ui/react-switch": "1.1.2",
 		"clsx": "2.1.1",
-		"lucide-react": "^0.473.0",
-		"motion": "^12.0.5",
+		"lucide-react": "^0.474.0",
+		"motion": "^12.0.6",
 		"tailwind-variants": "^0.3.1",
 		"zustand": "^5.0.3"
 	}
