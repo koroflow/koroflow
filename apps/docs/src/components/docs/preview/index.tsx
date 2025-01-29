@@ -34,12 +34,7 @@ const parseContent = (content: string) => {
 };
 
 export const Preview = async ({ name, code, dependencies: demoDependencies }: PreviewProps) => {
-	const registry = (await import(`../../../public/registry/${name}.json`)) as {
-		dependencies?: Record<string, string>;
-		devDependencies?: Record<string, string>;
-		registryDependencies?: Record<string, string>;
-		files?: { content: string }[];
-	};
+
 
 	const dependencies: Record<string, string> = {};
 	const devDependencies: Record<string, string> = {};
@@ -95,71 +90,6 @@ export const Preview = async ({ name, code, dependencies: demoDependencies }: Pr
 	// 	}
 	// };
 
-	// Load selected Kibo UI component
-	const selectedComponent = registry.files?.[0]?.content;
-	const selectedComponentContent = parseContent(selectedComponent ?? "");
-
-	// await parseShadcnComponents(selectedComponentContent);
-
-	// files[`/components/ui/kibo-ui/${name}.tsx`] = parseContent(selectedComponentContent);
-
-	// Load required dependencies from selected Kibo UI component
-	if (registry.dependencies) {
-		for (const dep of Object.values(registry.dependencies)) {
-			const { name, version } = parseDependencyVersion(dep);
-
-			//@ts-expect-error
-			dependencies[name] = version;
-		}
-	}
-
-	// Load required devDependencies from selected Kibo UI component
-	if (registry.devDependencies) {
-		for (const dep of Object.values(registry.devDependencies)) {
-			const { name, version } = parseDependencyVersion(dep);
-
-			//@ts-expect-error
-			devDependencies[name] = version;
-		}
-	}
-
-	// Process registry dependencies
-	if (registry.registryDependencies) {
-		for (const dependency of Object.values(registry.registryDependencies)) {
-			const mod = (await import(`./shadcn/${dependency}.json`)) as {
-				name: string;
-				dependencies?: Record<string, string>;
-				devDependencies?: Record<string, string>;
-				files?: { content: string }[];
-			};
-
-			// Load required shadcn/ui component
-			const componentContent = mod.files?.[0]?.content ?? "";
-			files[`/components/ui/${mod.name}.tsx`] = parseContent(componentContent);
-
-			// Load required dependencies from shadcn/ui component
-			if (mod.dependencies) {
-				for (const dep of Object.values(mod.dependencies)) {
-					const { name, version } = parseDependencyVersion(dep);
-
-					//@ts-expect-error
-					dependencies[name] = version;
-				}
-			}
-
-			// Load required devDependencies from shadcn/ui component
-			if (mod.devDependencies) {
-				for (const dep of Object.values(mod.devDependencies)) {
-					const { name, version } = parseDependencyVersion(dep);
-
-					//@ts-expect-error
-					devDependencies[name] = version;
-				}
-			}
-
-			// await parseShadcnComponents(componentContent);
-		}
-	}
 
 	// Scan the demo code for any imports of shadcn/ui components
 	// await parseShadcnComponents(code);
@@ -177,7 +107,7 @@ export const Preview = async ({ name, code, dependencies: demoDependencies }: Pr
 			// options={{ bundlerURL: 'https://sandpack-bundler.codesandbox.io' }}
 			options={{
 				externalResources: [
-					"https://cdn.tailwindcss.com",
+					// "https://cdn.tailwindcss.com",
 					"https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
 				],
 			}}

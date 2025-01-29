@@ -6,8 +6,7 @@
     "author": "Hayden Bleasel <hello@haydenbleasel.com>",
     "registryDependencies": [],
     "dependencies": [
-      "@codesandbox/sandpack-react",
-      "lucide-react"
+      "@codesandbox/sandpack-react"
     ],
     "devDependencies": [],
     "files": [
