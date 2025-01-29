@@ -6,6 +6,15 @@ const withMDX = createMDX({
 
 /** @type {import('next').NextConfig} */
 const config = {
+	images: {
+		formats: ['image/avif', 'image/webp'],
+		remotePatterns: [
+		  {
+			hostname: 'img.logo.dev',
+			protocol: 'https',
+		  },
+		],
+	  },
 	reactStrictMode: true,
 	async redirects() {
 		return [

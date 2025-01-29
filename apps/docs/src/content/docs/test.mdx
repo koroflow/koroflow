@@ -1,0 +1,27 @@
+---
+title: Test
+description: Koroflow transforms privacy consent from a compliance checkbox into a fully observable system. Built for modern development teams, it unifies analytics, consent tracking, and privacy controls into a single performant solution - no more slow cookie banners or blind spots in user privacy choices.
+---
+
+{/* <PoweredBy packages={[
+  { name: 'Sandpack', url: 'https://sandpack.codesandbox.io/' },
+]} /> */}
+
+<Preview name="sandbox" code={`'use client';
+import CookieBanner from "@koroflow/elements/cookie-banner";
+import { ConsentManagerProvider } from "@koroflow/elements/headless";
+import "@koroflow/elements/globals.css";
+import { ConsentManagerDialog } from "@koroflow/elements/consent-manager";
+
+
+function App() {
+  return (
+    <ConsentManagerProvider initialGdprTypes={["necessary", "marketing"]}>
+		<CookieBanner />
+		<ConsentManagerDialog />
+		Your App here
+	</ConsentManagerProvider>
+  )
+}
+
+export default App;`} />
