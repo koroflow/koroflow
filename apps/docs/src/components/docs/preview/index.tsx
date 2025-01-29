@@ -108,6 +108,7 @@ export const Preview = async ({ name, code, dependencies: demoDependencies }: Pr
 		for (const dep of Object.values(registry.dependencies)) {
 			const { name, version } = parseDependencyVersion(dep);
 
+			//@ts-expect-error
 			dependencies[name] = version;
 		}
 	}
@@ -117,6 +118,7 @@ export const Preview = async ({ name, code, dependencies: demoDependencies }: Pr
 		for (const dep of Object.values(registry.devDependencies)) {
 			const { name, version } = parseDependencyVersion(dep);
 
+			//@ts-expect-error
 			devDependencies[name] = version;
 		}
 	}
@@ -140,6 +142,7 @@ export const Preview = async ({ name, code, dependencies: demoDependencies }: Pr
 				for (const dep of Object.values(mod.dependencies)) {
 					const { name, version } = parseDependencyVersion(dep);
 
+					//@ts-expect-error
 					dependencies[name] = version;
 				}
 			}
@@ -149,6 +152,7 @@ export const Preview = async ({ name, code, dependencies: demoDependencies }: Pr
 				for (const dep of Object.values(mod.devDependencies)) {
 					const { name, version } = parseDependencyVersion(dep);
 
+					//@ts-expect-error
 					devDependencies[name] = version;
 				}
 			}
