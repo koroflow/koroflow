@@ -12,21 +12,10 @@ import { Box } from "../primitives/box";
 
 import { type FC, useState } from "react";
 import { ConsentManagerWidgetRoot, type ConsentManagerWidgetRootProps } from "./atoms/root";
-import {
-	ConsentManagerWidgetAcceptAllButton,
-	ConsentManagerWidgetAccordion,
-	ConsentManagerWidgetAccordionArrow,
-	ConsentManagerWidgetAccordionContent,
-	ConsentManagerWidgetAccordionItem,
-	ConsentManagerWidgetAccordionItems,
-	ConsentManagerWidgetAccordionSubGroup,
-	ConsentManagerWidgetAccordionTrigger,
-	ConsentManagerWidgetFooter,
-	ConsentManagerWidgetFooterSubGroup,
-	ConsentManagerWidgetRejectButton,
-	ConsentManagerWidgetSaveButton,
-	ConsentManagerWidgetSwitch,
-} from "./components";
+import { ConsentManagerWidgetAccordion, ConsentManagerWidgetAccordionArrow, ConsentManagerWidgetAccordionContent, ConsentManagerWidgetAccordionItems, ConsentManagerWidgetAccordionTrigger, ConsentManagerWidgetSwitch } from "./atoms/accordion";
+import { ConsentManagerWidgetAcceptAllButton, ConsentManagerWidgetSaveButton } from "./atoms/button";
+import { ConsentManagerWidgetFooter, ConsentManagerWidgetFooterSubGroup, ConsentManagerWidgetRejectButton } from "./atoms/footer";
+
 
 /**
  * Props for the ConsentManagerWidget component
@@ -133,32 +122,7 @@ SingaltonConsentManagerWidget.displayName = "ConsentManagerWidget";
  * @public
  */
 export interface ConsentManagerWidgetComponent extends FC<ConsentManagerWidgetProps> {
-	/** Root container component */
-	AccordionItems: typeof ConsentManagerWidgetAccordionItems;
-	/** Button to accept all consent options */
-	AcceptAllButton: typeof ConsentManagerWidgetAcceptAllButton;
-	/** Accordion container for consent options */
-	Accordion: typeof ConsentManagerWidgetAccordion;
-	/** Visual indicator for expandable sections */
-	AccordionArrow: typeof ConsentManagerWidgetAccordionArrow;
-	/** Container for accordion item content */
-	AccordionContent: typeof ConsentManagerWidgetAccordionContent;
-	/** Individual accordion item */
-	AccordionItem: typeof ConsentManagerWidgetAccordionItem;
-	/** Groups related accordion items */
-	AccordionSubGroup: typeof ConsentManagerWidgetAccordionSubGroup;
-	/** Trigger for expanding/collapsing accordion items */
-	AccordionTrigger: typeof ConsentManagerWidgetAccordionTrigger;
-	/** Footer container */
-	Footer: typeof ConsentManagerWidgetFooter;
-	/** Groups related footer elements */
-	FooterSubGroup: typeof ConsentManagerWidgetFooterSubGroup;
-	/** Button to reject optional consents */
-	RejectButton: typeof ConsentManagerWidgetRejectButton;
-	/** Button to save current selections */
-	SaveButton: typeof ConsentManagerWidgetSaveButton;
-	/** Toggle switch for individual consents */
-	Switch: typeof ConsentManagerWidgetSwitch;
+
 }
 
 /**
@@ -171,18 +135,6 @@ export interface ConsentManagerWidgetComponent extends FC<ConsentManagerWidgetPr
 const ConsentManagerWidget = SingaltonConsentManagerWidget as ConsentManagerWidgetComponent;
 
 // Attach all sub-components
-ConsentManagerWidget.AccordionItems = ConsentManagerWidgetAccordionItems;
-ConsentManagerWidget.AcceptAllButton = ConsentManagerWidgetAcceptAllButton;
-ConsentManagerWidget.Accordion = ConsentManagerWidgetAccordion;
-ConsentManagerWidget.AccordionArrow = ConsentManagerWidgetAccordionArrow;
-ConsentManagerWidget.AccordionContent = ConsentManagerWidgetAccordionContent;
-ConsentManagerWidget.AccordionItem = ConsentManagerWidgetAccordionItem;
-ConsentManagerWidget.AccordionSubGroup = ConsentManagerWidgetAccordionSubGroup;
-ConsentManagerWidget.AccordionTrigger = ConsentManagerWidgetAccordionTrigger;
-ConsentManagerWidget.Footer = ConsentManagerWidgetFooter;
-ConsentManagerWidget.FooterSubGroup = ConsentManagerWidgetFooterSubGroup;
-ConsentManagerWidget.RejectButton = ConsentManagerWidgetRejectButton;
-ConsentManagerWidget.SaveButton = ConsentManagerWidgetSaveButton;
-ConsentManagerWidget.Switch = ConsentManagerWidgetSwitch;
+
 
 export default ConsentManagerWidget;
