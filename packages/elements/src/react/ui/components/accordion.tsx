@@ -2,8 +2,6 @@
 
 import "./accordion.css";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { Minus, Plus } from "lucide-react";
-
 import {
 	type ComponentPropsWithoutRef,
 	type ComponentRef,
@@ -12,14 +10,9 @@ import {
 	forwardRef,
 } from "react";
 import { Box } from "../../primitives/box";
-import {
-	type AllThemeKeys,
-	type ClassNameStyle,
-	type ExtendThemeKeys,
-	type ThemeValue,
-	useStyles,
-} from "../../theme";
+import { type AllThemeKeys, type ExtendThemeKeys, type ThemeValue, useStyles } from "../../theme";
 import type { PolymorphicComponentProps } from "../libs/polymorphic";
+import { LucideIcon } from "./icon";
 
 const ACCORDION_ROOT_NAME = "AccordionRoot";
 const ACCORDION_ITEM_NAME = "AccordionItem";
@@ -122,8 +115,14 @@ type AccordionArrowProps = HTMLAttributes<HTMLDivElement> & {
 
 // open/close
 function AccordionArrow({
-	openIcon = { Element: Plus, themeKey: "accordion.arrow.open" },
-	closeIcon = { Element: Minus, themeKey: "accordion.arrow.close" },
+	openIcon = {
+		Element: LucideIcon({ title: "Open", iconPath: <path d="M5 12h14M12 5v14" /> }),
+		themeKey: "accordion.arrow.open",
+	},
+	closeIcon = {
+		Element: LucideIcon({ title: "Close", iconPath: <path d="M5 12h14" /> }),
+		themeKey: "accordion.arrow.close",
+	},
 	...rest
 }: AccordionArrowProps) {
 	const accordionArrowOpenStyle = useStyles(openIcon.themeKey, {

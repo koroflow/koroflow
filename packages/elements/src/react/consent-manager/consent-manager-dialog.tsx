@@ -7,7 +7,7 @@
  */
 
 import { AnimatePresence, motion } from "motion/react";
-import { type FC, useCallback, useEffect, useRef, useState } from "react";
+import { type FC, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useConsentManager } from "../headless";
 import { ThemeContext, type ThemeContextValue } from "../theme";

@@ -4,7 +4,7 @@
  */
 
 import { AnimatePresence, motion } from "motion/react";
-import { type FC, type HTMLAttributes, forwardRef } from "react";
+import { type HTMLAttributes, forwardRef } from "react";
 
 import { useConsentManager } from "../../headless";
 import { useStyles, useThemeContext } from "../../theme";
