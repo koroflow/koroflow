@@ -12,7 +12,7 @@ import {
 	forwardRef,
 	useCallback,
 } from "react";
-import { type AllConsentNames, useConsentManager } from "../headless";
+import { type AllConsentNames, useConsentManager } from "../common";
 import { Box, type BoxProps } from "../primitives/box";
 import { ConsentButton } from "../primitives/button";
 import type { ConsentButtonProps } from "../primitives/button.types";
@@ -20,8 +20,9 @@ import type { ThemeContextValue } from "../theme";
 import { Item as AccordionItem } from "../ui/components/accordion";
 import * as Accordion from "../ui/components/accordion";
 import * as Switch from "../ui/components/switch";
-import type { ConsentManagerWidgetRoot } from "./atoms/root";
-import type { ConsentManagerWidgetTheme } from "./theme";
+
+import type { ConsentManagerWidgetRoot } from "../consent-manager-widget/atoms/root";
+import type { ConsentManagerDialogTheme } from "./theme";
 
 /**
  * Accordion sub-group component for organizing consent options.
@@ -255,7 +256,7 @@ const ConsentManagerWidgetSaveButton = forwardRef<HTMLButtonElement, ConsentButt
  * @public
  */
 export interface ConsentManagerWidgetComponent
-	extends FC<ThemeContextValue<ConsentManagerWidgetTheme>> {
+	extends FC<ThemeContextValue<ConsentManagerDialogTheme>> {
 	/** Root container component */
 	Root: typeof ConsentManagerWidgetRoot;
 	/** Accordion item for individual consent options */

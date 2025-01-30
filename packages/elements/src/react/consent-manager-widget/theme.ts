@@ -25,12 +25,4 @@ export interface ConsentManagerWidgetTheme {
 	"consent-manager-widget.switch": ThemeValue;
 	"consent-manager-widget.switch.track": ThemeValue;
 	"consent-manager-widget.switch.thumb": ThemeValue;
-	"consent-manager-widget.dialog": ThemeValue;
-	"consent-manager-widget.dialog.root": ThemeValue;
-	"consent-manager-widget.dialog.header": ThemeValue;
-	"consent-manager-widget.dialog.title": ThemeValue;
-	"consent-manager-widget.dialog.description": ThemeValue;
-	"consent-manager-widget.dialog.content": ThemeValue;
-	"consent-manager-widget.dialog.footer": ThemeValue;
-	"consent-manager.overlay": ThemeValue;
 }

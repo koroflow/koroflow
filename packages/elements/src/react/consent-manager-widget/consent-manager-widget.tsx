@@ -27,7 +27,6 @@ import {
 	ConsentManagerWidgetSaveButton,
 	ConsentManagerWidgetSwitch,
 } from "./components";
-import type { ConsentManagerWidgetTheme } from "./theme";
 
 /**
  * Props for the ConsentManagerWidget component

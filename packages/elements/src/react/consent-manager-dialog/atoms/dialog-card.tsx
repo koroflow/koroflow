@@ -7,9 +7,9 @@
  */
 
 import { type Ref, forwardRef } from "react";
+import { ConsentManagerWidget } from "~/react/consent-manager-widget";
 import { Box, type BoxProps } from "../../primitives/box";
 import type { ClassNameStyle } from "../../theme";
-import ConsentManagerWidget from "../consent-manager-widget";
 
 /**
  * Props for the DialogCard and related components
@@ -42,7 +42,7 @@ const DialogCard = forwardRef<HTMLDivElement, DialogCardProps>(({ children, ...p
 			ref={ref as Ref<HTMLDivElement>}
 			baseClassName="card consent-manager-dialog-card"
 			{...props}
-			themeKey="consent-manager-widget.dialog.root"
+			themeKey="consent-manager-dialog.root"
 		>
 			{children}
 		</Box>
@@ -65,7 +65,7 @@ const DialogHeader = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
 				ref={ref as Ref<HTMLDivElement>}
 				baseClassName="card-header consent-manager-dialog-card"
 				{...props}
-				themeKey="consent-manager-widget.dialog.header"
+				themeKey="consent-manager-dialog.header"
 			>
 				{children}
 			</Box>
@@ -88,7 +88,7 @@ const DialogHeaderTitle = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>
 			<Box
 				ref={ref as Ref<HTMLDivElement>}
 				baseClassName="card-title"
-				themeKey="consent-manager-widget.dialog.title"
+				themeKey="consent-manager-dialog.title"
 				{...props}
 			>
 				{children}
@@ -112,7 +112,7 @@ const DialogHeaderDescription = forwardRef<HTMLDivElement, Omit<BoxProps, "theme
 			<Box
 				ref={ref as Ref<HTMLDivElement>}
 				baseClassName="card-description"
-				themeKey="consent-manager-widget.dialog.description"
+				themeKey="consent-manager-dialog.description"
 				{...props}
 			>
 				{children}
@@ -136,7 +136,7 @@ const DialogContent = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
 			<Box
 				ref={ref as Ref<HTMLDivElement>}
 				baseClassName="card-content"
-				themeKey="consent-manager-widget.dialog.content"
+				themeKey="consent-manager-dialog.content"
 				{...props}
 			>
 				{children}
@@ -159,7 +159,7 @@ const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(({ .
 		<Box
 			ref={ref as Ref<HTMLDivElement>}
 			baseClassName="card-footer"
-			themeKey="consent-manager-widget.dialog.footer"
+			themeKey="consent-manager-dialog.footer"
 			{...props}
 		>
 			<a className="consent-manager-widget-branding-link" href="https://koroflow.com">

@@ -7,7 +7,7 @@
  */
 
 import type { FC, ReactNode } from "react";
-import { useConsentManager } from "../../headless";
+import { useConsentManager } from "../../common";
 import { Box } from "../../primitives/box";
 import { ThemeContext, type ThemeContextValue } from "../../theme";
 import type { ConsentManagerWidgetTheme } from "../theme";

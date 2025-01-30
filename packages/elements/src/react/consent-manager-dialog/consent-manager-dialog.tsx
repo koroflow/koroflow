@@ -9,11 +9,11 @@
 import { AnimatePresence, motion } from "motion/react";
 import { type FC, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { useConsentManager } from "../headless";
+import { useConsentManager } from "../common";
 import { ThemeContext, type ThemeContextValue } from "../theme";
 import { ConsentCustomizationCard } from "./atoms/dialog-card";
 import { Overlay } from "./atoms/overlay";
-import type { ConsentManagerWidgetTheme } from "./theme";
+import type { ConsentManagerDialogTheme } from "./theme";
 
 import "./consent-manager-dialog.css";
 import "../ui/components/card.css";
@@ -53,7 +53,7 @@ const contentVariants = {
  * Extends ThemeContextValue to provide comprehensive theming support
  * while maintaining type safety for consent management specific features.
  */
-interface ConsentManagerDialogProps extends ThemeContextValue<ConsentManagerWidgetTheme> {
+interface ConsentManagerDialogProps extends ThemeContextValue<ConsentManagerDialogTheme> {
 	/** Disables animation when true */
 	disableAnimation?: boolean;
 	/** Removes default styling when true */
@@ -82,7 +82,7 @@ interface ConsentManagerDialogProps extends ThemeContextValue<ConsentManagerWidg
  *
  * @public
  */
-export const ConsentManagerDialog: FC<ConsentManagerDialogProps> = ({
+const ConsentManagerDialog: FC<ConsentManagerDialogProps> = ({
 	theme,
 	disableAnimation,
 	noStyle,
@@ -143,3 +143,5 @@ export const ConsentManagerDialog: FC<ConsentManagerDialogProps> = ({
 	// Only render on client-side to prevent hydration issues
 	return isMounted && createPortal(dialogContent, document.body);
 };
+
+export default ConsentManagerDialog;

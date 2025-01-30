@@ -4,7 +4,8 @@
  * Implements nested key type generation and value retrieval for theming system.
  */
 
-import type { ConsentManagerWidgetTheme } from "../consent-manager/theme";
+import type { ConsentManagerDialogTheme } from "../consent-manager-dialog/theme";
+import type { ConsentManagerWidgetTheme } from "../consent-manager-widget/theme";
 import type { CookieBannerTheme } from "../cookie-banner";
 
 /**
@@ -51,6 +52,7 @@ export type NestedKeys<T> = {
  */
 export type StyleKeys =
 	| `consentManager.${keyof ConsentManagerWidgetTheme}`
+	| `consentManagerDialog.${keyof ConsentManagerDialogTheme}`
 	| `cookieBanner.${keyof CookieBannerTheme}`;
 
 /**

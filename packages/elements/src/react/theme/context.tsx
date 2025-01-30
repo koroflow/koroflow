@@ -7,7 +7,7 @@
  */
 
 import { createContext, useContext } from "react";
-import type { useConsentManager } from "../headless/store/consent-manager";
+import type { useConsentManager } from "../common/store/consent-manager";
 
 /**
  * Configuration value type for the ThemeContext.
