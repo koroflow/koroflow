@@ -4,7 +4,7 @@ import { defineConfig } from "@rslib/core";
 export default defineConfig({
 	source: {
 		entry: {
-			index: ["./src/react/**", "./src/index.ts"],
+			index: ["./src/**"],
 		},
 	},
 	lib: [
