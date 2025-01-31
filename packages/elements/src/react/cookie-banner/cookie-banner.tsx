@@ -9,13 +9,19 @@
 import type { FC, ReactNode } from "react";
 
 import { ErrorBoundary } from "./error-boundary";
-import type { CookieBannerTheme } from "./types";
+import type { CookieBannerTheme } from "./theme";
 import "./cookie-banner.css";
-
 
 import { ConsentButton } from "../primitives/button";
 import { CookieBannerRoot } from "./atoms/root";
-import { CookieBannerCard, CookieBannerHeader, CookieBannerTitle, CookieBannerDescription, CookieBannerFooter, CookieBannerFooterSubGroup } from "./components";
+import {
+	CookieBannerCard,
+	CookieBannerDescription,
+	CookieBannerFooter,
+	CookieBannerFooterSubGroup,
+	CookieBannerHeader,
+	CookieBannerTitle,
+} from "./components";
 
 /**
  * Props for configuring and customizing the CookieBanner component.
@@ -189,4 +195,3 @@ export const CookieBanner: FC<CookieBannerProps> = ({
  *
  * @public
  */
-

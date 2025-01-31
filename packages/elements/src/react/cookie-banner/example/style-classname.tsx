@@ -1,7 +1,7 @@
 import type { FC } from "react";
 
 import { CookieBanner } from "../cookie-banner";
-import type { CookieBannerTheme } from "../types";
+import type { CookieBannerTheme } from "../theme";
 
 /**
  * A CookieBanner component with string-based custom styles.

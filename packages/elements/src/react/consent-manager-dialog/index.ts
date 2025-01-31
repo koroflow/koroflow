@@ -16,3 +16,5 @@ export {
 } from "./atoms/dialog-card";
 
 export { Overlay, ConsentManagerDialogOverlay } from "./atoms/overlay";
+
+export type { ConsentManagerDialogTheme } from "./theme";

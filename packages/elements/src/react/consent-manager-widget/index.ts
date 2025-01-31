@@ -38,3 +38,5 @@ export {
 	ConsentManagerWidgetCustomizeButton,
 	ConsentManagerWidgetSaveButton,
 } from "./atoms/button";
+
+export type { ConsentManagerWidgetTheme } from "./theme";

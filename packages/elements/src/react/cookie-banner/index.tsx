@@ -1,4 +1,25 @@
-// import  { CookieBanner, type CookieBannerComponent, type CookieBannerProps } from "./cookie-banner";
+import { CookieBannerOverlay, Overlay } from "./atoms/overlay";
+import { CookieBannerRoot, Root } from "./atoms/root";
+import {
+	AcceptButton,
+	Card,
+	CookieBannerAcceptButton,
+	CookieBannerCard,
+	CookieBannerCustomizeButton,
+	CookieBannerDescription,
+	CookieBannerFooter,
+	CookieBannerFooterSubGroup,
+	CookieBannerHeader,
+	CookieBannerRejectButton,
+	CookieBannerTitle,
+	CustomizeButton,
+	Description,
+	Footer,
+	FooterSubGroup,
+	Header,
+	RejectButton,
+	Title,
+} from "./components";
 
 /**
  * Enhanced CookieBanner component with compound components attached.
@@ -46,26 +67,29 @@
  *   );
  * }
  */
+
 export {
 	CookieBannerTitle,
+	CookieBannerAcceptButton,
+	CookieBannerCard,
+	CookieBannerCustomizeButton,
 	CookieBannerDescription,
 	CookieBannerFooter,
 	CookieBannerFooterSubGroup,
-	CookieBannerCard,
 	CookieBannerHeader,
+	CookieBannerOverlay,
 	CookieBannerRejectButton,
-	CookieBannerCustomizeButton,
-	CookieBannerAcceptButton,
-	Title,
+	CookieBannerRoot,
+	AcceptButton,
+	Card,
+	CustomizeButton,
 	Description,
 	Footer,
 	FooterSubGroup,
-	Card,
 	Header,
+	Overlay,
 	RejectButton,
-	CustomizeButton,
-	AcceptButton,
-} from "./components";
-export { Overlay, CookieBannerOverlay } from "./atoms/overlay";
-export { Root, CookieBannerRoot } from "./atoms/root";
-export type { CookieBannerTheme } from "./types";
+	Root,
+	Title,
+};
+export type { CookieBannerTheme } from "./theme";

@@ -15,7 +15,7 @@ import { ThemeContext, useStyles } from "../../theme";
 import { Overlay } from "./overlay";
 
 import { useConsentManager } from "../../common";
-import type { CookieBannerTheme } from "../types";
+import type { CookieBannerTheme } from "../theme";
 
 /**
  * Props for the root component of the CookieBanner.
