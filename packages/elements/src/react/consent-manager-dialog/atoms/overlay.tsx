@@ -6,7 +6,7 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import type { FC } from "react";
-import { useConsentManager } from "../../headless";
+import { useConsentManager } from "../../common";
 import { type ThemeValue, useStyles, useThemeContext } from "../../theme";
 
 /**
@@ -64,10 +64,10 @@ interface OverlayProps {
  *
  * @public
  */
-export const Overlay: FC<OverlayProps> = ({ noStyle }) => {
+const ConsentManagerDialogOverlay: FC<OverlayProps> = ({ noStyle }) => {
 	const { isPrivacyDialogOpen } = useConsentManager();
 	const { disableAnimation } = useThemeContext();
-	const theme = useStyles("consent-manager.overlay", {
+	const theme = useStyles("consent-manager-dialog.overlay", {
 		baseClassName: "consent-manager-overlay",
 		noStyle,
 	});
@@ -87,3 +87,7 @@ export const Overlay: FC<OverlayProps> = ({ noStyle }) => {
 		)
 	) : null;
 };
+
+const Overlay = ConsentManagerDialogOverlay;
+
+export { Overlay, ConsentManagerDialogOverlay };

@@ -14,8 +14,8 @@ import { createPortal } from "react-dom";
 import { ThemeContext, useStyles } from "../../theme";
 import { Overlay } from "./overlay";
 
-import { useConsentManager } from "../../headless";
-import type { CookieBannerTheme } from "../types";
+import { useConsentManager } from "../../common";
+import type { CookieBannerTheme } from "../theme";
 
 /**
  * Props for the root component of the CookieBanner.
@@ -94,7 +94,7 @@ interface CookieBannerRootProps extends HTMLAttributes<HTMLDivElement> {
  *
  * @public
  */
-export const CookieBannerRoot: FC<CookieBannerRootProps> = ({
+const CookieBannerRoot: FC<CookieBannerRootProps> = ({
 	children,
 	className,
 	noStyle,
@@ -195,7 +195,7 @@ interface CookieBannerRootChildrenProps extends HTMLAttributes<HTMLDivElement> {
  *
  * @public
  */
-export const CookieBannerRootChildren = forwardRef<HTMLDivElement, CookieBannerRootChildrenProps>(
+const CookieBannerRootChildren = forwardRef<HTMLDivElement, CookieBannerRootChildrenProps>(
 	(
 		{
 			asChild,
@@ -269,3 +269,7 @@ export const CookieBannerRootChildren = forwardRef<HTMLDivElement, CookieBannerR
 );
 
 CookieBannerRootChildren.displayName = "CookieBannerRootChildren";
+
+const Root = CookieBannerRoot;
+
+export { Root, CookieBannerRoot };

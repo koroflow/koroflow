@@ -1,6 +1,6 @@
 "use client";
 
-import { ConsentManagerProvider, useConsentManager } from "@koroflow/elements/headless";
+import { ConsentManagerProvider, useConsentManager } from "@koroflow/elements";
 import { Cookie, Lock, RefreshCw } from "lucide-react";
 import { useCallback } from "react";
 import { Button } from "../components/button";

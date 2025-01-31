@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import { type AllConsentNames, useConsentManager } from "@koroflow/elements/headless";
+import { type AllConsentNames, useConsentManager } from "@koroflow/elements";
 import { ChevronDown } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem } from "../accordion";
 import { Button } from "../button";

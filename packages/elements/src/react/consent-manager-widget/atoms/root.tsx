@@ -7,7 +7,7 @@
  */
 
 import type { FC, ReactNode } from "react";
-import { useConsentManager } from "../../headless";
+import { useConsentManager } from "../../common";
 import { Box } from "../../primitives/box";
 import { ThemeContext, type ThemeContextValue } from "../../theme";
 import type { ConsentManagerWidgetTheme } from "../theme";
@@ -79,7 +79,7 @@ export interface ConsentManagerWidgetRootProps
  *
  * @public
  */
-export const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
+const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
 	children,
 	noStyle = false,
 	disableAnimation = false,
@@ -113,3 +113,7 @@ export const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
 
 	return content;
 };
+
+const Root = ConsentManagerWidgetRoot;
+
+export { Root, ConsentManagerWidgetRoot };

@@ -6,7 +6,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { type HTMLAttributes, forwardRef } from "react";
 
-import { useConsentManager } from "../../headless";
+import { useConsentManager } from "../../common";
 import { useStyles, useThemeContext } from "../../theme";
 
 /**
@@ -47,7 +47,7 @@ interface OverlayProps extends HTMLAttributes<HTMLDivElement> {
  *
  * @public
  */
-export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
+const CookieBannerOverlay = forwardRef<HTMLDivElement, OverlayProps>(
 	({ className, style, noStyle, asChild, ...props }, ref) => {
 		const { showPopup } = useConsentManager();
 		const { disableAnimation, noStyle: contextNoStyle } = useThemeContext();
@@ -73,3 +73,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
 		) : null;
 	},
 );
+
+const Overlay = CookieBannerOverlay;
+
+export { Overlay, CookieBannerOverlay };
