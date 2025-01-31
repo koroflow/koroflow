@@ -12,23 +12,14 @@ import { ErrorBoundary } from "./error-boundary";
 import type { CookieBannerTheme } from "./types";
 import "./cookie-banner.css";
 
-import {
-	CookieBannerAcceptButton,
-	CookieBannerCard,
-	CookieBannerCustomizeButton,
-	CookieBannerDescription,
-	CookieBannerFooter,
-	CookieBannerFooterSubGroup,
-	CookieBannerHeader,
-	CookieBannerRejectButton,
-	CookieBannerTitle,
-} from ".";
+
 import { ConsentButton } from "../primitives/button";
 import { CookieBannerRoot } from "./atoms/root";
+import { CookieBannerCard, CookieBannerHeader, CookieBannerTitle, CookieBannerDescription, CookieBannerFooter, CookieBannerFooterSubGroup } from "./components";
 
 /**
  * Props for configuring and customizing the CookieBanner component.
- *
+ *f
  * @remarks
  * Provides comprehensive customization options for the cookie banner's appearance
  * and behavior while maintaining compliance with privacy regulations.
@@ -139,7 +130,7 @@ export interface CookieBannerProps {
  *
  * @public
  */
-const SingaltonCookieBanner: FC<CookieBannerProps> = ({
+export const CookieBanner: FC<CookieBannerProps> = ({
 	theme,
 	noStyle,
 	title = "We value your privacy",
@@ -198,41 +189,4 @@ const SingaltonCookieBanner: FC<CookieBannerProps> = ({
  *
  * @public
  */
-export interface CookieBannerComponent extends FC<CookieBannerProps> {
-	/** Root container component */
-	Root: typeof CookieBannerRoot;
-	/** Content wrapper component */
-	Header: typeof CookieBannerHeader;
-	/** Title component */
-	Title: typeof CookieBannerTitle;
-	/** Description component */
-	Description: typeof CookieBannerDescription;
-	/** Actions container component */
-	Footer: typeof CookieBannerFooter;
-	/** Reject button component */
-	RejectButton: typeof CookieBannerRejectButton;
-	/** Accept button component */
-	AcceptButton: typeof CookieBannerAcceptButton;
-	/** Customize button component */
-	CustomizeButton: typeof CookieBannerCustomizeButton;
-	/** Card component */
-	Card: typeof CookieBannerCard;
-	/** Actions sub group component */
-	FooterSubGroup: typeof CookieBannerFooterSubGroup;
-}
 
-const CookieBanner = SingaltonCookieBanner as CookieBannerComponent;
-
-// Attach all sub-components
-CookieBanner.Root = CookieBannerRoot;
-CookieBanner.Header = CookieBannerHeader;
-CookieBanner.Title = CookieBannerTitle;
-CookieBanner.Description = CookieBannerDescription;
-CookieBanner.Footer = CookieBannerFooter;
-CookieBanner.RejectButton = CookieBannerRejectButton;
-CookieBanner.AcceptButton = CookieBannerAcceptButton;
-CookieBanner.CustomizeButton = CookieBannerCustomizeButton;
-CookieBanner.FooterSubGroup = CookieBannerFooterSubGroup;
-CookieBanner.Card = CookieBannerCard;
-
-export default CookieBanner;

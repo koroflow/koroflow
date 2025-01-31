@@ -64,7 +64,7 @@ interface OverlayProps {
  *
  * @public
  */
-export const Overlay: FC<OverlayProps> = ({ noStyle }) => {
+const ConsentManagerDialogOverlay: FC<OverlayProps> = ({ noStyle }) => {
 	const { isPrivacyDialogOpen } = useConsentManager();
 	const { disableAnimation } = useThemeContext();
 	const theme = useStyles("consent-manager-dialog.overlay", {
@@ -87,3 +87,7 @@ export const Overlay: FC<OverlayProps> = ({ noStyle }) => {
 		)
 	) : null;
 };
+
+const Overlay = ConsentManagerDialogOverlay;
+
+export { Overlay, ConsentManagerDialogOverlay };

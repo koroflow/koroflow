@@ -1,5 +1,5 @@
-import { forwardRef, type Ref } from "react";
-import { type BoxProps, Box } from "~/react/primitives/box";
+import { type Ref, forwardRef } from "react";
+import { Box, type BoxProps } from "~/react/primitives/box";
 import { ConsentButton } from "~/react/primitives/button";
 import type { ConsentButtonProps } from "~/react/primitives/button.types";
 
@@ -47,8 +47,8 @@ export const ConsentManagerWidgetFooterSubGroup = forwardRef<HTMLDivElement, Box
  * @remarks
  * - Sets all optional consents to false
  * - Maintains required consents
-    * - Closes dialog after action
-    */
+ * - Closes dialog after action
+ */
 export const ConsentManagerWidgetRejectButton = forwardRef<HTMLButtonElement, ConsentButtonProps>(
 	({ children, ...props }, ref) => {
 		return (

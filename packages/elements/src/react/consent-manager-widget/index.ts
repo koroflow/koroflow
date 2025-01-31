@@ -5,4 +5,36 @@
  *
  * @packageDocumentation
  */
-export { default as ConsentManagerWidget } from "./consent-manager-widget";
+
+export {
+	ConsentManagerWidgetAccordionSubGroup,
+	ConsentManagerWidgetAccordionTrigger,
+	ConsentManagerWidgetAccordionContent,
+	ConsentManagerWidgetAccordionArrow,
+	ConsentManagerWidgetAccordion,
+	ConsentManagerWidgetSwitch,
+	ConsentManagerWidgetAccordionItems,
+	ConsentManagerWidgetAccordionItem,
+	AccordionSubGroup,
+	AccordionTrigger,
+	AccordionContent,
+	AccordionArrow,
+	Accordion,
+	Switch,
+	AccordionItems,
+	AccordionItem,
+} from "./atoms/accordion";
+
+export {
+	Root,
+	ConsentManagerWidgetRoot,
+} from "./atoms/root";
+
+export {
+	AcceptAllButton,
+	CustomizeButton,
+	SaveButton,
+	ConsentManagerWidgetAcceptAllButton,
+	ConsentManagerWidgetCustomizeButton,
+	ConsentManagerWidgetSaveButton,
+} from "./atoms/button";

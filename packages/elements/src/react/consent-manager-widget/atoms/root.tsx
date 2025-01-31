@@ -79,7 +79,7 @@ export interface ConsentManagerWidgetRootProps
  *
  * @public
  */
-export const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
+const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
 	children,
 	noStyle = false,
 	disableAnimation = false,
@@ -113,3 +113,7 @@ export const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
 
 	return content;
 };
+
+const Root = ConsentManagerWidgetRoot;
+
+export { Root, ConsentManagerWidgetRoot };

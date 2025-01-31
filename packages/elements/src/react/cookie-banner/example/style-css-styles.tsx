@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import CookieBanner from "..";
+import { CookieBanner } from "../cookie-banner";
 import type { CookieBannerTheme } from "../types";
 
 /**

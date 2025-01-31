@@ -1,4 +1,4 @@
-import { forwardRef, type Ref } from "react";
+import { type Ref, forwardRef } from "react";
 import { ConsentButton } from "~/react/primitives/button";
 import type { ConsentButtonProps } from "~/react/primitives/button.types";
 
@@ -10,7 +10,7 @@ import type { ConsentButtonProps } from "~/react/primitives/button.types";
  * - Closes dialog after action
  * - Triggers necessary callbacks
  */
-export const ConsentManagerWidgetAcceptAllButton = forwardRef<HTMLButtonElement, ConsentButtonProps>(
+const ConsentManagerWidgetAcceptAllButton = forwardRef<HTMLButtonElement, ConsentButtonProps>(
 	({ children, ...props }, ref) => {
 		return (
 			<ConsentButton
@@ -28,7 +28,7 @@ export const ConsentManagerWidgetAcceptAllButton = forwardRef<HTMLButtonElement,
 	},
 );
 
-export const ConsentManagerWidgetCustomizeButton = forwardRef<HTMLButtonElement, ConsentButtonProps>(
+const ConsentManagerWidgetCustomizeButton = forwardRef<HTMLButtonElement, ConsentButtonProps>(
 	({ children, ...props }, ref) => {
 		return (
 			<ConsentButton
@@ -43,7 +43,7 @@ export const ConsentManagerWidgetCustomizeButton = forwardRef<HTMLButtonElement,
 	},
 );
 
-export const ConsentManagerWidgetSaveButton = forwardRef<HTMLButtonElement, ConsentButtonProps>(
+const ConsentManagerWidgetSaveButton = forwardRef<HTMLButtonElement, ConsentButtonProps>(
 	({ children, ...props }, ref) => {
 		return (
 			<ConsentButton
@@ -59,3 +59,16 @@ export const ConsentManagerWidgetSaveButton = forwardRef<HTMLButtonElement, Cons
 		);
 	},
 );
+
+const AcceptAllButton = ConsentManagerWidgetAcceptAllButton;
+const CustomizeButton = ConsentManagerWidgetCustomizeButton;
+const SaveButton = ConsentManagerWidgetSaveButton;
+
+export {
+	AcceptAllButton,
+	CustomizeButton,
+	SaveButton,
+	ConsentManagerWidgetAcceptAllButton,
+	ConsentManagerWidgetCustomizeButton,
+	ConsentManagerWidgetSaveButton,
+};

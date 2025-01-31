@@ -11,11 +11,24 @@ import "../ui/components/card.css";
 import { Box } from "../primitives/box";
 
 import { type FC, useState } from "react";
+import {
+	ConsentManagerWidgetAccordion,
+	ConsentManagerWidgetAccordionArrow,
+	ConsentManagerWidgetAccordionContent,
+	ConsentManagerWidgetAccordionItems,
+	ConsentManagerWidgetAccordionTrigger,
+	ConsentManagerWidgetSwitch,
+} from "./atoms/accordion";
+import {
+	ConsentManagerWidgetAcceptAllButton,
+	ConsentManagerWidgetSaveButton,
+} from "./atoms/button";
+import {
+	ConsentManagerWidgetFooter,
+	ConsentManagerWidgetFooterSubGroup,
+	ConsentManagerWidgetRejectButton,
+} from "./atoms/footer";
 import { ConsentManagerWidgetRoot, type ConsentManagerWidgetRootProps } from "./atoms/root";
-import { ConsentManagerWidgetAccordion, ConsentManagerWidgetAccordionArrow, ConsentManagerWidgetAccordionContent, ConsentManagerWidgetAccordionItems, ConsentManagerWidgetAccordionTrigger, ConsentManagerWidgetSwitch } from "./atoms/accordion";
-import { ConsentManagerWidgetAcceptAllButton, ConsentManagerWidgetSaveButton } from "./atoms/button";
-import { ConsentManagerWidgetFooter, ConsentManagerWidgetFooterSubGroup, ConsentManagerWidgetRejectButton } from "./atoms/footer";
-
 
 /**
  * Props for the ConsentManagerWidget component
@@ -70,7 +83,7 @@ interface ConsentManagerWidgetProps extends Omit<ConsentManagerWidgetRootProps, 
  * />
  * ```
  */
-const SingaltonConsentManagerWidget = ({ hideBrading, ...props }: ConsentManagerWidgetProps) => {
+export const ConsentManagerWidget = ({ hideBrading, ...props }: ConsentManagerWidgetProps) => {
 	const [openItems, setOpenItems] = useState<string[]>([]);
 
 	return (
@@ -109,32 +122,3 @@ const SingaltonConsentManagerWidget = ({ hideBrading, ...props }: ConsentManager
 		</ConsentManagerWidgetRoot>
 	);
 };
-
-SingaltonConsentManagerWidget.displayName = "ConsentManagerWidget";
-
-/**
- * Interface defining the compound components available in ConsentManagerWidget
- *
- * @remarks
- * Provides type definitions for all sub-components that can be used
- * to build custom consent management interfaces.
- *
- * @public
- */
-export interface ConsentManagerWidgetComponent extends FC<ConsentManagerWidgetProps> {
-
-}
-
-/**
- * The main ConsentManagerWidget component with all its compound components.
- *
- * @remarks
- * This is the primary export that combines the base widget with all its
- * sub-components for building custom consent management interfaces.
- */
-const ConsentManagerWidget = SingaltonConsentManagerWidget as ConsentManagerWidgetComponent;
-
-// Attach all sub-components
-
-
-export default ConsentManagerWidget;

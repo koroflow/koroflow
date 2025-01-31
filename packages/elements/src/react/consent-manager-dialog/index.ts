@@ -1,8 +1,18 @@
 "use client";
 
-/**
- * A customizable cookie consent banner component with compound components pattern.
- *
- * @packageDocumentation
- */
-export { default as ConsentManagerDialog } from "./consent-manager-dialog";
+export {
+	Card,
+	Header,
+	HeaderTitle,
+	HeaderDescription,
+	Content,
+	Footer,
+	ConsentCustomizationCard,
+	DialogFooter,
+	DialogHeader,
+	DialogHeaderTitle,
+	DialogHeaderDescription,
+	DialogContent,
+} from "./atoms/dialog-card";
+
+export { Overlay, ConsentManagerDialogOverlay } from "./atoms/overlay";

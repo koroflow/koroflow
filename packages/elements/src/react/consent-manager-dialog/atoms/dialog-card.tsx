@@ -7,7 +7,8 @@
  */
 
 import { type Ref, forwardRef } from "react";
-import { ConsentManagerWidget } from "~/react/consent-manager-widget";
+
+import { ConsentManagerWidget } from "~/index";
 import { Box, type BoxProps } from "../../primitives/box";
 import type { ClassNameStyle } from "../../theme";
 
@@ -187,7 +188,7 @@ const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(({ .
  * - Includes consent type management
  * - Built-in accessibility features
  */
-export const ConsentCustomizationCard = ({ noStyle }: { noStyle?: boolean }) => (
+const ConsentCustomizationCard = ({ noStyle }: { noStyle?: boolean }) => (
 	<DialogCard>
 		<DialogHeader>
 			<DialogHeaderTitle>Privacy Settings</DialogHeaderTitle>
@@ -206,3 +207,25 @@ export const ConsentCustomizationCard = ({ noStyle }: { noStyle?: boolean }) => 
 		</DialogFooter>
 	</DialogCard>
 );
+
+const Card = DialogCard;
+const Header = DialogHeader;
+const HeaderTitle = DialogHeaderTitle;
+const HeaderDescription = DialogHeaderDescription;
+const Content = DialogContent;
+const Footer = DialogFooter;
+
+export {
+	Card,
+	Header,
+	HeaderTitle,
+	HeaderDescription,
+	Content,
+	Footer,
+	ConsentCustomizationCard,
+	DialogFooter,
+	DialogHeader,
+	DialogHeaderTitle,
+	DialogHeaderDescription,
+	DialogContent,
+};

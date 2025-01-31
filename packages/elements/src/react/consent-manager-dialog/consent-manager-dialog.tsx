@@ -82,7 +82,7 @@ interface ConsentManagerDialogProps extends ThemeContextValue<ConsentManagerDial
  *
  * @public
  */
-const ConsentManagerDialog: FC<ConsentManagerDialogProps> = ({
+export const ConsentManagerDialog: FC<ConsentManagerDialogProps> = ({
 	theme,
 	disableAnimation,
 	noStyle,
@@ -143,5 +143,3 @@ const ConsentManagerDialog: FC<ConsentManagerDialogProps> = ({
 	// Only render on client-side to prevent hydration issues
 	return isMounted && createPortal(dialogContent, document.body);
 };
-
-export default ConsentManagerDialog;

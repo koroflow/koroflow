@@ -94,7 +94,7 @@ interface CookieBannerRootProps extends HTMLAttributes<HTMLDivElement> {
  *
  * @public
  */
-export const CookieBannerRoot: FC<CookieBannerRootProps> = ({
+const CookieBannerRoot: FC<CookieBannerRootProps> = ({
 	children,
 	className,
 	noStyle,
@@ -195,7 +195,7 @@ interface CookieBannerRootChildrenProps extends HTMLAttributes<HTMLDivElement> {
  *
  * @public
  */
-export const CookieBannerRootChildren = forwardRef<HTMLDivElement, CookieBannerRootChildrenProps>(
+const CookieBannerRootChildren = forwardRef<HTMLDivElement, CookieBannerRootChildrenProps>(
 	(
 		{
 			asChild,
@@ -269,3 +269,7 @@ export const CookieBannerRootChildren = forwardRef<HTMLDivElement, CookieBannerR
 );
 
 CookieBannerRootChildren.displayName = "CookieBannerRootChildren";
+
+const Root = CookieBannerRoot;
+
+export { Root, CookieBannerRoot };

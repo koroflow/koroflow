@@ -10,7 +10,7 @@
 		"postinstall": "fumadocs-mdx"
 	},
 	"dependencies": {
-		"@koroflow/elements": "0.0.1-beta.8",
+		"@koroflow/elements": "workspace:*",
 		"@koroflow/shadcn": "workspace:*",
 		"fumadocs-core": "14.7.7",
 		"fumadocs-mdx": "11.3.1",

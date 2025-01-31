@@ -1,10 +1,16 @@
 import type { AllConsentNames } from "@koroflow/core-js";
-import { AccordionItem } from "@radix-ui/react-accordion";
-import { forwardRef, type Ref, useCallback, type ComponentRef, type ComponentPropsWithoutRef } from "react";
+
+import {
+	type ComponentPropsWithoutRef,
+	type ComponentRef,
+	type Ref,
+	forwardRef,
+	useCallback,
+} from "react";
 import { useConsentManager } from "~/react/common";
-import { type BoxProps, Box } from "~/react/primitives/box";
-import * as Accordion from "~/react/ui/components/accordion";
-import * as Switch from "~/react/ui/components/switch";
+import { Box, type BoxProps } from "~/react/primitives/box";
+import * as RadixAccordion from "~/react/ui/components/accordion";
+import * as RadixSwitch from "~/react/ui/components/switch";
 
 /**
  * Accordion sub-group component for organizing consent options.
@@ -30,11 +36,11 @@ const ConsentManagerWidgetAccordionSubGroup = forwardRef<
 	);
 });
 
-export const ConsentManagerWidgetAccordionTrigger = Accordion.Trigger;
-export const ConsentManagerWidgetAccordionContent = Accordion.Content;
-export const ConsentManagerWidgetAccordionArrow = Accordion.Arrow;
-export const ConsentManagerWidgetAccordion = Accordion.Root;
-export const ConsentManagerWidgetSwitch = Switch.Root;
+const ConsentManagerWidgetAccordionTrigger = RadixAccordion.Trigger;
+const ConsentManagerWidgetAccordionContent = RadixAccordion.Content;
+const ConsentManagerWidgetAccordionArrow = RadixAccordion.Arrow;
+const ConsentManagerWidgetAccordion = RadixAccordion.Root;
+const ConsentManagerWidgetSwitch = RadixSwitch.Root;
 
 /**
  * Renders a list of consent options as accordion items.
@@ -53,7 +59,7 @@ export const ConsentManagerWidgetSwitch = Switch.Root;
  * </ConsentManagerWidgetAccordion>
  * ```
  */
-export const ConsentManagerWidgetAccordionItems = () => {
+const ConsentManagerWidgetAccordionItems = () => {
 	const { consents, setConsent, getDisplayedConsents } = useConsentManager();
 	const handleConsentChange = useCallback(
 		(name: AllConsentNames, checked: boolean) => {
@@ -65,7 +71,7 @@ export const ConsentManagerWidgetAccordionItems = () => {
 		<ConsentManagerWidgetAccordionItem
 			value={consent.name}
 			key={consent.name}
-			// themeKey="consent-manager-widget.accordion.item"
+			themeKey="consent-manager-widget.accordion.item"
 		>
 			<ConsentManagerWidgetAccordionTrigger themeKey="consent-manager-widget.accordion.trigger">
 				<ConsentManagerWidgetAccordionSubGroup>
@@ -99,9 +105,38 @@ export const ConsentManagerWidgetAccordionItems = () => {
 		</ConsentManagerWidgetAccordionItem>
 	));
 };
+
 const ConsentManagerWidgetAccordionItem = forwardRef<
-	ComponentRef<typeof AccordionItem>,
-	ComponentPropsWithoutRef<typeof AccordionItem>
+	ComponentRef<typeof RadixAccordion.Item>,
+	ComponentPropsWithoutRef<typeof RadixAccordion.Item>
 >(({ className, ...rest }, forwardedRef) => {
-	return <AccordionItem ref={forwardedRef} {...rest} />;
+	return <RadixAccordion.Item ref={forwardedRef} {...rest} />;
 });
+
+const AccordionSubGroup = ConsentManagerWidgetAccordionSubGroup;
+const AccordionTrigger = ConsentManagerWidgetAccordionTrigger;
+const AccordionContent = ConsentManagerWidgetAccordionContent;
+const AccordionArrow = ConsentManagerWidgetAccordionArrow;
+const Accordion = ConsentManagerWidgetAccordion;
+const Switch = ConsentManagerWidgetSwitch;
+const AccordionItems = ConsentManagerWidgetAccordionItems;
+const AccordionItem = ConsentManagerWidgetAccordionItem;
+
+export {
+	ConsentManagerWidgetAccordionSubGroup,
+	ConsentManagerWidgetAccordionTrigger,
+	ConsentManagerWidgetAccordionContent,
+	ConsentManagerWidgetAccordionArrow,
+	ConsentManagerWidgetAccordion,
+	ConsentManagerWidgetSwitch,
+	ConsentManagerWidgetAccordionItems,
+	ConsentManagerWidgetAccordionItem,
+	AccordionSubGroup,
+	AccordionTrigger,
+	AccordionContent,
+	AccordionArrow,
+	Accordion,
+	Switch,
+	AccordionItems,
+	AccordionItem,
+};
