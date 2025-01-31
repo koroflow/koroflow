@@ -37,7 +37,7 @@ import { ConsentManagerWidgetRoot, type ConsentManagerWidgetRootProps } from "./
  * Extends ThemeContextValue to provide comprehensive theming support
  * while maintaining type safety for consent management specific features.
  */
-interface ConsentManagerWidgetProps extends Omit<ConsentManagerWidgetRootProps, "children"> {
+export interface ConsentManagerWidgetProps extends Omit<ConsentManagerWidgetRootProps, "children"> {
 	/** Hides the Koroflow branding when true */
 	hideBrading?: boolean;
 }
