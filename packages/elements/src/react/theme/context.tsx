@@ -42,7 +42,7 @@ import type { useConsentManager } from "../common/store/consent-manager";
  *
  * @public
  */
-export type ThemeContextValue<Theme> = {
+export type ThemeContextValue<Theme = unknown> = {
 	/**
 	 * Theme configuration object for styling components
 	 * @remarks Partial to allow incremental theme overrides

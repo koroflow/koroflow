@@ -97,17 +97,21 @@ export const ConsentManagerDialog: FC<ConsentManagerDialogProps> = ({
 		return () => setIsMounted(false);
 	}, []);
 
+	const contextValue: ThemeContextValue = {
+		theme,
+		noStyle,
+		disableAnimation,
+	};
+
 	/**
 	 * Dialog content with theme context and animation support
 	 * @internal
 	 */
-	const dialogContent = (
+	const dialogContentRoot = (
 		<ThemeContext.Provider
 			value={{
 				...consentManager,
-				theme,
-				disableAnimation,
-				noStyle,
+				...contextValue,
 			}}
 		>
 			<AnimatePresence mode="wait">
@@ -141,5 +145,5 @@ export const ConsentManagerDialog: FC<ConsentManagerDialogProps> = ({
 	);
 
 	// Only render on client-side to prevent hydration issues
-	return isMounted && createPortal(dialogContent, document.body);
+	return isMounted && createPortal(dialogContentRoot, document.body);
 };
