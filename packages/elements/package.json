@@ -4,6 +4,7 @@
 	"type": "module",
 	"sideEffects": false,
 	"exports": {
+		"./globals.css": "./dist/globals.css",
 		"./consent-manager-dialog": {
 			"types": "./dist/react/consent-manager-dialog/index.d.ts",
 			"import": "./dist/react/consent-manager-dialog/index.js",
@@ -28,8 +29,7 @@
 			"types": "./dist/index.d.ts",
 			"import": "./dist/index.js",
 			"require": "./dist/index.cjs"
-		},
-		"./globals.css": "./dist/globals.css"
+		}
 	},
 	"files": ["dist"],
 	"publishConfig": {
