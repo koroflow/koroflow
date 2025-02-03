@@ -28,7 +28,8 @@
 	"scripts": {
 		"build": "rslib build",
 		"check-types": "tsc --noEmit",
-		"fmt": "biome check --write . && biome check .",
+		"fmt": "biome check --write ",
+		"lint": "biome check .",
 		"dev": "rslib build --watch"
 	},
 	"browserslist": [">0.2%", "not dead", "not op_mini all"],

@@ -17,7 +17,8 @@
 		"build": "rslib build",
 		"check-types": "tsc --noEmit",
 		"dev": "rslib build --watch",
-		"fmt": "biome check --write . && biome check ."
+		"fmt": "biome check --write ",
+		"lint": "biome check ."
 	},
 	"dependencies": {
 		"@radix-ui/react-slot": "^1.1.1",

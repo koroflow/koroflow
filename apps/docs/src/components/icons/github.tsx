@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { SVGProps } from 'react';
 
 interface GithubIconProps {
 	title?: string;
@@ -6,8 +6,8 @@ interface GithubIconProps {
 }
 
 export const GithubIcon = ({
-	title = "Github",
-	titleId = "github",
+	title = 'Github',
+	titleId = 'github',
 	...props
 }: SVGProps<SVGSVGElement> & GithubIconProps) => (
 	<svg

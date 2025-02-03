@@ -1,8 +1,8 @@
-export { ConsentManagerProvider } from "./store/consent-manager";
-export { useConsentManager } from "./store/use-consent-manager";
+export { ConsentManagerProvider } from './store/consent-manager';
+export { useConsentManager } from './store/use-consent-manager';
 
 // Re-export types and constants
-export { consentTypes } from "@koroflow/core-js";
+export { consentTypes } from '@koroflow/core-js';
 export type {
 	CallbackFunction,
 	Callbacks,
@@ -13,4 +13,4 @@ export type {
 	ComplianceSettings,
 	PrivacySettings,
 	HasConsentedProps,
-} from "@koroflow/core-js";
+} from '@koroflow/core-js';

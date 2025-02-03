@@ -135,7 +135,8 @@
 }
 
 .accordion-content[data-state="open"] {
-	animation: accordion-down var(--kf-accordion-duration) var(--kf-accordion-ease);
+	animation: accordion-down var(--kf-accordion-duration)
+		var(--kf-accordion-ease);
 }
 
 .accordion-content[data-state="closed"] {

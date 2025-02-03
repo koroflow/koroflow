@@ -7,5 +7,8 @@
 		"usernamehw.errorlens",
 		"Vercel.turbo-vsc"
 	],
-	"unwantedRecommendations": ["esbenp.prettier-vscode", "dbaeumer.vscode-eslint"]
+	"unwantedRecommendations": [
+		"esbenp.prettier-vscode",
+		"dbaeumer.vscode-eslint"
+	]
 }

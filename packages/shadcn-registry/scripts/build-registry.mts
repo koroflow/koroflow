@@ -809,10 +809,14 @@ export const Icons = {
 }
 
 try {
+	// biome-ignore lint/suspicious/noConsoleLog: needed for build-registry
+	// biome-ignore lint/suspicious/noConsole: needed for build-registry
 	console.log('💽 Building registry...');
 	const result = registrySchema.safeParse(registry);
 
 	if (!result.success) {
+		// biome-ignore lint/suspicious/noConsoleLog: needed for build-registry
+		// biome-ignore lint/suspicious/noConsole: needed for build-registry
 		console.error(result.error);
 		process.exit(1);
 	}
@@ -825,9 +829,12 @@ try {
 
 	await buildRegistryIcons();
 	await buildIcons();
-
+	// biome-ignore lint/suspicious/noConsoleLog: needed for build-registry
+	// biome-ignore lint/suspicious/noConsole: needed for build-registry
 	console.log('✅ Done!');
 } catch (error) {
+	// biome-ignore lint/suspicious/noConsoleLog: needed for build-registry
+	// biome-ignore lint/suspicious/noConsole: needed for build-registry
 	console.error(error);
 	process.exit(1);
 }

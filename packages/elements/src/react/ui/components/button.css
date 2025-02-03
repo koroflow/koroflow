@@ -5,7 +5,8 @@
 
 	/* Shadows */
 	--kf-shadow-button-primary-focus: 0 0 0 4px hsl(var(--kf-primary-alpha-20));
-	--kf-shadow-button-important-focus: 0 0 0 4px hsl(var(--kf-bg-strong-alpha-20));
+	--kf-shadow-button-important-focus: 0 0 0 4px
+		hsl(var(--kf-bg-strong-alpha-20));
 	--kf-shadow-button-error-focus: 0 0 0 4px hsl(var(--kf-red-alpha-20));
 	--kf-shadow-regular-xs: 0px 1px 2px 0px rgba(14, 18, 27, 0.06);
 

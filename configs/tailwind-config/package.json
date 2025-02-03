@@ -5,7 +5,8 @@
 	"scripts": {
 		"clean": "git clean -xdf .cache .turbo dist node_modules",
 		"typecheck": "tsc --noEmit --emitDeclarationOnly false",
-		"fmt": "biome check --write . && biome check ."
+		"fmt": "biome check --write ",
+		"lint": "biome check ."
 	},
 	"dependencies": {
 		"tailwind-merge": "^2.6.0",

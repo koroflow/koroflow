@@ -90,6 +90,8 @@ export const KoroflowDevTool: React.FC<ConsentManagerProviderProps> = ({
 				unsubscribe();
 			};
 		}
+		// biome-ignore lint/suspicious/noConsoleLog: needed for dev tools
+		// biome-ignore lint/suspicious/noConsole: needed for dev tools
 		console.log(`${namespace} is not available on the window object.`);
 	}, [namespace]);
 

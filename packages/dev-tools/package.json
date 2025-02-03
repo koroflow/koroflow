@@ -12,7 +12,8 @@
 		"build": "tsup",
 		"build:declarations": "tsc -p tsconfig.declarations.json",
 		"dev": "tsup --watch",
-		"fmt": "biome check --write . && biome check .",
+		"fmt": "biome check --write ",
+		"lint": "biome check .",
 		"check-types": "tsc --noEmit"
 	},
 	"browserslist": [">0.2%", "not dead", "not op_mini all"],

@@ -11,6 +11,9 @@
 			"inputs": ["$TURBO_DEFAULT$", "**/biome.jsonc"],
 			"outputs": []
 		},
+		"lint": {
+			"inputs": ["$TURBO_DEFAULT$", "**/biome.jsonc"]
+		},
 		"check-types": {
 			"dependsOn": ["^check-types"]
 		},

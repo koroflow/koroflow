@@ -43,18 +43,26 @@ export function DemoWidget() {
 
 	useEffect(() => {
 		setCallback('onBannerShown', () => {
+			// biome-ignore lint/suspicious/noConsoleLog: for demo purposes
+			// biome-ignore lint/suspicious/noConsole: for demo purposes
 			console.log('Banner displayed');
 		});
 
 		setCallback('onConsentGiven', () => {
+			// biome-ignore lint/suspicious/noConsoleLog: for demo purposes
+			// biome-ignore lint/suspicious/noConsole: for demo purposes
 			console.log('User gave consent');
 		});
 
 		setCallback('onConsentRejected', () => {
+			// biome-ignore lint/suspicious/noConsoleLog: for demo purposes
+			// biome-ignore lint/suspicious/noConsole: for demo purposes
 			console.log('User rejected consent');
 		});
 
 		setCallback('onBannerClosed', () => {
+			// biome-ignore lint/suspicious/noConsoleLog: for demo purposes
+			// biome-ignore lint/suspicious/noConsole: for demo purposes
 			console.log('Banner closed');
 		});
 	}, [setCallback]);

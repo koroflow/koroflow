@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useState } from "react";
-import { BorderIcon } from "~/components/marketing/border-icon";
+import { AnimatePresence, motion } from 'motion/react';
+import { useEffect, useState } from 'react';
+import { BorderIcon } from '~/components/marketing/border-icon';
 
 interface FeatureOption {
 	id: number;
@@ -51,7 +51,7 @@ export function ExamplesClient({ features }: ExamplesClientProps) {
 									setSelectedIndex(index);
 									setProgress(0);
 								}}
-								className={`w-[280px] flex-shrink-0 rounded border p-4 text-left sm:w-[320px] md:w-full relative${selectedIndex === index ? "bg-accent/70" : "hover:bg-muted/50"}
+								className={`w-[280px] flex-shrink-0 rounded border p-4 text-left sm:w-[320px] md:w-full relative${selectedIndex === index ? 'bg-accent/70' : 'hover:bg-muted/50'}
 								`}
 								animate={{
 									opacity: index === selectedIndex ? 1 : 0.7,
@@ -63,8 +63,8 @@ export function ExamplesClient({ features }: ExamplesClientProps) {
 									<motion.div
 										className={`flex size-6 shrink-0 items-center justify-center rounded-full sm:size-8 border-2${
 											index === selectedIndex
-												? "border-primary bg-primary text-primary-foreground"
-												: "border-muted-foreground bg-muted"
+												? 'border-primary bg-primary text-primary-foreground'
+												: 'border-muted-foreground bg-muted'
 										}
 										`}
 									>
@@ -88,9 +88,9 @@ export function ExamplesClient({ features }: ExamplesClientProps) {
 								{index === selectedIndex && (
 									<motion.div
 										className="absolute bottom-0 left-0 mx-4 h-1 bg-primary"
-										initial={{ width: "0%" }}
+										initial={{ width: '0%' }}
 										animate={{ width: `${progress}%` }}
-										transition={{ duration: 0.1, ease: "linear" }}
+										transition={{ duration: 0.1, ease: 'linear' }}
 									/>
 								)}
 
@@ -116,7 +116,7 @@ export function ExamplesClient({ features }: ExamplesClientProps) {
 									initial={{ y: 20, opacity: 0 }}
 									animate={{ y: 0, opacity: 1 }}
 									exit={{ y: -20, opacity: 0 }}
-									transition={{ duration: 0.3, ease: "easeInOut" }}
+									transition={{ duration: 0.3, ease: 'easeInOut' }}
 								>
 									{feature.code}
 
@@ -125,7 +125,7 @@ export function ExamplesClient({ features }: ExamplesClientProps) {
 									<BorderIcon className="-top-3 -right-3 absolute h-4 w-4 text-black sm:h-6 sm:w-6 dark:text-white" />
 									<BorderIcon className="-bottom-3 -right-3 absolute h-4 w-4 text-black sm:h-6 sm:w-6 dark:text-white" />
 								</motion.div>
-							),
+							)
 					)}
 				</AnimatePresence>
 			</div>

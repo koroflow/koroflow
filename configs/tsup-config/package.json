@@ -4,7 +4,8 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"fmt": "biome check --write . && biome check ."
+		"fmt": "biome check --write ",
+		"lint": "biome check ."
 	},
 	"exports": {
 		"./react": "./src/react.mjs",
