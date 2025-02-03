@@ -113,7 +113,7 @@ export function Card1() {
 							variants={variants.card1}
 							initial="base"
 							whileHover="hover"
-							className="z-[1] flex h-full w-full items-center justify-between gap-x-2 rounded-md border bg-background p-5 px-2.5"
+							className="z-1 flex h-full w-full items-center justify-between gap-x-2 rounded-md border bg-background p-5 px-2.5"
 						>
 							<div className="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center">
 								<SearchIcon className="h-5 w-5 text-white" />
@@ -126,7 +126,7 @@ export function Card1() {
 						</motion.div>
 						<motion.div
 							variants={variants.card2}
-							className="z-[2] flex h-full w-full items-center justify-between gap-x-2 rounded-md border bg-background p-5 px-2.5"
+							className="z-2 flex h-full w-full items-center justify-between gap-x-2 rounded-md border bg-background p-5 px-2.5"
 						>
 							<div className="h-8 w-8 rounded-full bg-green-500 flex items-center justify-center">
 								<DatabaseIcon className="h-5 w-5 text-white" />
@@ -140,7 +140,7 @@ export function Card1() {
 						</motion.div>
 						<motion.div
 							variants={variants.card3}
-							className="absolute bottom-0 z-[3] m-auto flex h-fit w-fit items-center justify-between gap-x-2 rounded-md border bg-background p-5 px-2.5"
+							className="absolute bottom-0 z-3 m-auto flex h-fit w-fit items-center justify-between gap-x-2 rounded-md border bg-background p-5 px-2.5"
 						>
 							<div className="h-8 w-8 rounded-full bg-purple-500 flex items-center justify-center">
 								<MessageSquareIcon className="h-5 w-5 text-white" />
@@ -253,7 +253,7 @@ const Card2 = () => {
 								}}
 							>
 								<div className="mr-3">{log.icon}</div>
-								<div className="flex-grow">
+								<div className="grow">
 									<p className="text-foreground text-xs font-medium">
 										[{log.timestamp}] {log.type.toUpperCase()}
 									</p>

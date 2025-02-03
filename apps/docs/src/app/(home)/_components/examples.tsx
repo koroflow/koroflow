@@ -46,7 +46,7 @@ import { ConsentManagerDialog } from "@koroflow/elements/consent-manager"
 import { CookieBanner } from "@koroflow/elements/cookie-banner"
 
 const modernTheme = {
-  'cookie-banner.root': 'fixed bottom-0 w-full p-4 bg-white/80 backdrop-blur',
+  'cookie-banner.root': 'fixed bottom-0 w-full p-4 bg-white/80 backdrop-blur-sm',
   'cookie-banner.card': 'max-w-2xl mx-auto rounded-lg shadow-lg',
   'cookie-banner.header.title': 'text-lg font-semibold text-gray-900',
   'cookie-banner.header.description': 'mt-2 text-sm text-gray-600',

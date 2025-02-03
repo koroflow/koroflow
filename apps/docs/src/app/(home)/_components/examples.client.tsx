@@ -52,7 +52,7 @@ export function ExamplesClient({ features }: ExamplesClientProps) {
 									setProgress(0);
 								}}
 								className={`
-									flex-shrink-0 
+									shrink-0 
 									w-[280px] sm:w-[320px] md:w-full 
 									text-left p-4 
 									rounded border relative 
@@ -118,7 +118,7 @@ export function ExamplesClient({ features }: ExamplesClientProps) {
 							index === selectedIndex && (
 								<motion.div
 									key={feature.id}
-									className="w-full [&>figure]:!bg-transparent [&>figure]:!my-0 [&_code]:break-all"
+									className="w-full [&>figure]:bg-transparent! [&>figure]:my-0! [&_code]:break-all"
 									initial={{ y: 20, opacity: 0 }}
 									animate={{ y: 0, opacity: 1 }}
 									exit={{ y: -20, opacity: 0 }}
