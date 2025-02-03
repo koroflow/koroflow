@@ -262,7 +262,7 @@ const Card2 = () => {
 							>
 								<div className="mr-3">{log.icon}</div>
 								<div className="grow">
-									<p className="text-foreground text-xs font-medium">
+									<p className="font-medium text-foreground text-xs">
 										[{log.timestamp}] {log.type.toUpperCase()}
 									</p>
 									<p className="text-muted-foreground text-xs">{log.message}</p>
