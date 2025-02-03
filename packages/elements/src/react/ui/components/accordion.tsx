@@ -1,41 +1,41 @@
-'use client';
+"use client";
 
-import './accordion.css';
-import * as AccordionPrimitive from '@radix-ui/react-accordion';
+import "./accordion.css";
+import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import {
 	type ComponentPropsWithoutRef,
 	type ComponentRef,
 	type ElementType,
 	type HTMLAttributes,
 	forwardRef,
-} from 'react';
-import { Box } from '../../primitives/box';
+} from "react";
+import { Box } from "../../primitives/box";
 import {
 	type AllThemeKeys,
 	type ExtendThemeKeys,
 	type ThemeValue,
 	useStyles,
-} from '../../theme';
-import type { PolymorphicComponentProps } from '../libs/polymorphic';
-import { LucideIcon } from './icon';
+} from "../../theme";
+import type { PolymorphicComponentProps } from "../libs/polymorphic";
+import { LucideIcon } from "./icon";
 
-const ACCORDION_ROOT_NAME = 'AccordionRoot';
-const ACCORDION_ITEM_NAME = 'AccordionItem';
-const ACCORDION_ICON_NAME = 'AccordionIcon';
-const ACCORDION_ARROW_NAME = 'AccordionArrow';
-const ACCORDION_TRIGGER_NAME = 'AccordionTrigger';
-const ACCORDION_CONTENT_NAME = 'AccordionContent';
+const ACCORDION_ROOT_NAME = "AccordionRoot";
+const ACCORDION_ITEM_NAME = "AccordionItem";
+const ACCORDION_ICON_NAME = "AccordionIcon";
+const ACCORDION_ARROW_NAME = "AccordionArrow";
+const ACCORDION_TRIGGER_NAME = "AccordionTrigger";
+const ACCORDION_CONTENT_NAME = "AccordionContent";
 const AccordionHeader = AccordionPrimitive.Header;
 
 export type AccordionStylesKeys = {
-	'accordion.root'?: ThemeValue;
-	'accordion.item': ThemeValue;
-	'accordion.trigger': ThemeValue;
-	'accordion.icon': ThemeValue;
-	'accordion.arrow.open': ThemeValue;
-	'accordion.arrow.close': ThemeValue;
-	'accordion.content': ThemeValue;
-	'accordion.content-inner': ThemeValue;
+	"accordion.root"?: ThemeValue;
+	"accordion.item": ThemeValue;
+	"accordion.trigger": ThemeValue;
+	"accordion.icon": ThemeValue;
+	"accordion.arrow.open": ThemeValue;
+	"accordion.arrow.close": ThemeValue;
+	"accordion.content": ThemeValue;
+	"accordion.content-inner": ThemeValue;
 };
 
 const AccordionRoot = forwardRef<
@@ -45,16 +45,16 @@ const AccordionRoot = forwardRef<
 	(
 		{
 			className,
-			themeKey = 'accordion.root',
+			themeKey = "accordion.root",
 			baseClassName,
 			noStyle,
 			style,
 			...rest
 		},
-		forwardedRef
+		forwardedRef,
 	) => {
 		const accordionStyle = useStyles(themeKey, {
-			baseClassName: [baseClassName, 'accordion'],
+			baseClassName: [baseClassName, "accordion"],
 			className,
 			noStyle,
 			style,
@@ -67,7 +67,7 @@ const AccordionRoot = forwardRef<
 				{...accordionStyle}
 			/>
 		);
-	}
+	},
 );
 
 AccordionRoot.displayName = ACCORDION_ROOT_NAME;
@@ -78,10 +78,10 @@ const AccordionItem = forwardRef<
 >(
 	(
 		{ className, themeKey, baseClassName, noStyle, style, ...rest },
-		forwardedRef
+		forwardedRef,
 	) => {
-		const accordionItemStyle = useStyles(themeKey ?? 'accordion.item', {
-			baseClassName: [baseClassName, 'accordion-item'],
+		const accordionItemStyle = useStyles(themeKey ?? "accordion.item", {
+			baseClassName: [baseClassName, "accordion-item"],
 			className,
 			noStyle,
 			style,
@@ -93,7 +93,7 @@ const AccordionItem = forwardRef<
 				{...accordionItemStyle}
 			/>
 		);
-	}
+	},
 );
 AccordionItem.displayName = ACCORDION_ITEM_NAME;
 
@@ -103,10 +103,10 @@ const AccordionTrigger = forwardRef<
 >(
 	(
 		{ children, className, themeKey, baseClassName, noStyle, style, ...rest },
-		forwardedRef
+		forwardedRef,
 	) => {
-		const accordionTriggerStyle = useStyles(themeKey ?? 'accordion.trigger', {
-			baseClassName: [baseClassName, 'accordion-trigger'],
+		const accordionTriggerStyle = useStyles(themeKey ?? "accordion.trigger", {
+			baseClassName: [baseClassName, "accordion-trigger"],
 			className,
 			noStyle,
 			style,
@@ -120,7 +120,7 @@ const AccordionTrigger = forwardRef<
 				{children}
 			</AccordionPrimitive.Trigger>
 		);
-	}
+	},
 );
 AccordionTrigger.displayName = ACCORDION_TRIGGER_NAME;
 
@@ -133,14 +133,14 @@ function AccordionIcon<T extends ElementType>({
 	as,
 	...rest
 }: PolymorphicComponentProps<T> & ExtendThemeKeys) {
-	const accordionIconStyle = useStyles(themeKey ?? 'accordion.icon', {
-		baseClassName: [baseClassName, 'accordion-icon'],
+	const accordionIconStyle = useStyles(themeKey ?? "accordion.icon", {
+		baseClassName: [baseClassName, "accordion-icon"],
 		className,
 		noStyle,
 		style,
 	});
 
-	const Component = as || 'div';
+	const Component = as || "div";
 
 	return <Component {...rest} {...accordionIconStyle} />;
 }
@@ -158,25 +158,25 @@ type AccordionArrowProps = HTMLAttributes<HTMLDivElement> & {
 function AccordionArrow({
 	openIcon = {
 		Element: LucideIcon({
-			title: 'Open',
+			title: "Open",
 			iconPath: <path d="M5 12h14M12 5v14" />,
 		}),
-		themeKey: 'accordion.arrow.open',
+		themeKey: "accordion.arrow.open",
 	},
 	closeIcon = {
-		Element: LucideIcon({ title: 'Close', iconPath: <path d="M5 12h14" /> }),
-		themeKey: 'accordion.arrow.close',
+		Element: LucideIcon({ title: "Close", iconPath: <path d="M5 12h14" /> }),
+		themeKey: "accordion.arrow.close",
 	},
 	...rest
 }: AccordionArrowProps) {
 	const accordionArrowOpenStyle = useStyles(openIcon.themeKey, {
-		baseClassName: [openIcon.baseClassName, 'accordion-arrow-open'],
+		baseClassName: [openIcon.baseClassName, "accordion-arrow-open"],
 		className: openIcon.className,
 		noStyle: openIcon.noStyle,
 		style: openIcon.style,
 	});
 	const accordionArrowClosedStyle = useStyles(closeIcon.themeKey, {
-		baseClassName: [closeIcon.baseClassName, 'accordion-arrow-close'],
+		baseClassName: [closeIcon.baseClassName, "accordion-arrow-close"],
 		className: closeIcon.className,
 		noStyle: closeIcon.noStyle,
 		style: closeIcon.style,
@@ -198,13 +198,13 @@ const AccordionContent = forwardRef<
 	}
 >(({ children, className, theme, ...rest }, forwardedRef) => {
 	const accordionContentStyle = useStyles(
-		theme?.content?.themeKey ?? 'accordion.content',
+		theme?.content?.themeKey ?? "accordion.content",
 		{
-			baseClassName: [theme?.content?.baseClassName, 'accordion-content'],
+			baseClassName: [theme?.content?.baseClassName, "accordion-content"],
 			className,
 			noStyle: theme?.content?.noStyle,
 			style: theme?.content?.style,
-		}
+		},
 	);
 
 	return (
@@ -218,9 +218,9 @@ const AccordionContent = forwardRef<
 					...theme?.contentInner,
 					baseClassName: [
 						theme?.content?.baseClassName,
-						'accordion-content-inner',
+						"accordion-content-inner",
 					],
-					themeKey: theme?.contentInner?.themeKey ?? 'accordion.content-inner',
+					themeKey: theme?.contentInner?.themeKey ?? "accordion.content-inner",
 				}}
 			>
 				{children}

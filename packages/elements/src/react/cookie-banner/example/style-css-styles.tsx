@@ -1,5 +1,5 @@
-import type { FC } from 'react';
-import CookieBanner from '..';
+import type { FC } from "react";
+import CookieBanner from "..";
 
 /**
  * A CookieBanner component with object-based custom styles.

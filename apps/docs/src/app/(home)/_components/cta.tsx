@@ -1,8 +1,8 @@
-import { Button } from '@koroflow/shadcn/components';
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
-import { BorderIcon } from '~/components/marketing/border-icon';
-import { Section } from '~/components/marketing/section';
+import { Button } from "@koroflow/shadcn/components";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { BorderIcon } from "~/components/marketing/border-icon";
+import { Section } from "~/components/marketing/section";
 
 export function CTA() {
 	return (
@@ -15,7 +15,7 @@ export function CTA() {
 				<div className="flex justify-center space-x-4">
 					<Button
 						className="flex items-center gap-2"
-						variant={'outline'}
+						variant={"outline"}
 						asChild
 					>
 						<Link href="/docs/getting-started">
@@ -23,7 +23,7 @@ export function CTA() {
 						</Link>
 					</Button>
 
-					<Button className="flex items-center gap-2" variant={'ghost'} asChild>
+					<Button className="flex items-center gap-2" variant={"ghost"} asChild>
 						<Link href="https://cal.com/christopherburns/koroflow">
 							Book A demo
 						</Link>

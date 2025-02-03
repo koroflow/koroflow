@@ -1,8 +1,8 @@
-import { Section } from '../../../components/marketing/section';
+import { Section } from "../../../components/marketing/section";
 
-import { BorderIcon } from '~/components/marketing/border-icon';
-import { EvervaultCard } from '~/components/marketing/evervault-card';
-import { siteConfig } from '../config';
+import { BorderIcon } from "~/components/marketing/border-icon";
+import { EvervaultCard } from "~/components/marketing/evervault-card";
+import { siteConfig } from "../config";
 
 export function ComponentsSection() {
 	const features = siteConfig.features;

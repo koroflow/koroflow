@@ -1,7 +1,7 @@
-import { DocsLayout } from 'fumadocs-ui/layouts/docs';
-import { docsOptions } from '~/app/layout.config';
-import { Header } from '~/components/header';
-import { source } from '~/lib/source';
+import { DocsLayout } from "fumadocs-ui/layouts/docs";
+import { docsOptions } from "~/app/layout.config";
+import { Header } from "~/components/header";
+import { source } from "~/lib/source";
 
 export default function NotFound() {
 	return (

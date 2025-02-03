@@ -1,5 +1,5 @@
-import { BorderText } from '~/components/marketing/border-number';
-import { siteConfig } from '../config';
+import { BorderText } from "~/components/marketing/border-number";
+import { siteConfig } from "../config";
 
 export function Footer() {
 	return (

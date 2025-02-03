@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
 	type AllConsentNames,
 	type ComplianceRegion,
@@ -6,7 +6,7 @@ import {
 	type NamespaceProps,
 	type PrivacyConsentState,
 	createConsentManagerStore,
-} from '@koroflow/core-js';
+} from "@koroflow/core-js";
 import {
 	type ReactNode,
 	createContext,
@@ -14,7 +14,7 @@ import {
 	useEffect,
 	useMemo,
 	useState,
-} from 'react';
+} from "react";
 /**
  * @packageDocumentation
  * Provides a React context-based consent management system for handling cookie and privacy preferences.
@@ -145,13 +145,13 @@ export function ConsentManagerProvider({
 	children,
 	initialGdprTypes,
 	initialComplianceSettings,
-	namespace = 'KoroflowStore',
+	namespace = "KoroflowStore",
 	noStyle = false,
 }: ConsentManagerProviderProps) {
 	// Create a stable reference to the store
 	const store = useMemo(
 		() => createConsentManagerStore(namespace),
-		[namespace]
+		[namespace],
 	);
 
 	// Initialize state with the current state from the consent manager store
@@ -169,7 +169,7 @@ export function ConsentManagerProvider({
 		// Initialize compliance settings if provided
 		if (initialComplianceSettings) {
 			for (const [region, settings] of Object.entries(
-				initialComplianceSettings
+				initialComplianceSettings,
 			)) {
 				setComplianceSetting(region as ComplianceRegion, settings);
 			}
@@ -179,7 +179,7 @@ export function ConsentManagerProvider({
 		const country =
 			document
 				.querySelector('meta[name="user-country"]')
-				?.getAttribute('content') || 'US';
+				?.getAttribute("content") || "US";
 		setDetectedCountry(country);
 
 		// Subscribe to state changes
@@ -199,7 +199,7 @@ export function ConsentManagerProvider({
 			state,
 			store,
 		}),
-		[state, store]
+		[state, store],
 	);
 
 	return (
@@ -267,7 +267,7 @@ export function useConsentManager() {
 
 	if (context === undefined) {
 		throw new Error(
-			'useConsentManager must be used within a ConsentManagerProvider'
+			"useConsentManager must be used within a ConsentManagerProvider",
 		);
 	}
 

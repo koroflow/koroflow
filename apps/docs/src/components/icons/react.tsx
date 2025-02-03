@@ -1,4 +1,4 @@
-import type { SVGProps } from 'react';
+import type { SVGProps } from "react";
 
 interface ReactIconProps {
 	title?: string;
@@ -6,8 +6,8 @@ interface ReactIconProps {
 }
 
 export const ReactIcon = ({
-	title = 'React',
-	titleId = 'react',
+	title = "React",
+	titleId = "react",
 	...props
 }: SVGProps<SVGSVGElement> & ReactIconProps) => (
 	<svg

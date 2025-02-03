@@ -1,6 +1,6 @@
-import clsx, { type ClassValue } from 'clsx';
+import clsx, { type ClassValue } from "clsx";
 
-export type { ClassValue } from 'clsx';
+export type { ClassValue } from "clsx";
 
 /**
  * Utilizes `clsx` with `tailwind-merge`, use in cases of possible class conflicts.

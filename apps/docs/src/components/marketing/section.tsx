@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { cn } from '@koroflow/shadcn/libs';
+import { cn } from "@koroflow/shadcn/libs";
 
-import { type ReactNode, forwardRef, useRef } from 'react';
+import { type ReactNode, forwardRef, useRef } from "react";
 
 interface SectionProps {
 	id?: string;
@@ -11,32 +11,32 @@ interface SectionProps {
 	description?: string;
 	children?: ReactNode;
 	className?: string;
-	align?: 'left' | 'center' | 'right';
+	align?: "left" | "center" | "right";
 }
 
 const Section = forwardRef<HTMLElement, SectionProps>(
 	(
 		{ id, title, subtitle, description, children, className, align },
-		forwardedRef
+		forwardedRef,
 	) => {
 		const internalRef = useRef<HTMLElement>(null);
 		const ref = forwardedRef || internalRef;
-		const sectionId = title ? title.toLowerCase().replace(/\s+/g, '-') : id;
+		const sectionId = title ? title.toLowerCase().replace(/\s+/g, "-") : id;
 		const alignmentClass =
-			align === 'left'
-				? 'text-left'
-				: align === 'right'
-					? 'text-right'
-					: 'text-center';
+			align === "left"
+				? "text-left"
+				: align === "right"
+					? "text-right"
+					: "text-center";
 
 		return (
 			<section id={id} ref={ref}>
-				<div className={cn('container relative mx-auto', className)}>
+				<div className={cn("container relative mx-auto", className)}>
 					{(title || subtitle || description) && (
 						<div
 							className={cn(
 								alignmentClass,
-								'relative mx-auto overflow-hidden p-2 py-8 md:p-12 lg:pt-24 lg:pb-16'
+								"relative mx-auto overflow-hidden p-2 py-8 md:p-12 lg:pt-24 lg:pb-16",
 							)}
 						>
 							{title && (
@@ -48,12 +48,12 @@ const Section = forwardRef<HTMLElement, SectionProps>(
 							{subtitle && (
 								<h3
 									className={cn(
-										'mx-0 mt-4 max-w-lg text-balance font-bold text-5xl text-foreground lowercase leading-[1.2] tracking-tighter sm:max-w-none sm:text-4xl md:text-5xl lg:text-6xl',
-										align === 'center'
-											? 'mx-auto'
-											: align === 'right'
-												? 'ml-auto'
-												: ''
+										"mx-0 mt-4 max-w-lg text-balance font-bold text-5xl text-foreground lowercase leading-[1.2] tracking-tighter sm:max-w-none sm:text-4xl md:text-5xl lg:text-6xl",
+										align === "center"
+											? "mx-auto"
+											: align === "right"
+												? "ml-auto"
+												: "",
 									)}
 								>
 									{subtitle}
@@ -62,12 +62,12 @@ const Section = forwardRef<HTMLElement, SectionProps>(
 							{description && (
 								<p
 									className={cn(
-										'mt-6 max-w-2xl text-balance text-lg text-muted-foreground leading-8',
-										align === 'center'
-											? 'mx-auto'
-											: align === 'right'
-												? 'ml-auto'
-												: ''
+										"mt-6 max-w-2xl text-balance text-lg text-muted-foreground leading-8",
+										align === "center"
+											? "mx-auto"
+											: align === "right"
+												? "ml-auto"
+												: "",
 									)}
 								>
 									{description}
@@ -88,9 +88,9 @@ const Section = forwardRef<HTMLElement, SectionProps>(
 				</div>
 			</section>
 		);
-	}
+	},
 );
 
-Section.displayName = 'Section';
+Section.displayName = "Section";
 
 export { Section };

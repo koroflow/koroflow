@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 /**
  * @packageDocumentation
@@ -6,11 +6,11 @@
  * Implements a flexible styling system that merges theme and component-level styles.
  */
 
-import { useMemo } from 'react';
-import { useThemeContext } from './context';
-import type { AllThemeKeys } from './types/style-keys';
-import type { ClassNameStyle, ThemeValue } from './types/style-types';
-import { mergeStyles } from './utils/merge-styles';
+import { useMemo } from "react";
+import { useThemeContext } from "./context";
+import type { AllThemeKeys } from "./types/style-keys";
+import type { ClassNameStyle, ThemeValue } from "./types/style-types";
+import { mergeStyles } from "./utils/merge-styles";
 
 /**
  * Hook for retrieving and merging styles from theme context and component props.
@@ -43,11 +43,11 @@ import { mergeStyles } from './utils/merge-styles';
 
 export function useStyles(
 	themeKey: AllThemeKeys,
-	componentStyle?: ThemeValue
+	componentStyle?: ThemeValue,
 ): ClassNameStyle {
 	const { noStyle: contextNoStyle, theme } = useThemeContext();
 	const mergedNoStyle =
-		typeof componentStyle === 'object' && 'noStyle' in componentStyle
+		typeof componentStyle === "object" && "noStyle" in componentStyle
 			? componentStyle.noStyle
 			: contextNoStyle;
 
@@ -62,7 +62,7 @@ export function useStyles(
 	const initialStyle = useMemo(() => {
 		const initial = {
 			className:
-				typeof componentStyle === 'string'
+				typeof componentStyle === "string"
 					? componentStyle
 					: componentStyle?.className,
 			style: undefined,
@@ -94,7 +94,7 @@ export function useStyles(
 		if (mergedNoStyle) {
 			if (!themeStylesObject) return {};
 			const noStyleResult =
-				typeof themeStylesObject === 'string'
+				typeof themeStylesObject === "string"
 					? { className: themeStylesObject }
 					: {
 							className: themeStylesObject.className,
@@ -107,15 +107,15 @@ export function useStyles(
 		const finalClassName = Array.from(
 			new Set(
 				[
-					typeof componentStyle === 'string'
+					typeof componentStyle === "string"
 						? componentStyle
 						: componentStyle?.className,
 					finalMergedStyle.className,
 				]
 					.filter(Boolean)
-					.flat()
-			)
-		).join(' ');
+					.flat(),
+			),
+		).join(" ");
 		const result = { ...finalMergedStyle, className: finalClassName };
 
 		return result;
