@@ -1,11 +1,9 @@
 // import { Icons } from "@/components/icons";
 import {
 	Bolt,
-	BoxIcon,
 	Brain,
 	CodeIcon,
 	EyeIcon,
-	GaugeIcon,
 	Server,
 	ShieldIcon,
 	ZapIcon,
@@ -38,7 +36,10 @@ export const siteConfig = {
 		description:
 			"Transform privacy consent from a compliance checkbox into a fully observable system. Built for developers who care about performance, privacy, and clean code.",
 		cta: { text: "Get Started", href: "/docs/getting-started" },
-		demo: { text: "Book A Demo", href: "https://cal.com/christopherburns/koroflow" },
+		demo: {
+			text: "Book A Demo",
+			href: "https://cal.com/christopherburns/koroflow",
+		},
 	},
 	features: [
 		{
@@ -48,7 +49,8 @@ export const siteConfig = {
 		},
 		{
 			name: "React Components",
-			description: "Beautiful UI components built on Radix Primitives. Ready to go.",
+			description:
+				"Beautiful UI components built on Radix Primitives. Ready to go.",
 			icon: <ReactIcon className="h-6 w-6" />,
 		},
 		{

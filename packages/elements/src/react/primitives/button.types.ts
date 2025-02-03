@@ -9,7 +9,9 @@ export type ConsentButtonElement = ComponentRef<"button">;
  *
  * @public
  */
-export interface ConsentButtonProps extends HTMLAttributes<HTMLButtonElement>, ExtendThemeKeys {
+export interface ConsentButtonProps
+	extends HTMLAttributes<HTMLButtonElement>,
+		ExtendThemeKeys {
 	/**
 	 * @remarks
 	 * When true, the button will not apply any styles.

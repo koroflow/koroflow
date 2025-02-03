@@ -16,7 +16,9 @@
 	"scripts": {
 		"build": "rslib build",
 		"check-types": "tsc --noEmit",
-		"dev": "rslib build --watch"
+		"dev": "rslib build --watch",
+		"fmt": "pnpm biome format --write .",
+		"lint": "pnpm biome lint ./src"
 	},
 	"dependencies": {
 		"@radix-ui/react-slot": "^1.1.1",

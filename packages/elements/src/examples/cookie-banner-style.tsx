@@ -25,7 +25,9 @@ export const ObjectStyledCookieBanner: FC = () => {
 				marginBottom: "0.5rem",
 			},
 		},
-		"cookie-banner.header.description": { style: { fontSize: "0.875rem", marginBottom: "1rem" } },
+		"cookie-banner.header.description": {
+			style: { fontSize: "0.875rem", marginBottom: "1rem" },
+		},
 		"cookie-banner.footer": {
 			style: { display: "flex", justifyContent: "flex-end", gap: "0.5rem" },
 		},

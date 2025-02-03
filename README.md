@@ -15,7 +15,6 @@ Privacy-first consent management and unified event streaming system. Koroflow he
 │   └── dev-tools/    # Development utilities
 ├── docs/            # Documentation site
 └── configs/         # Shared configurations
-    ├── eslint-config/
     ├── tsup-config/ # Common config for tsup
     └── typescript-config/ # Common config for typescript
 ```
@@ -49,7 +48,6 @@ pnpm test
     - Cookie Banner
     - Privacy Widget
 - `@koroflow/dev-tools`: Development utilities and components
-- `@koroflow/eslint-config`: Shared ESLint configurations
 - `@koroflow/typescript-config`: Shared TypeScript configurations
 
 ## Documentation

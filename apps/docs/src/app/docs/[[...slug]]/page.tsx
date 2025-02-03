@@ -1,7 +1,12 @@
 import { cn } from "@koroflow/shadcn/libs";
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import defaultMdxComponents from "fumadocs-ui/mdx";
-import { DocsBody, DocsDescription, DocsPage, DocsTitle } from "fumadocs-ui/page";
+import {
+	DocsBody,
+	DocsDescription,
+	DocsPage,
+	DocsTitle,
+} from "fumadocs-ui/page";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Header } from "~/components/header";
@@ -29,8 +34,14 @@ export default async function Page(props: {
 		<div className="relative w-full bg-background md:mt-4 md:overflow-clip md:rounded-tl-2xl md:border-t md:border-l">
 			<Header />
 			<div className="relative z-10 grid xl:grid-cols-[1fr_268px]">
-				<DocsPage toc={page.data.toc} full={page.data.full} tableOfContent={{ style: "clerk" }}>
-					<DocsTitle className="tracking-tighter lg:text-4xl">{page.data.title}</DocsTitle>
+				<DocsPage
+					toc={page.data.toc}
+					full={page.data.full}
+					tableOfContent={{ style: "clerk" }}
+				>
+					<DocsTitle className="tracking-tighter lg:text-4xl">
+						{page.data.title}
+					</DocsTitle>
 					<DocsDescription>{page.data.description}</DocsDescription>
 					<DocsBody
 						className={cn(

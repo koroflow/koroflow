@@ -12,6 +12,9 @@
 		"build": "tsup",
 		"build:declarations": "tsc -p tsconfig.declarations.json",
 		"dev": "tsup --watch",
+		"fmt": "pnpm biome format --write .",
+		"lint": "pnpm biome lint ./src",
+
 		"check-types": "tsc --noEmit"
 	},
 	"browserslist": [">0.2%", "not dead", "not op_mini all"],

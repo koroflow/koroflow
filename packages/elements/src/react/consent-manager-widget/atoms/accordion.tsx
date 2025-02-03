@@ -85,7 +85,9 @@ const ConsentManagerWidgetAccordionItems = () => {
 					onClick={(e) => e.stopPropagation()}
 					onKeyUp={(e) => e.stopPropagation()}
 					onKeyDown={(e) => e.stopPropagation()}
-					onCheckedChange={(checked) => handleConsentChange(consent.name, checked)}
+					onCheckedChange={(checked) =>
+						handleConsentChange(consent.name, checked)
+					}
 					disabled={consent.disabled}
 					theme={{
 						root: { themeKey: "consent-manager-widget.switch" },
@@ -97,7 +99,9 @@ const ConsentManagerWidgetAccordionItems = () => {
 			<ConsentManagerWidgetAccordionContent
 				theme={{
 					content: { themeKey: "consent-manager-widget.accordion.content" },
-					contentInner: { themeKey: "consent-manager-widget.accordion.content" },
+					contentInner: {
+						themeKey: "consent-manager-widget.accordion.content",
+					},
 				}}
 			>
 				{consent.description}

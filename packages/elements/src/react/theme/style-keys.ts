@@ -32,7 +32,9 @@ import type { CookieBannerTheme } from "../cookie-banner";
  * @public
  */
 export type NestedKeys<T> = {
-	[P in keyof T]: T[P] extends object ? `${string & P}.${NestedKeys<T[P]>}` : string & P;
+	[P in keyof T]: T[P] extends object
+		? `${string & P}.${NestedKeys<T[P]>}`
+		: string & P;
 }[keyof T];
 
 /**
@@ -85,5 +87,8 @@ export const getNestedValue = <K extends StyleKeys>(
 	key: K,
 ): unknown => {
 	const [root, ...path] = key.split(".");
-	return path.reduce((acc, part) => acc?.[part as keyof typeof acc], obj[root as keyof typeof obj]);
+	return path.reduce(
+		(acc, part) => acc?.[part as keyof typeof acc],
+		obj[root as keyof typeof obj],
+	);
 };

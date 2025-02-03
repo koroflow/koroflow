@@ -38,6 +38,8 @@
 	"scripts": {
 		"build": "rslib build",
 		"check-types": "tsc --noEmit",
+		"fmt": "pnpm biome format --write .",
+		"lint": "pnpm biome lint ./src",
 		"dev": "rslib build --watch"
 	},
 	"browserslist": [">0.2%", "not dead", "not op_mini all"],

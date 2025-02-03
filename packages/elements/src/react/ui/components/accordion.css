@@ -33,7 +33,7 @@
 	background-color: hsl(var(--kf-accordion-bg-default));
 	box-shadow: inset 0 0 0 1px hsl(var(--kf-accordion-border-color));
 	transition: all var(--kf-accordion-duration) var(--kf-accordion-ease);
-  border-radius: var(--kf-accordion-radius);
+	border-radius: var(--kf-accordion-radius);
 }
 
 .accordion-item:is(:hover, :focus-within, [data-state="open"]) {
@@ -135,7 +135,8 @@
 }
 
 .accordion-content[data-state="open"] {
-	animation: accordion-down var(--kf-accordion-duration) var(--kf-accordion-ease);
+	animation: accordion-down var(--kf-accordion-duration)
+		var(--kf-accordion-ease);
 }
 
 .accordion-content[data-state="closed"] {

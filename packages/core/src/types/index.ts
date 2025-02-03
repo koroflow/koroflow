@@ -41,7 +41,7 @@ import type {
 	HasConsentedProps,
 	NamespaceProps,
 	PrivacySettings,
-} from "./compliance";
+} from './compliance';
 
 export type {
 	ConsentState,
@@ -77,7 +77,7 @@ export type {
  * }
  * ```
  */
-import { type AllConsentNames, type ConsentType, consentTypes } from "./gdpr";
+import { type AllConsentNames, type ConsentType, consentTypes } from './gdpr';
 
 export { consentTypes };
 export type { AllConsentNames, ConsentType };
@@ -120,6 +120,6 @@ export type { AllConsentNames, ConsentType };
  *   () => console.log('System ready');
  * ```
  */
-import type { CallbackFunction, Callbacks } from "./callbacks";
+import type { CallbackFunction, Callbacks } from './callbacks';
 
 export type { CallbackFunction, Callbacks };

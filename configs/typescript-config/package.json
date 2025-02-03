@@ -3,6 +3,10 @@
 	"version": "0.0.0",
 	"type": "module",
 	"private": true,
+	"scripts": {
+		"fmt": "pnpm biome format --write .",
+		"lint": "pnpm biome lint ."
+	},
 	"publishConfig": {
 		"access": "public"
 	}

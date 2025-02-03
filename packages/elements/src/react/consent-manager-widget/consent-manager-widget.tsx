@@ -10,14 +10,10 @@ import "./consent-manager-widget.css";
 import "../ui/components/card.css";
 import { Box } from "../primitives/box";
 
-import { type FC, useState } from "react";
+import { useState } from "react";
 import {
 	ConsentManagerWidgetAccordion,
-	ConsentManagerWidgetAccordionArrow,
-	ConsentManagerWidgetAccordionContent,
 	ConsentManagerWidgetAccordionItems,
-	ConsentManagerWidgetAccordionTrigger,
-	ConsentManagerWidgetSwitch,
 } from "./atoms/accordion";
 import {
 	ConsentManagerWidgetAcceptAllButton,
@@ -28,7 +24,10 @@ import {
 	ConsentManagerWidgetFooterSubGroup,
 	ConsentManagerWidgetRejectButton,
 } from "./atoms/footer";
-import { ConsentManagerWidgetRoot, type ConsentManagerWidgetRootProps } from "./atoms/root";
+import {
+	ConsentManagerWidgetRoot,
+	type ConsentManagerWidgetRootProps,
+} from "./atoms/root";
 
 /**
  * Props for the ConsentManagerWidget component
@@ -37,7 +36,8 @@ import { ConsentManagerWidgetRoot, type ConsentManagerWidgetRootProps } from "./
  * Extends ThemeContextValue to provide comprehensive theming support
  * while maintaining type safety for consent management specific features.
  */
-export interface ConsentManagerWidgetProps extends Omit<ConsentManagerWidgetRootProps, "children"> {
+export interface ConsentManagerWidgetProps
+	extends Omit<ConsentManagerWidgetRootProps, "children"> {
 	/** Hides the Koroflow branding when true */
 	hideBrading?: boolean;
 }
@@ -83,7 +83,10 @@ export interface ConsentManagerWidgetProps extends Omit<ConsentManagerWidgetRoot
  * />
  * ```
  */
-export const ConsentManagerWidget = ({ hideBrading, ...props }: ConsentManagerWidgetProps) => {
+export const ConsentManagerWidget = ({
+	hideBrading,
+	...props
+}: ConsentManagerWidgetProps) => {
 	const [openItems, setOpenItems] = useState<string[]>([]);
 
 	return (
@@ -114,8 +117,14 @@ export const ConsentManagerWidget = ({ hideBrading, ...props }: ConsentManagerWi
 					baseClassName="consent-manager-widget-branding"
 					themeKey="consent-manager-widget.branding"
 				>
-					<a className="consent-manager-widget-branding-link" href="https://koroflow.com">
-						Secured by <span className="consent-manager-widget-branding-link-span">Koroflow</span>
+					<a
+						className="consent-manager-widget-branding-link"
+						href="https://koroflow.com"
+					>
+						Secured by{" "}
+						<span className="consent-manager-widget-branding-link-span">
+							Koroflow
+						</span>
 					</a>
 				</Box>
 			)}

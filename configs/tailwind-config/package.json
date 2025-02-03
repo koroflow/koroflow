@@ -4,7 +4,9 @@
 	"private": true,
 	"scripts": {
 		"clean": "git clean -xdf .cache .turbo dist node_modules",
-		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
+		"typecheck": "tsc --noEmit --emitDeclarationOnly false",
+		"fmt": "pnpm biome format --write .",
+		"lint": "pnpm biome lint ."
 	},
 	"dependencies": {
 		"tailwind-merge": "^2.6.0",

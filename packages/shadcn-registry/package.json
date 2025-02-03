@@ -7,9 +7,12 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build:registry": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-registry.mts",
+		"build:registry": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-registry.mts && pnpm fmt",
 		"build:declarations": "tsc -p tsconfig.declarations.json && resolve-tspaths --out ./dist ",
 		"build": "pnpm build:registry && tsup",
+		"fmt": "pnpm biome format --write .",
+		"lint": "pnpm biome lint ./src",
+
 		"check-types": "tsc --noEmit",
 		"dev": "tsup --watch"
 	},
@@ -63,7 +66,7 @@
 	},
 	"dependencies": {
 		"@koroflow/core-js": "0.0.1-beta.8",
-		"@koroflow/dev-tools": "0.0.1-beta.6",
+		"@koroflow/dev-tools": "0.0.1-beta.8",
 		"@koroflow/elements": "workspace:*",
 		"@radix-ui/react-accordion": "1.2.2",
 		"@radix-ui/react-dialog": "1.1.4",

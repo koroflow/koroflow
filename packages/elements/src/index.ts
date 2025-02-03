@@ -1,5 +1,8 @@
 // CookieBanner
-export { CookieBanner, type CookieBannerProps } from "./react/cookie-banner/cookie-banner";
+export {
+	CookieBanner,
+	type CookieBannerProps,
+} from "./react/cookie-banner/cookie-banner";
 export type { CookieBannerTheme } from "./react/cookie-banner/theme";
 
 // ConsentManagerDialog

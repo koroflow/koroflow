@@ -102,13 +102,21 @@ const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
 	};
 
 	const content = (
-		<Box baseClassName="consent-manager-widget" themeKey="consent-manager-widget.root" {...props}>
+		<Box
+			baseClassName="consent-manager-widget"
+			themeKey="consent-manager-widget.root"
+			{...props}
+		>
 			{children}
 		</Box>
 	);
 
 	if (useProvider) {
-		return <ThemeContext.Provider value={contextValue}>{content}</ThemeContext.Provider>;
+		return (
+			<ThemeContext.Provider value={contextValue}>
+				{content}
+			</ThemeContext.Provider>
+		);
 	}
 
 	return content;
