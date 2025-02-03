@@ -1,16 +1,16 @@
-import { cn } from "@koroflow/shadcn/libs";
-import { Tab, Tabs } from "fumadocs-ui/components/tabs";
-import defaultMdxComponents from "fumadocs-ui/mdx";
+import { cn } from '@koroflow/shadcn/libs';
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+import defaultMdxComponents from 'fumadocs-ui/mdx';
 import {
 	DocsBody,
 	DocsDescription,
 	DocsPage,
 	DocsTitle,
-} from "fumadocs-ui/page";
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { Header } from "~/components/header";
-import { source } from "~/lib/source";
+} from 'fumadocs-ui/page';
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { Header } from '~/components/header';
+import { source } from '~/lib/source';
 
 const components = {
 	...defaultMdxComponents,
@@ -37,7 +37,7 @@ export default async function Page(props: {
 				<DocsPage
 					toc={page.data.toc}
 					full={page.data.full}
-					tableOfContent={{ style: "clerk" }}
+					tableOfContent={{ style: 'clerk' }}
 				>
 					<DocsTitle className="tracking-tighter lg:text-4xl">
 						{page.data.title}
@@ -45,8 +45,8 @@ export default async function Page(props: {
 					<DocsDescription>{page.data.description}</DocsDescription>
 					<DocsBody
 						className={cn(
-							"prose-h2:tracking-tighter",
-							"prose-a:border-fd-primary prose-a:border-b-px prose-a:font-semibold prose-a:text-foreground prose-a:decoration-none prose-a:transition-all hover:prose-a:border-b-2",
+							'prose-h2:tracking-tighter',
+							'prose-a:border-fd-primary prose-a:border-b-px prose-a:font-semibold prose-a:text-foreground prose-a:decoration-none prose-a:transition-all hover:prose-a:border-b-2'
 						)}
 					>
 						<MDX components={{ ...defaultMdxComponents, ...components }} />
@@ -75,10 +75,10 @@ export async function generateMetadata(props: {
 		openGraph: {
 			title: page.data.title,
 			description: page.data.description,
-			type: "website",
+			type: 'website',
 			images: [
 				{
-					url: `/og?slug=${params.slug?.join("/") ?? ""}`,
+					url: `/og?slug=${params.slug?.join('/') ?? ''}`,
 					width: 1200,
 					height: 630,
 				},

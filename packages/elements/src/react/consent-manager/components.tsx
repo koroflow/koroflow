@@ -11,17 +11,17 @@ import {
 	type Ref,
 	forwardRef,
 	useCallback,
-} from "react";
-import { type AllConsentNames, useConsentManager } from "../headless";
-import { Box, type BoxProps } from "../primitives/box";
-import { ConsentButton } from "../primitives/button";
-import type { ConsentButtonProps } from "../primitives/button.types";
-import type { ThemeContextValue } from "../theme";
-import { Item as AccordionItem } from "../ui/components/accordion";
-import * as Accordion from "../ui/components/accordion";
-import * as Switch from "../ui/components/switch";
-import type { ConsentManagerWidgetRoot } from "./atoms/root";
-import type { ConsentManagerWidgetTheme } from "./theme";
+} from 'react';
+import { type AllConsentNames, useConsentManager } from '../headless';
+import { Box, type BoxProps } from '../primitives/box';
+import { ConsentButton } from '../primitives/button';
+import type { ConsentButtonProps } from '../primitives/button.types';
+import type { ThemeContextValue } from '../theme';
+import { Item as AccordionItem } from '../ui/components/accordion';
+import * as Accordion from '../ui/components/accordion';
+import * as Switch from '../ui/components/switch';
+import type { ConsentManagerWidgetRoot } from './atoms/root';
+import type { ConsentManagerWidgetTheme } from './theme';
 
 /**
  * Accordion sub-group component for organizing consent options.
@@ -33,13 +33,13 @@ import type { ConsentManagerWidgetTheme } from "./theme";
  */
 const ConsentManagerWidgetAccordionSubGroup = forwardRef<
 	HTMLDivElement,
-	Omit<BoxProps, "themeKey">
+	Omit<BoxProps, 'themeKey'>
 >(({ children, ...props }, ref) => {
 	return (
 		<Box
 			ref={ref as Ref<HTMLDivElement>}
 			baseClassName="accordion-trigger-sub-group"
-			themeKey={"consent-manager-widget.accordion.trigger-sub-group"}
+			themeKey={'consent-manager-widget.accordion.trigger-sub-group'}
 			{...props}
 		>
 			{children}
@@ -76,7 +76,7 @@ export const ConsentManagerWidgetAccordionItems = () => {
 		(name: AllConsentNames, checked: boolean) => {
 			setConsent(name, checked);
 		},
-		[setConsent],
+		[setConsent]
 	);
 	return getDisplayedConsents().map((consent) => (
 		<ConsentManagerWidgetAccordionItem
@@ -87,8 +87,8 @@ export const ConsentManagerWidgetAccordionItems = () => {
 			<ConsentManagerWidgetAccordionTrigger themeKey="consent-manager-widget.accordion.trigger">
 				<ConsentManagerWidgetAccordionSubGroup>
 					<ConsentManagerWidgetAccordionArrow />
-					{consent.name.replace("_", " ").charAt(0).toUpperCase() +
-						consent.name.replace("_", " ").slice(1)}
+					{consent.name.replace('_', ' ').charAt(0).toUpperCase() +
+						consent.name.replace('_', ' ').slice(1)}
 				</ConsentManagerWidgetAccordionSubGroup>
 
 				<ConsentManagerWidgetSwitch
@@ -101,17 +101,17 @@ export const ConsentManagerWidgetAccordionItems = () => {
 					}
 					disabled={consent.disabled}
 					theme={{
-						root: { themeKey: "consent-manager-widget.switch" },
-						thumb: { themeKey: "consent-manager-widget.switch.thumb" },
-						track: { themeKey: "consent-manager-widget.switch.track" },
+						root: { themeKey: 'consent-manager-widget.switch' },
+						thumb: { themeKey: 'consent-manager-widget.switch.thumb' },
+						track: { themeKey: 'consent-manager-widget.switch.track' },
 					}}
 				/>
 			</ConsentManagerWidgetAccordionTrigger>
 			<ConsentManagerWidgetAccordionContent
 				theme={{
-					content: { themeKey: "consent-manager-widget.accordion.content" },
+					content: { themeKey: 'consent-manager-widget.accordion.content' },
 					contentInner: {
-						themeKey: "consent-manager-widget.accordion.content",
+						themeKey: 'consent-manager-widget.accordion.content',
 					},
 				}}
 			>
@@ -137,7 +137,7 @@ const ConsentManagerWidgetAccordionItem = forwardRef<
  */
 const ConsentManagerWidgetFooter = forwardRef<
 	HTMLDivElement,
-	Omit<BoxProps, "themeKey">
+	Omit<BoxProps, 'themeKey'>
 >(({ children, ...props }, ref) => {
 	return (
 		<Box
@@ -163,7 +163,7 @@ const ConsentManagerWidgetFooterSubGroup = forwardRef<HTMLDivElement, BoxProps>(
 				{children}
 			</Box>
 		);
-	},
+	}
 );
 
 /**

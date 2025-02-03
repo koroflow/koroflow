@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { type ErrorInfo } from "react";
+import React, { type ErrorInfo } from 'react';
 
 /**
  * Props for the ErrorBoundary component.
@@ -69,14 +69,14 @@ export class ErrorBoundary extends React.Component<
 
 	componentDidCatch(error: Error, errorInfo: ErrorInfo) {
 		this.setState({ error, errorInfo });
-		console.error("Uncaught error:", error, errorInfo);
+		console.error('Uncaught error:', error, errorInfo);
 		// Optionally log error to an external service
 		// logErrorToService(error, errorInfo)
 	}
 
 	render() {
 		if (this.state.hasError) {
-			if (typeof this.props.fallback === "function") {
+			if (typeof this.props.fallback === 'function') {
 				// biome-ignore lint/style/noNonNullAssertion: <explanation>
 				return this.props.fallback(this.state.error!, this.state.errorInfo!);
 			}
