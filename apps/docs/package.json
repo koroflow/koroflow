@@ -1,5 +1,5 @@
 {
-	"name": "new-docs",
+	"name": "@koroflow/docs",
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
@@ -12,7 +12,7 @@
 		"lint": "pnpm biome lint ./src"
 	},
 	"dependencies": {
-		"@koroflow/elements": "0.0.1-beta.8",
+		"@koroflow/elements": "workspace:*",
 		"@koroflow/shadcn": "workspace:*",
 		"@tailwindcss/postcss": "^4.0.3",
 		"fumadocs-core": "15.0.2",
