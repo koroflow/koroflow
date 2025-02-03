@@ -3,7 +3,7 @@ import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 import Image from "next/image";
 import { GithubIcon } from "~/components/icons/github";
 import { XIcon } from "~/components/icons/x";
-import logo from "../public/logo.svg";
+import logo from "../../public/logo.svg";
 
 import {
 	Book,
@@ -12,7 +12,7 @@ import {
 	MessageSquareCode,
 	Palette,
 } from "lucide-react";
-import GetStarted from "../public/cookie-banner.png";
+import GetStarted from "../../public/cookie-banner.png";
 
 export const linkItems: LinkItemType[] = [
 	{

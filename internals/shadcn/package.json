@@ -1,10 +1,8 @@
 {
 	"name": "@koroflow/shadcn",
-	"version": "0.0.0",
 	"private": true,
-	"type": "module",
 	"sideEffects": false,
-	"files": ["dist"],
+	"type": "module",
 	"exports": {
 		"./*": {
 			"types": "./dist/*/index.d.ts",
@@ -13,6 +11,7 @@
 		},
 		"./globals.css": "./dist/globals.css"
 	},
+	"files": ["dist"],
 	"scripts": {
 		"build": "rslib build",
 		"check-types": "tsc --noEmit",
@@ -24,7 +23,7 @@
 		"@radix-ui/react-slot": "^1.1.1",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
-		"tailwind-merge": "^2.6.0"
+		"tailwind-merge": "^3.0.1"
 	},
 	"devDependencies": {
 		"@koroflow/typescript-config": "workspace:*"

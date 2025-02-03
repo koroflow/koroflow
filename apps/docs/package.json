@@ -1,24 +1,24 @@
 {
-	"name": "new-docs",
-	"version": "0.0.0",
+	"name": "@koroflow/docs",
 	"private": true,
 	"scripts": {
-		"build:copy-registry": "cp -r ../../packages/shadcn-registry/src/public/r ./src/public/r",
 		"build": "pnpm build:copy-registry && next build",
-		"dev": "next dev --turbo",
-		"start": "next start",
-		"postinstall": "fumadocs-mdx",
+		"build:copy-registry": "cp -r ../../packages/shadcn-registry/src/public/r ./public/r",
+		"dev": "next dev",
 		"fmt": "pnpm biome format --write .",
-		"lint": "pnpm biome lint ./src"
+		"postinstall": "fumadocs-mdx",
+		"lint": "pnpm biome lint ./src",
+		"start": "next start"
 	},
 	"dependencies": {
 		"@koroflow/elements": "workspace:*",
 		"@koroflow/shadcn": "workspace:*",
-		"fumadocs-core": "14.7.7",
-		"fumadocs-mdx": "11.3.1",
-		"fumadocs-ui": "14.7.7",
+		"@tailwindcss/postcss": "^4.0.3",
+		"fumadocs-core": "15.0.2",
+		"fumadocs-mdx": "11.4.1",
+		"fumadocs-ui": "15.0.2",
 		"lucide-react": "^0.474.0",
-		"motion": "^12.0.6",
+		"motion": "^12.0.11",
 		"next": "15.1.6",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
@@ -32,7 +32,7 @@
 		"@types/react-dom": "^19.0.3",
 		"autoprefixer": "^10.4.20",
 		"postcss": "^8.5.1",
-		"tailwindcss": "^3.4.17",
+		"tailwindcss": "^4.0.3",
 		"typescript": "^5.7.3"
 	}
 }
