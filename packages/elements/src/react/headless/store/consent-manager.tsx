@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import {
 	type AllConsentNames,
 	type ComplianceRegion,
@@ -6,15 +6,8 @@ import {
 	type NamespaceProps,
 	type PrivacyConsentState,
 	createConsentManagerStore,
-} from "@koroflow/core-js";
-import {
-	type ReactNode,
-	createContext,
-	useContext,
-	useEffect,
-	useMemo,
-	useState,
-} from "react";
+} from '@koroflow/core-js';
+import { type ReactNode, createContext, useContext, useEffect, useMemo, useState } from 'react';
 /**
  * @packageDocumentation
  * Provides a React context-based consent management system for handling cookie and privacy preferences.
@@ -96,9 +89,7 @@ interface ConsentManagerContextValue {
  *
  * @internal
  */
-export const ConsentStateContext = createContext<
-	ConsentManagerContextValue | undefined
->(undefined);
+export const ConsentStateContext = createContext<ConsentManagerContextValue | undefined>(undefined);
 
 /**
  * Provider component for consent management functionality.
@@ -145,21 +136,17 @@ export function ConsentManagerProvider({
 	children,
 	initialGdprTypes,
 	initialComplianceSettings,
-	namespace = "KoroflowStore",
+	namespace = 'KoroflowStore',
 	noStyle = false,
 }: ConsentManagerProviderProps) {
 	// Create a stable reference to the store
-	const store = useMemo(
-		() => createConsentManagerStore(namespace),
-		[namespace],
-	);
+	const store = useMemo(() => createConsentManagerStore(namespace), [namespace]);
 
 	// Initialize state with the current state from the consent manager store
 	const [state, setState] = useState<PrivacyConsentState>(store.getState());
 
 	useEffect(() => {
-		const { setGdprTypes, setComplianceSetting, setDetectedCountry } =
-			store.getState();
+		const { setGdprTypes, setComplianceSetting, setDetectedCountry } = store.getState();
 
 		// Initialize GDPR types if provided
 		if (initialGdprTypes) {
@@ -168,18 +155,14 @@ export function ConsentManagerProvider({
 
 		// Initialize compliance settings if provided
 		if (initialComplianceSettings) {
-			for (const [region, settings] of Object.entries(
-				initialComplianceSettings,
-			)) {
+			for (const [region, settings] of Object.entries(initialComplianceSettings)) {
 				setComplianceSetting(region as ComplianceRegion, settings);
 			}
 		}
 
 		// Set detected country
 		const country =
-			document
-				.querySelector('meta[name="user-country"]')
-				?.getAttribute("content") || "US";
+			document.querySelector('meta[name="user-country"]')?.getAttribute('content') || 'US';
 		setDetectedCountry(country);
 
 		// Subscribe to state changes
@@ -199,13 +182,11 @@ export function ConsentManagerProvider({
 			state,
 			store,
 		}),
-		[state, store],
+		[state, store]
 	);
 
 	return (
-		<ConsentStateContext.Provider value={contextValue}>
-			{children}
-		</ConsentStateContext.Provider>
+		<ConsentStateContext.Provider value={contextValue}>{children}</ConsentStateContext.Provider>
 	);
 }
 
@@ -266,9 +247,7 @@ export function useConsentManager() {
 	const context = useContext(ConsentStateContext);
 
 	if (context === undefined) {
-		throw new Error(
-			"useConsentManager must be used within a ConsentManagerProvider",
-		);
+		throw new Error('useConsentManager must be used within a ConsentManagerProvider');
 	}
 
 	return {

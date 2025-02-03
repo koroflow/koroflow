@@ -1,9 +1,6 @@
-import type { FC } from "react";
+import type { FC } from 'react';
 
-export const BorderIcon: FC<{ className: string }> = ({
-	className,
-	...rest
-}) => {
+export const BorderIcon: FC<{ className: string }> = ({ className, ...rest }) => {
 	return (
 		// biome-ignore lint/a11y/noSvgWithoutTitle: <explanation>
 		<svg

@@ -5,8 +5,7 @@
 
 	/* Shadows */
 	--kf-shadow-button-primary-focus: 0 0 0 4px hsl(var(--kf-primary-alpha-20));
-	--kf-shadow-button-important-focus: 0 0 0 4px
-		hsl(var(--kf-bg-strong-alpha-20));
+	--kf-shadow-button-important-focus: 0 0 0 4px hsl(var(--kf-bg-strong-alpha-20));
 	--kf-shadow-button-error-focus: 0 0 0 4px hsl(var(--kf-red-alpha-20));
 	--kf-shadow-regular-xs: 0px 1px 2px 0px rgba(14, 18, 27, 0.06);
 
@@ -131,8 +130,7 @@
 
 	&:focus-visible {
 		background-color: hsl(var(--kf-bg-white-0));
-		box-shadow: var(--kf-shadow-button-primary-focus), inset 0 0 0 1px
-			hsl(var(--kf-primary-base));
+		box-shadow: var(--kf-shadow-button-primary-focus), inset 0 0 0 1px hsl(var(--kf-primary-base));
 	}
 }
 
@@ -147,8 +145,7 @@
 
 	&:focus-visible {
 		background-color: hsl(var(--kf-bg-white-0));
-		box-shadow: var(--kf-shadow-button-primary-focus), inset 0 0 0 1px
-			hsl(var(--kf-primary-base));
+		box-shadow: var(--kf-shadow-button-primary-focus), inset 0 0 0 1px hsl(var(--kf-primary-base));
 	}
 }
 
@@ -169,8 +166,7 @@
 .button-neutral-stroke {
 	background-color: hsl(var(--kf-bg-white-0));
 	color: hsl(var(--kf-text-sub-600));
-	box-shadow: var(--kf-shadow-regular-xs), inset 0 0 0 1px
-		hsl(var(--kf-stroke-soft-200));
+	box-shadow: var(--kf-shadow-regular-xs), inset 0 0 0 1px hsl(var(--kf-stroke-soft-200));
 
 	&:hover {
 		background-color: hsl(var(--kf-bg-weak-50));
@@ -193,8 +189,7 @@
 	&:hover {
 		background-color: hsl(var(--kf-bg-white-0));
 		color: hsl(var(--kf-text-strong-950));
-		box-shadow: var(--kf-shadow-regular-xs), inset 0 0 0 1px
-			hsl(var(--kf-stroke-soft-200));
+		box-shadow: var(--kf-shadow-regular-xs), inset 0 0 0 1px hsl(var(--kf-stroke-soft-200));
 	}
 
 	&:focus-visible {
@@ -264,8 +259,7 @@
 
 	&:focus-visible {
 		background-color: hsl(var(--kf-bg-white-0));
-		box-shadow: var(--kf-shadow-button-error-focus), inset 0 0 0 1px
-			hsl(var(--kf-error-base));
+		box-shadow: var(--kf-shadow-button-error-focus), inset 0 0 0 1px hsl(var(--kf-error-base));
 	}
 }
 
@@ -280,7 +274,6 @@
 
 	&:focus-visible {
 		background-color: hsl(var(--kf-bg-white-0));
-		box-shadow: var(--kf-shadow-button-error-focus), inset 0 0 0 1px
-			hsl(var(--kf-error-base));
+		box-shadow: var(--kf-shadow-button-error-focus), inset 0 0 0 1px hsl(var(--kf-error-base));
 	}
 }

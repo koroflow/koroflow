@@ -1,10 +1,10 @@
-import { Slot } from "@radix-ui/react-slot";
-import { forwardRef, useCallback } from "react";
-import * as Button from "../ui/components/button";
+import { Slot } from '@radix-ui/react-slot';
+import { forwardRef, useCallback } from 'react';
+import * as Button from '../ui/components/button';
 
-import type { VariantProps } from "tailwind-variants";
-import { useStyles, useThemeContext } from "../theme";
-import type { ConsentButtonElement, ConsentButtonProps } from "./button.types";
+import type { VariantProps } from 'tailwind-variants';
+import { useStyles, useThemeContext } from '../theme';
+import type { ConsentButtonElement, ConsentButtonProps } from './button.types';
 
 /**
  * Button component that allows users to reject non-essential cookies.
@@ -25,11 +25,7 @@ export const ConsentButton = forwardRef<
 	ConsentButtonElement,
 	ConsentButtonProps &
 		VariantProps<typeof Button.buttonVariants> & {
-			action:
-				| "accept-consent"
-				| "reject-consent"
-				| "custom-consent"
-				| "open-consent-dialog";
+			action: 'accept-consent' | 'reject-consent' | 'custom-consent' | 'open-consent-dialog';
 			closeCustomizeDialog?: boolean;
 			closeCookieBanner?: boolean;
 		}
@@ -43,15 +39,15 @@ export const ConsentButton = forwardRef<
 			action,
 			themeKey,
 			baseClassName,
-			variant = "neutral",
-			mode = "stroke",
-			size = "small",
+			variant = 'neutral',
+			mode = 'stroke',
+			size = 'small',
 			onClick: forwardedOnClick,
 			closeCookieBanner = false,
 			closeCustomizeDialog = false,
 			...props
 		},
-		ref,
+		ref
 	) => {
 		const {
 			saveConsents,
@@ -60,7 +56,7 @@ export const ConsentButton = forwardRef<
 			noStyle: contextNoStyle,
 		} = useThemeContext();
 
-		const buttonStyle = useStyles(themeKey ?? "button", {
+		const buttonStyle = useStyles(themeKey ?? 'button', {
 			baseClassName: [
 				!(contextNoStyle || noStyle) && [
 					Button.buttonVariants({
@@ -68,7 +64,7 @@ export const ConsentButton = forwardRef<
 						mode,
 						size,
 					}).root(),
-					"consent-button",
+					'consent-button',
 				],
 			],
 			style,
@@ -78,16 +74,16 @@ export const ConsentButton = forwardRef<
 
 		const buttonClick = useCallback(() => {
 			switch (action) {
-				case "accept-consent":
-					saveConsents("all");
+				case 'accept-consent':
+					saveConsents('all');
 					break;
-				case "reject-consent":
-					saveConsents("necessary");
+				case 'reject-consent':
+					saveConsents('necessary');
 					break;
-				case "custom-consent":
-					saveConsents("custom");
+				case 'custom-consent':
+					saveConsents('custom');
 					break;
-				case "open-consent-dialog":
+				case 'open-consent-dialog':
 					setIsPrivacyDialogOpen(true);
 					setShowPopup(false);
 					break;
@@ -111,10 +107,10 @@ export const ConsentButton = forwardRef<
 			action,
 		]);
 
-		const Comp = asChild ? Slot : "button";
+		const Comp = asChild ? Slot : 'button';
 
 		return <Comp ref={ref} {...buttonStyle} onClick={buttonClick} {...props} />;
-	},
+	}
 );
 
-ConsentButton.displayName = "ConsentButton";
+ConsentButton.displayName = 'ConsentButton';

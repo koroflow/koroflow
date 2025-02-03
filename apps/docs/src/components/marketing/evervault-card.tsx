@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { cn } from "@koroflow/shadcn/libs";
-import { type MotionValue, useMotionValue } from "motion/react";
-import { motion, useMotionTemplate } from "motion/react";
-import { useEffect, useState } from "react";
+import { cn } from '@koroflow/shadcn/libs';
+import { type MotionValue, useMotionValue } from 'motion/react';
+import { motion, useMotionTemplate } from 'motion/react';
+import { useEffect, useState } from 'react';
 
 export const EvervaultCard = ({
 	text,
@@ -15,7 +15,7 @@ export const EvervaultCard = ({
 	const mouseX = useMotionValue(0);
 	const mouseY = useMotionValue(0);
 
-	const [randomString, setRandomString] = useState("");
+	const [randomString, setRandomString] = useState('');
 
 	useEffect(() => {
 		const str = generateRandomString(1500);
@@ -42,19 +42,15 @@ export const EvervaultCard = ({
 	return (
 		<div
 			className={cn(
-				"relative flex aspect-square h-full w-full items-center justify-center bg-transparent p-0.5",
-				className,
+				'relative flex aspect-square h-full w-full items-center justify-center bg-transparent p-0.5',
+				className
 			)}
 		>
 			<div
 				onMouseMove={onMouseMove}
 				className="group/card relative flex h-full w-full items-center justify-center overflow-hidden rounded-3xl bg-transparent"
 			>
-				<CardPattern
-					mouseX={mouseX}
-					mouseY={mouseY}
-					randomString={randomString}
-				/>
+				<CardPattern mouseX={mouseX} mouseY={mouseY} randomString={randomString} />
 				<div className="relative z-10 flex items-center justify-center">
 					<div className="relative flex h-44 w-44 items-center justify-center rounded-full font-bold text-4xl text-white">
 						<div className="absolute h-full w-full rounded-full bg-white/[0.8] blur-sm dark:bg-black/[0.8]" />
@@ -97,10 +93,9 @@ export function CardPattern({
 	);
 }
 
-const characters =
-	"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 export const generateRandomString = (length: number) => {
-	let result = "";
+	let result = '';
 	for (let i = 0; i < length; i++) {
 		result += characters.charAt(Math.floor(Math.random() * characters.length));
 	}

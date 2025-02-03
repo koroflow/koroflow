@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 /**
  * @packageDocumentation
@@ -6,11 +6,11 @@
  * Implements a flexible styling system that merges theme and component-level styles.
  */
 
-import { useMemo } from "react";
-import { useThemeContext } from "./context";
-import type { AllThemeKeys } from "./types/style-keys";
-import type { ClassNameStyle, ThemeValue } from "./types/style-types";
-import { mergeStyles } from "./utils/merge-styles";
+import { useMemo } from 'react';
+import { useThemeContext } from './context';
+import type { AllThemeKeys } from './types/style-keys';
+import type { ClassNameStyle, ThemeValue } from './types/style-types';
+import { mergeStyles } from './utils/merge-styles';
 
 /**
  * Hook for retrieving and merging styles from theme context and component props.
@@ -41,30 +41,22 @@ import { mergeStyles } from "./utils/merge-styles";
  * @public
  */
 
-export function useStyles(
-	themeKey: AllThemeKeys,
-	componentStyle?: ThemeValue,
-): ClassNameStyle {
+export function useStyles(themeKey: AllThemeKeys, componentStyle?: ThemeValue): ClassNameStyle {
 	const { noStyle: contextNoStyle, theme } = useThemeContext();
 	const mergedNoStyle =
-		typeof componentStyle === "object" && "noStyle" in componentStyle
+		typeof componentStyle === 'object' && 'noStyle' in componentStyle
 			? componentStyle.noStyle
 			: contextNoStyle;
 
 	// Memoize theme styles retrieval
 	const themeStylesObject = useMemo(() => {
-		return themeKey
-			? (theme as Record<AllThemeKeys, ThemeValue>)?.[themeKey]
-			: null;
+		return themeKey ? (theme as Record<AllThemeKeys, ThemeValue>)?.[themeKey] : null;
 	}, [themeKey, theme]);
 
 	// Memoize initial style setup
 	const initialStyle = useMemo(() => {
 		const initial = {
-			className:
-				typeof componentStyle === "string"
-					? componentStyle
-					: componentStyle?.className,
+			className: typeof componentStyle === 'string' ? componentStyle : componentStyle?.className,
 			style: undefined,
 		};
 
@@ -73,9 +65,7 @@ export function useStyles(
 
 	// Memoize merged style with context
 	const mergedWithContext = useMemo(() => {
-		const merged = themeStylesObject
-			? mergeStyles(initialStyle, themeStylesObject)
-			: initialStyle;
+		const merged = themeStylesObject ? mergeStyles(initialStyle, themeStylesObject) : initialStyle;
 
 		return merged;
 	}, [initialStyle, themeStylesObject]);
@@ -94,7 +84,7 @@ export function useStyles(
 		if (mergedNoStyle) {
 			if (!themeStylesObject) return {};
 			const noStyleResult =
-				typeof themeStylesObject === "string"
+				typeof themeStylesObject === 'string'
 					? { className: themeStylesObject }
 					: {
 							className: themeStylesObject.className,
@@ -107,15 +97,13 @@ export function useStyles(
 		const finalClassName = Array.from(
 			new Set(
 				[
-					typeof componentStyle === "string"
-						? componentStyle
-						: componentStyle?.className,
+					typeof componentStyle === 'string' ? componentStyle : componentStyle?.className,
 					finalMergedStyle.className,
 				]
 					.filter(Boolean)
-					.flat(),
-			),
-		).join(" ");
+					.flat()
+			)
+		).join(' ');
 		const result = { ...finalMergedStyle, className: finalClassName };
 
 		return result;

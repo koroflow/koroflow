@@ -1,10 +1,5 @@
 {
 	"title": "Guides",
 	"defaultOpen": true,
-	"pages": [
-		"cookie-banner",
-		"consent-manager-dialog",
-		"consent-manager-widget",
-		"..."
-	]
+	"pages": ["cookie-banner", "consent-manager-dialog", "consent-manager-widget", "..."]
 }

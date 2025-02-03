@@ -11,17 +11,17 @@ import {
 	type Ref,
 	forwardRef,
 	useCallback,
-} from "react";
-import { type AllConsentNames, useConsentManager } from "../headless";
-import { Box, type BoxProps } from "../primitives/box";
-import { ConsentButton } from "../primitives/button";
-import type { ConsentButtonProps } from "../primitives/button.types";
-import type { ThemeContextValue } from "../theme";
-import { Item as AccordionItem } from "../ui/components/accordion";
-import * as Accordion from "../ui/components/accordion";
-import * as Switch from "../ui/components/switch";
-import type { ConsentManagerWidgetRoot } from "./atoms/root";
-import type { ConsentManagerWidgetTheme } from "./theme";
+} from 'react';
+import { type AllConsentNames, useConsentManager } from '../headless';
+import { Box, type BoxProps } from '../primitives/box';
+import { ConsentButton } from '../primitives/button';
+import type { ConsentButtonProps } from '../primitives/button.types';
+import type { ThemeContextValue } from '../theme';
+import { Item as AccordionItem } from '../ui/components/accordion';
+import * as Accordion from '../ui/components/accordion';
+import * as Switch from '../ui/components/switch';
+import type { ConsentManagerWidgetRoot } from './atoms/root';
+import type { ConsentManagerWidgetTheme } from './theme';
 
 /**
  * Accordion sub-group component for organizing consent options.
@@ -33,13 +33,13 @@ import type { ConsentManagerWidgetTheme } from "./theme";
  */
 const ConsentManagerWidgetAccordionSubGroup = forwardRef<
 	HTMLDivElement,
-	Omit<BoxProps, "themeKey">
+	Omit<BoxProps, 'themeKey'>
 >(({ children, ...props }, ref) => {
 	return (
 		<Box
 			ref={ref as Ref<HTMLDivElement>}
 			baseClassName="accordion-trigger-sub-group"
-			themeKey={"consent-manager-widget.accordion.trigger-sub-group"}
+			themeKey={'consent-manager-widget.accordion.trigger-sub-group'}
 			{...props}
 		>
 			{children}
@@ -76,7 +76,7 @@ export const ConsentManagerWidgetAccordionItems = () => {
 		(name: AllConsentNames, checked: boolean) => {
 			setConsent(name, checked);
 		},
-		[setConsent],
+		[setConsent]
 	);
 	return getDisplayedConsents().map((consent) => (
 		<ConsentManagerWidgetAccordionItem
@@ -87,8 +87,8 @@ export const ConsentManagerWidgetAccordionItems = () => {
 			<ConsentManagerWidgetAccordionTrigger themeKey="consent-manager-widget.accordion.trigger">
 				<ConsentManagerWidgetAccordionSubGroup>
 					<ConsentManagerWidgetAccordionArrow />
-					{consent.name.replace("_", " ").charAt(0).toUpperCase() +
-						consent.name.replace("_", " ").slice(1)}
+					{consent.name.replace('_', ' ').charAt(0).toUpperCase() +
+						consent.name.replace('_', ' ').slice(1)}
 				</ConsentManagerWidgetAccordionSubGroup>
 
 				<ConsentManagerWidgetSwitch
@@ -96,22 +96,20 @@ export const ConsentManagerWidgetAccordionItems = () => {
 					onClick={(e) => e.stopPropagation()}
 					onKeyUp={(e) => e.stopPropagation()}
 					onKeyDown={(e) => e.stopPropagation()}
-					onCheckedChange={(checked) =>
-						handleConsentChange(consent.name, checked)
-					}
+					onCheckedChange={(checked) => handleConsentChange(consent.name, checked)}
 					disabled={consent.disabled}
 					theme={{
-						root: { themeKey: "consent-manager-widget.switch" },
-						thumb: { themeKey: "consent-manager-widget.switch.thumb" },
-						track: { themeKey: "consent-manager-widget.switch.track" },
+						root: { themeKey: 'consent-manager-widget.switch' },
+						thumb: { themeKey: 'consent-manager-widget.switch.thumb' },
+						track: { themeKey: 'consent-manager-widget.switch.track' },
 					}}
 				/>
 			</ConsentManagerWidgetAccordionTrigger>
 			<ConsentManagerWidgetAccordionContent
 				theme={{
-					content: { themeKey: "consent-manager-widget.accordion.content" },
+					content: { themeKey: 'consent-manager-widget.accordion.content' },
 					contentInner: {
-						themeKey: "consent-manager-widget.accordion.content",
+						themeKey: 'consent-manager-widget.accordion.content',
 					},
 				}}
 			>
@@ -135,21 +133,20 @@ const ConsentManagerWidgetAccordionItem = forwardRef<
  * - Supports customization through theme
  * - Maintains consistent layout
  */
-const ConsentManagerWidgetFooter = forwardRef<
-	HTMLDivElement,
-	Omit<BoxProps, "themeKey">
->(({ children, ...props }, ref) => {
-	return (
-		<Box
-			ref={ref as Ref<HTMLDivElement>}
-			baseClassName="consent-manager-widget-footer"
-			{...props}
-			themeKey="consent-manager-widget.footer"
-		>
-			{children}
-		</Box>
-	);
-});
+const ConsentManagerWidgetFooter = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
+	({ children, ...props }, ref) => {
+		return (
+			<Box
+				ref={ref as Ref<HTMLDivElement>}
+				baseClassName="consent-manager-widget-footer"
+				{...props}
+				themeKey="consent-manager-widget.footer"
+			>
+				{children}
+			</Box>
+		);
+	}
+);
 
 const ConsentManagerWidgetFooterSubGroup = forwardRef<HTMLDivElement, BoxProps>(
 	({ children, ...props }, ref) => {
@@ -163,7 +160,7 @@ const ConsentManagerWidgetFooterSubGroup = forwardRef<HTMLDivElement, BoxProps>(
 				{children}
 			</Box>
 		);
-	},
+	}
 );
 
 /**
@@ -174,24 +171,23 @@ const ConsentManagerWidgetFooterSubGroup = forwardRef<HTMLDivElement, BoxProps>(
  * - Maintains required consents
  * - Closes dialog after action
  */
-const ConsentManagerWidgetRejectButton = forwardRef<
-	HTMLButtonElement,
-	ConsentButtonProps
->(({ children, ...props }, ref) => {
-	return (
-		<ConsentButton
-			ref={ref as Ref<HTMLButtonElement>}
-			variant="neutral"
-			mode="stroke"
-			size="small"
-			action="reject-consent"
-			{...props}
-			themeKey="consent-manager-widget.footer.reject-button"
-		>
-			{children}
-		</ConsentButton>
-	);
-});
+const ConsentManagerWidgetRejectButton = forwardRef<HTMLButtonElement, ConsentButtonProps>(
+	({ children, ...props }, ref) => {
+		return (
+			<ConsentButton
+				ref={ref as Ref<HTMLButtonElement>}
+				variant="neutral"
+				mode="stroke"
+				size="small"
+				action="reject-consent"
+				{...props}
+				themeKey="consent-manager-widget.footer.reject-button"
+			>
+				{children}
+			</ConsentButton>
+		);
+	}
+);
 
 /**
  * Button to accept all available cookies.
@@ -201,58 +197,55 @@ const ConsentManagerWidgetRejectButton = forwardRef<
  * - Closes dialog after action
  * - Triggers necessary callbacks
  */
-const ConsentManagerWidgetAcceptAllButton = forwardRef<
-	HTMLButtonElement,
-	ConsentButtonProps
->(({ children, ...props }, ref) => {
-	return (
-		<ConsentButton
-			ref={ref as Ref<HTMLButtonElement>}
-			variant="neutral"
-			mode="stroke"
-			size="small"
-			action="accept-consent"
-			{...props}
-			themeKey="consent-manager-widget.footer.accept-button"
-		>
-			{children}
-		</ConsentButton>
-	);
-});
+const ConsentManagerWidgetAcceptAllButton = forwardRef<HTMLButtonElement, ConsentButtonProps>(
+	({ children, ...props }, ref) => {
+		return (
+			<ConsentButton
+				ref={ref as Ref<HTMLButtonElement>}
+				variant="neutral"
+				mode="stroke"
+				size="small"
+				action="accept-consent"
+				{...props}
+				themeKey="consent-manager-widget.footer.accept-button"
+			>
+				{children}
+			</ConsentButton>
+		);
+	}
+);
 
-const ConsentManagerWidgetCustomizeButton = forwardRef<
-	HTMLButtonElement,
-	ConsentButtonProps
->(({ children, ...props }, ref) => {
-	return (
-		<ConsentButton
-			ref={ref as Ref<HTMLButtonElement>}
-			action="open-consent-dialog"
-			{...props}
-			themeKey="consent-manager-widget.footer.customize-button"
-		>
-			{children}
-		</ConsentButton>
-	);
-});
+const ConsentManagerWidgetCustomizeButton = forwardRef<HTMLButtonElement, ConsentButtonProps>(
+	({ children, ...props }, ref) => {
+		return (
+			<ConsentButton
+				ref={ref as Ref<HTMLButtonElement>}
+				action="open-consent-dialog"
+				{...props}
+				themeKey="consent-manager-widget.footer.customize-button"
+			>
+				{children}
+			</ConsentButton>
+		);
+	}
+);
 
-const ConsentManagerWidgetSaveButton = forwardRef<
-	HTMLButtonElement,
-	ConsentButtonProps
->(({ children, ...props }, ref) => {
-	return (
-		<ConsentButton
-			ref={ref as Ref<HTMLButtonElement>}
-			action="custom-consent"
-			variant="primary"
-			closeCustomizeDialog
-			{...props}
-			themeKey="consent-manager-widget.footer.save-button"
-		>
-			{children}
-		</ConsentButton>
-	);
-});
+const ConsentManagerWidgetSaveButton = forwardRef<HTMLButtonElement, ConsentButtonProps>(
+	({ children, ...props }, ref) => {
+		return (
+			<ConsentButton
+				ref={ref as Ref<HTMLButtonElement>}
+				action="custom-consent"
+				variant="primary"
+				closeCustomizeDialog
+				{...props}
+				themeKey="consent-manager-widget.footer.save-button"
+			>
+				{children}
+			</ConsentButton>
+		);
+	}
+);
 
 /**
  * Component type definition for the ConsentManagerWidget with its compound components.

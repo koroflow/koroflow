@@ -1,7 +1,4 @@
-import CookieBanner, {
-	type CookieBannerComponent,
-	type CookieBannerProps,
-} from "./cookie-banner";
+import CookieBanner, { type CookieBannerComponent, type CookieBannerProps } from './cookie-banner';
 
 /**
  * Enhanced CookieBanner component with compound components attached.
@@ -60,8 +57,8 @@ export {
 	CookieBannerHeader,
 	CookieBannerRejectButton,
 	CookieBannerTitle,
-} from "./components";
+} from './components';
 export type { CookieBannerComponent, CookieBannerProps };
-export type { CookieBannerTheme } from "./types";
+export type { CookieBannerTheme } from './types';
 
 export default CookieBanner;

@@ -1,6 +1,6 @@
-import { cn } from "@koroflow/shadcn/libs";
-import * as React from "react";
-import { BorderIcon } from "./border-icon";
+import { cn } from '@koroflow/shadcn/libs';
+import * as React from 'react';
+import { BorderIcon } from './border-icon';
 
 // Types
 interface FeatureProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -22,31 +22,28 @@ const Root = React.forwardRef<HTMLDivElement, RootProps>(
 			<div
 				ref={ref}
 				className={cn(
-					"relative z-10 mx-auto grid grid-cols-1 border border-y sm:border-x-0 md:grid-cols-2 lg:grid-cols-4 dark:border-neutral-800",
-					className,
+					'relative z-10 mx-auto grid grid-cols-1 border border-y sm:border-x-0 md:grid-cols-2 lg:grid-cols-4 dark:border-neutral-800',
+					className
 				)}
 				{...props}
 			>
 				{children}
 			</div>
 		);
-	},
+	}
 );
-Root.displayName = "FeaturesRoot";
+Root.displayName = 'FeaturesRoot';
 
 const Item = React.forwardRef<HTMLDivElement, FeatureProps>(
-	(
-		{ title, description, icon, index, comingSoon, className, ...props },
-		ref,
-	) => {
+	({ title, description, icon, index, comingSoon, className, ...props }, ref) => {
 		return (
 			<div
 				ref={ref}
 				className={cn(
-					"group/feature relative flex flex-col border py-10 lg:border-0 lg:border-r dark:border-neutral-800",
-					(index === 0 || index === 4) && "lg:border-l dark:border-neutral-800",
-					index < 4 && "lg:border-b dark:border-neutral-800",
-					className,
+					'group/feature relative flex flex-col border py-10 lg:border-0 lg:border-r dark:border-neutral-800',
+					(index === 0 || index === 4) && 'lg:border-l dark:border-neutral-800',
+					index < 4 && 'lg:border-b dark:border-neutral-800',
+					className
 				)}
 				{...props}
 			>
@@ -79,9 +76,9 @@ const Item = React.forwardRef<HTMLDivElement, FeatureProps>(
 				</p>
 			</div>
 		);
-	},
+	}
 );
-Item.displayName = "FeaturesItem";
+Item.displayName = 'FeaturesItem';
 
 // Export as a namespace object
 const Features = {
