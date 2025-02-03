@@ -3,6 +3,10 @@
 	"version": "0.0.0",
 	"type": "module",
 	"private": true,
+	"scripts": {
+		"fmt": "pnpm biome format --write .",
+		"lint": "pnpm biome lint ./src"
+	},
 	"exports": {
 		"./react": "./src/react.mjs",
 		"./node": "./src/node.mjs"

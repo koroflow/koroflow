@@ -7,9 +7,12 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build:registry": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-registry.mts",
+		"build:registry": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-registry.mts && pnpm fmt",
 		"build:declarations": "tsc -p tsconfig.declarations.json && resolve-tspaths --out ./dist ",
 		"build": "pnpm build:registry && tsup",
+		"fmt": "pnpm biome format --write .",
+		"lint": "pnpm biome lint ./src",
+
 		"check-types": "tsc --noEmit",
 		"dev": "tsup --watch"
 	},

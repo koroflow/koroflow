@@ -1,12 +1,18 @@
-"use client";
-import type { NamespaceProps, PrivacyConsentState } from "@koroflow/core-js";
-import type React from "react";
-import { ReactNode, createContext, useCallback, useContext, useEffect, useState } from "react";
-import type { StoreApi } from "zustand/vanilla";
-import { ErrorState } from "./components/error-state";
-import { Header } from "./components/header";
-import DevToolWrapper from "./components/wrapper";
-import { Router } from "./router/router";
+'use client';
+import type { NamespaceProps, PrivacyConsentState } from '@koroflow/core-js';
+import type React from 'react';
+import {
+	createContext,
+	useCallback,
+	useContext,
+	useEffect,
+	useState,
+} from 'react';
+import type { StoreApi } from 'zustand/vanilla';
+import { ErrorState } from './components/error-state';
+import { Header } from './components/header';
+import DevToolWrapper from './components/wrapper';
+import { Router } from './router/router';
 
 const PrivacyConsentContext = createContext<{
 	state: PrivacyConsentState | null;
@@ -16,7 +22,9 @@ const PrivacyConsentContext = createContext<{
 export const getStore = () => {
 	const context = useContext(PrivacyConsentContext);
 	if (context === null) {
-		throw new Error("useConsentManagerContext must be used within a ConsentManagerProvider");
+		throw new Error(
+			'useConsentManagerContext must be used within a ConsentManagerProvider'
+		);
 	}
 
 	// Create a subscription to the store updates
@@ -29,9 +37,11 @@ export const getStore = () => {
 		setLocalState(context.state);
 
 		// Subscribe to store updates
-		const unsubscribe = context.store.subscribe((newState: PrivacyConsentState) => {
-			setLocalState(newState);
-		});
+		const unsubscribe = context.store.subscribe(
+			(newState: PrivacyConsentState) => {
+				setLocalState(newState);
+			}
+		);
 
 		return () => {
 			unsubscribe();
@@ -44,21 +54,25 @@ export const getStore = () => {
 export default PrivacyConsentContext;
 
 interface ConsentManagerProviderProps extends NamespaceProps {
-	position?: "bottom-right" | "top-right" | "bottom-left" | "top-left";
+	position?: 'bottom-right' | 'top-right' | 'bottom-left' | 'top-left';
 }
 
 export const KoroflowDevTool: React.FC<ConsentManagerProviderProps> = ({
-	namespace = "KoroflowStore",
-	position = "bottom-right",
+	namespace = 'KoroflowStore',
+	position = 'bottom-right',
 }) => {
 	const [state, setState] = useState<PrivacyConsentState | null>(null);
-	const [store, setStore] = useState<StoreApi<PrivacyConsentState> | null>(null);
+	const [store, setStore] = useState<StoreApi<PrivacyConsentState> | null>(
+		null
+	);
 	const [isOpen, setIsOpen] = useState(false);
 	const toggleOpen = useCallback(() => setIsOpen((prev) => !prev), []);
 
 	useEffect(() => {
 		const storeInstance =
-			(typeof window !== "undefined" && (window as Window)[namespace as keyof Window]) || null;
+			(typeof window !== 'undefined' &&
+				(window as Window)[namespace as keyof Window]) ||
+			null;
 
 		if (storeInstance) {
 			setStore(storeInstance);
@@ -66,22 +80,34 @@ export const KoroflowDevTool: React.FC<ConsentManagerProviderProps> = ({
 			setState(currentState);
 
 			// Subscribe to store updates
-			const unsubscribe = storeInstance.subscribe((newState: PrivacyConsentState) => {
-				setState(newState);
-			});
+			const unsubscribe = storeInstance.subscribe(
+				(newState: PrivacyConsentState) => {
+					setState(newState);
+				}
+			);
 
 			return () => {
 				unsubscribe();
 			};
 		}
+		// biome-ignore lint/suspicious/noConsoleLog: needed for dev tools
+		// biome-ignore lint/suspicious/noConsole: needed for dev tools
 		console.log(`${namespace} is not available on the window object.`);
 	}, [namespace]);
 
 	return (
 		<PrivacyConsentContext.Provider value={{ state, store }}>
-			<DevToolWrapper isOpen={isOpen} toggleOpen={toggleOpen} position={position}>
+			<DevToolWrapper
+				isOpen={isOpen}
+				toggleOpen={toggleOpen}
+				position={position}
+			>
 				<Header onClose={() => setIsOpen(false)} />
-				{state ? <Router onClose={() => setIsOpen(false)} /> : <ErrorState namespace={namespace} />}
+				{state ? (
+					<Router onClose={() => setIsOpen(false)} />
+				) : (
+					<ErrorState namespace={namespace} />
+				)}
 			</DevToolWrapper>
 		</PrivacyConsentContext.Provider>
 	);

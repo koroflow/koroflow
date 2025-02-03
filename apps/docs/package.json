@@ -7,7 +7,9 @@
 		"build": "pnpm build:copy-registry && next build",
 		"dev": "next dev",
 		"start": "next start",
-		"postinstall": "fumadocs-mdx"
+		"postinstall": "fumadocs-mdx",
+		"fmt": "pnpm biome format --write .",
+		"lint": "pnpm biome lint ./src"
 	},
 	"dependencies": {
 		"@koroflow/elements": "0.0.1-beta.8",

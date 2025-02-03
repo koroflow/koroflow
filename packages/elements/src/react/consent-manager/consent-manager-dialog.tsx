@@ -53,7 +53,8 @@ const contentVariants = {
  * Extends ThemeContextValue to provide comprehensive theming support
  * while maintaining type safety for consent management specific features.
  */
-interface ConsentManagerDialogProps extends ThemeContextValue<ConsentManagerWidgetTheme> {
+interface ConsentManagerDialogProps
+	extends ThemeContextValue<ConsentManagerWidgetTheme> {
 	/** Disables animation when true */
 	disableAnimation?: boolean;
 	/** Removes default styling when true */

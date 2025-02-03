@@ -149,7 +149,9 @@ const SingaltonCookieBanner: FC<CookieBannerProps> = ({
 	acceptButtonText = "Accept All",
 }) => {
 	return (
-		<ErrorBoundary fallback={<div>Something went wrong with the Cookie Banner.</div>}>
+		<ErrorBoundary
+			fallback={<div>Something went wrong with the Cookie Banner.</div>}
+		>
 			<CookieBannerRoot theme={theme} noStyle={noStyle}>
 				<CookieBannerCard>
 					<CookieBannerHeader>

@@ -1,4 +1,7 @@
-import CookieBanner, { type CookieBannerComponent, type CookieBannerProps } from "./cookie-banner";
+import CookieBanner, {
+	type CookieBannerComponent,
+	type CookieBannerProps,
+} from "./cookie-banner";
 
 /**
  * Enhanced CookieBanner component with compound components attached.

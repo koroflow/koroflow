@@ -7,9 +7,9 @@
 		"ci:version": "pnpm changeset version",
 		"ci:publish": "pnpm changeset tag && pnpm publish -r",
 		"dev": "turbo dev",
-		"fmt:check": "biome check .",
-		"fmt": "biome check --write --unsafe .",
-		"lint": "turbo lint"
+		"fmt": "turbo fmt",
+		"lint": "turbo lint",
+		"lint:fix": "turbo lint -- --write"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
@@ -24,6 +24,7 @@
 		"tsup": "^8.3.6",
 		"turbo": "^2.3.4",
 		"typescript": "5.7.3",
+		"ultracite": "^4.1.18",
 		"vitest": "^3.0.4"
 	},
 	"packageManager": "pnpm@9.0.0",

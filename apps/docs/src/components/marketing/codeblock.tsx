@@ -1,6 +1,5 @@
 import { highlight } from "fumadocs-core/server";
 import * as Base from "fumadocs-ui/components/codeblock";
-import React from "react";
 
 /**
  * Props for the CodeBlock component.

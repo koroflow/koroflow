@@ -35,15 +35,15 @@ export function ExamplesClient({ features }: ExamplesClientProps) {
 
 	return (
 		<motion.div
-			className="grid grid-cols-1 md:grid-cols-5 relative gap-6"
+			className="relative grid grid-cols-1 gap-6 md:grid-cols-5"
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 0.5 }}
 		>
 			{/* Features Selection */}
-			<motion.div className="md:col-span-2 bg-background sticky top-[var(--header-height)] z-20">
+			<motion.div className="sticky top-[var(--header-height)] z-20 bg-background md:col-span-2">
 				<div className="flex flex-col space-y-4 pb-4 md:pb-0">
-					<div className="flex flex-col space-y-4 sm:space-y-8 min-w-full relative">
+					<div className="relative flex min-w-full flex-col space-y-4 sm:space-y-8">
 						{features.map((option, index) => (
 							<motion.button
 								key={option.id}
@@ -66,44 +66,43 @@ export function ExamplesClient({ features }: ExamplesClientProps) {
 							>
 								<div className="flex items-center gap-4">
 									<motion.div
-										className={`
-											size-6 sm:size-8 
-											shrink-0 rounded-full 
-											flex items-center justify-center 
-											border-2 
-											${
-												index === selectedIndex
-													? "bg-primary border-primary text-primary-foreground"
-													: "bg-muted border-muted-foreground"
-											}
+										className={`flex size-6 shrink-0 items-center justify-center rounded-full sm:size-8 border-2${
+											index === selectedIndex
+												? "border-primary bg-primary text-primary-foreground"
+												: "border-muted-foreground bg-muted"
+										}
 										`}
 									>
 										{index <= selectedIndex ? (
-											<span className="text-base sm:text-lg font-bold">✓</span>
+											<span className="font-bold text-base sm:text-lg">✓</span>
 										) : (
-											<span className="text-base sm:text-lg font-semibold">{index + 1}</span>
+											<span className="font-semibold text-base sm:text-lg">
+												{index + 1}
+											</span>
 										)}
 									</motion.div>
 									<div>
-										<h3 className="font-medium tracking-tight text-sm sm:text-base">
+										<h3 className="font-medium text-sm tracking-tight sm:text-base">
 											{option.title}
 										</h3>
-										<p className="text-xs sm:text-sm text-muted-foreground">{option.description}</p>
+										<p className="text-muted-foreground text-xs sm:text-sm">
+											{option.description}
+										</p>
 									</div>
 								</div>
 								{index === selectedIndex && (
 									<motion.div
-										className="absolute bottom-0 left-0 h-1 bg-primary mx-4"
+										className="absolute bottom-0 left-0 mx-4 h-1 bg-primary"
 										initial={{ width: "0%" }}
 										animate={{ width: `${progress}%` }}
 										transition={{ duration: 0.1, ease: "linear" }}
 									/>
 								)}
 
-								<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -top-3 -left-3 dark:text-white text-black" />
-								<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -bottom-3 -left-3 dark:text-white text-black" />
-								<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -top-3 -right-3 dark:text-white text-black" />
-								<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -bottom-3 -right-3 dark:text-white text-black" />
+								<BorderIcon className="-top-3 -left-3 absolute h-4 w-4 text-black sm:h-6 sm:w-6 dark:text-white" />
+								<BorderIcon className="-bottom-3 -left-3 absolute h-4 w-4 text-black sm:h-6 sm:w-6 dark:text-white" />
+								<BorderIcon className="-top-3 -right-3 absolute h-4 w-4 text-black sm:h-6 sm:w-6 dark:text-white" />
+								<BorderIcon className="-bottom-3 -right-3 absolute h-4 w-4 text-black sm:h-6 sm:w-6 dark:text-white" />
 							</motion.button>
 						))}
 					</div>
@@ -111,7 +110,7 @@ export function ExamplesClient({ features }: ExamplesClientProps) {
 			</motion.div>
 
 			{/* Code Display */}
-			<div className="md:col-span-3 relative mt-4  sm:mt-0">
+			<div className="relative mt-4 sm:mt-0 md:col-span-3">
 				<AnimatePresence mode="wait">
 					{features.map(
 						(feature, index) =>
@@ -126,10 +125,10 @@ export function ExamplesClient({ features }: ExamplesClientProps) {
 								>
 									{feature.code}
 
-									<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -top-3 -left-3 dark:text-white text-black" />
-									<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -bottom-3 -left-3 dark:text-white text-black" />
-									<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -top-3 -right-3 dark:text-white text-black" />
-									<BorderIcon className="absolute h-4 w-4 sm:h-6 sm:w-6 -bottom-3 -right-3 dark:text-white text-black" />
+									<BorderIcon className="-top-3 -left-3 absolute h-4 w-4 text-black sm:h-6 sm:w-6 dark:text-white" />
+									<BorderIcon className="-bottom-3 -left-3 absolute h-4 w-4 text-black sm:h-6 sm:w-6 dark:text-white" />
+									<BorderIcon className="-top-3 -right-3 absolute h-4 w-4 text-black sm:h-6 sm:w-6 dark:text-white" />
+									<BorderIcon className="-bottom-3 -right-3 absolute h-4 w-4 text-black sm:h-6 sm:w-6 dark:text-white" />
 								</motion.div>
 							),
 					)}

@@ -1,4 +1,4 @@
-import type { AllConsentNames } from "./gdpr";
+import type { AllConsentNames } from './gdpr';
 
 /**
  * @packageDocumentation
@@ -52,7 +52,7 @@ export type ConsentState = Record<AllConsentNames, boolean>;
  *
  * @public
  */
-export type ComplianceRegion = "gdpr" | "ccpa" | "lgpd" | "usStatePrivacy";
+export type ComplianceRegion = 'gdpr' | 'ccpa' | 'lgpd' | 'usStatePrivacy';
 
 /**
  * Configuration settings for privacy regulation compliance.
@@ -163,7 +163,7 @@ export type HasConsentedProps = {
 	time: number;
 
 	/** Type of consent granted */
-	type: "all" | "custom" | "necessary";
+	type: 'all' | 'custom' | 'necessary';
 } | null;
 
 /**

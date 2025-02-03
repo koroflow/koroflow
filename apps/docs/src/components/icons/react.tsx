@@ -10,7 +10,12 @@ export const ReactIcon = ({
 	titleId = "react",
 	...props
 }: SVGProps<SVGSVGElement> & ReactIconProps) => (
-	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-labelledby={titleId} {...props}>
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 24 24"
+		aria-labelledby={titleId}
+		{...props}
+	>
 		<title id={titleId}>{title}</title>
 		<path
 			fill="currentColor"

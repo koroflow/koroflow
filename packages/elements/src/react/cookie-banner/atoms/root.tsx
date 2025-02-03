@@ -195,7 +195,10 @@ interface CookieBannerRootChildrenProps extends HTMLAttributes<HTMLDivElement> {
  *
  * @public
  */
-export const CookieBannerRootChildren = forwardRef<HTMLDivElement, CookieBannerRootChildrenProps>(
+export const CookieBannerRootChildren = forwardRef<
+	HTMLDivElement,
+	CookieBannerRootChildrenProps
+>(
 	(
 		{
 			asChild,
@@ -205,7 +208,10 @@ export const CookieBannerRootChildren = forwardRef<HTMLDivElement, CookieBannerR
 			className: forwardedClassName,
 			disableAnimation,
 			...props
-		}: CookieBannerRootChildrenProps & { style?: React.CSSProperties; className?: string },
+		}: CookieBannerRootChildrenProps & {
+			style?: React.CSSProperties;
+			className?: string;
+		},
 		ref,
 	) => {
 		const { showPopup } = useConsentManager();
@@ -215,7 +221,9 @@ export const CookieBannerRootChildren = forwardRef<HTMLDivElement, CookieBannerR
 		 * Uses the 'content' style key for consistent theming.
 		 */
 		const contentStyle = useStyles("cookie-banner.root", {
-			baseClassName: ["cookie-banner cookie-banner-root cookie-banner-root-bottom-left"],
+			baseClassName: [
+				"cookie-banner cookie-banner-root cookie-banner-root-bottom-left",
+			],
 			style,
 			className: forwardedClassName,
 		});

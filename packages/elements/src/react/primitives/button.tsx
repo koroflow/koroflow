@@ -25,7 +25,11 @@ export const ConsentButton = forwardRef<
 	ConsentButtonElement,
 	ConsentButtonProps &
 		VariantProps<typeof Button.buttonVariants> & {
-			action: "accept-consent" | "reject-consent" | "custom-consent" | "open-consent-dialog";
+			action:
+				| "accept-consent"
+				| "reject-consent"
+				| "custom-consent"
+				| "open-consent-dialog";
 			closeCustomizeDialog?: boolean;
 			closeCookieBanner?: boolean;
 		}
