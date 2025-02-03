@@ -55,12 +55,16 @@ async function syncStyles() {
 	}
 
 	for (const item of registry.items) {
-		if (!REGISTRY_INDEX_WHITELIST.includes(item.type) && item.type !== 'registry:ui') {
+		if (
+			!REGISTRY_INDEX_WHITELIST.includes(item.type) &&
+			item.type !== 'registry:ui'
+		) {
 			continue;
 		}
 
 		const resolveFiles = item.files?.map(
-			(file) => `src/themes/${sourceStyle}/${typeof file === 'string' ? file : file.path}`
+			(file) =>
+				`src/themes/${sourceStyle}/${typeof file === 'string' ? file : file.path}`
 		);
 		if (!resolveFiles) {
 			continue;
@@ -69,7 +73,10 @@ async function syncStyles() {
 		// Copy files to target style if they don't exist.
 		for (const file of resolveFiles) {
 			const sourcePath = path.join(process.cwd(), file);
-			const targetPath = path.join(process.cwd(), file.replace(sourceStyle, targetStyle));
+			const targetPath = path.join(
+				process.cwd(),
+				file.replace(sourceStyle, targetStyle)
+			);
 
 			if (!existsSync(targetPath)) {
 				// Create directory if it doesn't exist.
@@ -107,7 +114,8 @@ export const Index: Record<string, any> = {
 		// Build style index.
 		for (const item of registry.items) {
 			const resolveFiles = item.files?.map(
-				(file) => `registry/${style.name}/${typeof file === 'string' ? file : file.path}`
+				(file) =>
+					`registry/${style.name}/${typeof file === 'string' ? file : file.path}`
 			);
 			if (!resolveFiles) {
 				continue;
@@ -120,7 +128,9 @@ export const Index: Record<string, any> = {
 				);
 
 				if (invalidCategories.length > 0) {
-					console.error(`${item.name} has invalid categories: ${invalidCategories}`);
+					console.error(
+						`${item.name} has invalid categories: ${invalidCategories}`
+					);
 					process.exit(1);
 				}
 			}
@@ -177,7 +187,9 @@ export const Index: Record<string, any> = {
 
 				if (item.files) {
 					const files = item.files.map((file) =>
-						typeof file === 'string' ? { type: 'registry:page', path: file } : file
+						typeof file === 'string'
+							? { type: 'registry:page', path: file }
+							: file
 					);
 					if (files?.length) {
 						sourceFilename = `__registry__/${style.name}/${files[0].path}`;
@@ -197,7 +209,9 @@ export const Index: Record<string, any> = {
 
 			if (item.files) {
 				const files = item.files.map((file) =>
-					typeof file === 'string' ? { type: 'registry:page', path: file } : file
+					typeof file === 'string'
+						? { type: 'registry:page', path: file }
+						: file
 				);
 				if (files?.length) {
 					componentPath = `@koroflow/shadcn/themes/${style.name}/${files[0].path.replace(/\.(tsx?|jsx?)$/, '')}`;
@@ -259,14 +273,21 @@ export const Index: Record<string, any> = {
 		});
 	const registryJson = JSON.stringify(items, null, 2);
 	await fs.mkdir(path.join(REGISTRY_PATH), { recursive: true });
-	await fs.writeFile(path.join(REGISTRY_PATH, 'index.json'), registryJson, 'utf8');
+	await fs.writeFile(
+		path.join(REGISTRY_PATH, 'index.json'),
+		registryJson,
+		'utf8'
+	);
 
 	// Write style index.
 	await fs.mkdir(path.join(process.cwd(), 'src', '__registry__'), {
 		recursive: true,
 	});
 	rimraf.sync(path.join(process.cwd(), 'src', '__registry__/index.tsx'));
-	await fs.writeFile(path.join(process.cwd(), 'src', '__registry__/index.tsx'), index);
+	await fs.writeFile(
+		path.join(process.cwd(), 'src', '__registry__/index.tsx'),
+		index
+	);
 }
 
 // ----------------------------------------------------------------------------
@@ -381,7 +402,11 @@ async function buildStyles(registry: Registry) {
 	// Build registry/styles/index.json.
 	// ----------------------------------------------------------------------------
 	const stylesJson = JSON.stringify(styles, null, 2);
-	await fs.writeFile(path.join(REGISTRY_PATH, 'styles/index.json'), stylesJson, 'utf8');
+	await fs.writeFile(
+		path.join(REGISTRY_PATH, 'styles/index.json'),
+		stylesJson,
+		'utf8'
+	);
 }
 
 // ----------------------------------------------------------------------------
@@ -394,7 +419,11 @@ async function buildStylesIndex() {
 		const payload: z.infer<typeof registryItemSchema> = {
 			name: style.name,
 			type: 'registry:style',
-			dependencies: ['tailwindcss-animate', 'class-variance-authority', 'lucide-react'],
+			dependencies: [
+				'tailwindcss-animate',
+				'class-variance-authority',
+				'lucide-react',
+			],
 			registryDependencies: ['utils'],
 			tailwind: {
 				config: {
@@ -435,7 +464,10 @@ async function buildThemes() {
 			colorsData[color] = value.map((item) => ({
 				...item,
 				rgbChannel: item.rgb.replace(/^rgb\((\d+),(\d+),(\d+)\)$/, '$1 $2 $3'),
-				hslChannel: item.hsl.replace(/^hsl\(([\d.]+),([\d.]+%),([\d.]+%)\)$/, '$1 $2 $3'),
+				hslChannel: item.hsl.replace(
+					/^hsl\(([\d.]+),([\d.]+%),([\d.]+%)\)$/,
+					'$1 $2 $3'
+				),
 			}));
 			continue;
 		}
@@ -444,7 +476,10 @@ async function buildThemes() {
 			colorsData[color] = {
 				...value,
 				rgbChannel: value.rgb.replace(/^rgb\((\d+),(\d+),(\d+)\)$/, '$1 $2 $3'),
-				hslChannel: value.hsl.replace(/^hsl\(([\d.]+),([\d.]+%),([\d.]+%)\)$/, '$1 $2 $3'),
+				hslChannel: value.hsl.replace(
+					/^hsl\(([\d.]+),([\d.]+%),([\d.]+%)\)$/,
+					'$1 $2 $3'
+				),
 			};
 		}
 	}
@@ -660,7 +695,11 @@ async function buildThemes() {
 			);
 		}
 
-		await fs.writeFile(path.join(REGISTRY_PATH, 'themes.css'), themeCSS.join('\n'), 'utf8');
+		await fs.writeFile(
+			path.join(REGISTRY_PATH, 'themes.css'),
+			themeCSS.join('\n'),
+			'utf8'
+		);
 
 		// ----------------------------------------------------------------------------
 		// Build registry/themes/[theme].json
@@ -762,7 +801,11 @@ export const Icons = {
 
 	// Write style index.
 	rimraf.sync(path.join(process.cwd(), 'src', '__registry__/icons.tsx'));
-	await fs.writeFile(path.join(process.cwd(), 'src', '__registry__/icons.tsx'), index, 'utf8');
+	await fs.writeFile(
+		path.join(process.cwd(), 'src', '__registry__/icons.tsx'),
+		index,
+		'utf8'
+	);
 }
 
 try {

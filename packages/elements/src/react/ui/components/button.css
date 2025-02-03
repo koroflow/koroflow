@@ -130,7 +130,8 @@
 
 	&:focus-visible {
 		background-color: hsl(var(--kf-bg-white-0));
-		box-shadow: var(--kf-shadow-button-primary-focus), inset 0 0 0 1px hsl(var(--kf-primary-base));
+		box-shadow: var(--kf-shadow-button-primary-focus), inset 0 0 0 1px
+			hsl(var(--kf-primary-base));
 	}
 }
 
@@ -145,7 +146,8 @@
 
 	&:focus-visible {
 		background-color: hsl(var(--kf-bg-white-0));
-		box-shadow: var(--kf-shadow-button-primary-focus), inset 0 0 0 1px hsl(var(--kf-primary-base));
+		box-shadow: var(--kf-shadow-button-primary-focus), inset 0 0 0 1px
+			hsl(var(--kf-primary-base));
 	}
 }
 
@@ -166,7 +168,8 @@
 .button-neutral-stroke {
 	background-color: hsl(var(--kf-bg-white-0));
 	color: hsl(var(--kf-text-sub-600));
-	box-shadow: var(--kf-shadow-regular-xs), inset 0 0 0 1px hsl(var(--kf-stroke-soft-200));
+	box-shadow: var(--kf-shadow-regular-xs), inset 0 0 0 1px
+		hsl(var(--kf-stroke-soft-200));
 
 	&:hover {
 		background-color: hsl(var(--kf-bg-weak-50));
@@ -189,7 +192,8 @@
 	&:hover {
 		background-color: hsl(var(--kf-bg-white-0));
 		color: hsl(var(--kf-text-strong-950));
-		box-shadow: var(--kf-shadow-regular-xs), inset 0 0 0 1px hsl(var(--kf-stroke-soft-200));
+		box-shadow: var(--kf-shadow-regular-xs), inset 0 0 0 1px
+			hsl(var(--kf-stroke-soft-200));
 	}
 
 	&:focus-visible {
@@ -259,7 +263,8 @@
 
 	&:focus-visible {
 		background-color: hsl(var(--kf-bg-white-0));
-		box-shadow: var(--kf-shadow-button-error-focus), inset 0 0 0 1px hsl(var(--kf-error-base));
+		box-shadow: var(--kf-shadow-button-error-focus), inset 0 0 0 1px
+			hsl(var(--kf-error-base));
 	}
 }
 
@@ -274,6 +279,7 @@
 
 	&:focus-visible {
 		background-color: hsl(var(--kf-bg-white-0));
-		box-shadow: var(--kf-shadow-button-error-focus), inset 0 0 0 1px hsl(var(--kf-error-base));
+		box-shadow: var(--kf-shadow-button-error-focus), inset 0 0 0 1px
+			hsl(var(--kf-error-base));
 	}
 }

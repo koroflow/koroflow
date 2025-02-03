@@ -5,7 +5,11 @@
  */
 
 import { createStore } from 'zustand/vanilla';
-import { getEffectiveConsents, hasConsentFor, hasConsented } from './libs/consent-utils';
+import {
+	getEffectiveConsents,
+	hasConsentFor,
+	hasConsented,
+} from './libs/consent-utils';
 import { initialState } from './store.initial-state';
 import type { PrivacyConsentState } from './store.type';
 import { type ConsentState, consentTypes } from './types';
@@ -97,7 +101,9 @@ const getStoredConsent = (): StoredConsent | null => {
  *
  * @public
  */
-export const createConsentManagerStore = (namespace: string | undefined = 'KoroflowStore') => {
+export const createConsentManagerStore = (
+	namespace: string | undefined = 'KoroflowStore'
+) => {
 	// Load initial state from localStorage if available
 	const storedConsent = getStoredConsent();
 
@@ -185,8 +191,13 @@ export const createConsentManagerStore = (namespace: string | undefined = 'Korof
 		 * 5. Triggers callbacks
 		 */
 		saveConsents: (type) => {
-			const { callbacks, updateConsentMode, consents, consentTypes, includeNonDisplayedConsents } =
-				get();
+			const {
+				callbacks,
+				updateConsentMode,
+				consents,
+				consentTypes,
+				includeNonDisplayedConsents,
+			} = get();
 			const newConsents = { ...consents };
 			if (type === 'all') {
 				for (const consent of consentTypes) {
@@ -375,7 +386,11 @@ export const createConsentManagerStore = (namespace: string | undefined = 'Korof
 		 */
 		hasConsentFor: (consentType) => {
 			const { consents, privacySettings } = get();
-			return hasConsentFor(consentType, consents, privacySettings.honorDoNotTrack);
+			return hasConsentFor(
+				consentType,
+				consents,
+				privacySettings.honorDoNotTrack
+			);
 		},
 
 		/**
@@ -383,7 +398,8 @@ export const createConsentManagerStore = (namespace: string | undefined = 'Korof
 		 *
 		 * @param include - Whether to include non-displayed consents
 		 */
-		setIncludeNonDisplayedConsents: (include) => set({ includeNonDisplayedConsents: include }),
+		setIncludeNonDisplayedConsents: (include) =>
+			set({ includeNonDisplayedConsents: include }),
 	}));
 
 	if (typeof window !== 'undefined') {

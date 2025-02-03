@@ -1,7 +1,10 @@
 'use client';
 
 import KoroflowDevTool from '@koroflow/dev-tools';
-import { ConsentManagerProvider, useConsentManager } from '@koroflow/elements/headless';
+import {
+	ConsentManagerProvider,
+	useConsentManager,
+} from '@koroflow/elements/headless';
 import { Cookie, Lock, RefreshCw } from 'lucide-react';
 import { useCallback } from 'react';
 import { Button } from '../components/button';
@@ -11,7 +14,12 @@ import { CookieBanner } from '../components/consent/cookie-banner';
 export default function DevToolExample() {
 	return (
 		<ConsentManagerProvider
-			initialGdprTypes={['necessary', 'marketing', 'functionality', 'measurement']}
+			initialGdprTypes={[
+				'necessary',
+				'marketing',
+				'functionality',
+				'measurement',
+			]}
 			// This namespace is used specifically for demonstration purposes,
 			// allowing multiple instances of the consent manager to coexist on the same page.
 			// It helps in isolating consent states for different demos or components.

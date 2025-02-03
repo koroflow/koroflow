@@ -3,21 +3,18 @@
 	"extends": ["ultracite"],
 	"formatter": {
 		"indentStyle": "tab",
-		"indentWidth": 1,
-		"lineWidth": 100
+		"indentWidth": 2
 	},
 	"javascript": {
 		"formatter": {
 			"indentStyle": "tab",
-			"indentWidth": 2,
-			"lineWidth": 100
+			"indentWidth": 2
 		}
 	},
 	"css": {
 		"formatter": {
 			"indentStyle": "tab",
-			"indentWidth": 2,
-			"lineWidth": 100
+			"indentWidth": 2
 		},
 		"parser": {
 			"cssModules": true
@@ -26,8 +23,7 @@
 	"json": {
 		"formatter": {
 			"indentStyle": "tab",
-			"indentWidth": 2,
-			"lineWidth": 100
+			"indentWidth": 2
 		}
 	}
 }

@@ -1,6 +1,12 @@
 'use client';
 
-import { Cookie, FileText, GanttChartSquare, RefreshCw, ToggleLeft } from 'lucide-react';
+import {
+	Cookie,
+	FileText,
+	GanttChartSquare,
+	RefreshCw,
+	ToggleLeft,
+} from 'lucide-react';
 import { motion } from 'motion/react';
 import { useCallback, useState } from 'react';
 
@@ -60,10 +66,12 @@ export function Router({ onClose }: RouterProps) {
 					status: value ? 'Enabled' : 'Disabled',
 				}))
 			: activeSection === 'Compliance'
-				? Object.entries(privacyConsent.complianceSettings).map(([region, settings]) => ({
-						title: region,
-						status: settings.enabled ? 'Active' : 'Inactive',
-					}))
+				? Object.entries(privacyConsent.complianceSettings).map(
+						([region, settings]) => ({
+							title: region,
+							status: settings.enabled ? 'Active' : 'Inactive',
+						})
+					)
 				: activeSection === 'Conditional'
 					? renderingState.map((item) => ({
 							title: item.componentName,
@@ -113,7 +121,9 @@ export function Router({ onClose }: RouterProps) {
 							<div className="flex flex-col">
 								<span className="font-medium text-sm">{item.title}</span>
 								{item.details && (
-									<span className="text-muted-foreground text-xs">{item.details}</span>
+									<span className="text-muted-foreground text-xs">
+										{item.details}
+									</span>
 								)}
 							</div>
 							<span

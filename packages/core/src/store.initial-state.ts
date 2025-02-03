@@ -39,7 +39,10 @@ import { type ConsentState, consentTypes } from './types';
  *
  * @public
  */
-export const initialState: Omit<PrivacyConsentState, 'getEffectiveConsents' | 'hasConsentFor'> = {
+export const initialState: Omit<
+	PrivacyConsentState,
+	'getEffectiveConsents' | 'hasConsentFor'
+> = {
 	/** Initial consent states based on default values from consent types */
 	consents: consentTypes.reduce((acc, consent) => {
 		acc[consent.name] = consent.defaultValue;

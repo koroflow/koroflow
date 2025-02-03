@@ -1,6 +1,9 @@
 'use client';
 
-import { ConsentManagerProvider, useConsentManager } from '@koroflow/elements/headless';
+import {
+	ConsentManagerProvider,
+	useConsentManager,
+} from '@koroflow/elements/headless';
 import { Cookie, Lock, RefreshCw } from 'lucide-react';
 import { useCallback, useEffect } from 'react';
 import { Button } from '../components/button';
@@ -10,7 +13,12 @@ import { CookieBanner } from '../components/consent/cookie-banner';
 export default function PrivacyPopupMinimalDemo() {
 	return (
 		<ConsentManagerProvider
-			initialGdprTypes={['necessary', 'marketing', 'functionality', 'measurement']}
+			initialGdprTypes={[
+				'necessary',
+				'marketing',
+				'functionality',
+				'measurement',
+			]}
 			// This namespace is used specifically for demonstration purposes,
 			// allowing multiple instances of the consent manager to coexist on the same page.
 			// It helps in isolating consent states for different demos or components.
