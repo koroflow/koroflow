@@ -13,7 +13,7 @@ import type {
 	ConsentType,
 	PrivacySettings,
 	consentTypes,
-} from "./types";
+} from './types';
 
 /**
  * Core state and methods interface for the privacy consent management store.
@@ -50,7 +50,7 @@ export interface PrivacyConsentState {
 	consents: ConsentState;
 
 	/** Information about when and how consent was given */
-	consentInfo: { time: number; type: "all" | "custom" | "necessary" } | null;
+	consentInfo: { time: number; type: 'all' | 'custom' | 'necessary' } | null;
 
 	/** Whether to show the consent popup */
 	showPopup: boolean;
@@ -102,7 +102,7 @@ export interface PrivacyConsentState {
 	 * Saves the user's consent preferences.
 	 * @param type - The type of consent being saved
 	 */
-	saveConsents: (type: "all" | "custom" | "necessary") => void;
+	saveConsents: (type: 'all' | 'custom' | 'necessary') => void;
 
 	/** Resets all consent preferences to their default values */
 	resetConsents: () => void;
@@ -118,7 +118,10 @@ export interface PrivacyConsentState {
 	 * @param region - The region to update
 	 * @param settings - New compliance settings
 	 */
-	setComplianceSetting: (region: ComplianceRegion, settings: Partial<ComplianceSettings>) => void;
+	setComplianceSetting: (
+		region: ComplianceRegion,
+		settings: Partial<ComplianceSettings>
+	) => void;
 
 	/** Resets compliance settings to their default values */
 	resetComplianceSettings: () => void;
@@ -128,7 +131,10 @@ export interface PrivacyConsentState {
 	 * @param name - The callback event name
 	 * @param callback - The callback function
 	 */
-	setCallback: (name: keyof Callbacks, callback: CallbackFunction | undefined) => void;
+	setCallback: (
+		name: keyof Callbacks,
+		callback: CallbackFunction | undefined
+	) => void;
 
 	/**
 	 * Updates the user's detected country.

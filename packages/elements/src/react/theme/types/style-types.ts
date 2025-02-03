@@ -1,4 +1,4 @@
-import type clsx from "clsx";
+import type { ClassValue } from "clsx";
 import type { CSSProperties } from "react";
 import type { AllThemeKeys } from "./style-keys";
 
@@ -14,7 +14,7 @@ export type ClassNameStyle = {
 	/** @remarks The type of style to apply to the component */
 	noStyle?: boolean;
 	/** @internal used to pass default class names to the component */
-	baseClassName?: clsx.ClassValue;
+	baseClassName?: ClassValue;
 };
 
 /**

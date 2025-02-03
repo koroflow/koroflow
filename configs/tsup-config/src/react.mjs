@@ -1,5 +1,5 @@
-import { defineConfig } from "tsup";
-import { runAfterLast } from "./shared.mjs";
+import { defineConfig } from 'tsup';
+import { runAfterLast } from './shared.mjs';
 
 /**
  * Creates a tsup configuration for React packages with tailwind support
@@ -30,14 +30,14 @@ export const createConfig = ({
 	name,
 	version,
 	additionalOptions = {},
-	postBuildCommands = ["pnpm run build:declarations"],
+	postBuildCommands = ['pnpm run build:declarations'],
 }) => {
 	return defineConfig((overrideOptions) => {
-		const isProd = overrideOptions.env?.NODE_ENV === "production";
+		const isProd = overrideOptions.env?.NODE_ENV === 'production';
 
 		const common = {
 			name,
-			entry: ["./src/**/*.{ts,tsx,js,jsx}", "!./src/**/*.{spec,test}.{ts,tsx}"],
+			entry: ['./src/**/*.{ts,tsx,js,jsx}', '!./src/**/*.{spec,test}.{ts,tsx}'],
 			bundle: false,
 			clean: true,
 			minify: false,
@@ -53,13 +53,13 @@ export const createConfig = ({
 
 		const esm = {
 			...common,
-			format: "esm",
+			format: 'esm',
 		};
 
 		const cjs = {
 			...common,
-			format: "cjs",
-			outDir: "./dist/cjs",
+			format: 'cjs',
+			outDir: './dist/cjs',
 		};
 
 		return runAfterLast(postBuildCommands)(esm, cjs);

@@ -41,7 +41,10 @@ import { mergeStyles } from "./utils/merge-styles";
  * @public
  */
 
-export function useStyles(themeKey: AllThemeKeys, componentStyle?: ThemeValue): ClassNameStyle {
+export function useStyles(
+	themeKey: AllThemeKeys,
+	componentStyle?: ThemeValue,
+): ClassNameStyle {
 	const { noStyle: contextNoStyle, theme } = useThemeContext();
 	const mergedNoStyle =
 		typeof componentStyle === "object" && "noStyle" in componentStyle
@@ -50,13 +53,18 @@ export function useStyles(themeKey: AllThemeKeys, componentStyle?: ThemeValue): 
 
 	// Memoize theme styles retrieval
 	const themeStylesObject = useMemo(() => {
-		return themeKey ? (theme as Record<AllThemeKeys, ThemeValue>)?.[themeKey] : null;
+		return themeKey
+			? (theme as Record<AllThemeKeys, ThemeValue>)?.[themeKey]
+			: null;
 	}, [themeKey, theme]);
 
 	// Memoize initial style setup
 	const initialStyle = useMemo(() => {
 		const initial = {
-			className: typeof componentStyle === "string" ? componentStyle : componentStyle?.className,
+			className:
+				typeof componentStyle === "string"
+					? componentStyle
+					: componentStyle?.className,
 			style: undefined,
 		};
 
@@ -65,7 +73,9 @@ export function useStyles(themeKey: AllThemeKeys, componentStyle?: ThemeValue): 
 
 	// Memoize merged style with context
 	const mergedWithContext = useMemo(() => {
-		const merged = themeStylesObject ? mergeStyles(initialStyle, themeStylesObject) : initialStyle;
+		const merged = themeStylesObject
+			? mergeStyles(initialStyle, themeStylesObject)
+			: initialStyle;
 
 		return merged;
 	}, [initialStyle, themeStylesObject]);
@@ -86,7 +96,10 @@ export function useStyles(themeKey: AllThemeKeys, componentStyle?: ThemeValue): 
 			const noStyleResult =
 				typeof themeStylesObject === "string"
 					? { className: themeStylesObject }
-					: { className: themeStylesObject.className, style: themeStylesObject.style };
+					: {
+							className: themeStylesObject.className,
+							style: themeStylesObject.style,
+						};
 
 			return noStyleResult;
 		}
@@ -94,7 +107,9 @@ export function useStyles(themeKey: AllThemeKeys, componentStyle?: ThemeValue): 
 		const finalClassName = Array.from(
 			new Set(
 				[
-					typeof componentStyle === "string" ? componentStyle : componentStyle?.className,
+					typeof componentStyle === "string"
+						? componentStyle
+						: componentStyle?.className,
 					finalMergedStyle.className,
 				]
 					.filter(Boolean)

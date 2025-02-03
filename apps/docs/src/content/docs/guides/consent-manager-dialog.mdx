@@ -5,7 +5,7 @@ description: An accessible, animated modal interface that wraps the Consent Mana
 
 The Consent Manager Dialog provides a clean, focused way for users to customize their privacy preferences. Think of it as a spotlight that dims the rest of your application while users make important privacy decisions. When users click "Customize" on your cookie banner, this dialog smoothly appears with detailed privacy controls.
 
-![ConsentManagerWidget](../../../public/consent-manager.png)
+![ConsentManagerWidget](../../../../public/consent-manager.png)
 
 ## How It Works
 
@@ -22,14 +22,34 @@ Let's explore how to implement this in your application.
 
 First, install the package if you haven't already:
 
-```bash
-npm install @koroflow/elements
-```
+<Tabs groupId="manual-install" items={["npm", "pnpm", "yarn", "bun"]}>
+  <Tab value="npm">
+  ```bash 
+  npm install @koroflow/elements
+  ```
+  </Tab>
+  <Tab value="pnpm">
+  ```bash 
+  pnpm install @koroflow/elements
+  ```
+  </Tab>
+  <Tab value="yarn">
+  ```bash
+  yarn add @koroflow/elements
+  ```
+  </Tab>
+  <Tab value="bun">
+  ```bash
+  bun add @koroflow/elements 
+  ```
+  </Tab>
+</Tabs>
+
 
 Then add the dialog to your application:
 
 ```tsx
-import { ConsentManagerDialog } from '@koroflow/elements'
+import { ConsentManagerDialog } from '@koroflow/elements/consent-manager'
 import { ConsentManagerProvider } from '@koroflow/elements/headless'
 function App() {
   return (
@@ -72,9 +92,34 @@ Apply custom styles through the theme prop:
 ```tsx
 <ConsentManagerDialog
   theme={{
-    dialog: "rounded-xl shadow-lg",
-    overlay: "backdrop-blur-sm",
-    content: "p-6 bg-white"
+    "consent-manager-widget.root": "",
+	  "consent-manager-widget.branding": "",
+	  "consent-manager-widget.footer": "",
+	  "consent-manager-widget.footer.sub-group": "",
+		"consent-manager-widget.footer.reject-button": "",
+		"consent-manager-widget.footer.accept-button": "",
+		"consent-manager-widget.footer.customize-button": "",
+		"consent-manager-widget.footer.save-button": "",
+		"consent-manager-widget.accordion": "",
+		"consent-manager-widget.accordion.trigger": "",
+		"consent-manager-widget.accordion.trigger-sub-group": "",
+		"consent-manager-widget.accordion.item": "",
+		"consent-manager-widget.accordion.icon": "",
+		"consent-manager-widget.accordion.arrow.open": "",
+		"consent-manager-widget.accordion.arrow.close": "",
+		"consent-manager-widget.accordion.content": "",
+		"consent-manager-widget.accordion.content-inner": "",
+		"consent-manager-widget.switch": "",
+		"consent-manager-widget.switch.track": "",
+		"consent-manager-widget.switch.thumb": "",
+		"consent-manager-widget.dialog": "",
+		"consent-manager-widget.dialog.root": "",
+		"consent-manager-widget.dialog.header": "",
+		"consent-manager-widget.dialog.title": "",
+		"consent-manager-widget.dialog.description": "",
+		"consent-manager-widget.dialog.content": "",
+		"consent-manager-widget.dialog.footer": "",
+		"consent-manager.overlay": "",
   }}
 />
 ```
@@ -189,5 +234,5 @@ To prevent hydration issues, the dialog only renders on the client side. This is
 
 ## Related Components
 
-- [Cookie Banner](/components/cookie-banner) - Initial privacy notice
-- [Consent Manager Widget](/components/consent-manager-widget) - Detailed controls
+- [Cookie Banner](/docs/guides/cookie-banner) - Initial privacy notice
+- [Consent Manager Widget](/docs/guides/consent-manager-widget) - Detailed controls

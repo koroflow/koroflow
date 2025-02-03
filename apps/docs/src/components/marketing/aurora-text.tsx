@@ -11,14 +11,19 @@ export function AuroraText({
 	children: ReactNode;
 }) {
 	return (
-		<span className={cn("relative overflow-hidden inline-flex bg-background", className)}>
+		<span
+			className={cn(
+				"relative inline-flex overflow-hidden bg-background",
+				className,
+			)}
+		>
 			{children}
-			<div className="aurora absolute inset-0 pointer-events-none mix-blend-lighten dark:mix-blend-darken">
+			<div className="aurora pointer-events-none absolute inset-0 mix-blend-lighten dark:mix-blend-darken">
 				{[...Array(5)].map((_, i) => (
 					<div
 						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 						key={i}
-						className="aurora__item absolute w-[60vw] h-[60vw]"
+						className="aurora__item absolute h-[60vw] w-[60vw]"
 						style={{
 							backgroundColor: `hsl(var(--color-${i + 1}))`,
 							filter: "blur(1rem)",

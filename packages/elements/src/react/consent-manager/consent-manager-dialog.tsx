@@ -7,7 +7,7 @@
  */
 
 import { AnimatePresence, motion } from "motion/react";
-import { type FC, useCallback, useEffect, useRef, useState } from "react";
+import { type FC, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useConsentManager } from "../headless";
 import { ThemeContext, type ThemeContextValue } from "../theme";
@@ -53,7 +53,8 @@ const contentVariants = {
  * Extends ThemeContextValue to provide comprehensive theming support
  * while maintaining type safety for consent management specific features.
  */
-interface ConsentManagerDialogProps extends ThemeContextValue<ConsentManagerWidgetTheme> {
+interface ConsentManagerDialogProps
+	extends ThemeContextValue<ConsentManagerWidgetTheme> {
 	/** Disables animation when true */
 	disableAnimation?: boolean;
 	/** Removes default styling when true */

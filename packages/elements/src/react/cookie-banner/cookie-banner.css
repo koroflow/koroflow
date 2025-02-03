@@ -67,11 +67,13 @@
 	max-width: 440px;
 	/* Animation states */
 	&[data-state="open"] {
-		animation: kf-cookie-banner-enter var(--kf-cookie-banner-duration) var(--kf-cookie-banner-ease);
+		animation: kf-cookie-banner-enter var(--kf-cookie-banner-duration)
+			var(--kf-cookie-banner-ease);
 	}
 
 	&[data-state="closed"] {
-		animation: kf-cookie-banner-exit var(--kf-cookie-banner-duration) var(--kf-cookie-banner-ease);
+		animation: kf-cookie-banner-exit var(--kf-cookie-banner-duration)
+			var(--kf-cookie-banner-ease);
 	}
 }
 

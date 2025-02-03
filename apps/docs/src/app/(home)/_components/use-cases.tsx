@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 // import { Section } from "@/components/section";
 // import OrbitingCircles from "@/components/ui/orbiting-circles";
-import { cubicBezier, motion } from "motion/react";
+import { motion } from "motion/react";
 import { useReducedMotion } from "motion/react";
 import { BorderIcon } from "~/components/marketing/border-icon";
 import OrbitingCircles from "~/components/marketing/orbiting-circles";
@@ -100,12 +100,12 @@ const variants = {
 // Refactor Card1 to use shared variants
 export function Card1() {
 	return (
-		<div className="p-0 h-full overflow-hidden border-b lg:border-b-0 lg:border-r">
+		<div className="h-full overflow-hidden border-b p-0 lg:border-r lg:border-b-0">
 			<motion.div
 				variants={variants.container}
 				initial="initial"
 				whileHover="whileHover"
-				className="flex flex-col gap-y-5 items-center justify-between h-full w-full cursor-pointer"
+				className="flex h-full w-full cursor-pointer flex-col items-center justify-between gap-y-5"
 			>
 				<div className="flex h-full w-full items-center justify-center rounded-t-xl border-b">
 					<div className="relative flex flex-col items-center justify-center gap-y-2 p-10">
@@ -113,36 +113,40 @@ export function Card1() {
 							variants={variants.card1}
 							initial="base"
 							whileHover="hover"
-							className="z-[1] flex h-full w-full items-center justify-between gap-x-2 rounded-md border bg-background p-5 px-2.5"
+							className="z-10 flex h-full w-full items-center justify-between gap-x-2 rounded-md border bg-background p-5 px-2.5"
 						>
-							<div className="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center">
+							<div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500">
 								<SearchIcon className="h-5 w-5 text-white" />
 							</div>
 							<div className="flex flex-col gap-y-2">
 								<div className="h-2 w-32 rounded-full bg-neutral-800/50 dark:bg-neutral-200/80" />
 								<div className="h-2 w-48 rounded-full bg-slate-400/50" />
-								<div className="text-xs text-neutral-500">Google Search API integration</div>
+								<div className="text-neutral-500 text-xs">
+									Google Search API integration
+								</div>
 							</div>
 						</motion.div>
 						<motion.div
 							variants={variants.card2}
-							className="z-[2] flex h-full w-full items-center justify-between gap-x-2 rounded-md border bg-background p-5 px-2.5"
+							className="z-2 flex h-full w-full items-center justify-between gap-x-2 rounded-md border bg-background p-5 px-2.5"
 						>
-							<div className="h-8 w-8 rounded-full bg-green-500 flex items-center justify-center">
+							<div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500">
 								<DatabaseIcon className="h-5 w-5 text-white" />
 							</div>
 							<div className="flex flex-col gap-y-2">
 								<div className="h-2 w-32 rounded-full bg-neutral-800/50 dark:bg-neutral-200/80" />
 								<div className="h-2 w-48 rounded-full bg-slate-400/50" />
 								<div className="h-2 w-20 rounded-full bg-slate-400/50" />
-								<div className="text-xs text-neutral-500">PostgreSQL database connection</div>
+								<div className="text-neutral-500 text-xs">
+									PostgreSQL database connection
+								</div>
 							</div>
 						</motion.div>
 						<motion.div
 							variants={variants.card3}
-							className="absolute bottom-0 z-[3] m-auto flex h-fit w-fit items-center justify-between gap-x-2 rounded-md border bg-background p-5 px-2.5"
+							className="absolute bottom-0 z-3 m-auto flex h-fit w-fit items-center justify-between gap-x-2 rounded-md border bg-background p-5 px-2.5"
 						>
-							<div className="h-8 w-8 rounded-full bg-purple-500 flex items-center justify-center">
+							<div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-500">
 								<MessageSquareIcon className="h-5 w-5 text-white" />
 							</div>
 							<div className="flex flex-col gap-y-2">
@@ -150,14 +154,18 @@ export function Card1() {
 								<div className="h-2 w-48 rounded-full bg-slate-400/50" />
 								<div className="h-2 w-20 rounded-full bg-slate-400/50" />
 								<div className="h-2 w-48 rounded-full bg-slate-400/50" />
-								<div className="text-xs text-neutral-500">OpenAI GPT-3.5 API integration</div>
+								<div className="text-neutral-500 text-xs">
+									OpenAI GPT-3.5 API integration
+								</div>
 							</div>
 						</motion.div>
 					</div>
 				</div>
-				<div className="flex flex-col gap-y-1 px-5 pb-4 items-start w-full">
-					<h2 className="font-semibold tracking-tight text-lg">Tool Integration</h2>
-					<p className="text-sm text-muted-foreground">
+				<div className="flex w-full flex-col items-start gap-y-1 px-5 pb-4">
+					<h2 className="font-semibold text-lg tracking-tight">
+						Tool Integration
+					</h2>
+					<p className="text-muted-foreground text-sm">
 						Seamlessly integrate external APIs and tools into agent workflows.
 					</p>
 				</div>
@@ -175,7 +183,7 @@ const Card2 = () => {
 			timestamp: "2023-12-15 14:23:45",
 			message: "Agent initialized. Starting task execution.",
 			icon: (
-				<div className="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center">
+				<div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500">
 					<InfoIcon className="h-5 w-5 text-white" />
 				</div>
 			),
@@ -186,7 +194,7 @@ const Card2 = () => {
 			timestamp: "2023-12-15 14:23:47",
 			message: "Retrieving data from external API...",
 			icon: (
-				<div className="h-8 w-8 rounded-full bg-green-500 flex items-center justify-center">
+				<div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500">
 					<DatabaseIcon className="h-5 w-5 text-white" />
 				</div>
 			),
@@ -197,7 +205,7 @@ const Card2 = () => {
 			timestamp: "2023-12-15 14:23:50",
 			message: "Analyzing data. Confidence: 85%",
 			icon: (
-				<div className="h-8 w-8 rounded-full bg-purple-500 flex items-center justify-center">
+				<div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-500">
 					<BrainCircuitIcon className="h-5 w-5 text-white" />
 				</div>
 			),
@@ -208,7 +216,7 @@ const Card2 = () => {
 			timestamp: "2023-12-15 14:23:52",
 			message: "Potential anomaly detected in dataset.",
 			icon: (
-				<div className="h-8 w-8 rounded-full bg-yellow-500 flex items-center justify-center">
+				<div className="flex h-8 w-8 items-center justify-center rounded-full bg-yellow-500">
 					<AlertTriangleIcon className="h-5 w-5 text-white" />
 				</div>
 			),
@@ -219,7 +227,7 @@ const Card2 = () => {
 			timestamp: "2023-12-15 14:23:55",
 			message: "Failed to connect to secondary database.",
 			icon: (
-				<div className="h-8 w-8 rounded-full bg-red-500 flex items-center justify-center">
+				<div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500">
 					<XCircleIcon className="h-5 w-5 text-white" />
 				</div>
 			),
@@ -227,19 +235,19 @@ const Card2 = () => {
 	];
 
 	return (
-		<div className="p-0 h-full overflow-hidden border-b lg:border-b-0 lg:border-r">
+		<div className="h-full overflow-hidden border-b p-0 lg:border-r lg:border-b-0">
 			<motion.div
 				variants={variants.container}
 				initial="initial"
 				whileHover="whileHover"
-				className="flex flex-col gap-y-5 items-center justify-between h-full w-full cursor-pointer"
+				className="flex h-full w-full cursor-pointer flex-col items-center justify-between gap-y-5"
 			>
-				<div className="border-b items-center justify-center overflow-hidden bg-transparent rounded-t-xl h-4/5 w-full flex">
-					<motion.div className="p-5 rounded-t-md cursor-pointer overflow-hidden h-[270px] flex flex-col gap-y-3.5 w-full">
+				<div className="flex h-4/5 w-full items-center justify-center overflow-hidden rounded-t-xl border-b bg-transparent">
+					<motion.div className="flex h-[270px] w-full cursor-pointer flex-col gap-y-3.5 overflow-hidden rounded-t-md p-5">
 						{logs.map((log, index) => (
 							<motion.div
 								key={log.id}
-								className="p-4 bg-transparent backdrop-blur-md shadow-[0px_0px_40px_-25px_rgba(0,0,0,0.25)] border border-border origin-right w-full rounded-md flex items-center"
+								className="flex w-full origin-right items-center rounded-md border border-border bg-transparent p-4 shadow-[0px_0px_40px_-25px_rgba(0,0,0,0.25)] backdrop-blur-md"
 								initial={{ y: 0, opacity: 1 }}
 								whileHover={{
 									y: -85,
@@ -253,7 +261,7 @@ const Card2 = () => {
 								}}
 							>
 								<div className="mr-3">{log.icon}</div>
-								<div className="flex-grow">
+								<div className="grow">
 									<p className="text-foreground text-xs font-medium">
 										[{log.timestamp}] {log.type.toUpperCase()}
 									</p>
@@ -263,10 +271,13 @@ const Card2 = () => {
 						))}
 					</motion.div>
 				</div>
-				<div className="flex flex-col gap-y-1 px-5 pb-4 items-start w-full">
-					<h2 className="font-semibold tracking-tight text-lg">Monitor agent activity</h2>
-					<p className="text-sm text-muted-foreground">
-						Track and analyze your AI agent performance with detailed activity logs.
+				<div className="flex w-full flex-col items-start gap-y-1 px-5 pb-4">
+					<h2 className="font-semibold text-lg tracking-tight">
+						Monitor agent activity
+					</h2>
+					<p className="text-muted-foreground text-sm">
+						Track and analyze your AI agent performance with detailed activity
+						logs.
 					</p>
 				</div>
 			</motion.div>
@@ -277,46 +288,48 @@ const Card2 = () => {
 // Optimize Card3 animations
 const Card3 = () => {
 	return (
-		<div className="p-0 min-h-[500px] lg:min-h-fit overflow-hidden border-b lg:border-b-0 -z-0">
+		<div className="-z-0 min-h-[500px] overflow-hidden border-b p-0 lg:min-h-fit lg:border-b-0">
 			<motion.div
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
 				transition={{ duration: 0.5 }}
-				className="relative flex flex-col gap-y-5 items-center justify-between h-full w-full"
+				className="relative flex h-full w-full flex-col items-center justify-between gap-y-5"
 			>
-				<div className="border-b items-center justify-center overflow-hidden rounded-t-xl h-4/5 w-full flex">
-					<div className="relative flex items-center justify-center h-full w-full">
+				<div className="flex h-4/5 w-full items-center justify-center overflow-hidden rounded-t-xl border-b">
+					<div className="relative flex h-full w-full items-center justify-center">
 						<div className="absolute top-0 right-0 bottom-0 left-0 bg-[radial-gradient(circle,hsl(var(--accent)/0.3)_0%,transparent_100%)]" />
 						<OrbitingCircles duration={15} delay={0} radius={40} reverse>
-							<div className="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center">
+							<div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500">
 								<HeadsetIcon className="h-5 w-5 text-white" />
 							</div>
 						</OrbitingCircles>
 						<OrbitingCircles duration={15} delay={20} radius={80}>
-							<div className="h-8 w-8 rounded-full bg-green-500 flex items-center justify-center">
+							<div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500">
 								<SquareTerminal className="h-5 w-5 text-white" />
 							</div>
 						</OrbitingCircles>
 						<OrbitingCircles radius={120} duration={20} delay={20}>
-							<div className="h-8 w-8 rounded-full bg-purple-500 flex items-center justify-center">
+							<div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-500">
 								<UserSearch className="h-5 w-5 text-white" />
 							</div>
 						</OrbitingCircles>
 						<OrbitingCircles radius={160} duration={40} delay={20}>
-							<div className="h-8 w-8 rounded-full bg-yellow-500 flex items-center justify-center">
+							<div className="flex h-8 w-8 items-center justify-center rounded-full bg-yellow-500">
 								<MessageSquareIcon className="h-5 w-5 text-white" />
 							</div>
 						</OrbitingCircles>
 						<OrbitingCircles radius={200} duration={30}>
-							<div className="h-8 w-8 rounded-full bg-red-500 flex items-center justify-center">
+							<div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500">
 								<GitForkIcon className="h-5 w-5 text-white" />
 							</div>
 						</OrbitingCircles>
 					</div>
 				</div>
-				<div className="flex flex-col gap-y-1 px-5 pb-4 items-start w-full">
-					<h2 className="font-semibold tracking-tight text-lg">Build once, run anywhere</h2>
-					<p className="text-sm text-muted-foreground">
+				<div className="flex w-full flex-col items-start gap-y-1 px-5 pb-4">
+					<h2 className="font-semibold text-lg tracking-tight">
+						Build once, run anywhere
+					</h2>
+					<p className="text-muted-foreground text-sm">
 						Create AI agents that work seamlessly across different platforms.
 					</p>
 				</div>
@@ -337,15 +350,15 @@ export function UseCases() {
 				animate={{ opacity: 1 }}
 				transition={{ duration: 0.5 }}
 			>
-				<div className="grid lg:grid-cols-3 h-full">
+				<div className="grid h-full lg:grid-cols-3">
 					<Card1 />
 					<Card2 />
 					<Card3 />
 				</div>
-				<BorderIcon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
-				<BorderIcon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
-				<BorderIcon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
-				<BorderIcon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
+				<BorderIcon className="-top-3 -left-3 absolute h-6 w-6 text-black dark:text-white" />
+				<BorderIcon className="-bottom-3 -left-3 absolute h-6 w-6 text-black dark:text-white" />
+				<BorderIcon className="-top-3 -right-3 absolute h-6 w-6 text-black dark:text-white" />
+				<BorderIcon className="-bottom-3 -right-3 absolute h-6 w-6 text-black dark:text-white" />
 			</motion.div>
 		</Section>
 	);

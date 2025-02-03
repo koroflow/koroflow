@@ -1,12 +1,9 @@
 {
 	"name": "@koroflow/shadcn",
-	"version": "0.0.0",
+	"version": "0.0.1-beta.9",
 	"private": true,
-	"type": "module",
 	"sideEffects": false,
-	"files": [
-		"dist"
-	],
+	"type": "module",
 	"exports": {
 		"./*": {
 			"types": "./dist/*/index.d.ts",
@@ -15,10 +12,13 @@
 		},
 		"./globals.css": "./dist/globals.css"
 	},
+	"files": ["dist"],
 	"scripts": {
 		"build": "rslib build",
 		"check-types": "tsc --noEmit",
-		"dev": "rslib build --watch"
+		"dev": "rslib build --watch",
+		"fmt": "pnpm biome format --write .",
+		"lint": "pnpm biome lint ./src"
 	},
 	"dependencies": {
 		"@codesandbox/sandpack-react": "^2.19.10",

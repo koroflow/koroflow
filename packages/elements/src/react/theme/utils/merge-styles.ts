@@ -1,8 +1,13 @@
 import type { ClassNameStyle, ThemeValue } from "..";
 import { cnExt } from "../../ui/libs/cn";
 
-export function mergeStyles(style1: ThemeValue, style2?: ThemeValue): ClassNameStyle {
-	const getThemeValue = (style: ThemeValue | undefined): ThemeValue | undefined => {
+export function mergeStyles(
+	style1: ThemeValue,
+	style2?: ThemeValue,
+): ClassNameStyle {
+	const getThemeValue = (
+		style: ThemeValue | undefined,
+	): ThemeValue | undefined => {
 		if (typeof style === "string" || style === undefined) {
 			return style;
 		}
@@ -16,7 +21,10 @@ export function mergeStyles(style1: ThemeValue, style2?: ThemeValue): ClassNameS
 	const s2 = getThemeValue(style2);
 
 	// If either style has noStyle, return empty styles
-	if ((typeof s1 === "object" && s1?.noStyle) || (typeof s2 === "object" && s2?.noStyle)) {
+	if (
+		(typeof s1 === "object" && s1?.noStyle) ||
+		(typeof s2 === "object" && s2?.noStyle)
+	) {
 		return {
 			className: undefined,
 			style: undefined,

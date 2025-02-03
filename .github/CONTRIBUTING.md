@@ -1,64 +1,190 @@
 # Contributing to Koroflow
 
-Contributions are what makes the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+We love your input! We want to make contributing to Koroflow as easy and transparent as possible, whether it's:
 
-## House rules
+- Reporting a bug
+- Discussing the current state of the code
+- Submitting a fix
+- Proposing new features
+- Becoming a maintainer
 
-- Before submitting a new issue or PR, check if it already exists in [issues](https://github.com/koroflow/koroflow/issues) or [PRs](https://github.com/koroflow/koroflow/pulls).
-- If there isn't an issue please *create one* before any development begins
-- GitHub issues: take note of the `needs-approval` label.
-  - **For Contributors**:
-    - Feature Requests / Refactoring on a Large Scale: Wait for an Koroflow member to approve and remove the `needs-approval` label before you start coding or submitting a PR.
-    - Bugs, Security, Documentation, etc.: You can start coding immediately, even if the `needs-approval` label is present. This label mainly concerns feature requests.
-  - **Our Process**:
-    - Issues from anyone not on the Koroflow team automatically receive the `needs-approval` label.
-    - We greatly value new feature ideas. To ensure consistency in the product's direction, they undergo review and approval.
+## 📜 License
 
-## Developing
+By contributing to Koroflow, you agree that your contributions will be licensed under the GNU General Public License v3.0 (GPL-3.0). This is a copyleft license that ensures the software and all derivatives remain free and open source.
 
-The development branch is `main`. This is the branch that all pull
-requests should be made against.
+[Read the full license here](LICENSE)
 
-To develop locally:
+## 🏠 House Rules
 
-1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your
-   own GitHub account and then
-   [clone](https://help.github.com/articles/cloning-a-repository/) it to your local device.
-2. Create a new branch:
+### Before You Start
+
+- Check existing [issues](https://github.com/koroflow/koroflow/issues) and [PRs](https://github.com/koroflow/koroflow/pulls) first
+- **Always create an issue before starting development**
+- Follow our PR template carefully
+
+### Issue Approval Process
+
+We use the `needs-approval` label to manage contributions:
+
+#### For Contributors
+
+- 🚫 **Needs Approval First:**
+  - New features
+  - Large-scale refactoring
+  - Architecture changes
+  - *Wait for an Koroflow team member to remove the `needs-approval` label*
+
+- ✅ **Can Start Immediately:**
+  - Bug fixes
+  - Documentation updates
+  - Performance improvements
+  - Security fixes
+  - Tests
+
+## Development Process
+
+We use GitHub to host code, to track issues and feature requests, as well as accept pull requests.
+
+### 🤖 Automated Workflows
+
+We leverage several automated workflows to ensure code quality:
+
+1. **Code Quality**
+   - Formatting: Biome automatically formats code
+   - Types: TypeScript checks run on every PR
+   - Tests: Vitest runs the test suite
+   - Build: Turbo ensures everything builds correctly
+
+2. **Dependencies**
+   - Renovate keeps dependencies up to date
+   - PNPM manages our packages
+   - Changesets handles our versioning
+
+3. **Pull Requests**
+   - PR titles are checked for semantic versioning
+   - Automated code review for common issues
+   - Required checks must pass before merging
+
+## Getting Started
+
+1. Fork the repo and create your branch from `main`:
 
    ```sh
-   git switch -c MY_BRANCH_NAME
+   git clone https://github.com/your-username/koroflow.git
+   cd koroflow
+   git switch -c my-feature
    ```
 
-3. Follow our getting started guide in our [documentation](https://koroflow.com/docs/contributing/getting-started)
+2. Install dependencies:
 
-## Installing
+   ```sh
+   corepack enable  # Sets up PNPM
+   pnpm install     # Installs dependencies
+   ```
 
-Koroflow uses [Corepack](https://nodejs.org/api/corepack.html) and [PNPM](https://pnpm.io/) for package management.
+3. Make your changes and ensure the following pass:
 
-To set the correct version of PNPM, run `corepack enable` from the monorepo root. This will set your PNPM
-version correctly. To install the project's dependencies, run `pnpm install`.
+   ```sh
+   pnpm fmt         # Format code
+   pnpm test        # Run tests
+   pnpm build       # Build packages
+   ```
 
-## Building
+## Pull Request Process
 
-You can build the project with:
+1. **Create an Issue First**
+   - For features/refactoring: Wait for approval (needs-approval label)
+   - For bugs/docs: Can start work immediately
 
-```bash
-pnpm build
-```
+2. **Make Your Changes**
+   - Follow our coding standards (enforced by Biome)
+   - Add tests for new functionality
+   - Update documentation as needed
 
-## Linting
+3. **Create Pull Request**
+   - Use our PR template
+   - Link the related issue
+   - Add screenshots for UI changes
+   - Describe your changes clearly
 
-To check the formatting of your code:
+4. **Automated Checks**
+   The following will run automatically:
+   - Code formatting (Biome)
+   - Type checking (TypeScript)
+   - Tests (Vitest)
+   - Build verification (Turbo)
+   - Dependency checks (Renovate)
+   - PR title format
+   - Issue linking
 
-```sh
-pnpm fmt
-```
+5. **Review Process**
+   - Maintainers will review your code
+   - Address any requested changes
+   - Once approved, it will be merged
 
-If you get errors, be sure to fix them before committing.
+## Release Process
 
-## Making a Pull Request
+Releases are automated through our CI/CD pipeline:
 
-- Be sure to [check the "Allow edits from maintainers" option](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork) while creating your PR.
-- If your PR refers to or fixes an issue, be sure to add `refs #XXX` or `fixes #XXX` to the PR description. Replacing `XXX` with the respective issue number. See more about [Linking a pull request to an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
-- Be sure to fill the PR Template accordingly.
+1. Merge to `main` triggers version check
+2. Changesets determines version bump
+3. New version is published to npm
+4. GitHub release is created
+5. Documentation is updated
+
+## Development Guidelines
+
+### Code Style
+
+We use Biome for formatting and linting. Configuration is in `biome.jsonc`.
+
+### Commits
+
+Follow [Conventional Commits](https://www.conventionalcommits.org/):
+
+- `feat:` New features
+- `fix:` Bug fixes
+- `docs:` Documentation
+- `chore:` Maintenance
+- `refactor:` Code changes
+- `test:` Test changes
+
+### Testing
+
+- Write tests for new features
+- Update tests for changes
+- Run `pnpm test` locally
+
+### Documentation
+
+- Update docs with new features
+- Include code examples
+- Update README if needed
+
+## Questions?
+
+Don't hesitate to:
+
+- Open an issue
+- Start a discussion
+- Ask in comments
+
+## Important License Note
+
+Koroflow is licensed under the GNU General Public License v3.0 (GPL-3.0). By contributing to this project, you agree to license your contributions under the same license. This means:
+
+- ✅ You can use the code commercially
+- ✅ You can modify the code
+- ✅ You can distribute the code
+- ✅ You can use the code privately
+- ✅ You can use the code for patent purposes
+
+But you must:
+
+- 📢 Disclose source
+- 📄 Include original license
+- 📝 State changes
+- 🔄 Use same license
+- 📋 Include copyright notice
+
+[Learn more about GPL-3.0](https://choosealicense.com/licenses/gpl-3.0/)

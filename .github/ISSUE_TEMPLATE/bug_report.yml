@@ -1,93 +1,78 @@
 name: "🐛 Bug Report"
-description: Report a bug for Koroflow.
-labels:
-  - "Needs Approval"
-  - "Bug"
+description: Report a bug in Koroflow
+labels: ["Bug", "Needs Approval"]
 body:
   - type: markdown
     attributes:
       value: |
-        ## Welcome 👋🏻
-
-        Thank you for taking the time to report an issue with Koroflow. Please fill out the information below to help us resolve your issue faster. If you have a question or need general help, please join our [Discord community](https://koroflow.com/discord).
-  - type: checkboxes
+        Thanks for taking the time to report a bug! Please fill out this form as completely as possible.
+        
+        Before reporting:
+        1. Search [existing issues](https://github.com/koroflow/koroflow/issues)
+        2. Try the latest version
+        3. Read the [documentation](https://koroflow.com/docs)
+  
+  - type: dropdown
+    id: severity
     attributes:
-      label: Preliminary Checks
-      description: Please make sure that you verify each checkbox and follow the instructions for them.
+      label: Severity
+      description: How severe is this bug?
       options:
-        - label: |
-            I have reviewed the documentation: https://koroflow.com/docs
-          required: true
-        - label: |
-            I have searched for existing issues: https://github.com/koroflow/koroflow/issues
-          required: true
-        - label: |
-            This issue is not a question, general help request, or anything other than a bug report directly related to Koroflow.
-          required: true
-  - type: input
-    id: reproduction-link
-    attributes:
-      label: Reproduction / Replay Link (Optional)
-      placeholder: "https://github.com/username/repository-name/"
-      description: |
-        Link to a minimal reproduction (GitHub repository, CodeSandbox, StackBlitz, etc.) or a [Replay recording](https://www.replay.io/).
-
-        **Do not link to your actual project**, but provide a minimal reproduction in a fresh project.
-
-        Instructions:
-        - [How to record a Replay](https://docs.replay.io/bug-reports/recording-a-replay)
-    validations:
-      required: false
-  - type: textarea
-    id: issue-summary
-    attributes:
-      label: Issue Summary
-      description: A summary of the issue. This needs to be a clear detailed-rich summary.
+        - "🟢 Low: Minor inconvenience"
+        - "🟡 Medium: Partial functionality broken"
+        - "🔴 High: Major functionality broken"
+        - "⚫ Critical: Security issue or crash"
     validations:
       required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: What version of Koroflow are you using?
+      placeholder: "e.g., 1.0.0"
+    validations:
+      required: true
+
   - type: textarea
-    id: steps-to-reproduce
+    id: reproduction
     attributes:
       label: Steps to Reproduce
-      value: |
-        1. (for example) Went to ...
-        2. Clicked on...
-        3. ...
-    validations:
-      required: true
-  - type: textarea
-    id: expected-behavior
-    attributes:
-      label: Expected behavior
-      description: A clear and concise description of what you expected to happen.
-    validations:
-      required: true
-  - type: textarea
-    id: other-information
-    attributes:
-      label: Other information
-    validations:
-      required: false
-  - type: textarea
-    id: screenshots
-    attributes:
-      label: Screenshots
-      description: If applicable, add screenshots to help explain your problem.
-    validations:
-      required: false
-  - type: textarea
-    id: versions
-    attributes:
-      label: Version info
       description: |
-        examples:
-        - **OS**: [e.g. iOS]
-        - **Browser**: [e.g. chrome, safari]
-        - **Version**: [e.g. 22]
+        Please provide detailed steps to reproduce the issue.
+        Include code snippets if relevant.
       value: |
-        - OS:
-        - Node:
-        - npm:
-      render: markdown
+        1. 
+        2. 
+        3. 
     validations:
       required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: |
+        Add any other context about the problem here:
+        - Screenshots
+        - Error messages
+        - Environment details
+        - Related issues
+    validations:
+      required: false

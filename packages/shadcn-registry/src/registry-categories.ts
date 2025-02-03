@@ -1,7 +1,7 @@
 export const registryCategories = [
 	{
-		name: "Consent",
-		slug: "consent",
+		name: 'Consent',
+		slug: 'consent',
 		hidden: false,
 	},
 ];

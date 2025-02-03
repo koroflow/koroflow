@@ -1,5 +1,4 @@
 import { ImageResponse } from "next/og";
-import React from "react";
 
 // Image metadata
 export const size = {

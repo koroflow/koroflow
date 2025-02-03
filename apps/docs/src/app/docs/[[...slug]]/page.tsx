@@ -1,13 +1,19 @@
-import { cn } from "@koroflow/shadcn/libs";
-import defaultMdxComponents from "fumadocs-ui/mdx";
-import { DocsBody, DocsDescription, DocsPage, DocsTitle } from "fumadocs-ui/page";
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { Installer } from "~/components/docs/installer";
-import { PoweredBy } from "~/components/docs/powered-by";
-import { Preview } from "~/components/docs/preview";
-import { Header } from "~/components/header";
-import { source } from "~/lib/source";
+import { cn } from '@koroflow/shadcn/libs';
+import {} from 'fumadocs-ui/components/tabs';
+import defaultMdxComponents from 'fumadocs-ui/mdx';
+import {
+	DocsBody,
+	DocsDescription,
+	DocsPage,
+	DocsTitle,
+} from 'fumadocs-ui/page';
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { Installer } from '~/components/docs/installer';
+import { PoweredBy } from '~/components/docs/powered-by';
+import { Preview } from '~/components/docs/preview';
+import { Header } from '~/components/header';
+import { source } from '~/lib/source';
 
 const components = {
 	...defaultMdxComponents,
@@ -32,13 +38,19 @@ export default async function Page(props: {
 		<div className="relative w-full bg-background md:mt-4 md:overflow-clip md:rounded-tl-2xl md:border-t md:border-l">
 			<Header />
 			<div className="relative z-10 grid xl:grid-cols-[1fr_268px]">
-				<DocsPage toc={page.data.toc} full={page.data.full} tableOfContent={{ style: "clerk" }}>
-					<DocsTitle className="tracking-tighter lg:text-4xl">{page.data.title}</DocsTitle>
+				<DocsPage
+					toc={page.data.toc}
+					full={page.data.full}
+					tableOfContent={{ style: 'clerk' }}
+				>
+					<DocsTitle className="tracking-tighter lg:text-4xl">
+						{page.data.title}
+					</DocsTitle>
 					<DocsDescription>{page.data.description}</DocsDescription>
 					<DocsBody
 						className={cn(
-							"prose-h2:tracking-tighter",
-							"prose-a:border-fd-primary prose-a:border-b-px prose-a:font-semibold prose-a:text-foreground prose-a:decoration-none prose-a:transition-all hover:prose-a:border-b-2",
+							'prose-h2:tracking-tighter',
+							'prose-a:border-fd-primary prose-a:border-b-px prose-a:font-semibold prose-a:text-foreground prose-a:decoration-none prose-a:transition-all hover:prose-a:border-b-2'
 						)}
 					>
 						<MDX components={{ ...components }} />
@@ -67,10 +79,10 @@ export async function generateMetadata(props: {
 		openGraph: {
 			title: page.data.title,
 			description: page.data.description,
-			type: "website",
+			type: 'website',
 			images: [
 				{
-					url: `/og?slug=${params.slug?.join("/") ?? ""}`,
+					url: `/og?slug=${params.slug?.join('/') ?? ''}`,
 					width: 1200,
 					height: 630,
 				},

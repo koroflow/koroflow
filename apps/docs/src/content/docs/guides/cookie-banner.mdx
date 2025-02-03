@@ -2,9 +2,10 @@
 title: Cookie Banner
 description: A customizable cookie consent banner that handles privacy compliance with zero configuration required.
 ---
+
 The Cookie Banner component provides an elegant way to obtain and manage cookie consent from your users. It handles all the complexity of privacy regulations while providing a smooth user experience that integrates naturally with your application.
 
-![CookieBanner](../../../public/cookie-banner.png)
+![CookieBanner](../../../../public/cookie-banner.png)
 
 ## Understanding Cookie Consent
 
@@ -18,21 +19,38 @@ Before diving into implementation, let's understand what makes a cookie banner e
 
 Our Cookie Banner component handles all of these requirements automatically, while remaining fully customizable to match your application's design.
 
-
-
 ## Quick Start
 
 Let's add a basic cookie banner to your application. First, install the package:
 
-```bash
-npm install @koroflow/elements
-```
+<Tabs groupId="manual-install" items={["npm", "pnpm", "yarn", "bun"]}>
+  <Tab value="npm">
+  ```bash 
+  npm install @koroflow/elements
+  ```
+  </Tab>
+  <Tab value="pnpm">
+  ```bash 
+  pnpm install @koroflow/elements
+  ```
+  </Tab>
+  <Tab value="yarn">
+  ```bash
+  yarn add @koroflow/elements
+  ```
+  </Tab>
+  <Tab value="bun">
+  ```bash
+  bun add @koroflow/elements 
+  ```
+  </Tab>
+</Tabs>
 
 Then add the banner to your root component:
 
 ```tsx
-import { CookieBanner } from '@koroflow/elements'
-import { ConsentManagerProvider } from '@koroflow/elements/headless'
+import CookieBanner from "@koroflow/elements/cookie-banner";
+import { ConsentManagerProvider } from "@koroflow/elements/headless";
 
 function App() {
   return (
@@ -40,11 +58,12 @@ function App() {
       <YourApp />
       <CookieBanner />
     </ConsentManagerProvider>
-  )
+  );
 }
 ```
 
 That's it! The banner will automatically:
+
 - Appear on first visit
 - Remember user choices
 - Handle consent management
@@ -54,40 +73,44 @@ That's it! The banner will automatically:
 
 The Cookie Banner uses a compound component pattern, giving you complete control over its structure when needed. Think of it like building blocks – you can use the pre-assembled version, or arrange the pieces yourself for custom layouts.
 
-```tsx
-// Pre-assembled version (recommended for most cases)
-<CookieBanner
-  title="We value your privacy"
-  description="We use cookies to enhance your experience"
-/>
+<Tabs groupId="Version" items={["Recommended", "Expanded"]}>
+  <Tab value="Recommended">
+  ```tsx 
+const Banner = () => {
+	return (
+		<CookieBanner
+			title="We value your privacy"
+			description="We use cookies to enhance your experience"
+		/>
+	);
+};
 
-// Custom layout using compound components
-<CookieBanner.Root>
-  <CookieBanner.Card>
-    <CookieBanner.Header>
-      <CookieBanner.Title>
-        Custom Title
-      </CookieBanner.Title>
-      <CookieBanner.Description>
-        Your detailed description here
-      </CookieBanner.Description>
-    </CookieBanner.Header>
-    <CookieBanner.Footer>
-      <CookieBanner.FooterSubGroup>
-        <CookieBanner.RejectButton>
-          Decline All
-        </CookieBanner.RejectButton>
-        <CookieBanner.CustomizeButton>
-          Preferences
-        </CookieBanner.CustomizeButton>
-      </CookieBanner.FooterSubGroup>
-      <CookieBanner.AcceptButton>
-        Accept All
-      </CookieBanner.AcceptButton>
-    </CookieBanner.Footer>
-  </CookieBanner.Card>
-</CookieBanner.Root>
-```
+  ```
+  </Tab>
+  <Tab value="expanded">
+  ```tsx 
+const Banner = () => {
+	return (
+		<CookieBanner.Root>
+			<CookieBanner.Card>
+				<CookieBanner.Header>
+					<CookieBanner.Title>Custom Title</CookieBanner.Title>
+					<CookieBanner.Description>Your detailed description here</CookieBanner.Description>
+				</CookieBanner.Header>
+				<CookieBanner.Footer>
+					<CookieBanner.FooterSubGroup>
+						<CookieBanner.RejectButton>Decline All</CookieBanner.RejectButton>
+						<CookieBanner.CustomizeButton>Preferences</CookieBanner.CustomizeButton>
+					</CookieBanner.FooterSubGroup>
+					<CookieBanner.AcceptButton>Accept All</CookieBanner.AcceptButton>
+				</CookieBanner.Footer>
+			</CookieBanner.Card>
+		</CookieBanner.Root>
+	);
+};
+  ```
+  </Tab>
+</Tabs>
 
 ## Customization
 
@@ -98,14 +121,30 @@ The Cookie Banner is designed to adapt to your application's visual style. Here 
 The theme prop provides a straightforward way to customize the banner's appearance:
 
 ```tsx
-<CookieBanner
-  theme={{
-    "cookie-banner.root": "fixed bottom-0 w-full bg-white p-4",
-    "cookie-banner.title": "text-xl font-bold",
-    "cookie-banner.description": "text-gray-600 mt-2",
-    "cookie-banner.footer": "mt-4 flex justify-end gap-2"
-  }}
-/>
+const CustomCookieBanner = () => {
+	return (
+		<CookieBanner
+			theme={{
+				"cookie-banner.root": "",
+				"cookie-banner.title": "",
+				"cookie-banner.description": "",
+				"cookie-banner.footer": "",
+				"cookie-banner.root": "",
+				"cookie-banner.card": "",
+				"cookie-banner.header.root": "",
+				"cookie-banner.header.title": "",
+				"cookie-banner.header.description": "",
+				"cookie-banner.footer": "",
+				"cookie-banner.footer.sub-group": "",
+				"cookie-banner.overlay": "",
+				"cookie-banner.footer.reject-button": "",
+				"cookie-banner.footer.customize-button": "",
+				"cookie-banner.footer.accept-button": "",
+			}}
+		/>
+	);
+};
+
 ```
 
 ### Using CSS Modules
@@ -113,15 +152,20 @@ The theme prop provides a straightforward way to customize the banner's appearan
 For more traditional styling approaches, you can use CSS modules:
 
 ```tsx
-import styles from './cookie-banner.module.css'
+import styles from "./cookie-banner.module.css";
 
-<CookieBanner
-  theme={{
-    "cookie-banner.root": styles.banner,
-    "cookie-banner.title": styles.title,
-    "cookie-banner.description": styles.description
-  }}
-/>
+const CSSModuleCookieBanner = () => {
+	return (
+		<CookieBanner
+			theme={{
+				"cookie-banner.root": styles.banner,
+				"cookie-banner.title": styles.title,
+				"cookie-banner.description": styles.description,
+			}}
+		/>
+	);
+};
+
 ```
 
 ### Using Existing Components
@@ -129,11 +173,16 @@ import styles from './cookie-banner.module.css'
 You can integrate your own component library using the `asChild` prop:
 
 ```tsx
-import { Button } from './your-components'
+import { Button } from "./your-components";
 
-<CookieBanner.AcceptButton asChild>
-  <Button variant="primary">Accept All Cookies</Button>
-</CookieBanner.AcceptButton>
+const CustomAcceptButton = () => {
+	return (
+		<CookieBanner.AcceptButton asChild>
+			<Button variant="primary">Accept All Cookies</Button>
+		</CookieBanner.AcceptButton>
+	);
+};
+
 ```
 
 ## Accessibility
@@ -154,12 +203,12 @@ These features work automatically, ensuring all users can interact with your pri
 
 The main component accepts these props:
 
-| Prop | Type | Description | Default |
-|------|------|-------------|---------|
-| title | ReactNode | Banner title | "We value your privacy" |
-| description | ReactNode | Banner description | "We use cookies..." |
-| theme | CookieBannerTheme | Theme configuration | {} |
-| noStyle | boolean | Disable default styles | false |
+| Prop        | Type              | Description            | Default                 |
+| ----------- | ----------------- | ---------------------- | ----------------------- |
+| title       | ReactNode         | Banner title           | "We value your privacy" |
+| description | ReactNode         | Banner description     | "We use cookies..."     |
+| theme       | CookieBannerTheme | Theme configuration    | {}                      |
+| noStyle     | boolean           | Disable default styles | false                   |
 
 ### Compound Components
 
@@ -205,5 +254,5 @@ The Cookie Banner works in all modern browsers:
 
 ## Related Components
 
-- [Consent Manager Dialog](/components/consent-manager-dialog)
-- [Consent Manager Widget](/components/consent-manager-widget)
+- [Consent Manager Dialog](/docs/guides/consent-manager-dialog)
+- [Consent Manager Widget](/docs/guides/consent-manager-widget)

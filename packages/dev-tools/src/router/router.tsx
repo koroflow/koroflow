@@ -1,31 +1,27 @@
-"use client";
+'use client';
 
 import {
-	Code,
 	Cookie,
 	FileText,
 	GanttChartSquare,
-	Layout,
 	RefreshCw,
-	Shield,
 	ToggleLeft,
-	X,
-} from "lucide-react";
-import { motion } from "motion/react";
-import { useCallback, useEffect, useState } from "react";
+} from 'lucide-react';
+import { motion } from 'motion/react';
+import { useCallback, useState } from 'react';
 
-import type { PrivacyConsentState } from "@koroflow/core-js";
-import { Button } from "../components/ui/button";
-import { ExpandableTabs } from "../components/ui/expandable-tabs";
-import { ScrollArea } from "../components/ui/scroll-area";
-import { getStore } from "../dev-tool";
-import { cn } from "../libs/utils";
+import type { PrivacyConsentState } from '@koroflow/core-js';
+import { Button } from '../components/ui/button';
+import { ExpandableTabs } from '../components/ui/expandable-tabs';
+import { ScrollArea } from '../components/ui/scroll-area';
+import { getStore } from '../dev-tool';
+import { cn } from '../libs/utils';
 
-type TabSection = "Consents" | "Compliance" | "Scripts" | "Conditional";
+type TabSection = 'Consents' | 'Compliance' | 'Scripts' | 'Conditional';
 
 const tabs = [
-	{ title: "Consents" as const, icon: ToggleLeft },
-	{ title: "Compliance" as const, icon: GanttChartSquare },
+	{ title: 'Consents' as const, icon: ToggleLeft },
+	{ title: 'Compliance' as const, icon: GanttChartSquare },
 ] as const;
 
 interface ContentItem {
@@ -42,7 +38,7 @@ export function Router({ onClose }: RouterProps) {
 	const privacyConsent = getStore() as PrivacyConsentState;
 	const { clearAllData, setIsPrivacyDialogOpen, setShowPopup } = privacyConsent;
 
-	const [activeSection, setActiveSection] = useState<TabSection>("Consents");
+	const [activeSection, setActiveSection] = useState<TabSection>('Consents');
 
 	// Handle tab change locally
 	const handleTabChange = useCallback((index: number | null) => {
@@ -54,30 +50,32 @@ export function Router({ onClose }: RouterProps) {
 
 	// Compute rendering state without conditions
 	const renderingState = [
-		{ componentName: "MarketingContent", consentType: "marketing" as const },
-		{ componentName: "AnalyticsContent", consentType: "measurement" as const },
+		{ componentName: 'MarketingContent', consentType: 'marketing' as const },
+		{ componentName: 'AnalyticsContent', consentType: 'measurement' as const },
 		{
-			componentName: "PersonalizationComponent",
-			consentType: "ad_personalization" as const,
+			componentName: 'PersonalizationComponent',
+			consentType: 'ad_personalization' as const,
 		},
 	];
 
 	// Compute content items based on active section
 	const contentItems: ContentItem[] =
-		activeSection === "Consents"
+		activeSection === 'Consents'
 			? Object.entries(privacyConsent.consents).map(([name, value]) => ({
 					title: name,
-					status: value ? "Enabled" : "Disabled",
+					status: value ? 'Enabled' : 'Disabled',
 				}))
-			: activeSection === "Compliance"
-				? Object.entries(privacyConsent.complianceSettings).map(([region, settings]) => ({
-						title: region,
-						status: settings.enabled ? "Active" : "Inactive",
-					}))
-				: activeSection === "Conditional"
+			: activeSection === 'Compliance'
+				? Object.entries(privacyConsent.complianceSettings).map(
+						([region, settings]) => ({
+							title: region,
+							status: settings.enabled ? 'Active' : 'Inactive',
+						})
+					)
+				: activeSection === 'Conditional'
 					? renderingState.map((item) => ({
 							title: item.componentName,
-							status: "Rendered",
+							status: 'Rendered',
 							details: `Requires: ${item.consentType}`,
 						}))
 					: [];
@@ -97,7 +95,7 @@ export function Router({ onClose }: RouterProps) {
 
 	return (
 		<>
-			<div className="p-4 border-b">
+			<div className="border-b p-4">
 				<ExpandableTabs
 					tabs={Array.from(tabs)}
 					activeColor="text-primary"
@@ -115,26 +113,28 @@ export function Router({ onClose }: RouterProps) {
 					{contentItems.map((item, index) => (
 						<motion.div
 							key={`${activeSection}-${item.title}`}
-							className="flex items-center justify-between p-3 rounded-lg border bg-card"
+							className="flex items-center justify-between rounded-lg border bg-card p-3"
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ delay: index * 0.05 }}
 						>
 							<div className="flex flex-col">
-								<span className="text-sm font-medium">{item.title}</span>
+								<span className="font-medium text-sm">{item.title}</span>
 								{item.details && (
-									<span className="text-xs text-muted-foreground">{item.details}</span>
+									<span className="text-muted-foreground text-xs">
+										{item.details}
+									</span>
 								)}
 							</div>
 							<span
 								className={cn(
-									"text-xs px-2 py-1 rounded-full",
-									item.status === "Enabled" ||
-										item.status === "Active" ||
-										item.status === "active" ||
-										item.status === "Rendered"
-										? "bg-green-100 text-green-800"
-										: "bg-red-100 text-red-800",
+									'rounded-full px-2 py-1 text-xs',
+									item.status === 'Enabled' ||
+										item.status === 'Active' ||
+										item.status === 'active' ||
+										item.status === 'Rendered'
+										? 'bg-green-100 text-green-800'
+										: 'bg-red-100 text-red-800'
 								)}
 							>
 								{item.status}
@@ -143,18 +143,18 @@ export function Router({ onClose }: RouterProps) {
 					))}
 				</motion.div>
 			</ScrollArea>
-			<div className="p-4 border-t">
+			<div className="border-t p-4">
 				<div className="flex flex-col gap-2">
 					<Button variant="outline" size="sm" onClick={handleResetConsent}>
-						<RefreshCw className="h-4 w-4 mr-2" />
+						<RefreshCw className="mr-2 h-4 w-4" />
 						Reset Local Storage Consent
 					</Button>
 					<Button variant="outline" size="sm" onClick={handleOpenPrivacyModal}>
-						<FileText className="h-4 w-4 mr-2" />
+						<FileText className="mr-2 h-4 w-4" />
 						Open Privacy Settings
 					</Button>
 					<Button variant="outline" size="sm" onClick={handleOpenCookiePopup}>
-						<Cookie className="h-4 w-4 mr-2" />
+						<Cookie className="mr-2 h-4 w-4" />
 						Open Cookie Popup
 					</Button>
 				</div>

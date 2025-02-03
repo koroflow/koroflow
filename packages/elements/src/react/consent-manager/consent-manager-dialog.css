@@ -15,7 +15,6 @@
 }
 
 .consent-manager-dialog-root {
-
 	--kf-card-padding: 1.5rem;
 	--kf-card-radius: 1.25rem;
 	--kf-card-gap: 0.375rem;
@@ -27,7 +26,7 @@
 	justify-content: center;
 	align-items: center;
 	border-radius: var(--kf-card-radius);
-	background:transparent;
+	background: transparent;
 }
 
 .consent-manager-dialog-container {
@@ -45,7 +44,6 @@
 	border-top-width: 1px;
 	border-top-color: hsl(var(--kf-stroke-soft-200));
 }
-
 
 .consent-manager-overlay {
 	position: fixed;

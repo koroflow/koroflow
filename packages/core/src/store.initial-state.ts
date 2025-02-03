@@ -3,8 +3,8 @@
  * Provides the default initial state configuration for the consent management store.
  */
 
-import type { PrivacyConsentState } from "./store.type";
-import { type ConsentState, consentTypes } from "./types";
+import type { PrivacyConsentState } from './store.type';
+import { type ConsentState, consentTypes } from './types';
 
 /**
  * Default initial state for the consent management store.
@@ -39,7 +39,10 @@ import { type ConsentState, consentTypes } from "./types";
  *
  * @public
  */
-export const initialState: Omit<PrivacyConsentState, "getEffectiveConsents" | "hasConsentFor"> = {
+export const initialState: Omit<
+	PrivacyConsentState,
+	'getEffectiveConsents' | 'hasConsentFor'
+> = {
 	/** Initial consent states based on default values from consent types */
 	consents: consentTypes.reduce((acc, consent) => {
 		acc[consent.name] = consent.defaultValue;
@@ -53,7 +56,7 @@ export const initialState: Omit<PrivacyConsentState, "getEffectiveConsents" | "h
 	showPopup: true,
 
 	/** Default GDPR consent types to include */
-	gdprTypes: ["necessary", "marketing"],
+	gdprTypes: ['necessary', 'marketing'],
 
 	/** Privacy dialog starts closed */
 	isPrivacyDialogOpen: false,
@@ -81,7 +84,7 @@ export const initialState: Omit<PrivacyConsentState, "getEffectiveConsents" | "h
 	callbacks: {},
 
 	/** Default to US if no country detected */
-	detectedCountry: "US",
+	detectedCountry: 'US',
 
 	/** Default privacy settings */
 	privacySettings: {

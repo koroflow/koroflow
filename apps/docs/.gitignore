@@ -29,4 +29,4 @@ next-env.d.ts
 
 
 # Don't commit registry to github
-src/public/r
+public/r

@@ -4,14 +4,18 @@
  * This module provides the main store creation and management functionality.
  */
 
-import { createStore } from "zustand/vanilla";
-import { getEffectiveConsents, hasConsentFor, hasConsented } from "./libs/consent-utils";
-import { initialState } from "./store.initial-state";
-import type { PrivacyConsentState } from "./store.type";
-import { type ConsentState, consentTypes } from "./types";
+import { createStore } from 'zustand/vanilla';
+import {
+	getEffectiveConsents,
+	hasConsentFor,
+	hasConsented,
+} from './libs/consent-utils';
+import { initialState } from './store.initial-state';
+import type { PrivacyConsentState } from './store.type';
+import { type ConsentState, consentTypes } from './types';
 
 /** Storage key for persisting consent data in localStorage */
-const STORAGE_KEY = "privacy-consent-storage";
+const STORAGE_KEY = 'privacy-consent-storage';
 
 /**
  * Structure of consent data stored in localStorage.
@@ -42,7 +46,7 @@ interface StoredConsent {
  * @internal
  */
 const getStoredConsent = (): StoredConsent | null => {
-	if (typeof window === "undefined") return null;
+	if (typeof window === 'undefined') return null;
 
 	const stored = localStorage.getItem(STORAGE_KEY);
 	if (!stored) return null;
@@ -50,7 +54,7 @@ const getStoredConsent = (): StoredConsent | null => {
 	try {
 		return JSON.parse(stored);
 	} catch (e) {
-		console.error("Failed to parse stored consent:", e);
+		console.error('Failed to parse stored consent:', e);
 		return null;
 	}
 };
@@ -97,7 +101,9 @@ const getStoredConsent = (): StoredConsent | null => {
  *
  * @public
  */
-export const createConsentManagerStore = (namespace: string | undefined = "KoroflowStore") => {
+export const createConsentManagerStore = (
+	namespace: string | undefined = 'KoroflowStore'
+) => {
 	// Load initial state from localStorage if available
 	const storedConsent = getStoredConsent();
 
@@ -108,7 +114,7 @@ export const createConsentManagerStore = (namespace: string | undefined = "Korof
 					consents: storedConsent.consents,
 					consentInfo: storedConsent.consentInfo as {
 						time: number;
-						type: "necessary" | "all" | "custom";
+						type: 'necessary' | 'all' | 'custom';
 					} | null,
 					showPopup: false, // Don't show popup if we have stored consent
 				}
@@ -136,7 +142,7 @@ export const createConsentManagerStore = (namespace: string | undefined = "Korof
 					JSON.stringify({
 						consents: newConsents,
 						consentInfo: state.consentInfo,
-					}),
+					})
 				);
 				return { consents: newConsents };
 			});
@@ -185,22 +191,27 @@ export const createConsentManagerStore = (namespace: string | undefined = "Korof
 		 * 5. Triggers callbacks
 		 */
 		saveConsents: (type) => {
-			const { callbacks, updateConsentMode, consents, consentTypes, includeNonDisplayedConsents } =
-				get();
+			const {
+				callbacks,
+				updateConsentMode,
+				consents,
+				consentTypes,
+				includeNonDisplayedConsents,
+			} = get();
 			const newConsents = { ...consents };
-			if (type === "all") {
+			if (type === 'all') {
 				for (const consent of consentTypes) {
 					newConsents[consent.name] = true;
 				}
-			} else if (type === "necessary") {
+			} else if (type === 'necessary') {
 				for (const consent of consentTypes) {
-					newConsents[consent.name] = consent.name === "necessary";
+					newConsents[consent.name] = consent.name === 'necessary';
 				}
 			}
 
 			const consentInfo = {
 				time: Date.now(),
-				type: type as "necessary" | "all" | "custom",
+				type: type as 'necessary' | 'all' | 'custom',
 			};
 
 			localStorage.setItem(
@@ -208,7 +219,7 @@ export const createConsentManagerStore = (namespace: string | undefined = "Korof
 				JSON.stringify({
 					consents: newConsents,
 					consentInfo,
-				}),
+				})
 			);
 
 			set({
@@ -375,7 +386,11 @@ export const createConsentManagerStore = (namespace: string | undefined = "Korof
 		 */
 		hasConsentFor: (consentType) => {
 			const { consents, privacySettings } = get();
-			return hasConsentFor(consentType, consents, privacySettings.honorDoNotTrack);
+			return hasConsentFor(
+				consentType,
+				consents,
+				privacySettings.honorDoNotTrack
+			);
 		},
 
 		/**
@@ -383,10 +398,11 @@ export const createConsentManagerStore = (namespace: string | undefined = "Korof
 		 *
 		 * @param include - Whether to include non-displayed consents
 		 */
-		setIncludeNonDisplayedConsents: (include) => set({ includeNonDisplayedConsents: include }),
+		setIncludeNonDisplayedConsents: (include) =>
+			set({ includeNonDisplayedConsents: include }),
 	}));
 
-	if (typeof window !== "undefined") {
+	if (typeof window !== 'undefined') {
 		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 		(window as any)[namespace] = store;
 	}

@@ -3,10 +3,16 @@ import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 import Image from "next/image";
 import { GithubIcon } from "~/components/icons/github";
 import { XIcon } from "~/components/icons/x";
-import logo from "../public/logo.svg";
+import logo from "../../public/logo.svg";
 
-import { Book, Cookie, MessageSquare, MessageSquareCode, Palette } from "lucide-react";
-import GetStarted from "../public/cookie-banner.png";
+import {
+	Book,
+	Cookie,
+	MessageSquare,
+	MessageSquareCode,
+	Palette,
+} from "lucide-react";
+import GetStarted from "../../public/cookie-banner.png";
 
 export const linkItems: LinkItemType[] = [
 	{
@@ -43,7 +49,7 @@ export const docsOptions: BaseLayoutProps = {
 					height={16}
 					className="h-4 w-auto dark:invert"
 				/>
-				<span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-fd-primary/10 text-fd-primary">
+				<span className="inline-flex items-center rounded-full border bg-fd-primary/10 px-2.5 py-0.5 font-semibold text-fd-primary text-xs">
 					Beta
 				</span>
 			</>
@@ -64,7 +70,7 @@ export const homePageOptions: BaseLayoutProps = {
 					height={16}
 					className="h-4 w-auto dark:invert"
 				/>
-				<span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-fd-primary/10 text-fd-primary">
+				<span className="inline-flex items-center rounded-full border bg-fd-primary/10 px-2.5 py-0.5 font-semibold text-fd-primary text-xs">
 					Beta
 				</span>
 			</>
@@ -86,7 +92,8 @@ export const homePageOptions: BaseLayoutProps = {
 									alt="Perview"
 									className="rounded-t-lg object-cover"
 									style={{
-										maskImage: "linear-gradient(to bottom,white 60%,transparent)",
+										maskImage:
+											"linear-gradient(to bottom,white 60%,transparent)",
 									}}
 								/>
 							</div>

@@ -21,7 +21,7 @@ export const GoogleGeminiEffect = ({
 	return (
 		<svg
 			viewBox="0 0 1240 310"
-			className={cn("w-full h-full", className)}
+			className={cn("h-full w-full", className)}
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<title> diagram </title>
@@ -76,12 +76,28 @@ export const GoogleGeminiEffect = ({
 								ease: "linear",
 							}}
 						>
-							<stop stopColor={animation.startColor} stopOpacity="0" offset="0%" />
-							<stop stopColor={animation.startColor} stopOpacity="0.1" offset="15%" />
+							<stop
+								stopColor={animation.startColor}
+								stopOpacity="0"
+								offset="0%"
+							/>
+							<stop
+								stopColor={animation.startColor}
+								stopOpacity="0.1"
+								offset="15%"
+							/>
 							<stop stopColor={animation.startColor} offset="35%" />
 							<stop stopColor={animation.stopColor} offset="65%" />
-							<stop stopColor={animation.stopColor} stopOpacity="0.1" offset="85%" />
-							<stop stopColor={animation.stopColor} stopOpacity="0" offset="100%" />
+							<stop
+								stopColor={animation.stopColor}
+								stopOpacity="0.1"
+								offset="85%"
+							/>
+							<stop
+								stopColor={animation.stopColor}
+								stopOpacity="0"
+								offset="100%"
+							/>
 						</motion.linearGradient>
 					</defs>
 				</React.Fragment>
