@@ -3,6 +3,7 @@
   <h1>Koroflow</h1>
   <p>Transform privacy consent from a compliance checkbox into a fully observable system</p>
 
+  [![GitHub stars](https://img.shields.io/github/stars/koroflow/koroflow?style=flat-square)](https://github.com/koroflow/koroflow)
   [![CI](https://github.com/koroflow/koroflow/actions/workflows/ci.yml/badge.svg?style=flat-square)](https://github.com/koroflow/koroflow/actions/workflows/ci.yml)
   [![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg?style=flat-square)](LICENSE)
   [![Discord](https://img.shields.io/discord/1312171102268690493?style=flat-square)](https://discord.gg/koroflow)
@@ -39,19 +40,13 @@ npm install -D @koroflow/dev-tools
 ```
 
 ```tsx
-import { ConsentManagerProvider, CookieBanner } from "@koroflow/elements";
+import { ConsentManagerProvider, CookieBanner, ConsentManagerDialog } from "@koroflow/elements";
 
 export default function App() {
   return (
-    <ConsentManagerProvider
-      initialGdprTypes={[
-        "necessary",
-        "marketing",
-        "functionality",
-        "measurement",
-      ]}
-    >
+    <ConsentManagerProvider>
       <CookieBanner />
+      <ConsentManagerDialog/>
       {/* Your app content */}
     </ConsentManagerProvider>
   );
