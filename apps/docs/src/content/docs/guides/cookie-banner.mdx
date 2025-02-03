@@ -49,8 +49,10 @@ Let's add a basic cookie banner to your application. First, install the package:
 Then add the banner to your root component:
 
 ```tsx
-import CookieBanner from "@koroflow/elements/cookie-banner";
-import { ConsentManagerProvider } from "@koroflow/elements/headless";
+import {
+	ConsentManagerProvider,
+	CookieBanner,
+} from "@koroflow/elements";
 
 function App() {
   return (

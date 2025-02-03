@@ -44,9 +44,11 @@ Building privacy-compliant interfaces isn't just about showing a cookie banner -
 2. Add the privacy banner to your app:
 
 ```tsx
-import CookieBanner from '@koroflow/elements/cookie-banner'
-import { ConsentManagerProvider } from '@koroflow/elements/headless'
-import { ConsentManagerDialog } from '@koroflow/elements/consent-manager'
+import {
+	ConsentManagerDialog,
+	ConsentManagerProvider,
+	CookieBanner,
+} from "@koroflow/elements";
 
 function App() {
   return (
