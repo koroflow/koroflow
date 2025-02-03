@@ -1,6 +1,6 @@
 {
 	"name": "@koroflow/tailwind-config",
-	"version": "0.0.1-beta.8",
+	"version": "0.0.1-beta.9",
 	"private": true,
 	"scripts": {
 		"clean": "git clean -xdf .cache .turbo dist node_modules",
