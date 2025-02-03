@@ -8,7 +8,8 @@
 		"ci:publish": "pnpm changeset tag && pnpm publish -r",
 		"dev": "turbo dev",
 		"fmt": "turbo fmt",
-		"lint": "turbo lint"
+		"lint": "turbo lint",
+		"lint:fix": "turbo lint -- --write"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",

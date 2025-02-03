@@ -4,8 +4,8 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"fmt": "biome check --write ",
-		"lint": "biome check ."
+		"fmt": "pnpm biome format --write .",
+		"lint": "pnpm biome lint ./src"
 	},
 	"exports": {
 		"./react": "./src/react.mjs",

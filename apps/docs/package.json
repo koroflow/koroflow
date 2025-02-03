@@ -8,8 +8,8 @@
 		"dev": "next dev",
 		"start": "next start",
 		"postinstall": "fumadocs-mdx",
-		"fmt": "biome check --write .",
-		"lint": "biome check ."
+		"fmt": "pnpm biome format --write .",
+		"lint": "pnpm biome lint ./src"
 	},
 	"dependencies": {
 		"@koroflow/elements": "0.0.1-beta.8",
