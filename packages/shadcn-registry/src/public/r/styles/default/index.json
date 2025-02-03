@@ -1,11 +1,7 @@
 {
 	"name": "default",
 	"type": "registry:style",
-	"dependencies": [
-		"tailwindcss-animate",
-		"class-variance-authority",
-		"lucide-react"
-	],
+	"dependencies": ["tailwindcss-animate", "class-variance-authority", "lucide-react"],
 	"registryDependencies": ["utils"],
 	"tailwind": {
 		"config": {

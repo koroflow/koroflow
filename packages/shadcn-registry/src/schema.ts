@@ -1,21 +1,21 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 // Note: if you edit the schema here, you must also edit the schema in the
 // apps/www/public/schema/registry-item.json file.
 
 export const registryItemTypeSchema = z.enum([
-	"registry:lib",
-	"registry:block",
-	"registry:component",
-	"registry:ui",
-	"registry:hook",
-	"registry:theme",
-	"registry:page",
+	'registry:lib',
+	'registry:block',
+	'registry:component',
+	'registry:ui',
+	'registry:hook',
+	'registry:theme',
+	'registry:page',
 
 	// Internal use only
-	"registry:example",
-	"registry:style",
-	"registry:internal",
+	'registry:example',
+	'registry:style',
+	'registry:internal',
 ]);
 
 export const registryItemFileSchema = z.object({
@@ -74,13 +74,10 @@ export const stylesSchema = z.array(
 	z.object({
 		name: z.string(),
 		label: z.string(),
-	}),
+	})
 );
 
-export const iconsSchema = z.record(
-	z.string(),
-	z.record(z.string(), z.string()),
-);
+export const iconsSchema = z.record(z.string(), z.record(z.string(), z.string()));
 
 export const registryBaseColorSchema = z.object({
 	inlineColors: z.object({

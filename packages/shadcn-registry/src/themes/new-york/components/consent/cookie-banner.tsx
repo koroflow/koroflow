@@ -1,25 +1,19 @@
-"use client";
+'use client';
 
-import { useConsentManager } from "@koroflow/elements/headless";
-import { X } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
-import * as React from "react";
-import { createPortal } from "react-dom";
+import { useConsentManager } from '@koroflow/elements/headless';
+import { X } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import * as React from 'react';
+import { createPortal } from 'react-dom';
 
-import { cn } from "../../lib/utils";
-import { Button } from "../button";
-import {
-	Card,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "../card";
-import { ConsentManagerDialog } from "./consent-manager-dialog";
-import { Overlay } from "./overlay";
+import { cn } from '../../lib/utils';
+import { Button } from '../button';
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '../card';
+import { ConsentManagerDialog } from './consent-manager-dialog';
+import { Overlay } from './overlay';
 
-type HorizontalPosition = "left" | "center" | "right";
-type VerticalPosition = "top" | "bottom";
+type HorizontalPosition = 'left' | 'center' | 'right';
+type VerticalPosition = 'top' | 'bottom';
 
 interface PrivacyPopupProps extends React.HTMLAttributes<HTMLDivElement> {
 	bannerDescription?: string;
@@ -32,15 +26,15 @@ interface PrivacyPopupProps extends React.HTMLAttributes<HTMLDivElement> {
 export const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
 	(
 		{
-			bannerDescription = "This site uses cookies and similar technologies to measure and improve your experience and show you personalized content and ads.",
-			bannerTitle = "We value your privacy",
+			bannerDescription = 'This site uses cookies and similar technologies to measure and improve your experience and show you personalized content and ads.',
+			bannerTitle = 'We value your privacy',
 			className,
-			horizontalPosition = "left",
-			verticalPosition = "bottom",
+			horizontalPosition = 'left',
+			verticalPosition = 'bottom',
 			showCloseButton = false,
 			...props
 		},
-		ref,
+		ref
 	) => {
 		const {
 			showPopup,
@@ -68,14 +62,14 @@ export const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
 			if (showPopup && !bannerShownRef.current && !hasConsented()) {
 				callbacks.onBannerShown?.();
 				bannerShownRef.current = true;
-				if (typeof document !== "undefined") {
-					document.body.style.overflow = "hidden";
+				if (typeof document !== 'undefined') {
+					document.body.style.overflow = 'hidden';
 				}
 			}
 
 			return () => {
-				if (typeof document !== "undefined") {
-					document.body.style.overflow = "";
+				if (typeof document !== 'undefined') {
+					document.body.style.overflow = '';
 				}
 			};
 		}, [showPopup, callbacks, hasConsented, isMounted]);
@@ -85,31 +79,31 @@ export const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
 			for (const consentName of allConsents) {
 				setConsent(consentName, true);
 			}
-			saveConsents("all");
+			saveConsents('all');
 		}, [consents, setConsent, saveConsents]);
 
 		const rejectAll = React.useCallback(() => {
-			saveConsents("necessary");
+			saveConsents('necessary');
 		}, [saveConsents]);
 
 		const handleClose = React.useCallback(() => {
 			setShowPopup(false);
-			if (typeof document !== "undefined") {
-				document.body.style.overflow = "";
+			if (typeof document !== 'undefined') {
+				document.body.style.overflow = '';
 			}
 			callbacks.onBannerClosed?.();
 		}, [setShowPopup, callbacks]);
 
 		const positionClasses = cn(
-			"fixed z-50 max-w-md",
+			'fixed z-50 max-w-md',
 			{
-				"left-4": horizontalPosition === "left",
-				"right-4": horizontalPosition === "right",
-				"-translate-x-1/2 left-1/2": horizontalPosition === "center",
-				"top-4": verticalPosition === "top",
-				"bottom-4": verticalPosition === "bottom",
+				'left-4': horizontalPosition === 'left',
+				'right-4': horizontalPosition === 'right',
+				'-translate-x-1/2 left-1/2': horizontalPosition === 'center',
+				'top-4': verticalPosition === 'top',
+				'bottom-4': verticalPosition === 'bottom',
 			},
-			className,
+			className
 		);
 
 		// Early return for SSR and when user has consented
@@ -135,7 +129,7 @@ export const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
 								initial={{ opacity: 0, y: 50 }}
 								animate={{ opacity: 1, y: 0 }}
 								exit={{ opacity: 0, y: 50 }}
-								transition={{ type: "spring", stiffness: 300, damping: 30 }}
+								transition={{ type: 'spring', stiffness: 300, damping: 30 }}
 								ref={ref}
 							>
 								<Card className="w-full">
@@ -151,10 +145,7 @@ export const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
 												<X className="h-4 w-4" />
 											</Button>
 										)}
-										<CardTitle
-											id="cookie-consent-title"
-											className="text-lg sm:text-xl"
-										>
+										<CardTitle id="cookie-consent-title" className="text-lg sm:text-xl">
 											{bannerTitle}
 										</CardTitle>
 										<CardDescription className="text-sm sm:text-base">
@@ -174,20 +165,12 @@ export const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
 												</Button>
 											)}
 											<ConsentManagerDialog>
-												<Button
-													variant="outline"
-													size="sm"
-													className="w-full sm:w-auto"
-												>
+												<Button variant="outline" size="sm" className="w-full sm:w-auto">
 													Customise Consent
 												</Button>
 											</ConsentManagerDialog>
 										</div>
-										<Button
-											size="sm"
-											onClick={acceptAll}
-											className="w-full sm:w-auto"
-										>
+										<Button size="sm" onClick={acceptAll} className="w-full sm:w-auto">
 											Accept All
 										</Button>
 									</CardFooter>
@@ -200,5 +183,5 @@ export const CookieBanner = React.forwardRef<HTMLDivElement, PrivacyPopupProps>(
 		);
 
 		return isMounted && createPortal(<BannerContent />, document.body);
-	},
+	}
 );

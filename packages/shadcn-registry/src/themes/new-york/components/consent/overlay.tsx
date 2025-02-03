@@ -1,5 +1,5 @@
-import { AnimatePresence, motion } from "motion/react";
-import type React from "react";
+import { AnimatePresence, motion } from 'motion/react';
+import type React from 'react';
 
 interface OverlayProps {
 	show: boolean;

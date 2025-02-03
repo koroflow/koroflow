@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { Shield } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
-import type React from "react";
-import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
-import { cn } from "../libs/utils";
-import { Button } from "./ui/button";
-import { Card } from "./ui/card";
+import { Shield } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import type React from 'react';
+import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { cn } from '../libs/utils';
+import { Button } from './ui/button';
+import { Card } from './ui/card';
 
 /**
  * Dev Tool Wrapper Component
@@ -23,12 +23,12 @@ export function DevToolWrapper({
 	children,
 	isOpen,
 	toggleOpen,
-	position = "bottom-right",
+	position = 'bottom-right',
 }: {
 	children: React.ReactNode;
 	isOpen: boolean;
 	toggleOpen: () => void;
-	position?: "bottom-right" | "top-right" | "bottom-left" | "top-left";
+	position?: 'bottom-right' | 'top-right' | 'bottom-left' | 'top-left';
 }) {
 	// Track whether component is mounted to handle client-side only features
 	const [isMounted, setIsMounted] = useState(false);
@@ -56,16 +56,16 @@ export function DevToolWrapper({
 					/>
 					<motion.div
 						className={cn(
-							"fixed z-[9999]",
-							position === "bottom-right" && "right-4 bottom-4",
-							position === "top-right" && "top-4 right-4",
-							position === "bottom-left" && "bottom-4 left-4",
-							position === "top-left" && "top-4 left-4",
+							'fixed z-[9999]',
+							position === 'bottom-right' && 'right-4 bottom-4',
+							position === 'top-right' && 'top-4 right-4',
+							position === 'bottom-left' && 'bottom-4 left-4',
+							position === 'top-left' && 'top-4 left-4'
 						)}
 						initial={{ opacity: 0, y: 50 }}
 						animate={{ opacity: 1, y: 0 }}
 						exit={{ opacity: 0, y: 50 }}
-						transition={{ type: "spring", stiffness: 300, damping: 30 }}
+						transition={{ type: 'spring', stiffness: 300, damping: 30 }}
 					>
 						<Card className="w-[350px] shadow-lg">{children}</Card>
 					</motion.div>

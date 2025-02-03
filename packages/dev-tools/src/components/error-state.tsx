@@ -1,6 +1,6 @@
-import { AlertCircle } from "lucide-react";
-import { motion } from "motion/react";
-import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
+import { AlertCircle } from 'lucide-react';
+import { motion } from 'motion/react';
+import { Alert, AlertDescription, AlertTitle } from './ui/alert';
 
 export function ErrorState({
 	namespace,
@@ -16,14 +16,12 @@ export function ErrorState({
 		>
 			<Alert variant="destructive" className="max-w-2xl rounded-t-none">
 				<AlertCircle className="h-4 w-4" />
-				<AlertTitle className="font-semibold text-lg">
-					SDK Initialization Failed
-				</AlertTitle>
+				<AlertTitle className="font-semibold text-lg">SDK Initialization Failed</AlertTitle>
 
 				<AlertDescription className="-ml-7 mt-2">
 					<p className="mb-2">
-						The @koroflow/core SDK could not be found in the global scope. This
-						usually means either:
+						The @koroflow/core SDK could not be found in the global scope. This usually means
+						either:
 					</p>
 					<ul className="list-disc space-y-1 pl-6">
 						<li>The namespace has been changed from its default value</li>
@@ -31,10 +29,8 @@ export function ErrorState({
 					</ul>
 					{namespace && (
 						<p className="mt-3 text-sm">
-							Current namespace:{" "}
-							<code className="rounded bg-red-100/10 px-1 py-0.5">
-								{namespace}
-							</code>
+							Current namespace:{' '}
+							<code className="rounded bg-red-100/10 px-1 py-0.5">{namespace}</code>
 						</p>
 					)}
 				</AlertDescription>

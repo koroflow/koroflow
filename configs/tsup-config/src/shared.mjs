@@ -12,7 +12,7 @@ export const runAfterLast =
 			...rest.reverse(),
 			{
 				...last,
-				onSuccess: [last?.onSuccess, ...commands].filter(Boolean).join(" && "),
+				onSuccess: [last?.onSuccess, ...commands].filter(Boolean).join(' && '),
 			},
 		];
 	};

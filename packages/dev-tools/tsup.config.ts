@@ -1,5 +1,5 @@
-import { createConfig } from "@koroflow/tsup-config/react";
-import { name, version } from "./package.json";
+import { createConfig } from '@koroflow/tsup-config/react';
+import { name, version } from './package.json';
 
 export default createConfig({
 	name,
