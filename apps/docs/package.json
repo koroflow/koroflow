@@ -1,10 +1,9 @@
 {
 	"name": "@koroflow/docs",
-	"version": "0.0.1-beta.9",
 	"private": true,
 	"scripts": {
-		"build": "pnpm build:copy-registry && next build",
-		"build:copy-registry": "cp -r ../../packages/shadcn-registry/src/public/r ./public/r",
+		"build": "next build",
+		"check-types": "tsc --noEmit",
 		"dev": "next dev",
 		"fmt": "pnpm biome format --write .",
 		"postinstall": "fumadocs-mdx",
@@ -19,7 +18,7 @@
 		"fumadocs-mdx": "11.4.1",
 		"fumadocs-ui": "15.0.2",
 		"lucide-react": "^0.474.0",
-		"motion": "^12.0.6",
+		"motion": "^12.0.11",
 		"next": "15.1.6",
 		"next-themes": "^0.4.4",
 		"react": "^19.0.0",
@@ -29,14 +28,13 @@
 		"zod": "^3.24.1"
 	},
 	"devDependencies": {
-		"@koroflow/tailwind-config": "workspace:*",
 		"@koroflow/typescript-config": "workspace:*",
 		"@types/mdx": "^2.0.13",
 		"@types/react": "^19.0.8",
 		"@types/react-dom": "^19.0.3",
 		"autoprefixer": "^10.4.20",
 		"postcss": "^8.5.1",
-		"tailwindcss": "^4.0.0",
+		"tailwindcss": "^4.0.3",
 		"typescript": "^5.7.3"
 	}
 }

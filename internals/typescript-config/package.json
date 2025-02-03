@@ -1,0 +1,12 @@
+{
+	"name": "@koroflow/typescript-config",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"fmt": "pnpm biome format --write .",
+		"lint": "pnpm biome lint ."
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

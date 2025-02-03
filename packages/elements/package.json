@@ -4,23 +4,36 @@
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
-		"./*": {
-			"types": "./dist/react/*/index.d.ts",
-			"import": "./dist/react/*/index.js",
-			"require": "./dist/react/*/index.cjs"
+		"./globals.css": "./dist/globals.css",
+		"./consent-manager-dialog": {
+			"types": "./dist/react/consent-manager-dialog/index.d.ts",
+			"import": "./dist/react/consent-manager-dialog/index.js",
+			"require": "./dist/react/consent-manager-dialog/index.cjs"
+		},
+		"./consent-manager-widget": {
+			"types": "./dist/react/consent-manager-widget/index.d.ts",
+			"import": "./dist/react/consent-manager-widget/index.js",
+			"require": "./dist/react/consent-manager-widget/index.cjs"
+		},
+		"./cookie-banner": {
+			"types": "./dist/react/cookie-banner/index.d.ts",
+			"import": "./dist/react/cookie-banner/index.js",
+			"require": "./dist/react/cookie-banner/index.cjs"
+		},
+		"./common": {
+			"types": "./dist/react/common/index.d.ts",
+			"import": "./dist/react/common/index.js",
+			"require": "./dist/react/common/index.cjs"
 		},
 		".": {
-			"import": {
-				"types": "./dist/types/index.d.ts",
-				"default": "./dist/esm/index.js"
-			},
-			"require": {
-				"types": "./dist/types/index.d.cts",
-				"default": "./dist/cjs/index.cjs"
-			}
-		},
-		"./globals.css": "./dist/globals.css"
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		}
 	},
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"files": ["dist"],
 	"scripts": {
 		"build": "rslib build",
@@ -36,7 +49,7 @@
 		"@radix-ui/react-slot": "1.1.1",
 		"@radix-ui/react-switch": "1.1.2",
 		"clsx": "2.1.1",
-		"motion": "^12.0.5",
+		"motion": "^12.0.6",
 		"tailwind-variants": "^0.3.1",
 		"zustand": "^5.0.3"
 	},

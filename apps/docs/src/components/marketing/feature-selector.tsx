@@ -1,52 +1,53 @@
-import { cn } from "@koroflow/shadcn/libs";
-import * as React from "react";
-import { BorderIcon } from "./border-icon";
+import { cn } from '@koroflow/shadcn/libs';
+
+import { type HTMLAttributes, type ReactNode, forwardRef } from 'react';
+import { BorderIcon } from './border-icon';
 
 // Types
-interface FeatureProps extends React.HTMLAttributes<HTMLDivElement> {
+interface FeatureProps extends HTMLAttributes<HTMLDivElement> {
 	title: string;
 	description: string;
-	icon: React.ReactNode;
+	icon: ReactNode;
 	index: number;
 	comingSoon?: boolean;
 }
 
-interface RootProps extends React.HTMLAttributes<HTMLDivElement> {
-	children: React.ReactNode;
+interface RootProps extends HTMLAttributes<HTMLDivElement> {
+	children: ReactNode;
 }
 
 // Components
-const Root = React.forwardRef<HTMLDivElement, RootProps>(
+const Root = forwardRef<HTMLDivElement, RootProps>(
 	({ className, children, ...props }, ref) => {
 		return (
 			<div
 				ref={ref}
 				className={cn(
-					"relative z-10 mx-auto grid grid-cols-1 border border-y sm:border-x-0 md:grid-cols-2 lg:grid-cols-4 dark:border-neutral-800",
-					className,
+					'relative z-10 mx-auto grid grid-cols-1 border border-y sm:border-x-0 md:grid-cols-2 lg:grid-cols-4 dark:border-neutral-800',
+					className
 				)}
 				{...props}
 			>
 				{children}
 			</div>
 		);
-	},
+	}
 );
-Root.displayName = "FeaturesRoot";
+Root.displayName = 'FeaturesRoot';
 
-const Item = React.forwardRef<HTMLDivElement, FeatureProps>(
+const Item = forwardRef<HTMLDivElement, FeatureProps>(
 	(
 		{ title, description, icon, index, comingSoon, className, ...props },
-		ref,
+		ref
 	) => {
 		return (
 			<div
 				ref={ref}
 				className={cn(
-					"group/feature relative flex flex-col border py-10 lg:border-0 lg:border-r dark:border-neutral-800",
-					(index === 0 || index === 4) && "lg:border-l dark:border-neutral-800",
-					index < 4 && "lg:border-b dark:border-neutral-800",
-					className,
+					'group/feature relative flex flex-col border py-10 lg:border-0 lg:border-r dark:border-neutral-800',
+					(index === 0 || index === 4) && 'lg:border-l dark:border-neutral-800',
+					index < 4 && 'lg:border-b dark:border-neutral-800',
+					className
 				)}
 				{...props}
 			>
@@ -55,9 +56,9 @@ const Item = React.forwardRef<HTMLDivElement, FeatureProps>(
 				<BorderIcon className="-top-3 -right-3 absolute h-6 w-6 text-black dark:text-white" />
 				<BorderIcon className="-bottom-3 -right-3 absolute h-6 w-6 text-black dark:text-white" />
 				{index < 4 ? (
-					<div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-linear-to-t from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none" />
+					<div className="pointer-events-none absolute inset-0 h-full w-full bg-linear-to-t from-neutral-100 to-transparent opacity-0 transition duration-200 group-hover/feature:opacity-100 dark:from-neutral-800" />
 				) : (
-					<div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-linear-to-b from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none" />
+					<div className="pointer-events-none absolute inset-0 h-full w-full bg-linear-to-b from-neutral-100 to-transparent opacity-0 transition duration-200 group-hover/feature:opacity-100 dark:from-neutral-800" />
 				)}
 				<div className="relative z-10 mb-4 px-10 text-neutral-600 dark:text-neutral-400">
 					{icon}
@@ -79,9 +80,9 @@ const Item = React.forwardRef<HTMLDivElement, FeatureProps>(
 				</p>
 			</div>
 		);
-	},
+	}
 );
-Item.displayName = "FeaturesItem";
+Item.displayName = 'FeaturesItem';
 
 // Export as a namespace object
 const Features = {

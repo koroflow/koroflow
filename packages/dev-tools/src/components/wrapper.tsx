@@ -2,8 +2,8 @@
 
 import { Shield } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
-import type React from 'react';
-import { useEffect, useState } from 'react';
+
+import { type ReactNode, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { cn } from '../libs/utils';
 import { Button } from './ui/button';
@@ -25,7 +25,7 @@ export function DevToolWrapper({
 	toggleOpen,
 	position = 'bottom-right',
 }: {
-	children: React.ReactNode;
+	children: ReactNode;
 	isOpen: boolean;
 	toggleOpen: () => void;
 	position?: 'bottom-right' | 'top-right' | 'bottom-left' | 'top-left';

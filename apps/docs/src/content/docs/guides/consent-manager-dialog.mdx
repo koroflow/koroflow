@@ -49,8 +49,11 @@ First, install the package if you haven't already:
 Then add the dialog to your application:
 
 ```tsx
-import { ConsentManagerDialog } from '@koroflow/elements/consent-manager'
-import { ConsentManagerProvider } from '@koroflow/elements/headless'
+import {
+	ConsentManagerDialog,
+	ConsentManagerProvider,
+} from "@koroflow/elements";
+
 function App() {
   return (
     <ConsentManagerProvider>

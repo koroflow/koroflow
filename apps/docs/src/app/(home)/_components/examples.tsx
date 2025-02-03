@@ -1,19 +1,20 @@
-import { CodeBlock } from "~/components/marketing/codeblock";
-import { Section } from "~/components/marketing/section";
-import { ExamplesClient } from "./examples.client";
+import type { ReactNode } from 'react';
+import { CodeBlock } from '~/components/marketing/codeblock';
+import { Section } from '~/components/marketing/section';
+import { ExamplesClient } from './examples.client';
 
 interface FeatureOption {
 	id: number;
 	title: string;
 	description: string;
-	code: React.ReactNode;
+	code: ReactNode;
 }
 
 const featureOptions: FeatureOption[] = [
 	{
 		id: 1,
-		title: "Simple Cookie Banner",
-		description: "Create a simple cookie banner with a basic theme.",
+		title: 'Simple Cookie Banner',
+		description: 'Create a simple cookie banner with a basic theme.',
 		code: (
 			<CodeBlock
 				lang="jsx"
@@ -21,7 +22,7 @@ const featureOptions: FeatureOption[] = [
 import { ConsentManagerDialog } from "@koroflow/elements/consent-manager"
 import { CookieBanner } from "@koroflow/elements/cookie-banner"
 
-function Layout({ children }: { children: React.ReactNode }) {
+function Layout({ children }: { children: ReactNode }) {
   return (
     <ConsentManagerProvider>
       <CookieBanner />
@@ -36,8 +37,8 @@ function Layout({ children }: { children: React.ReactNode }) {
 
 	{
 		id: 2,
-		title: "Themed Cookie Banner",
-		description: "Customize the Cookie Banner with a modern theme.",
+		title: 'Themed Cookie Banner',
+		description: 'Customize the Cookie Banner with a modern theme.',
 		code: (
 			<CodeBlock
 				lang="jsx"

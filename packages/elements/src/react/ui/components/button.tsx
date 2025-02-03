@@ -1,16 +1,22 @@
-import { Slot } from "@radix-ui/react-slot";
-import * as React from "react";
+import { Slot } from '@radix-ui/react-slot';
 
-import { type VariantProps, tv } from "tailwind-variants";
-import type { PolymorphicComponentProps } from "../libs/polymorphic";
-import { recursiveCloneChildren } from "../libs/recursive-clone-children";
-import "./button.css";
+import { type VariantProps, tv } from 'tailwind-variants';
+import type { PolymorphicComponentProps } from '../libs/polymorphic';
+import { recursiveCloneChildren } from '../libs/recursive-clone-children';
+import './button.css';
+import {
+	type ButtonHTMLAttributes,
+	type ElementType,
+	type ReactElement,
+	forwardRef,
+	useId,
+} from 'react';
 /**
  * Constants for component display names
  * @internal
  */
-const BUTTON_ROOT_NAME = "ButtonRoot";
-const BUTTON_ICON_NAME = "ButtonIcon";
+const BUTTON_ROOT_NAME = 'ButtonRoot';
+const BUTTON_ICON_NAME = 'ButtonIcon';
 
 /**
  * Button component variant styles using tailwind-variants
@@ -25,8 +31,8 @@ const BUTTON_ICON_NAME = "ButtonIcon";
  */
 export const buttonVariants = tv({
 	slots: {
-		root: ["button"],
-		icon: ["button-icon"],
+		root: ['button'],
+		icon: ['button-icon'],
 	},
 	variants: {
 		variant: {
@@ -41,83 +47,83 @@ export const buttonVariants = tv({
 			ghost: {},
 		},
 		size: {
-			medium: { root: "button-medium" },
-			small: { root: "button-small" },
-			xsmall: { root: "button-xsmall" },
-			xxsmall: { root: "button-xxsmall" },
+			medium: { root: 'button-medium' },
+			small: { root: 'button-small' },
+			xsmall: { root: 'button-xsmall' },
+			xxsmall: { root: 'button-xxsmall' },
 		},
 	},
 	compoundVariants: [
 		// Primary variants
 		{
-			variant: "primary",
-			mode: "filled",
-			class: { root: "button-primary-filled" },
+			variant: 'primary',
+			mode: 'filled',
+			class: { root: 'button-primary-filled' },
 		},
 		{
-			variant: "primary",
-			mode: "stroke",
-			class: { root: "button-primary-stroke" },
+			variant: 'primary',
+			mode: 'stroke',
+			class: { root: 'button-primary-stroke' },
 		},
 		{
-			variant: "primary",
-			mode: "lighter",
-			class: { root: "button-primary-lighter" },
+			variant: 'primary',
+			mode: 'lighter',
+			class: { root: 'button-primary-lighter' },
 		},
 		{
-			variant: "primary",
-			mode: "ghost",
-			class: { root: "button-primary-ghost" },
+			variant: 'primary',
+			mode: 'ghost',
+			class: { root: 'button-primary-ghost' },
 		},
 
 		// Neutral variants
 		{
-			variant: "neutral",
-			mode: "filled",
-			class: { root: "button-neutral-filled" },
+			variant: 'neutral',
+			mode: 'filled',
+			class: { root: 'button-neutral-filled' },
 		},
 		{
-			variant: "neutral",
-			mode: "stroke",
-			class: { root: "button-neutral-stroke" },
+			variant: 'neutral',
+			mode: 'stroke',
+			class: { root: 'button-neutral-stroke' },
 		},
 		{
-			variant: "neutral",
-			mode: "lighter",
-			class: { root: "button-neutral-lighter" },
+			variant: 'neutral',
+			mode: 'lighter',
+			class: { root: 'button-neutral-lighter' },
 		},
 		{
-			variant: "neutral",
-			mode: "ghost",
-			class: { root: "button-neutral-ghost" },
+			variant: 'neutral',
+			mode: 'ghost',
+			class: { root: 'button-neutral-ghost' },
 		},
 
 		// Error variants
 		{
-			variant: "error",
-			mode: "filled",
-			class: { root: "button-error-filled" },
+			variant: 'error',
+			mode: 'filled',
+			class: { root: 'button-error-filled' },
 		},
 		{
-			variant: "error",
-			mode: "stroke",
-			class: { root: "button-error-stroke" },
+			variant: 'error',
+			mode: 'stroke',
+			class: { root: 'button-error-stroke' },
 		},
 		{
-			variant: "error",
-			mode: "lighter",
-			class: { root: "button-error-lighter" },
+			variant: 'error',
+			mode: 'lighter',
+			class: { root: 'button-error-lighter' },
 		},
 		{
-			variant: "error",
-			mode: "ghost",
-			class: { root: "button-error-ghost" },
+			variant: 'error',
+			mode: 'ghost',
+			class: { root: 'button-error-ghost' },
 		},
 	],
 	defaultVariants: {
-		variant: "primary",
-		mode: "filled",
-		size: "medium",
+		variant: 'primary',
+		mode: 'filled',
+		size: 'medium',
 	},
 });
 
@@ -132,7 +138,7 @@ export type ButtonSharedProps = VariantProps<typeof buttonVariants>;
  * @public
  */
 type ButtonRootProps = VariantProps<typeof buttonVariants> &
-	React.ButtonHTMLAttributes<HTMLButtonElement> & {
+	ButtonHTMLAttributes<HTMLButtonElement> & {
 		/**
 		 * When true, the component will render its children directly without wrapping them in a button element
 		 */
@@ -159,13 +165,13 @@ type ButtonRootProps = VariantProps<typeof buttonVariants> &
  *
  * @public
  */
-const ButtonRoot = React.forwardRef<HTMLButtonElement, ButtonRootProps>(
+const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
 	(
 		{ children, variant, mode, size, asChild, className, ...rest },
-		forwardedRef,
+		forwardedRef
 	) => {
-		const uniqueId = React.useId();
-		const Component = asChild ? Slot : "button";
+		const uniqueId = useId();
+		const Component = asChild ? Slot : 'button';
 		const { root } = buttonVariants({ variant, mode, size });
 
 		const sharedProps: ButtonSharedProps = {
@@ -175,11 +181,11 @@ const ButtonRoot = React.forwardRef<HTMLButtonElement, ButtonRootProps>(
 		};
 
 		const extendedChildren = recursiveCloneChildren(
-			children as React.ReactElement[],
+			children as ReactElement[],
 			sharedProps,
 			[BUTTON_ICON_NAME],
 			uniqueId,
-			asChild,
+			asChild
 		);
 
 		return (
@@ -191,7 +197,7 @@ const ButtonRoot = React.forwardRef<HTMLButtonElement, ButtonRootProps>(
 				{extendedChildren}
 			</Component>
 		);
-	},
+	}
 );
 ButtonRoot.displayName = BUTTON_ROOT_NAME;
 
@@ -215,7 +221,7 @@ ButtonRoot.displayName = BUTTON_ROOT_NAME;
  *
  * @public
  */
-function ButtonIcon<T extends React.ElementType>({
+function ButtonIcon<T extends ElementType>({
 	variant,
 	mode,
 	size,
@@ -223,7 +229,7 @@ function ButtonIcon<T extends React.ElementType>({
 	className,
 	...rest
 }: PolymorphicComponentProps<T, ButtonSharedProps>) {
-	const Component = as || "div";
+	const Component = as || 'div';
 	const { icon } = buttonVariants({ mode, variant, size });
 
 	return <Component className={icon({ class: className })} {...rest} />;

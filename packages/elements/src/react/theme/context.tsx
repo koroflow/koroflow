@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 /**
  * @packageDocumentation
@@ -6,8 +6,8 @@
  * Implements a flexible theming system with TypeScript support and runtime safety.
  */
 
-import { createContext, useContext } from "react";
-import type { useConsentManager } from "../headless/store/consent-manager";
+import { createContext, useContext } from 'react';
+import type { useConsentManager } from '../common/store/consent-manager';
 
 /**
  * Configuration value type for the ThemeContext.
@@ -42,7 +42,7 @@ import type { useConsentManager } from "../headless/store/consent-manager";
  *
  * @public
  */
-export type ThemeContextValue<Theme> = {
+export type ThemeContextValue<Theme = unknown> = {
 	/**
 	 * Theme configuration object for styling components
 	 * @remarks Partial to allow incremental theme overrides
@@ -112,7 +112,7 @@ export const ThemeContext = createContext<
 export const useThemeContext = () => {
 	const context = useContext(ThemeContext);
 	if (!context) {
-		throw new Error("Theme components must be used within Theme.Root");
+		throw new Error('Theme components must be used within Theme.Root');
 	}
 	return context;
 };

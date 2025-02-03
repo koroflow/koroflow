@@ -1,6 +1,5 @@
 {
 	"name": "@koroflow/shadcn",
-	"version": "0.0.1-beta.9",
 	"private": true,
 	"sideEffects": false,
 	"type": "module",
@@ -21,14 +20,12 @@
 		"lint": "pnpm biome lint ./src"
 	},
 	"dependencies": {
-		"@codesandbox/sandpack-react": "^2.19.10",
+		"@codesandbox/sandpack-react": "^2.19.11",
 		"@radix-ui/react-slot": "^1.1.1",
 		"@radix-ui/react-tabs": "^1.1.2",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
-		"lucide-react": "^0.474.0",
-		"react-resizable-panels": "^2.1.7",
-		"tailwind-merge": "^2.6.0"
+		"tailwind-merge": "^3.0.1"
 	},
 	"devDependencies": {
 		"@koroflow/typescript-config": "workspace:*"

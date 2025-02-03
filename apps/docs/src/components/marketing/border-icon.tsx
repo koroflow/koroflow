@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import type { FC } from 'react';
 
 export const BorderIcon: FC<{ className: string }> = ({
 	className,

@@ -49,8 +49,10 @@ Let's add a basic cookie banner to your application. First, install the package:
 Then add the banner to your root component:
 
 ```tsx
-import CookieBanner from "@koroflow/elements/cookie-banner";
-import { ConsentManagerProvider } from "@koroflow/elements/headless";
+import {
+	ConsentManagerProvider,
+	CookieBanner,
+} from "@koroflow/elements";
 
 function App() {
   return (
@@ -76,6 +78,8 @@ The Cookie Banner uses a compound component pattern, giving you complete control
 <Tabs groupId="Version" items={["Recommended", "Expanded"]}>
   <Tab value="Recommended">
   ```tsx 
+import { CookieBanner } from "@koroflow/elements";
+
 const Banner = () => {
 	return (
 		<CookieBanner
@@ -85,10 +89,12 @@ const Banner = () => {
 	);
 };
 
-  ```
-  </Tab>
-  <Tab value="expanded">
-  ```tsx 
+````
+</Tab>
+<Tab value="expanded">
+```tsx
+import * as CookieBanner from "@koroflow/elements/cookie-banner";
+
 const Banner = () => {
 	return (
 		<CookieBanner.Root>
@@ -108,7 +114,8 @@ const Banner = () => {
 		</CookieBanner.Root>
 	);
 };
-  ```
+````
+
   </Tab>
 </Tabs>
 
@@ -121,30 +128,31 @@ The Cookie Banner is designed to adapt to your application's visual style. Here 
 The theme prop provides a straightforward way to customize the banner's appearance:
 
 ```tsx
-const CustomCookieBanner = () => {
-	return (
-		<CookieBanner
-			theme={{
-				"cookie-banner.root": "",
-				"cookie-banner.title": "",
-				"cookie-banner.description": "",
-				"cookie-banner.footer": "",
-				"cookie-banner.root": "",
-				"cookie-banner.card": "",
-				"cookie-banner.header.root": "",
-				"cookie-banner.header.title": "",
-				"cookie-banner.header.description": "",
-				"cookie-banner.footer": "",
-				"cookie-banner.footer.sub-group": "",
-				"cookie-banner.overlay": "",
-				"cookie-banner.footer.reject-button": "",
-				"cookie-banner.footer.customize-button": "",
-				"cookie-banner.footer.accept-button": "",
-			}}
-		/>
-	);
-};
+import { CookieBanner } from "@koroflow/elements";
 
+const CustomCookieBanner = () => {
+  return (
+    <CookieBanner
+      theme={{
+        "cookie-banner.root": "",
+        "cookie-banner.title": "",
+        "cookie-banner.description": "",
+        "cookie-banner.footer": "",
+        "cookie-banner.root": "",
+        "cookie-banner.card": "",
+        "cookie-banner.header.root": "",
+        "cookie-banner.header.title": "",
+        "cookie-banner.header.description": "",
+        "cookie-banner.footer": "",
+        "cookie-banner.footer.sub-group": "",
+        "cookie-banner.overlay": "",
+        "cookie-banner.footer.reject-button": "",
+        "cookie-banner.footer.customize-button": "",
+        "cookie-banner.footer.accept-button": "",
+      }}
+    />
+  );
+};
 ```
 
 ### Using CSS Modules
@@ -152,20 +160,20 @@ const CustomCookieBanner = () => {
 For more traditional styling approaches, you can use CSS modules:
 
 ```tsx
+import { CookieBanner } from "@koroflow/elements";
 import styles from "./cookie-banner.module.css";
 
 const CSSModuleCookieBanner = () => {
-	return (
-		<CookieBanner
-			theme={{
-				"cookie-banner.root": styles.banner,
-				"cookie-banner.title": styles.title,
-				"cookie-banner.description": styles.description,
-			}}
-		/>
-	);
+  return (
+    <CookieBanner
+      theme={{
+        "cookie-banner.root": styles.banner,
+        "cookie-banner.title": styles.title,
+        "cookie-banner.description": styles.description,
+      }}
+    />
+  );
 };
-
 ```
 
 ### Using Existing Components
@@ -173,16 +181,16 @@ const CSSModuleCookieBanner = () => {
 You can integrate your own component library using the `asChild` prop:
 
 ```tsx
+import * as CookieBanner from "@koroflow/elements/cookie-banner";
 import { Button } from "./your-components";
 
 const CustomAcceptButton = () => {
-	return (
-		<CookieBanner.AcceptButton asChild>
-			<Button variant="primary">Accept All Cookies</Button>
-		</CookieBanner.AcceptButton>
-	);
+  return (
+    <CookieBanner.AcceptButton asChild>
+      <Button variant="primary">Accept All Cookies</Button>
+    </CookieBanner.AcceptButton>
+  );
 };
-
 ```
 
 ## Accessibility

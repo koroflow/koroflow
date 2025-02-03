@@ -1,21 +1,22 @@
-"use client";
+'use client';
 
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from 'motion/react';
 import {
+	type CSSProperties,
 	type FC,
 	type HTMLAttributes,
 	type ReactNode,
 	forwardRef,
 	useEffect,
 	useState,
-} from "react";
-import { createPortal } from "react-dom";
+} from 'react';
+import { createPortal } from 'react-dom';
 
-import { ThemeContext, useStyles } from "../../theme";
-import { Overlay } from "./overlay";
+import { ThemeContext, useStyles } from '../../theme';
+import { Overlay } from './overlay';
 
-import { useConsentManager } from "../../headless";
-import type { CookieBannerTheme } from "../types";
+import { useConsentManager } from '../../common';
+import type { CookieBannerTheme } from '../theme';
 
 /**
  * Props for the root component of the CookieBanner.
@@ -94,7 +95,7 @@ interface CookieBannerRootProps extends HTMLAttributes<HTMLDivElement> {
  *
  * @public
  */
-export const CookieBannerRoot: FC<CookieBannerRootProps> = ({
+const CookieBannerRoot: FC<CookieBannerRootProps> = ({
 	children,
 	className,
 	noStyle,
@@ -195,7 +196,7 @@ interface CookieBannerRootChildrenProps extends HTMLAttributes<HTMLDivElement> {
  *
  * @public
  */
-export const CookieBannerRootChildren = forwardRef<
+const CookieBannerRootChildren = forwardRef<
 	HTMLDivElement,
 	CookieBannerRootChildrenProps
 >(
@@ -209,10 +210,10 @@ export const CookieBannerRootChildren = forwardRef<
 			disableAnimation,
 			...props
 		}: CookieBannerRootChildrenProps & {
-			style?: React.CSSProperties;
+			style?: CSSProperties;
 			className?: string;
 		},
-		ref,
+		ref
 	) => {
 		const { showPopup } = useConsentManager();
 
@@ -220,9 +221,9 @@ export const CookieBannerRootChildren = forwardRef<
 		 * Apply styles from the CookieBanner context and merge with local styles.
 		 * Uses the 'content' style key for consistent theming.
 		 */
-		const contentStyle = useStyles("cookie-banner.root", {
+		const contentStyle = useStyles('cookie-banner.root', {
 			baseClassName: [
-				"cookie-banner cookie-banner-root cookie-banner-root-bottom-left",
+				'cookie-banner cookie-banner-root cookie-banner-root-bottom-left',
 			],
 			style,
 			className: forwardedClassName,
@@ -262,7 +263,7 @@ export const CookieBannerRootChildren = forwardRef<
 									initial={{ opacity: 0, y: 50 }}
 									animate={{ opacity: 1, y: 0 }}
 									exit={{ opacity: 0, y: 50 }}
-									transition={{ type: "spring", stiffness: 300, damping: 30 }}
+									transition={{ type: 'spring', stiffness: 300, damping: 30 }}
 									{...contentStyle}
 								>
 									{children}
@@ -270,10 +271,14 @@ export const CookieBannerRootChildren = forwardRef<
 							</AnimatePresence>
 						)}
 					</>,
-					document.body,
+					document.body
 				)
 			: null;
-	},
+	}
 );
 
-CookieBannerRootChildren.displayName = "CookieBannerRootChildren";
+CookieBannerRootChildren.displayName = 'CookieBannerRootChildren';
+
+const Root = CookieBannerRoot;
+
+export { Root, CookieBannerRoot };
