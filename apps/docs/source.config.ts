@@ -1,7 +1,7 @@
-import { defineConfig, defineDocs } from 'fumadocs-mdx/config';
+import { defineConfig, defineDocs } from "fumadocs-mdx/config";
 
 export const { docs, meta } = defineDocs({
-	dir: 'src/content/docs',
+	dir: "src/content/docs",
 });
 
 export default defineConfig();

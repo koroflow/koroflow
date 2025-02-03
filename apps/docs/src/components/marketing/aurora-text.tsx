@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { cn } from '@koroflow/shadcn/libs';
-import type { CSSProperties, ReactNode } from 'react';
+import { cn } from "@koroflow/shadcn/libs";
+import type { CSSProperties, ReactNode } from "react";
 
 export function AuroraText({
 	className,
@@ -11,7 +11,12 @@ export function AuroraText({
 	children: ReactNode;
 }) {
 	return (
-		<span className={cn('relative inline-flex overflow-hidden bg-background', className)}>
+		<span
+			className={cn(
+				"relative inline-flex overflow-hidden bg-background",
+				className,
+			)}
+		>
 			{children}
 			<div className="aurora pointer-events-none absolute inset-0 mix-blend-lighten dark:mix-blend-darken">
 				{[...Array(5)].map((_, i) => (
@@ -21,11 +26,11 @@ export function AuroraText({
 						className="aurora__item absolute h-[60vw] w-[60vw]"
 						style={{
 							backgroundColor: `hsl(var(--color-${i + 1}))`,
-							filter: 'blur(1rem)',
+							filter: "blur(1rem)",
 							animation: `aurora-border 6s ease-in-out infinite, aurora-${
 								i + 1
 							} 12s ease-in-out infinite alternate`,
-							mixBlendMode: 'overlay',
+							mixBlendMode: "overlay",
 							...getInitialPosition(i),
 						}}
 					/>
@@ -114,10 +119,10 @@ export function AuroraText({
 
 function getInitialPosition(index: number): CSSProperties {
 	const positions = [
-		{ top: '-50%' },
+		{ top: "-50%" },
 		{ right: 0, top: 0 },
 		{ left: 0, bottom: 0 },
-		{ right: 0, bottom: '-50%' },
+		{ right: 0, bottom: "-50%" },
 	];
 	return positions[index] || {};
 }

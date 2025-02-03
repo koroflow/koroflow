@@ -1,45 +1,45 @@
-'use client';
+"use client";
 
-import { buttonVariants } from '@koroflow/shadcn/components';
+import { buttonVariants } from "@koroflow/shadcn/components";
 
-import { cn } from '@koroflow/shadcn/libs';
-import Link from 'next/link';
-import { useRef } from 'react';
+import { cn } from "@koroflow/shadcn/libs";
+import Link from "next/link";
+import { useRef } from "react";
 
-import { ArrowRight } from 'lucide-react';
-import { AuroraText } from '../../../components/marketing/aurora-text';
-import { BorderIcon } from '../../../components/marketing/border-icon';
-import { GoogleGeminiEffect } from '../../../components/marketing/gemini';
-import { Section } from '../../../components/marketing/section';
-import { siteConfig } from '../config';
+import { ArrowRight } from "lucide-react";
+import { AuroraText } from "../../../components/marketing/aurora-text";
+import { BorderIcon } from "../../../components/marketing/border-icon";
+import { GoogleGeminiEffect } from "../../../components/marketing/gemini";
+import { Section } from "../../../components/marketing/section";
+import { siteConfig } from "../config";
 
 export function Hero() {
 	const ref = useRef(null);
 
 	const pathAnimations = [
 		{
-			startColor: '#076EFF',
-			stopColor: '#4FABFF',
+			startColor: "#076EFF",
+			stopColor: "#4FABFF",
 			delay: 0.4,
 		},
 		{
-			startColor: '#4FABFF',
-			stopColor: '#B1C5FF',
+			startColor: "#4FABFF",
+			stopColor: "#B1C5FF",
 			delay: 0.6,
 		},
 		{
-			startColor: '#B1C5FF',
-			stopColor: '#FFDDB7',
+			startColor: "#B1C5FF",
+			stopColor: "#FFDDB7",
 			delay: 0,
 		},
 		{
-			startColor: '#FFDDB7',
-			stopColor: '#FFB7C5',
+			startColor: "#FFDDB7",
+			stopColor: "#FFB7C5",
 			delay: 0.2,
 		},
 		{
-			startColor: '#FFB7C5',
-			stopColor: '#FFE7EA',
+			startColor: "#FFB7C5",
+			stopColor: "#FFE7EA",
 			delay: 0.3,
 		},
 	];
@@ -50,7 +50,9 @@ export function Hero() {
 				<div className="relative flex flex-col items-start justify-start space-y-6 px-4 pt-8 pb-6 sm:px-12">
 					<h1 className="text-left font-semibold text-3xl text-foreground leading-tighter tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
 						<span className="inline-block text-balance">
-							<AuroraText className="leading-normal">{siteConfig.hero.title}</AuroraText>
+							<AuroraText className="leading-normal">
+								{siteConfig.hero.title}
+							</AuroraText>
 						</span>
 					</h1>
 					<div className="flex w-full flex-col justify-between gap-6 sm:flex-row">
@@ -61,8 +63,8 @@ export function Hero() {
 							<Link
 								href={siteConfig.hero.cta.href}
 								className={cn(
-									buttonVariants({ variant: 'outline' }),
-									'flex w-full gap-2 rounded-lg text-background sm:w-auto'
+									buttonVariants({ variant: "outline" }),
+									"flex w-full gap-2 rounded-lg text-background sm:w-auto",
 								)}
 							>
 								{siteConfig.hero.cta.text}
@@ -71,8 +73,8 @@ export function Hero() {
 							<Link
 								href={siteConfig.hero.demo.href}
 								className={cn(
-									buttonVariants({ variant: 'ghost' }),
-									'flex w-full gap-2 rounded-lg sm:w-auto'
+									buttonVariants({ variant: "ghost" }),
+									"flex w-full gap-2 rounded-lg sm:w-auto",
 								)}
 							>
 								{siteConfig.hero.demo.text}
@@ -81,7 +83,10 @@ export function Hero() {
 					</div>
 				</div>
 				<div className="h-[250px] w-full scale-100 sm:h-[300px] md:h-[400px] md:scale-100 ">
-					<div className="relative h-full w-full overflow-clip rounded-md" ref={ref}>
+					<div
+						className="relative h-full w-full overflow-clip rounded-md"
+						ref={ref}
+					>
 						{/* <div className="w-full absolute inset-0 bg-gradient-to-r from-background via-background/0 to-background z-30" /> */}
 						<div className="absolute inset-0 z-20 flex items-center justify-center">
 							<div className="hidden rounded-full bg-[#000] px-4 py-3 font-bold text-[#FFF] text-xs sm:block md:text-base dark:bg-[#FFF] dark:text-[#000]">

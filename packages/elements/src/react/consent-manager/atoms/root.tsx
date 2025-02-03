@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 /**
  * @packageDocumentation
@@ -6,11 +6,11 @@
  * Implements context provider pattern with theme support and state management.
  */
 
-import type { FC, ReactNode } from 'react';
-import { useConsentManager } from '../../headless';
-import { Box } from '../../primitives/box';
-import { ThemeContext, type ThemeContextValue } from '../../theme';
-import type { ConsentManagerWidgetTheme } from '../theme';
+import type { FC, ReactNode } from "react";
+import { useConsentManager } from "../../headless";
+import { Box } from "../../primitives/box";
+import { ThemeContext, type ThemeContextValue } from "../../theme";
+import type { ConsentManagerWidgetTheme } from "../theme";
 
 /**
  * Props for the ConsentManagerWidgetRoot component.
@@ -102,13 +102,21 @@ export const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
 	};
 
 	const content = (
-		<Box baseClassName="consent-manager-widget" themeKey="consent-manager-widget.root" {...props}>
+		<Box
+			baseClassName="consent-manager-widget"
+			themeKey="consent-manager-widget.root"
+			{...props}
+		>
 			{children}
 		</Box>
 	);
 
 	if (useProvider) {
-		return <ThemeContext.Provider value={contextValue}>{content}</ThemeContext.Provider>;
+		return (
+			<ThemeContext.Provider value={contextValue}>
+				{content}
+			</ThemeContext.Provider>
+		);
 	}
 
 	return content;

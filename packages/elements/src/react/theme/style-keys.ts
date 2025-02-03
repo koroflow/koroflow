@@ -4,8 +4,8 @@
  * Implements nested key type generation and value retrieval for theming system.
  */
 
-import type { ConsentManagerWidgetTheme } from '../consent-manager/theme';
-import type { CookieBannerTheme } from '../cookie-banner';
+import type { ConsentManagerWidgetTheme } from "../consent-manager/theme";
+import type { CookieBannerTheme } from "../cookie-banner";
 
 /**
  * Utility type that generates dot-notation string keys for nested objects.
@@ -31,7 +31,9 @@ import type { CookieBannerTheme } from '../cookie-banner';
  * @public
  */
 export type NestedKeys<T> = {
-	[P in keyof T]: T[P] extends object ? `${string & P}.${NestedKeys<T[P]>}` : string & P;
+	[P in keyof T]: T[P] extends object
+		? `${string & P}.${NestedKeys<T[P]>}`
+		: string & P;
 }[keyof T];
 
 /**
@@ -80,8 +82,11 @@ export type StyleKeys =
  */
 export const getNestedValue = <K extends StyleKeys>(
 	obj: Record<string, unknown>,
-	key: K
+	key: K,
 ): unknown => {
-	const [root, ...path] = key.split('.');
-	return path.reduce((acc, part) => acc?.[part as keyof typeof acc], obj[root as keyof typeof obj]);
+	const [root, ...path] = key.split(".");
+	return path.reduce(
+		(acc, part) => acc?.[part as keyof typeof acc],
+		obj[root as keyof typeof obj],
+	);
 };

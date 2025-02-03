@@ -1,6 +1,6 @@
-import { CodeBlock } from '~/components/marketing/codeblock';
-import { Section } from '~/components/marketing/section';
-import { ExamplesClient } from './examples.client';
+import { CodeBlock } from "~/components/marketing/codeblock";
+import { Section } from "~/components/marketing/section";
+import { ExamplesClient } from "./examples.client";
 
 interface FeatureOption {
 	id: number;
@@ -12,8 +12,8 @@ interface FeatureOption {
 const featureOptions: FeatureOption[] = [
 	{
 		id: 1,
-		title: 'Simple Cookie Banner',
-		description: 'Create a simple cookie banner with a basic theme.',
+		title: "Simple Cookie Banner",
+		description: "Create a simple cookie banner with a basic theme.",
 		code: (
 			<CodeBlock
 				lang="jsx"
@@ -36,8 +36,8 @@ function Layout({ children }: { children: React.ReactNode }) {
 
 	{
 		id: 2,
-		title: 'Themed Cookie Banner',
-		description: 'Customize the Cookie Banner with a modern theme.',
+		title: "Themed Cookie Banner",
+		description: "Customize the Cookie Banner with a modern theme.",
 		code: (
 			<CodeBlock
 				lang="jsx"

@@ -1,4 +1,4 @@
-import type { SVGProps } from 'react';
+import type { SVGProps } from "react";
 
 interface XIconProps {
 	title?: string;
@@ -6,8 +6,8 @@ interface XIconProps {
 }
 
 export const XIcon = ({
-	title = 'X',
-	titleId = 'x',
+	title = "X",
+	titleId = "x",
 	...props
 }: SVGProps<SVGSVGElement> & XIconProps) => (
 	<svg

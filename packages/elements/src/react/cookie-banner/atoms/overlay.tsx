@@ -3,11 +3,11 @@
  * Provides the overlay backdrop component for the CookieBanner.
  */
 
-import { AnimatePresence, motion } from 'motion/react';
-import { type HTMLAttributes, forwardRef } from 'react';
+import { AnimatePresence, motion } from "motion/react";
+import { type HTMLAttributes, forwardRef } from "react";
 
-import { useConsentManager } from '../../headless';
-import { useStyles, useThemeContext } from '../../theme';
+import { useConsentManager } from "../../headless";
+import { useStyles, useThemeContext } from "../../theme";
 
 /**
  * Props for the Overlay component.
@@ -51,8 +51,8 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
 	({ className, style, noStyle, asChild, ...props }, ref) => {
 		const { showPopup } = useConsentManager();
 		const { disableAnimation, noStyle: contextNoStyle } = useThemeContext();
-		const theme = useStyles('cookie-banner.overlay', {
-			baseClassName: !(contextNoStyle || noStyle) && 'cookie-banner-overlay',
+		const theme = useStyles("cookie-banner.overlay", {
+			baseClassName: !(contextNoStyle || noStyle) && "cookie-banner-overlay",
 			noStyle,
 		});
 
@@ -71,5 +71,5 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
 				</AnimatePresence>
 			)
 		) : null;
-	}
+	},
 );

@@ -1,15 +1,17 @@
-import type { ComponentRef, HTMLAttributes } from 'react';
-import type { ExtendThemeKeys, ThemeValue } from '../theme';
-import type { ButtonSharedProps } from '../ui/components/button';
+import type { ComponentRef, HTMLAttributes } from "react";
+import type { ExtendThemeKeys, ThemeValue } from "../theme";
+import type { ButtonSharedProps } from "../ui/components/button";
 
-export type ConsentButtonElement = ComponentRef<'button'>;
+export type ConsentButtonElement = ComponentRef<"button">;
 
 /**
  * Props for CookieBanner button components.
  *
  * @public
  */
-export interface ConsentButtonProps extends HTMLAttributes<HTMLButtonElement>, ExtendThemeKeys {
+export interface ConsentButtonProps
+	extends HTMLAttributes<HTMLButtonElement>,
+		ExtendThemeKeys {
 	/**
 	 * @remarks
 	 * When true, the button will not apply any styles.

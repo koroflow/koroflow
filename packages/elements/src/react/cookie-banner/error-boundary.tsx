@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { type ErrorInfo } from 'react';
+import React, { type ErrorInfo } from "react";
 
 /**
  * Props for the ErrorBoundary component.
@@ -18,7 +18,9 @@ interface ErrorBoundaryProps {
 	 * Can be either a React node or a function that receives error details and returns a React node.
 	 * When provided as a function, it receives the error object and error info as arguments.
 	 */
-	fallback: React.ReactNode | ((error: Error, errorInfo: ErrorInfo) => React.ReactNode);
+	fallback:
+		| React.ReactNode
+		| ((error: Error, errorInfo: ErrorInfo) => React.ReactNode);
 }
 
 /**
@@ -52,7 +54,10 @@ interface ErrorBoundaryState {
  *
  * @public
  */
-export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+export class ErrorBoundary extends React.Component<
+	ErrorBoundaryProps,
+	ErrorBoundaryState
+> {
 	constructor(props: ErrorBoundaryProps) {
 		super(props);
 		this.state = { hasError: false, error: null, errorInfo: null };
@@ -64,14 +69,14 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
 
 	componentDidCatch(error: Error, errorInfo: ErrorInfo) {
 		this.setState({ error, errorInfo });
-		console.error('Uncaught error:', error, errorInfo);
+		console.error("Uncaught error:", error, errorInfo);
 		// Optionally log error to an external service
 		// logErrorToService(error, errorInfo)
 	}
 
 	render() {
 		if (this.state.hasError) {
-			if (typeof this.props.fallback === 'function') {
+			if (typeof this.props.fallback === "function") {
 				// biome-ignore lint/style/noNonNullAssertion: <explanation>
 				return this.props.fallback(this.state.error!, this.state.errorInfo!);
 			}

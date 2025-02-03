@@ -1,4 +1,4 @@
-import { cn } from '@koroflow/shadcn/libs';
+import { cn } from "@koroflow/shadcn/libs";
 
 export interface OrbitingCirclesProps {
 	className?: string;
@@ -41,15 +41,15 @@ export default function OrbitingCircles({
 			<div
 				style={
 					{
-						'--duration': duration,
-						'--radius': radius,
-						'--delay': -delay,
+						"--duration": duration,
+						"--radius": radius,
+						"--delay": -delay,
 					} as React.CSSProperties
 				}
 				className={cn(
-					'absolute flex size-[2rem] transform-gpu animate-orbit items-center justify-center rounded-full border border-border bg-background [animation-delay:calc(var(--delay)*1000ms)] dark:bg-background',
-					{ '[animation-direction:reverse]': reverse },
-					className
+					"absolute flex size-[2rem] transform-gpu animate-orbit items-center justify-center rounded-full border border-border bg-background [animation-delay:calc(var(--delay)*1000ms)] dark:bg-background",
+					{ "[animation-direction:reverse]": reverse },
+					className,
 				)}
 			>
 				{children}

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
 	AlertTriangleIcon,
@@ -12,14 +12,14 @@ import {
 	SquareTerminal,
 	UserSearch,
 	XCircleIcon,
-} from 'lucide-react';
+} from "lucide-react";
 // import { Section } from "@/components/section";
 // import OrbitingCircles from "@/components/ui/orbiting-circles";
-import { motion } from 'motion/react';
-import { useReducedMotion } from 'motion/react';
-import { BorderIcon } from '~/components/marketing/border-icon';
-import OrbitingCircles from '~/components/marketing/orbiting-circles';
-import { Section } from '~/components/marketing/section';
+import { motion } from "motion/react";
+import { useReducedMotion } from "motion/react";
+import { BorderIcon } from "~/components/marketing/border-icon";
+import OrbitingCircles from "~/components/marketing/orbiting-circles";
+import { Section } from "~/components/marketing/section";
 
 // Consolidate variants into a shared object
 const variants = {
@@ -36,16 +36,16 @@ const variants = {
 			scale: 0.87,
 			transition: {
 				duration: 0.2,
-				ease: 'linear',
+				ease: "linear",
 			},
 		},
 		hover: {
 			scale: 0.8,
 			boxShadow:
-				'rgba(245,40,145,0.35) 0px 20px 70px -10px, rgba(36,42,66,0.04) 0px 10px 24px -8px, rgba(36,42,66,0.06) 0px 1px 4px -1px',
+				"rgba(245,40,145,0.35) 0px 20px 70px -10px, rgba(36,42,66,0.04) 0px 10px 24px -8px, rgba(36,42,66,0.06) 0px 1px 4px -1px",
 			transition: {
 				duration: 0.2,
-				ease: 'linear',
+				ease: "linear",
 			},
 		},
 	},
@@ -56,18 +56,18 @@ const variants = {
 			transition: {
 				delay: 0,
 				duration: 0.2,
-				ease: 'linear',
+				ease: "linear",
 			},
 		},
 		whileHover: {
 			y: -55,
 			scale: 0.87,
 			boxShadow:
-				'rgba(39,127,245,0.15) 0px 20px 70px -10px, rgba(36,42,66,0.04) 0px 10px 24px -8px, rgba(36,42,66,0.06) 0px 1px 4px -1px',
+				"rgba(39,127,245,0.15) 0px 20px 70px -10px, rgba(36,42,66,0.04) 0px 10px 24px -8px, rgba(36,42,66,0.06) 0px 1px 4px -1px",
 			transition: {
 				delay: 0,
 				duration: 0.2,
-				ease: 'linear',
+				ease: "linear",
 			},
 		},
 	},
@@ -79,7 +79,7 @@ const variants = {
 			transition: {
 				delay: 0.05,
 				duration: 0.2,
-				ease: 'linear',
+				ease: "linear",
 			},
 		},
 		whileHover: {
@@ -87,11 +87,11 @@ const variants = {
 			opacity: 1,
 			scale: 1,
 			boxShadow:
-				'rgba(39,245,76,0.15) 10px 20px 70px -20px, rgba(36,42,66,0.04) 0px 10px 24px -8px, rgba(36,42,66,0.06) 0px 1px 4px -1px',
+				"rgba(39,245,76,0.15) 10px 20px 70px -20px, rgba(36,42,66,0.04) 0px 10px 24px -8px, rgba(36,42,66,0.06) 0px 1px 4px -1px",
 			transition: {
 				delay: 0.05,
 				duration: 0.2,
-				ease: 'easeInOut',
+				ease: "easeInOut",
 			},
 		},
 	},
@@ -121,7 +121,9 @@ export function Card1() {
 							<div className="flex flex-col gap-y-2">
 								<div className="h-2 w-32 rounded-full bg-neutral-800/50 dark:bg-neutral-200/80" />
 								<div className="h-2 w-48 rounded-full bg-slate-400/50" />
-								<div className="text-neutral-500 text-xs">Google Search API integration</div>
+								<div className="text-neutral-500 text-xs">
+									Google Search API integration
+								</div>
 							</div>
 						</motion.div>
 						<motion.div
@@ -135,7 +137,9 @@ export function Card1() {
 								<div className="h-2 w-32 rounded-full bg-neutral-800/50 dark:bg-neutral-200/80" />
 								<div className="h-2 w-48 rounded-full bg-slate-400/50" />
 								<div className="h-2 w-20 rounded-full bg-slate-400/50" />
-								<div className="text-neutral-500 text-xs">PostgreSQL database connection</div>
+								<div className="text-neutral-500 text-xs">
+									PostgreSQL database connection
+								</div>
 							</div>
 						</motion.div>
 						<motion.div
@@ -150,13 +154,17 @@ export function Card1() {
 								<div className="h-2 w-48 rounded-full bg-slate-400/50" />
 								<div className="h-2 w-20 rounded-full bg-slate-400/50" />
 								<div className="h-2 w-48 rounded-full bg-slate-400/50" />
-								<div className="text-neutral-500 text-xs">OpenAI GPT-3.5 API integration</div>
+								<div className="text-neutral-500 text-xs">
+									OpenAI GPT-3.5 API integration
+								</div>
 							</div>
 						</motion.div>
 					</div>
 				</div>
 				<div className="flex w-full flex-col items-start gap-y-1 px-5 pb-4">
-					<h2 className="font-semibold text-lg tracking-tight">Tool Integration</h2>
+					<h2 className="font-semibold text-lg tracking-tight">
+						Tool Integration
+					</h2>
 					<p className="text-muted-foreground text-sm">
 						Seamlessly integrate external APIs and tools into agent workflows.
 					</p>
@@ -171,9 +179,9 @@ const Card2 = () => {
 	const logs = [
 		{
 			id: 1,
-			type: 'info',
-			timestamp: '2023-12-15 14:23:45',
-			message: 'Agent initialized. Starting task execution.',
+			type: "info",
+			timestamp: "2023-12-15 14:23:45",
+			message: "Agent initialized. Starting task execution.",
 			icon: (
 				<div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500">
 					<InfoIcon className="h-5 w-5 text-white" />
@@ -182,9 +190,9 @@ const Card2 = () => {
 		},
 		{
 			id: 2,
-			type: 'action',
-			timestamp: '2023-12-15 14:23:47',
-			message: 'Retrieving data from external API...',
+			type: "action",
+			timestamp: "2023-12-15 14:23:47",
+			message: "Retrieving data from external API...",
 			icon: (
 				<div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500">
 					<DatabaseIcon className="h-5 w-5 text-white" />
@@ -193,9 +201,9 @@ const Card2 = () => {
 		},
 		{
 			id: 3,
-			type: 'decision',
-			timestamp: '2023-12-15 14:23:50',
-			message: 'Analyzing data. Confidence: 85%',
+			type: "decision",
+			timestamp: "2023-12-15 14:23:50",
+			message: "Analyzing data. Confidence: 85%",
 			icon: (
 				<div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-500">
 					<BrainCircuitIcon className="h-5 w-5 text-white" />
@@ -204,9 +212,9 @@ const Card2 = () => {
 		},
 		{
 			id: 4,
-			type: 'warning',
-			timestamp: '2023-12-15 14:23:52',
-			message: 'Potential anomaly detected in dataset.',
+			type: "warning",
+			timestamp: "2023-12-15 14:23:52",
+			message: "Potential anomaly detected in dataset.",
 			icon: (
 				<div className="flex h-8 w-8 items-center justify-center rounded-full bg-yellow-500">
 					<AlertTriangleIcon className="h-5 w-5 text-white" />
@@ -215,9 +223,9 @@ const Card2 = () => {
 		},
 		{
 			id: 5,
-			type: 'error',
-			timestamp: '2023-12-15 14:23:55',
-			message: 'Failed to connect to secondary database.',
+			type: "error",
+			timestamp: "2023-12-15 14:23:55",
+			message: "Failed to connect to secondary database.",
 			icon: (
 				<div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500">
 					<XCircleIcon className="h-5 w-5 text-white" />
@@ -246,7 +254,7 @@ const Card2 = () => {
 									opacity: index === 4 ? 1 : 0.6,
 									scale: index === 0 ? 0.85 : index === 4 ? 1.1 : 1,
 									transition: {
-										type: 'spring',
+										type: "spring",
 										stiffness: 400,
 										damping: 30,
 									},
@@ -264,9 +272,12 @@ const Card2 = () => {
 					</motion.div>
 				</div>
 				<div className="flex w-full flex-col items-start gap-y-1 px-5 pb-4">
-					<h2 className="font-semibold text-lg tracking-tight">Monitor agent activity</h2>
+					<h2 className="font-semibold text-lg tracking-tight">
+						Monitor agent activity
+					</h2>
 					<p className="text-muted-foreground text-sm">
-						Track and analyze your AI agent performance with detailed activity logs.
+						Track and analyze your AI agent performance with detailed activity
+						logs.
 					</p>
 				</div>
 			</motion.div>
@@ -315,7 +326,9 @@ const Card3 = () => {
 					</div>
 				</div>
 				<div className="flex w-full flex-col items-start gap-y-1 px-5 pb-4">
-					<h2 className="font-semibold text-lg tracking-tight">Build once, run anywhere</h2>
+					<h2 className="font-semibold text-lg tracking-tight">
+						Build once, run anywhere
+					</h2>
 					<p className="text-muted-foreground text-sm">
 						Create AI agents that work seamlessly across different platforms.
 					</p>

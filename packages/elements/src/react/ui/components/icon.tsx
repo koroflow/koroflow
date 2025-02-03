@@ -1,10 +1,16 @@
-import { type ElementType, type JSX, type Ref, type SVGProps, forwardRef } from 'react';
+import {
+	type ElementType,
+	type JSX,
+	type Ref,
+	type SVGProps,
+	forwardRef,
+} from "react";
 
 const Icon = (
 	props: SVGProps<SVGSVGElement>,
 	ref: Ref<SVGSVGElement>,
 	title: string,
-	iconPath: JSX.Element
+	iconPath: JSX.Element,
 ) => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -27,8 +33,8 @@ type LucideIconProps = SVGProps<SVGSVGElement> & {
 };
 
 export const LucideIcon = ({ title, iconPath }: LucideIconProps) => {
-	const IconComponent = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((svgProps, ref) =>
-		Icon(svgProps, ref, title, iconPath)
+	const IconComponent = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>(
+		(svgProps, ref) => Icon(svgProps, ref, title, iconPath),
 	);
 	return IconComponent as ElementType;
 };

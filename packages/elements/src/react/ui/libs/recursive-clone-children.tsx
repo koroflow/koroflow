@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 /**
  * Recursively clones React children, adding additional props to components with matched display names.
@@ -16,30 +16,37 @@ export function recursiveCloneChildren(
 	additionalProps: Record<string, unknown>,
 	displayNames: string[],
 	uniqueId: string,
-	asChild?: boolean
+	asChild?: boolean,
 ): React.ReactNode | React.ReactNode[] {
-	const mappedChildren = React.Children.map(children, (child: React.ReactNode) => {
-		if (!React.isValidElement(child)) {
-			return child;
-		}
+	const mappedChildren = React.Children.map(
+		children,
+		(child: React.ReactNode) => {
+			if (!React.isValidElement(child)) {
+				return child;
+			}
 
-		const displayName = (child.type as React.ComponentType)?.displayName || '';
-		const newProps = displayNames.includes(displayName) ? additionalProps : {};
+			const displayName =
+				(child.type as React.ComponentType)?.displayName || "";
+			const newProps = displayNames.includes(displayName)
+				? additionalProps
+				: {};
 
-		const childProps = (child as React.ReactElement<Record<string, unknown>>).props;
+			const childProps = (child as React.ReactElement<Record<string, unknown>>)
+				.props;
 
-		return React.cloneElement(
-			child,
-			{ ...newProps, key: `${uniqueId}-${child.key || displayName}` },
-			recursiveCloneChildren(
-				childProps?.children as React.ReactNode,
-				additionalProps,
-				displayNames,
-				uniqueId,
-				childProps?.asChild as boolean | undefined
-			)
-		);
-	});
+			return React.cloneElement(
+				child,
+				{ ...newProps, key: `${uniqueId}-${child.key || displayName}` },
+				recursiveCloneChildren(
+					childProps?.children as React.ReactNode,
+					additionalProps,
+					displayNames,
+					uniqueId,
+					childProps?.asChild as boolean | undefined,
+				),
+			);
+		},
+	);
 
 	return asChild ? mappedChildren?.[0] : mappedChildren;
 }

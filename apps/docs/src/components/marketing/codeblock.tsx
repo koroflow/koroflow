@@ -1,5 +1,5 @@
-import { highlight } from 'fumadocs-core/server';
-import * as Base from 'fumadocs-ui/components/codeblock';
+import { highlight } from "fumadocs-core/server";
+import * as Base from "fumadocs-ui/components/codeblock";
 
 /**
  * Props for the CodeBlock component.

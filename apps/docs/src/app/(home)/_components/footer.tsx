@@ -1,12 +1,14 @@
-import { BorderText } from '~/components/marketing/border-number';
-import { siteConfig } from '../config';
+import { BorderText } from "~/components/marketing/border-number";
+import { siteConfig } from "../config";
 
 export function Footer() {
 	return (
 		<footer className="container mt-8 flex flex-col gap-y-5 rounded-lg px-7 py-5">
 			<div className="flex items-center justify-between">
 				<div className="flex items-center gap-x-2">
-					<h2 className="font-bold text-foreground text-lg">{siteConfig.name}</h2>
+					<h2 className="font-bold text-foreground text-lg">
+						{siteConfig.name}
+					</h2>
 				</div>
 			</div>
 			<div className="flex flex-col justify-between gap-y-5 md:flex-row md:items-center">
