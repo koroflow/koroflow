@@ -1,24 +1,60 @@
-name: "📚 Documentation request"
-description: Need to report a documentation issue? Please fill out the information below
-title: '[docs]'
-labels: ['Documentation', "Needs Approval"]
+name: "📚 Documentation"
+description: Report a documentation issue
+labels: ["Documentation", "Needs Approval"]
 body:
-  - type: dropdown
-    id: type-of-doc-issue
+  - type: markdown
     attributes:
-      label: Type of documentation issue
+      value: |
+        Thanks for helping improve our documentation! Please provide as much detail as possible.
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Issue Type
+      description: What type of documentation issue is this?
       multiple: true
       options:
-        - "Broken Link"
-        - "Incorrect Information"
-        - "Typo"
-        - "Missing Information"
-        - "Other"
+        - "🔗 Broken Link"
+        - "❌ Incorrect Information"
+        - "✏️ Typo/Grammar"
+        - "➕ Missing Information"
+        - "🎨 Formatting/Style"
+        - "📖 Clarity/Readability"
+        - "🔄 Outdated Content"
     validations:
       required: true
-  - type: textarea
+
+  - type: input
+    id: page
     attributes:
-      label: Describe the problem and the proposed solution
-      description: Please describe the change & need of change in as much detail possible.
+      label: Page URL
+      description: Which page has the issue?
+      placeholder: "https://koroflow.com/docs/..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: Current Content
+      description: What does the documentation currently say?
+      placeholder: "Copy the relevant section..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested
+    attributes:
+      label: Suggested Changes
+      description: How should it be improved?
+      placeholder: "The documentation should say..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any other information that might be helpful?
     validations:
       required: false

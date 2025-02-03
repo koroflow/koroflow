@@ -1,49 +1,97 @@
-## What does this PR do?
+## Overview
+<!-- 
+Provide a clear and concise description of your changes:
+1. What problem does this solve?
+2. How does it solve it?
+3. Why is this approach better?
+-->
 
-<!-- Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change. -->
+*Please describe the change here*
 
+## Related Issue
+<!-- Always link to the issue. Create one first if it doesn't exist. -->
 Fixes # (issue)
 
-*If there is not an issue for this, please create one first. This is used to tracking purposes and also helps use understand why this PR exists*
+## Type of Change
+<!-- Select ALL that apply -->
 
-<!-- If there isn't an issue for this PR, please re-review our Contributing Guide and create an issue -->
+- [ ] 🐛 Bug fix (non-breaking change which fixes an issue)
+- [ ] ✨ Enhancement (improves existing functionality)
+- [ ] 🚀 New feature
+- [ ] 💥 Breaking change (requires migration)
+- [ ] 📚 Documentation
+- [ ] 🏗️ Refactor (no functional changes)
+- [ ] 🎨 Style (formatting, no code changes)
+- [ ] ⚡ Performance
 
-## Type of change
+## Implementation Details
+<!-- Help reviewers understand your changes -->
 
-<!-- Please mark the relevant points by using [x] -->
+### Key Changes
+<!-- List the important changes you made -->
+1. 
+2. 
 
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] Chore (refactoring code, technical debt, workflow improvements)
-- [ ] Enhancement (small improvements)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] This change requires a documentation update
+### Technical Notes
+<!-- Any important technical details? Design decisions? -->
 
-## How should this be tested?
+## Testing
+<!-- Help others verify your changes -->
 
-<!-- Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration -->
+### Test Plan
+<!-- List specific test scenarios -->
 
-- Test A
-- Test B
+- [ ] Scenario 1: *What to test*
+
+  ```ts
+  // Example code or steps
+  ```
+
+  ✓ Expected: *What should happen*
+
+- [ ] Scenario 2: *What to test*
+
+  ```ts
+  // Example code or steps
+  ```
+  
+  ✓ Expected: *What should happen*
+
+### Edge Cases
+<!-- Important scenarios to verify -->
+- [ ] Error handling: *Describe how errors are handled*
+- [ ] Performance: *Any performance implications?*
+- [ ] Security: *Any security considerations?*
+
+### Visual Changes
+<!-- Delete if no UI changes -->
+
+| Before | After |
+|--------|-------|
+| <!-- Before Screenshot --> | <!-- After Screenshot --> |
 
 ## Checklist
 
-<!-- We're starting to get more and more contributions. Please help us making this efficient for all of us and go through this checklist. Please tick off what you did  -->
-
 ### Required
 
-- [ ] Filled out the "How to test" section in this PR
-- [ ] Read [Contributing Guide](./CONTRIBUTING.md)
-- [ ] Self-reviewed my own code
-- [ ] Commented on my code in hard-to-understand areas
-- [ ] Ran `pnpm build`
-- [ ] Ran `pnpm fmt`
-- [ ] Checked for warnings, there are none
-- [ ] Removed all `console.logs`
-- [ ] Merged the latest changes from main onto my branch with `git pull origin main`
-- [ ] My changes don't cause any responsiveness issues
+- [ ] Issue is linked
+- [ ] Tests added/updated
+- [ ] Documentation updated
+- [ ] Tested locally
+- [ ] Code follows style guide
+- [ ] Commit messages follow [conventional commits](https://www.conventionalcommits.org/)
 
-### Appreciated
+### Breaking Changes
+<!-- Delete if no breaking changes -->
 
-- [ ] If a UI change was made: Added a screen recording or screenshots to this PR
-- [ ] Updated the Koroflow Docs if changes were necessary
+**Changes:**
+- *List breaking changes*
+
+**Migration:**
+```ts
+// Before
+oldMethod()
+
+// After
+newMethod()
+```
