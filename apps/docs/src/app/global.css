@@ -14,11 +14,11 @@
 }
 
 .light {
-	--fd-primary: 200 69.8% 48%;
+    --color-fd-primary:hsl(200 69.8% 48%);
 }
 
 .dark {
-	--fd-primary: 200 100% 63.9%;
+    --color-fd-primary: hsl(200 100% 63.9%);
 }
 
 @theme {
