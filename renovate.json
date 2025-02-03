@@ -1,0 +1,20 @@
+ 
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": [
+		"config:base",
+		":semanticCommits",
+		":semanticPrefixFix",
+		"customManagers:biomeVersions"
+	],
+	"packageRules": [
+		{
+			"matchPackagePatterns": ["*"],
+			"groupName": "dependencies",
+			"schedule": ["before 5am every monday"]
+		}
+	],
+	"ignorePaths": ["**/node_modules/**"],
+	"rangeStrategy": "bump",
+	"timezone": "UTC",
+	"schedule": ["before 5am every monday"]
+}

@@ -17,10 +17,19 @@
 			"cache": false,
 			"persistent": true
 		},
-		"test": {},
-		"test:watch": {
-			"cache": false,
-			"persistent": true
+		"test": {
+			"dependsOn": ["^build"],
+			"outputs": []
+		},
+		"type-check": {
+			"outputs": []
+		},
+		"ci:version": {
+			"outputs": []
+		},
+		"ci:publish": {
+			"dependsOn": ["build"],
+			"outputs": []
 		}
 	}
 }

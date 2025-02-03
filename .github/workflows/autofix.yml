@@ -4,22 +4,30 @@ on:
   push:
     branches: ["main"]
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
 
 jobs:
   autofix:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 16
-
+      
+      # Combine Node.js setup with the install action
       - name: Install
         uses: ./.github/actions/install
         with:
           ts: true
           go: true
+
+      # Cache Biome for faster formatting
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/biome
+          key: ${{ runner.os }}-biome-${{ hashFiles('**/biome.json') }}
+          restore-keys: |
+            ${{ runner.os }}-biome-
 
       - run: pnpm biome format . --write && pnpm biome check . --write
 

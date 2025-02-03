@@ -1,38 +1,44 @@
-name: Changesets
+name: Release
 on:
   push:
     branches:
       - main
+
 env:
   CI: true
-  PNPM_CACHE_FOLDER: .pnpm-store
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+
 jobs:
-  version:
+  release:
+    name: Release
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
-      - name: checkout code repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      
+      - name: Install
+        uses: ./.github/actions/install
+      
+      # Add Turbo cache
+      - name: Cache Turbo
+        uses: actions/cache@v4
         with:
-          fetch-depth: 0
-      - name: setup node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 14
-      - name: install pnpm
-        run: npm i pnpm@latest -g
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+            
       - name: Setup npmrc
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
-      - name: setup pnpm config
-        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
-      - name: install dependencies
-        run: pnpm install
-      - name: create and publish versions
+      
+      - name: Create and publish versions
         uses: changesets/action@v1
         with:
-          version: pnpm ci:version
+          version: pnpm turbo run ci:version
           commit: "chore: update versions"
           title: "chore: update versions"
-          publish: pnpm ci:publish
+          publish: pnpm turbo run ci:publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
