@@ -1,5 +1,8 @@
 <div align="center">
-  <img src="assets/logo.png" alt="Koroflow Logo" width="180" />
+   <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://koroflow.com/logo-dark-mode.png" height="64">
+      <img src="https://koroflow.com/logo-light-mode.png" height="64">
+    </picture>
   <h1>Koroflow</h1>
   <p>Transform privacy consent from a compliance checkbox into a fully observable system</p>
 
@@ -32,7 +35,7 @@ Koroflow unifies analytics, consent tracking, and privacy controls into a single
 
 ```bash
 # Install packages
-npm install @koroflow/core-js @koroflow/elements
+npm install @koroflow/elements
 
 # Optional: Install dev tools
 npm install -D @koroflow/dev-tools
