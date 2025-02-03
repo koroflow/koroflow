@@ -1,8 +1,5 @@
 <div align="center">
-   <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://koroflow.com/logo-dark-mode.png" height="64">
-      <img src="https://koroflow.com/logo-light-mode.png" height="64">
-    </picture>
+   <img src="https://koroflow.com/logo-icon.png" alt="Koroflow Logo" width="64" height="64" />
   <h1>Koroflow</h1>
   <p>Transform privacy consent from a compliance checkbox into a fully observable system</p>
 
