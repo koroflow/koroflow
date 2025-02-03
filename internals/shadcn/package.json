@@ -2,9 +2,8 @@
 	"name": "@koroflow/shadcn",
 	"version": "0.0.0",
 	"private": true,
-	"type": "module",
 	"sideEffects": false,
-	"files": ["dist"],
+	"type": "module",
 	"exports": {
 		"./*": {
 			"types": "./dist/*/index.d.ts",
@@ -13,6 +12,7 @@
 		},
 		"./globals.css": "./dist/globals.css"
 	},
+	"files": ["dist"],
 	"scripts": {
 		"build": "rslib build",
 		"check-types": "tsc --noEmit",

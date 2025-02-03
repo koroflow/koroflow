@@ -3,13 +3,13 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"build:copy-registry": "cp -r ../../packages/shadcn-registry/src/public/r ./public/r",
 		"build": "pnpm build:copy-registry && next build",
+		"build:copy-registry": "cp -r ../../packages/shadcn-registry/src/public/r ./public/r",
 		"dev": "next dev",
-		"start": "next start",
-		"postinstall": "fumadocs-mdx",
 		"fmt": "pnpm biome format --write .",
-		"lint": "pnpm biome lint ./src"
+		"postinstall": "fumadocs-mdx",
+		"lint": "pnpm biome lint ./src",
+		"start": "next start"
 	},
 	"dependencies": {
 		"@koroflow/elements": "workspace:*",

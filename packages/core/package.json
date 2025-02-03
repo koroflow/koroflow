@@ -5,24 +5,23 @@
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",
 	"types": "dist/types/index.d.ts",
-	"publishConfig": {
-		"access": "public"
-	},
 	"scripts": {
 		"build": "tsup",
 		"build:declarations": "tsc -p tsconfig.declarations.json",
+		"check-types": "tsc --noEmit",
 		"dev": "tsup --watch",
 		"fmt": "pnpm biome format --write .",
-		"lint": "pnpm biome lint ./src",
-
-		"check-types": "tsc --noEmit"
+		"lint": "pnpm biome lint ./src"
 	},
 	"browserslist": [">0.2%", "not dead", "not op_mini all"],
+	"dependencies": {
+		"zustand": "^5.0.3"
+	},
 	"devDependencies": {
 		"@koroflow/tsup-config": "workspace:*",
 		"@koroflow/typescript-config": "workspace:*"
 	},
-	"dependencies": {
-		"zustand": "^5.0.3"
+	"publishConfig": {
+		"access": "public"
 	}
 }

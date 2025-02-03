@@ -1,8 +1,8 @@
 {
 	"name": "@koroflow/typescript-config",
 	"version": "0.0.0",
-	"type": "module",
 	"private": true,
+	"type": "module",
 	"scripts": {
 		"fmt": "pnpm biome format --write .",
 		"lint": "pnpm biome lint ."
