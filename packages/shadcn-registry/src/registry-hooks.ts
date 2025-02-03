@@ -1,3 +1,3 @@
-import type { Registry } from '~/schema';
+import type { Registry } from "~/schema";
 
-export const hooks: Registry['items'] = [];
+export const hooks: Registry["items"] = [];

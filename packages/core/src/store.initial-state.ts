@@ -3,8 +3,8 @@
  * Provides the default initial state configuration for the consent management store.
  */
 
-import type { PrivacyConsentState } from './store.type';
-import { type ConsentState, consentTypes } from './types';
+import type { PrivacyConsentState } from "./store.type";
+import { type ConsentState, consentTypes } from "./types";
 
 /**
  * Default initial state for the consent management store.
@@ -40,79 +40,79 @@ import { type ConsentState, consentTypes } from './types';
  * @public
  */
 export const initialState: Omit<
-  PrivacyConsentState,
-  'getEffectiveConsents' | 'hasConsentFor'
+	PrivacyConsentState,
+	"getEffectiveConsents" | "hasConsentFor"
 > = {
-  /** Initial consent states based on default values from consent types */
-  consents: consentTypes.reduce((acc, consent) => {
-    acc[consent.name] = consent.defaultValue;
-    return acc;
-  }, {} as ConsentState),
+	/** Initial consent states based on default values from consent types */
+	consents: consentTypes.reduce((acc, consent) => {
+		acc[consent.name] = consent.defaultValue;
+		return acc;
+	}, {} as ConsentState),
 
-  /** No consent information stored initially */
-  consentInfo: null,
+	/** No consent information stored initially */
+	consentInfo: null,
 
-  /** Show consent popup by default */
-  showPopup: true,
+	/** Show consent popup by default */
+	showPopup: true,
 
-  /** Default GDPR consent types to include */
-  gdprTypes: ['necessary', 'marketing'],
+	/** Default GDPR consent types to include */
+	gdprTypes: ["necessary", "marketing"],
 
-  /** Privacy dialog starts closed */
-  isPrivacyDialogOpen: false,
+	/** Privacy dialog starts closed */
+	isPrivacyDialogOpen: false,
 
-  /** Default compliance settings per region */
-  complianceSettings: {
-    /** GDPR: Enabled globally by default */
-    gdpr: { enabled: true, appliesGlobally: true, applies: true },
+	/** Default compliance settings per region */
+	complianceSettings: {
+		/** GDPR: Enabled globally by default */
+		gdpr: { enabled: true, appliesGlobally: true, applies: true },
 
-    /** CCPA: Enabled for US only */
-    ccpa: { enabled: true, appliesGlobally: false, applies: undefined },
+		/** CCPA: Enabled for US only */
+		ccpa: { enabled: true, appliesGlobally: false, applies: undefined },
 
-    /** LGPD: Disabled by default */
-    lgpd: { enabled: false, appliesGlobally: false, applies: undefined },
+		/** LGPD: Disabled by default */
+		lgpd: { enabled: false, appliesGlobally: false, applies: undefined },
 
-    /** US State Privacy: Enabled for US only */
-    usStatePrivacy: {
-      enabled: true,
-      appliesGlobally: false,
-      applies: undefined,
-    },
-  },
+		/** US State Privacy: Enabled for US only */
+		usStatePrivacy: {
+			enabled: true,
+			appliesGlobally: false,
+			applies: undefined,
+		},
+	},
 
-  /** Empty callbacks object - should be populated by implementation */
-  callbacks: {},
+	/** Empty callbacks object - should be populated by implementation */
+	callbacks: {},
 
-  /** Default to US if no country detected */
-  detectedCountry: 'US',
+	/** Default to US if no country detected */
+	detectedCountry: "US",
 
-  /** Default privacy settings */
-  privacySettings: {
-    /** Respect Do Not Track by default */
-    honorDoNotTrack: true,
-  },
+	/** Default privacy settings */
+	privacySettings: {
+		/** Respect Do Not Track by default */
+		honorDoNotTrack: true,
+	},
 
-  /** Don't include non-displayed consents by default */
-  includeNonDisplayedConsents: false,
+	/** Don't include non-displayed consents by default */
+	includeNonDisplayedConsents: false,
 
-  /** Use predefined consent types */
-  consentTypes: consentTypes,
+	/** Use predefined consent types */
+	consentTypes: consentTypes,
 
-  // Initialize all methods as no-ops
-  setConsent: () => {},
-  setShowPopup: () => {},
-  setIsPrivacyDialogOpen: () => {},
-  saveConsents: () => {},
-  resetConsents: () => {},
-  setGdprTypes: () => {},
-  setComplianceSetting: () => {},
-  resetComplianceSettings: () => {},
-  setCallback: () => {},
-  setDetectedCountry: () => {},
-  getDisplayedConsents: () => [],
-  hasConsented: () => false,
-  clearAllData: () => {},
-  updateConsentMode: () => {},
-  setPrivacySettings: () => {},
-  setIncludeNonDisplayedConsents: () => {},
+	// Initialize all methods as no-ops
+	setConsent: () => {},
+	setShowPopup: () => {},
+	setIsPrivacyDialogOpen: () => {},
+	saveConsents: () => {},
+	resetConsents: () => {},
+	setGdprTypes: () => {},
+	setComplianceSetting: () => {},
+	resetComplianceSettings: () => {},
+	setCallback: () => {},
+	setDetectedCountry: () => {},
+	getDisplayedConsents: () => [],
+	hasConsented: () => false,
+	clearAllData: () => {},
+	updateConsentMode: () => {},
+	setPrivacySettings: () => {},
+	setIncludeNonDisplayedConsents: () => {},
 };

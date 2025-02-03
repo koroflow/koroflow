@@ -1,5 +1,5 @@
-import { defineConfig } from 'tsup';
-import { runAfterLast } from './shared.mjs';
+import { defineConfig } from "tsup";
+import { runAfterLast } from "./shared.mjs";
 
 /**
  * Creates a tsup configuration for React packages with tailwind support
@@ -27,42 +27,42 @@ import { runAfterLast } from './shared.mjs';
  * ```
  */
 export const createConfig = ({
-  name,
-  version,
-  tailwindConfigPath,
-  additionalOptions = {},
-  postBuildCommands = ['pnpm run build:declarations'],
+	name,
+	version,
+	tailwindConfigPath,
+	additionalOptions = {},
+	postBuildCommands = ["pnpm run build:declarations"],
 }) => {
-  return defineConfig((overrideOptions) => {
-    const isProd = overrideOptions.env?.NODE_ENV === 'production';
+	return defineConfig((overrideOptions) => {
+		const isProd = overrideOptions.env?.NODE_ENV === "production";
 
-    const common = {
-      name,
-      entry: ['./src/**/*.{ts,tsx,js,jsx}', '!./src/**/*.{spec,test}.{ts,tsx}'],
-      bundle: false,
-      clean: true,
-      minify: false,
-      sourcemap: true,
-      legacyOutput: true,
-      define: {
-        PACKAGE_NAME: `"${name}"`,
-        PACKAGE_VERSION: `"${version}"`,
-        __DEV__: `${!isProd}`,
-      },
-      ...additionalOptions,
-    };
+		const common = {
+			name,
+			entry: ["./src/**/*.{ts,tsx,js,jsx}", "!./src/**/*.{spec,test}.{ts,tsx}"],
+			bundle: false,
+			clean: true,
+			minify: false,
+			sourcemap: true,
+			legacyOutput: true,
+			define: {
+				PACKAGE_NAME: `"${name}"`,
+				PACKAGE_VERSION: `"${version}"`,
+				__DEV__: `${!isProd}`,
+			},
+			...additionalOptions,
+		};
 
-    const esm = {
-      ...common,
-      format: 'esm',
-    };
+		const esm = {
+			...common,
+			format: "esm",
+		};
 
-    const cjs = {
-      ...common,
-      format: 'cjs',
-      outDir: './dist/cjs',
-    };
+		const cjs = {
+			...common,
+			format: "cjs",
+			outDir: "./dist/cjs",
+		};
 
-    return runAfterLast(postBuildCommands)(esm, cjs);
-  });
+		return runAfterLast(postBuildCommands)(esm, cjs);
+	});
 };

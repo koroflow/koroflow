@@ -1,16 +1,16 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "React Library",
-  "extends": "./base.json",
-  "compilerOptions": {
-    "lib": ["ES2015", "DOM"],
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "target": "ES6",
-    "jsx": "react-jsx",
-    "noEmit": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true
-  }
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"display": "React Library",
+	"extends": "./base.json",
+	"compilerOptions": {
+		"lib": ["ES2015", "DOM"],
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"target": "ES6",
+		"jsx": "react-jsx",
+		"noEmit": true,
+		"esModuleInterop": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true
+	}
 }

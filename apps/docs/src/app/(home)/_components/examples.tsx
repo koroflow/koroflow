@@ -1,23 +1,23 @@
-import { CodeBlock } from '~/components/marketing/codeblock';
-import { Section } from '~/components/marketing/section';
-import { ExamplesClient } from './examples.client';
+import { CodeBlock } from "~/components/marketing/codeblock";
+import { Section } from "~/components/marketing/section";
+import { ExamplesClient } from "./examples.client";
 
 interface FeatureOption {
-  id: number;
-  title: string;
-  description: string;
-  code: React.ReactNode;
+	id: number;
+	title: string;
+	description: string;
+	code: React.ReactNode;
 }
 
 const featureOptions: FeatureOption[] = [
-  {
-    id: 1,
-    title: 'Simple Cookie Banner',
-    description: 'Create a simple cookie banner with a basic theme.',
-    code: (
-      <CodeBlock
-        lang="jsx"
-        code={`import { ConsentManagerProvider } from "@koroflow/elements/headless"
+	{
+		id: 1,
+		title: "Simple Cookie Banner",
+		description: "Create a simple cookie banner with a basic theme.",
+		code: (
+			<CodeBlock
+				lang="jsx"
+				code={`import { ConsentManagerProvider } from "@koroflow/elements/headless"
 import { ConsentManagerDialog } from "@koroflow/elements/consent-manager"
 import { CookieBanner } from "@koroflow/elements/cookie-banner"
 
@@ -30,18 +30,18 @@ function Layout({ children }: { children: React.ReactNode }) {
     </ConsentManagerProvider>
   )
 }`}
-      />
-    ),
-  },
+			/>
+		),
+	},
 
-  {
-    id: 2,
-    title: 'Themed Cookie Banner',
-    description: 'Customize the Cookie Banner with a modern theme.',
-    code: (
-      <CodeBlock
-        lang="jsx"
-        code={`import { ConsentManagerProvider } from "@koroflow/elements/headless"
+	{
+		id: 2,
+		title: "Themed Cookie Banner",
+		description: "Customize the Cookie Banner with a modern theme.",
+		code: (
+			<CodeBlock
+				lang="jsx"
+				code={`import { ConsentManagerProvider } from "@koroflow/elements/headless"
 import { ConsentManagerDialog } from "@koroflow/elements/consent-manager"
 import { CookieBanner } from "@koroflow/elements/cookie-banner"
 
@@ -64,15 +64,15 @@ function BasicCookieBanner() {
     </ConsentManagerProvider>
   )
 }`}
-      />
-    ),
-  },
+			/>
+		),
+	},
 ];
 
 export function Examples() {
-  return (
-    <Section id="examples" title="Examples">
-      <ExamplesClient features={featureOptions} />
-    </Section>
-  );
+	return (
+		<Section id="examples" title="Examples">
+			<ExamplesClient features={featureOptions} />
+		</Section>
+	);
 }

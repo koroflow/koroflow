@@ -1,4 +1,4 @@
-import type { AllConsentNames } from './gdpr';
+import type { AllConsentNames } from "./gdpr";
 
 /**
  * @packageDocumentation
@@ -52,7 +52,7 @@ export type ConsentState = Record<AllConsentNames, boolean>;
  *
  * @public
  */
-export type ComplianceRegion = 'gdpr' | 'ccpa' | 'lgpd' | 'usStatePrivacy';
+export type ComplianceRegion = "gdpr" | "ccpa" | "lgpd" | "usStatePrivacy";
 
 /**
  * Configuration settings for privacy regulation compliance.
@@ -82,14 +82,14 @@ export type ComplianceRegion = 'gdpr' | 'ccpa' | 'lgpd' | 'usStatePrivacy';
  * @public
  */
 export type ComplianceSettings = {
-  /** Whether the compliance framework is active */
-  enabled: boolean;
+	/** Whether the compliance framework is active */
+	enabled: boolean;
 
-  /** Whether to apply compliance rules globally */
-  appliesGlobally: boolean;
+	/** Whether to apply compliance rules globally */
+	appliesGlobally: boolean;
 
-  /** Whether the regulation applies in current context */
-  applies: boolean | undefined;
+	/** Whether the regulation applies in current context */
+	applies: boolean | undefined;
 };
 
 /**
@@ -121,8 +121,8 @@ export type ComplianceSettings = {
  * @public
  */
 export type PrivacySettings = {
-  /** Whether to respect the browser's Do Not Track setting */
-  honorDoNotTrack: boolean;
+	/** Whether to respect the browser's Do Not Track setting */
+	honorDoNotTrack: boolean;
 };
 
 /**
@@ -159,11 +159,11 @@ export type PrivacySettings = {
  * @public
  */
 export type HasConsentedProps = {
-  /** Timestamp when consent was given */
-  time: number;
+	/** Timestamp when consent was given */
+	time: number;
 
-  /** Type of consent granted */
-  type: 'all' | 'custom' | 'necessary';
+	/** Type of consent granted */
+	type: "all" | "custom" | "necessary";
 } | null;
 
 /**
@@ -196,10 +196,10 @@ export type HasConsentedProps = {
  * @public
  */
 export type NamespaceProps = {
-  /**
-   * Global namespace for the consent manager store.
-   *
-   * @defaultValue "KoroflowStore"
-   */
-  namespace?: string;
+	/**
+	 * Global namespace for the consent manager store.
+	 *
+	 * @defaultValue "KoroflowStore"
+	 */
+	namespace?: string;
 };

@@ -4,16 +4,16 @@
  */
 
 import type {
-  AllConsentNames,
-  CallbackFunction,
-  Callbacks,
-  ComplianceRegion,
-  ComplianceSettings,
-  ConsentState,
-  ConsentType,
-  PrivacySettings,
-  consentTypes,
-} from './types';
+	AllConsentNames,
+	CallbackFunction,
+	Callbacks,
+	ComplianceRegion,
+	ComplianceSettings,
+	ConsentState,
+	ConsentType,
+	PrivacySettings,
+	consentTypes,
+} from "./types";
 
 /**
  * Core state and methods interface for the privacy consent management store.
@@ -46,132 +46,132 @@ import type {
  * @public
  */
 export interface PrivacyConsentState {
-  /** Current consent states for all consent types */
-  consents: ConsentState;
+	/** Current consent states for all consent types */
+	consents: ConsentState;
 
-  /** Information about when and how consent was given */
-  consentInfo: { time: number; type: 'all' | 'custom' | 'necessary' } | null;
+	/** Information about when and how consent was given */
+	consentInfo: { time: number; type: "all" | "custom" | "necessary" } | null;
 
-  /** Whether to show the consent popup */
-  showPopup: boolean;
+	/** Whether to show the consent popup */
+	showPopup: boolean;
 
-  /** Active GDPR consent types */
-  gdprTypes: AllConsentNames[];
+	/** Active GDPR consent types */
+	gdprTypes: AllConsentNames[];
 
-  /** Whether the privacy dialog is currently open */
-  isPrivacyDialogOpen: boolean;
+	/** Whether the privacy dialog is currently open */
+	isPrivacyDialogOpen: boolean;
 
-  /** Region-specific compliance settings */
-  complianceSettings: Record<ComplianceRegion, ComplianceSettings>;
+	/** Region-specific compliance settings */
+	complianceSettings: Record<ComplianceRegion, ComplianceSettings>;
 
-  /** Event callbacks for consent actions */
-  callbacks: Callbacks;
+	/** Event callbacks for consent actions */
+	callbacks: Callbacks;
 
-  /** User's detected country code */
-  detectedCountry: string;
+	/** User's detected country code */
+	detectedCountry: string;
 
-  /** Privacy-related settings */
-  privacySettings: PrivacySettings;
+	/** Privacy-related settings */
+	privacySettings: PrivacySettings;
 
-  /** Whether to include non-displayed consents in operations */
-  includeNonDisplayedConsents: boolean;
+	/** Whether to include non-displayed consents in operations */
+	includeNonDisplayedConsents: boolean;
 
-  /** Available consent type configurations */
-  consentTypes: ConsentType[];
+	/** Available consent type configurations */
+	consentTypes: ConsentType[];
 
-  /**
-   * Updates the consent state for a specific consent type.
-   * @param name - The consent type to update
-   * @param value - The new consent value
-   */
-  setConsent: (name: AllConsentNames, value: boolean) => void;
+	/**
+	 * Updates the consent state for a specific consent type.
+	 * @param name - The consent type to update
+	 * @param value - The new consent value
+	 */
+	setConsent: (name: AllConsentNames, value: boolean) => void;
 
-  /**
-   * Controls the visibility of the consent popup.
-   * @param show - Whether to show the popup
-   */
-  setShowPopup: (show: boolean) => void;
+	/**
+	 * Controls the visibility of the consent popup.
+	 * @param show - Whether to show the popup
+	 */
+	setShowPopup: (show: boolean) => void;
 
-  /**
-   * Controls the visibility of the privacy dialog.
-   * @param isOpen - Whether the dialog should be open
-   */
-  setIsPrivacyDialogOpen: (isOpen: boolean) => void;
+	/**
+	 * Controls the visibility of the privacy dialog.
+	 * @param isOpen - Whether the dialog should be open
+	 */
+	setIsPrivacyDialogOpen: (isOpen: boolean) => void;
 
-  /**
-   * Saves the user's consent preferences.
-   * @param type - The type of consent being saved
-   */
-  saveConsents: (type: 'all' | 'custom' | 'necessary') => void;
+	/**
+	 * Saves the user's consent preferences.
+	 * @param type - The type of consent being saved
+	 */
+	saveConsents: (type: "all" | "custom" | "necessary") => void;
 
-  /** Resets all consent preferences to their default values */
-  resetConsents: () => void;
+	/** Resets all consent preferences to their default values */
+	resetConsents: () => void;
 
-  /**
-   * Updates the active GDPR consent types.
-   * @param types - Array of consent types to activate
-   */
-  setGdprTypes: (types: AllConsentNames[]) => void;
+	/**
+	 * Updates the active GDPR consent types.
+	 * @param types - Array of consent types to activate
+	 */
+	setGdprTypes: (types: AllConsentNames[]) => void;
 
-  /**
-   * Updates compliance settings for a specific region.
-   * @param region - The region to update
-   * @param settings - New compliance settings
-   */
-  setComplianceSetting: (
-    region: ComplianceRegion,
-    settings: Partial<ComplianceSettings>
-  ) => void;
+	/**
+	 * Updates compliance settings for a specific region.
+	 * @param region - The region to update
+	 * @param settings - New compliance settings
+	 */
+	setComplianceSetting: (
+		region: ComplianceRegion,
+		settings: Partial<ComplianceSettings>,
+	) => void;
 
-  /** Resets compliance settings to their default values */
-  resetComplianceSettings: () => void;
+	/** Resets compliance settings to their default values */
+	resetComplianceSettings: () => void;
 
-  /**
-   * Sets a callback for a specific consent event.
-   * @param name - The callback event name
-   * @param callback - The callback function
-   */
-  setCallback: (
-    name: keyof Callbacks,
-    callback: CallbackFunction | undefined
-  ) => void;
+	/**
+	 * Sets a callback for a specific consent event.
+	 * @param name - The callback event name
+	 * @param callback - The callback function
+	 */
+	setCallback: (
+		name: keyof Callbacks,
+		callback: CallbackFunction | undefined,
+	) => void;
 
-  /**
-   * Updates the user's detected country.
-   * @param country - The country code
-   */
-  setDetectedCountry: (country: string) => void;
+	/**
+	 * Updates the user's detected country.
+	 * @param country - The country code
+	 */
+	setDetectedCountry: (country: string) => void;
 
-  /** Retrieves the list of consent types that should be displayed */
-  getDisplayedConsents: () => typeof consentTypes;
+	/** Retrieves the list of consent types that should be displayed */
+	getDisplayedConsents: () => typeof consentTypes;
 
-  /** Checks if the user has provided any form of consent */
-  hasConsented: () => boolean;
+	/** Checks if the user has provided any form of consent */
+	hasConsented: () => boolean;
 
-  /** Clears all consent data and resets to initial state */
-  clearAllData: () => void;
+	/** Clears all consent data and resets to initial state */
+	clearAllData: () => void;
 
-  /** Updates the consent mode in external systems (e.g., analytics) */
-  updateConsentMode: () => void;
+	/** Updates the consent mode in external systems (e.g., analytics) */
+	updateConsentMode: () => void;
 
-  /**
-   * Updates privacy-related settings.
-   * @param settings - New privacy settings
-   */
-  setPrivacySettings: (settings: Partial<PrivacySettings>) => void;
+	/**
+	 * Updates privacy-related settings.
+	 * @param settings - New privacy settings
+	 */
+	setPrivacySettings: (settings: Partial<PrivacySettings>) => void;
 
-  /** Gets the effective consent states after applying privacy settings */
-  getEffectiveConsents: () => ConsentState;
+	/** Gets the effective consent states after applying privacy settings */
+	getEffectiveConsents: () => ConsentState;
 
-  /**
-   * Checks if consent has been given for a specific type.
-   * @param consentType - The consent type to check
-   */
-  hasConsentFor: (consentType: AllConsentNames) => boolean;
+	/**
+	 * Checks if consent has been given for a specific type.
+	 * @param consentType - The consent type to check
+	 */
+	hasConsentFor: (consentType: AllConsentNames) => boolean;
 
-  /**
-   * Controls whether non-displayed consents should be included.
-   * @param include - Whether to include non-displayed consents
-   */
-  setIncludeNonDisplayedConsents: (include: boolean) => void;
+	/**
+	 * Controls whether non-displayed consents should be included.
+	 * @param include - Whether to include non-displayed consents
+	 */
+	setIncludeNonDisplayedConsents: (include: boolean) => void;
 }

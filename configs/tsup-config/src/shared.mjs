@@ -5,14 +5,14 @@
  * @returns {(configs: import('tsup').Options[]) => import('tsup').Options[]} Config transformer
  */
 export const runAfterLast =
-  (commands) =>
-  (...configs) => {
-    const [last, ...rest] = configs.reverse();
-    return [
-      ...rest.reverse(),
-      {
-        ...last,
-        onSuccess: [last?.onSuccess, ...commands].filter(Boolean).join(' && '),
-      },
-    ];
-  };
+	(commands) =>
+	(...configs) => {
+		const [last, ...rest] = configs.reverse();
+		return [
+			...rest.reverse(),
+			{
+				...last,
+				onSuccess: [last?.onSuccess, ...commands].filter(Boolean).join(" && "),
+			},
+		];
+	};

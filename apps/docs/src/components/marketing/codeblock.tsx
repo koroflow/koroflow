@@ -1,24 +1,24 @@
-import { highlight } from 'fumadocs-core/server';
-import * as Base from 'fumadocs-ui/components/codeblock';
+import { highlight } from "fumadocs-core/server";
+import * as Base from "fumadocs-ui/components/codeblock";
 
 /**
  * Props for the CodeBlock component.
  */
 interface CodeBlockProps {
-  /**
-   * The code to be highlighted and displayed.
-   */
-  code: string;
+	/**
+	 * The code to be highlighted and displayed.
+	 */
+	code: string;
 
-  /**
-   * The language of the code for syntax highlighting.
-   */
-  lang: string;
+	/**
+	 * The language of the code for syntax highlighting.
+	 */
+	lang: string;
 
-  /**
-   * Additional props to pass to the wrapper component.
-   */
-  wrapper?: Base.CodeBlockProps;
+	/**
+	 * Additional props to pass to the wrapper component.
+	 */
+	wrapper?: Base.CodeBlockProps;
 }
 
 /**
@@ -32,12 +32,12 @@ interface CodeBlockProps {
  * It is used to wrap code snippets in documentation pages, providing a uniform appearance.
  */
 export async function CodeBlock({ code, lang, wrapper }: CodeBlockProps) {
-  const rendered = await highlight(code, {
-    lang,
-    components: {
-      pre: Base.Pre,
-    },
-  });
+	const rendered = await highlight(code, {
+		lang,
+		components: {
+			pre: Base.Pre,
+		},
+	});
 
-  return <Base.CodeBlock {...wrapper}>{rendered}</Base.CodeBlock>;
+	return <Base.CodeBlock {...wrapper}>{rendered}</Base.CodeBlock>;
 }
