@@ -312,8 +312,8 @@ importers:
         specifier: 0.0.1-beta.8
         version: 0.0.1-beta.8(@types/react@19.0.8)(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))
       '@koroflow/dev-tools':
-        specifier: 0.0.1-beta.6
-        version: 0.0.1-beta.6(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))
+        specifier: 0.0.1-beta.8
+        version: 0.0.1-beta.8(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))
       '@koroflow/elements':
         specifier: workspace:*
         version: link:../elements
@@ -1101,14 +1101,11 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@koroflow/core-js@0.0.1-beta.6':
-    resolution: {integrity: sha512-ZT4KD8JfoJyt12jnSemy06ebPY3H9pmhutVFsrNLoDnXtUxWTO+98z7jsj/C3lylyg7xePjKcqEDAT3UTLoOXg==}
-
   '@koroflow/core-js@0.0.1-beta.8':
     resolution: {integrity: sha512-uIR2uAWmFaMc5k4o6yRimpPPPwKFxeWZxxj12jK0U5vU5CiMxx5ci7Ux93pXrW3dnjtqaAbmHF/npSdPUSawbQ==}
 
-  '@koroflow/dev-tools@0.0.1-beta.6':
-    resolution: {integrity: sha512-Jb7pZCpb1gdSU5pbfnJHY/mY/VBnzlrDwTjExHq3bGQnr4ALxO+zhMr+A0Ybk5MtYhzLsHmNTQxl4f3U2pqoJQ==}
+  '@koroflow/dev-tools@0.0.1-beta.8':
+    resolution: {integrity: sha512-ojtGYCsZCoWdSslym9cx0I1MsGcoWnU8MICrdnFJyF9dGLJzNS+/2zBiBSu/3C8/WT1GdHMoxAL97VN2y2Wu7g==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -5791,15 +5788,6 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@koroflow/core-js@0.0.1-beta.6(@types/react@19.0.8)(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))':
-    dependencies:
-      zustand: 5.0.3(@types/react@19.0.8)(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))
-    transitivePeerDependencies:
-      - '@types/react'
-      - immer
-      - react
-      - use-sync-external-store
-
   '@koroflow/core-js@0.0.1-beta.8(@types/react@19.0.8)(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))':
     dependencies:
       zustand: 5.0.3(@types/react@19.0.8)(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))
@@ -5809,9 +5797,9 @@ snapshots:
       - react
       - use-sync-external-store
 
-  '@koroflow/dev-tools@0.0.1-beta.6(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))':
+  '@koroflow/dev-tools@0.0.1-beta.8(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))':
     dependencies:
-      '@koroflow/core-js': 0.0.1-beta.6(@types/react@19.0.8)(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))
+      '@koroflow/core-js': 0.0.1-beta.8(@types/react@19.0.8)(react@19.0.0)(use-sync-external-store@1.4.0(react@19.0.0))
       '@radix-ui/react-accordion': 1.2.2(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@radix-ui/react-scroll-area': 1.2.2(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@radix-ui/react-slot': 1.1.1(@types/react@19.0.8)(react@19.0.0)
