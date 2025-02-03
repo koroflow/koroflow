@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from 'motion/react';
 import {
 	type FC,
 	type HTMLAttributes,
@@ -8,14 +8,14 @@ import {
 	forwardRef,
 	useEffect,
 	useState,
-} from "react";
-import { createPortal } from "react-dom";
+} from 'react';
+import { createPortal } from 'react-dom';
 
-import { ThemeContext, useStyles } from "../../theme";
-import { Overlay } from "./overlay";
+import { ThemeContext, useStyles } from '../../theme';
+import { Overlay } from './overlay';
 
-import { useConsentManager } from "../../common";
-import type { CookieBannerTheme } from "../theme";
+import { useConsentManager } from '../../common';
+import type { CookieBannerTheme } from '../theme';
 
 /**
  * Props for the root component of the CookieBanner.
@@ -212,7 +212,7 @@ const CookieBannerRootChildren = forwardRef<
 			style?: React.CSSProperties;
 			className?: string;
 		},
-		ref,
+		ref
 	) => {
 		const { showPopup } = useConsentManager();
 
@@ -220,9 +220,9 @@ const CookieBannerRootChildren = forwardRef<
 		 * Apply styles from the CookieBanner context and merge with local styles.
 		 * Uses the 'content' style key for consistent theming.
 		 */
-		const contentStyle = useStyles("cookie-banner.root", {
+		const contentStyle = useStyles('cookie-banner.root', {
 			baseClassName: [
-				"cookie-banner cookie-banner-root cookie-banner-root-bottom-left",
+				'cookie-banner cookie-banner-root cookie-banner-root-bottom-left',
 			],
 			style,
 			className: forwardedClassName,
@@ -262,7 +262,7 @@ const CookieBannerRootChildren = forwardRef<
 									initial={{ opacity: 0, y: 50 }}
 									animate={{ opacity: 1, y: 0 }}
 									exit={{ opacity: 0, y: 50 }}
-									transition={{ type: "spring", stiffness: 300, damping: 30 }}
+									transition={{ type: 'spring', stiffness: 300, damping: 30 }}
 									{...contentStyle}
 								>
 									{children}
@@ -270,13 +270,13 @@ const CookieBannerRootChildren = forwardRef<
 							</AnimatePresence>
 						)}
 					</>,
-					document.body,
+					document.body
 				)
 			: null;
-	},
+	}
 );
 
-CookieBannerRootChildren.displayName = "CookieBannerRootChildren";
+CookieBannerRootChildren.displayName = 'CookieBannerRootChildren';
 
 const Root = CookieBannerRoot;
 

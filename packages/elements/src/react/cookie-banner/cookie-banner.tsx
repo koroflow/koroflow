@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 /**
  * @packageDocumentation
@@ -6,14 +6,14 @@
  * Implements an accessible, customizable banner following GDPR and CCPA requirements.
  */
 
-import type { FC, ReactNode } from "react";
+import type { FC, ReactNode } from 'react';
 
-import { ErrorBoundary } from "./error-boundary";
-import type { CookieBannerTheme } from "./theme";
-import "./cookie-banner.css";
+import { ErrorBoundary } from './error-boundary';
+import type { CookieBannerTheme } from './theme';
+import './cookie-banner.css';
 
-import { ConsentButton } from "../primitives/button";
-import { CookieBannerRoot } from "./atoms/root";
+import { ConsentButton } from '../primitives/button';
+import { CookieBannerRoot } from './atoms/root';
 import {
 	CookieBannerCard,
 	CookieBannerDescription,
@@ -21,7 +21,7 @@ import {
 	CookieBannerFooterSubGroup,
 	CookieBannerHeader,
 	CookieBannerTitle,
-} from "./components";
+} from './components';
 
 /**
  * Props for configuring and customizing the CookieBanner component.
@@ -139,11 +139,11 @@ export interface CookieBannerProps {
 export const CookieBanner: FC<CookieBannerProps> = ({
 	theme,
 	noStyle,
-	title = "We value your privacy",
-	description = "This site uses cookies to improve your browsing experience, analyze site traffic, and show personalized content.",
-	rejectButtonText = "Reject All",
-	customizeButtonText = "Customize",
-	acceptButtonText = "Accept All",
+	title = 'We value your privacy',
+	description = 'This site uses cookies to improve your browsing experience, analyze site traffic, and show personalized content.',
+	rejectButtonText = 'Reject All',
+	customizeButtonText = 'Customize',
+	acceptButtonText = 'Accept All',
 }) => {
 	return (
 		<ErrorBoundary

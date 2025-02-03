@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 /**
  * @packageDocumentation
@@ -6,17 +6,17 @@
  * Implements an accessible, animated modal interface for consent customization.
  */
 
-import { AnimatePresence, motion } from "motion/react";
-import { type FC, useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
-import { useConsentManager } from "../common";
-import { ThemeContext, type ThemeContextValue } from "../theme";
-import { ConsentCustomizationCard } from "./atoms/dialog-card";
-import { Overlay } from "./atoms/overlay";
-import type { ConsentManagerDialogTheme } from "./theme";
+import { AnimatePresence, motion } from 'motion/react';
+import { type FC, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { useConsentManager } from '../common';
+import { ThemeContext, type ThemeContextValue } from '../theme';
+import { ConsentCustomizationCard } from './atoms/dialog-card';
+import { Overlay } from './atoms/overlay';
+import type { ConsentManagerDialogTheme } from './theme';
 
-import "./consent-manager-dialog.css";
-import "../ui/components/card.css";
+import './consent-manager-dialog.css';
+import '../ui/components/card.css';
 
 /**
  * Animation variants for the dialog container
@@ -37,7 +37,7 @@ const contentVariants = {
 	visible: {
 		opacity: 1,
 		scale: 1,
-		transition: { type: "spring", stiffness: 300, damping: 30 },
+		transition: { type: 'spring', stiffness: 300, damping: 30 },
 	},
 	exit: {
 		opacity: 0,

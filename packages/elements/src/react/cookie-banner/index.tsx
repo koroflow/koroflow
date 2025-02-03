@@ -1,5 +1,5 @@
-import { CookieBannerOverlay, Overlay } from "./atoms/overlay";
-import { CookieBannerRoot, Root } from "./atoms/root";
+import { CookieBannerOverlay, Overlay } from './atoms/overlay';
+import { CookieBannerRoot, Root } from './atoms/root';
 import {
 	AcceptButton,
 	Card,
@@ -19,7 +19,7 @@ import {
 	Header,
 	RejectButton,
 	Title,
-} from "./components";
+} from './components';
 
 /**
  * Enhanced CookieBanner component with compound components attached.
@@ -92,4 +92,4 @@ export {
 	Root,
 	Title,
 };
-export type { CookieBannerTheme } from "./theme";
+export type { CookieBannerTheme } from './theme';

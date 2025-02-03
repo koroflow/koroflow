@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 export {
 	Card,
@@ -13,8 +13,8 @@ export {
 	DialogHeaderTitle,
 	DialogHeaderDescription,
 	DialogContent,
-} from "./atoms/dialog-card";
+} from './atoms/dialog-card';
 
-export { Overlay, ConsentManagerDialogOverlay } from "./atoms/overlay";
+export { Overlay, ConsentManagerDialogOverlay } from './atoms/overlay';
 
-export type { ConsentManagerDialogTheme } from "./theme";
+export type { ConsentManagerDialogTheme } from './theme';

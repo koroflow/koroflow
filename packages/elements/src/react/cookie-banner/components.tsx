@@ -4,21 +4,21 @@
  * Implements accessible, customizable components following GDPR and CCPA requirements.
  */
 
-import { type Ref, forwardRef } from "react";
-import { Box, type BoxProps } from "../primitives/box";
-import { ConsentButton } from "../primitives/button";
-import type { ConsentButtonProps } from "../primitives/button.types";
-import { useThemeContext } from "../theme";
+import { type Ref, forwardRef } from 'react';
+import { Box, type BoxProps } from '../primitives/box';
+import { ConsentButton } from '../primitives/button';
+import type { ConsentButtonProps } from '../primitives/button.types';
+import { useThemeContext } from '../theme';
 
-const COOKIE_BANNER_TITLE_NAME = "CookieBannerTitle";
-const COOKIE_BANNER_DESCRIPTION_NAME = "CookieBannerDescription";
-const COOKIE_BANNER_FOOTER_NAME = "CookieBannerFooter";
-const COOKIE_BANNER_CARD_NAME = "CookieBannerCard";
-const COOKIE_BANNER_HEADER_NAME = "CookieBannerHeader";
-const COOKIE_BANNER_FOOTER_SUB_GROUP_NAME = "CookieBannerFooterSubGroup";
-const COOKIE_BANNER_REJECT_BUTTON_NAME = "CookieBannerRejectButton";
-const COOKIE_BANNER_CUSTOMIZE_BUTTON_NAME = "CookieBannerCustomizeButton";
-const COOKIE_BANNER_ACCEPT_BUTTON_NAME = "CookieBannerAcceptButton";
+const COOKIE_BANNER_TITLE_NAME = 'CookieBannerTitle';
+const COOKIE_BANNER_DESCRIPTION_NAME = 'CookieBannerDescription';
+const COOKIE_BANNER_FOOTER_NAME = 'CookieBannerFooter';
+const COOKIE_BANNER_CARD_NAME = 'CookieBannerCard';
+const COOKIE_BANNER_HEADER_NAME = 'CookieBannerHeader';
+const COOKIE_BANNER_FOOTER_SUB_GROUP_NAME = 'CookieBannerFooterSubGroup';
+const COOKIE_BANNER_REJECT_BUTTON_NAME = 'CookieBannerRejectButton';
+const COOKIE_BANNER_CUSTOMIZE_BUTTON_NAME = 'CookieBannerCustomizeButton';
+const COOKIE_BANNER_ACCEPT_BUTTON_NAME = 'CookieBannerAcceptButton';
 
 /**
  * Title component for the cookie banner.
@@ -36,7 +36,7 @@ const COOKIE_BANNER_ACCEPT_BUTTON_NAME = "CookieBannerAcceptButton";
  */
 const CookieBannerTitle = forwardRef<
 	HTMLDivElement,
-	Omit<BoxProps, "themeKey">
+	Omit<BoxProps, 'themeKey'>
 >(({ children, ...props }, ref) => {
 	return (
 		<Box
@@ -68,7 +68,7 @@ CookieBannerTitle.displayName = COOKIE_BANNER_TITLE_NAME;
  */
 const CookieBannerDescription = forwardRef<
 	HTMLDivElement,
-	Omit<BoxProps, "themeKey">
+	Omit<BoxProps, 'themeKey'>
 >(({ children, ...props }, ref) => {
 	return (
 		<Box
@@ -101,7 +101,7 @@ CookieBannerDescription.displayName = COOKIE_BANNER_DESCRIPTION_NAME;
  */
 const CookieBannerFooter = forwardRef<
 	HTMLDivElement,
-	Omit<BoxProps, "themeKey">
+	Omit<BoxProps, 'themeKey'>
 >(({ children, ...props }, ref) => {
 	return (
 		<Box
@@ -133,7 +133,7 @@ CookieBannerFooter.displayName = COOKIE_BANNER_FOOTER_NAME;
  * </CookieBannerCard>
  * ```
  */
-const CookieBannerCard = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
+const CookieBannerCard = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
 	({ children, ...props }, ref) => {
 		return (
 			<Box
@@ -145,7 +145,7 @@ const CookieBannerCard = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
 				{children}
 			</Box>
 		);
-	},
+	}
 );
 
 CookieBannerCard.displayName = COOKIE_BANNER_CARD_NAME;
@@ -159,7 +159,7 @@ CookieBannerCard.displayName = COOKIE_BANNER_CARD_NAME;
  */
 const CookieBannerHeader = forwardRef<
 	HTMLDivElement,
-	Omit<BoxProps, "themeKey">
+	Omit<BoxProps, 'themeKey'>
 >(({ children, ...props }, ref) => {
 	return (
 		<Box
@@ -184,7 +184,7 @@ CookieBannerHeader.displayName = COOKIE_BANNER_HEADER_NAME;
  */
 const CookieBannerFooterSubGroup = forwardRef<
 	HTMLDivElement,
-	Omit<BoxProps, "themeKey">
+	Omit<BoxProps, 'themeKey'>
 >(({ children, ...props }, ref) => {
 	return (
 		<Box
