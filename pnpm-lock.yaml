@@ -154,8 +154,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       tailwind-merge:
-        specifier: ^2.6.0
-        version: 2.6.0
+        specifier: ^3.0.1
+        version: 3.0.1
     devDependencies:
       '@koroflow/typescript-config':
         specifier: workspace:*
