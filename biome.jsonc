@@ -1,30 +1,20 @@
 {
 	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"extends": ["ultracite"],
 	"vcs": {
 		"enabled": true,
 		"clientKind": "git",
-		"useIgnoreFile": true,
-		"defaultBranch": "main"
+		"useIgnoreFile": true
 	},
 	"files": {
-		"ignoreUnknown": true,
-		"ignore": [
-			".next",
-			".source",
-			".vitest",
-			".wrangler",
-			"dist",
-			"node_modules",
-			"prism.css",
-			"*.css",
-			"packages/shadcn/src/public/r"
-		]
+		"ignoreUnknown": false,
+		"ignore": []
 	},
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "tab",
-		"indentWidth": 2,
-		"lineWidth": 100
+		"lineWidth": 100,
+		"indentWidth": 2
 	},
 	"organizeImports": {
 		"enabled": true
@@ -33,6 +23,11 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double"
 		}
 	}
 }

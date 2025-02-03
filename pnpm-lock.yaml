@@ -44,6 +44,9 @@ importers:
       typescript:
         specifier: 5.7.3
         version: 5.7.3
+      ultracite:
+        specifier: ^4.1.18
+        version: 4.1.18
       vitest:
         specifier: ^3.0.4
         version: 3.0.4(@types/debug@4.1.12)(@types/node@22.10.10)(jiti@2.4.2)(jsdom@26.0.0)(lightningcss@1.29.1)(msw@2.7.0(@types/node@22.10.10)(typescript@5.7.3))(sass@1.83.4)(terser@5.37.0)(tsx@4.19.2)(yaml@2.7.0)
@@ -4838,6 +4841,10 @@ packages:
   typescript@5.7.3:
     resolution: {integrity: sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==}
     engines: {node: '>=14.17'}
+    hasBin: true
+
+  ultracite@4.1.18:
+    resolution: {integrity: sha512-tHYPMzhLTbdHxDMMdWDuB9zb+uhd+XtLa30L4/1wn63/N6MUVg5jNxEczzX/h4FGSDrr3W91VpnVX4neNitk0w==}
     hasBin: true
 
   unbox-primitive@1.1.0:
@@ -10243,6 +10250,10 @@ snapshots:
       - supports-color
 
   typescript@5.7.3: {}
+
+  ultracite@4.1.18:
+    dependencies:
+      commander: 12.1.0
 
   unbox-primitive@1.1.0:
     dependencies:

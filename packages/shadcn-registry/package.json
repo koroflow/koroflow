@@ -10,6 +10,7 @@
 		"build:registry": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-registry.mts",
 		"build:declarations": "tsc -p tsconfig.declarations.json && resolve-tspaths --out ./dist ",
 		"build": "pnpm build:registry && tsup",
+		"fmt": "biome check --write . && biome check .",
 		"check-types": "tsc --noEmit",
 		"dev": "tsup --watch"
 	},

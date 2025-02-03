@@ -3,6 +3,9 @@
 	"version": "0.0.0",
 	"type": "module",
 	"private": true,
+	"scripts": {
+		"fmt": "biome check --write . && biome check ."
+	},
 	"exports": {
 		"./react": "./src/react.mjs",
 		"./node": "./src/node.mjs"
