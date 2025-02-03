@@ -35,21 +35,21 @@
  * ```
  */
 import type {
-	ComplianceRegion,
-	ComplianceSettings,
-	ConsentState,
-	HasConsentedProps,
-	NamespaceProps,
-	PrivacySettings,
-} from "./compliance";
+  ComplianceRegion,
+  ComplianceSettings,
+  ConsentState,
+  HasConsentedProps,
+  NamespaceProps,
+  PrivacySettings,
+} from './compliance';
 
 export type {
-	ConsentState,
-	ComplianceRegion,
-	ComplianceSettings,
-	PrivacySettings,
-	HasConsentedProps,
-	NamespaceProps,
+  ConsentState,
+  ComplianceRegion,
+  ComplianceSettings,
+  PrivacySettings,
+  HasConsentedProps,
+  NamespaceProps,
 };
 
 /**
@@ -77,7 +77,7 @@ export type {
  * }
  * ```
  */
-import { type AllConsentNames, type ConsentType, consentTypes } from "./gdpr";
+import { type AllConsentNames, type ConsentType, consentTypes } from './gdpr';
 
 export { consentTypes };
 export type { AllConsentNames, ConsentType };
@@ -120,6 +120,6 @@ export type { AllConsentNames, ConsentType };
  *   () => console.log('System ready');
  * ```
  */
-import type { CallbackFunction, Callbacks } from "./callbacks";
+import type { CallbackFunction, Callbacks } from './callbacks';
 
 export type { CallbackFunction, Callbacks };

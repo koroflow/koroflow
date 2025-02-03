@@ -1,11 +1,11 @@
 {
-	"extends": "./tsconfig.json",
-	"compilerOptions": {
-		"declaration": true,
-		"emitDeclarationOnly": true,
-		"declarationDir": "./dist/types",
-		"noEmit": false,
-		"isolatedModules": false
-	},
-	"exclude": ["node_modules", "dist", "test", "**/*.test.ts", "**/*.test.tsx"]
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "./dist/types",
+    "noEmit": false,
+    "isolatedModules": false
+  },
+  "exclude": ["node_modules", "dist", "test", "**/*.test.ts", "**/*.test.tsx"]
 }

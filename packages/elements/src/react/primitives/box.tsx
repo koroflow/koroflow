@@ -12,7 +12,9 @@ import { type ExtendThemeKeys, useStyles } from "../theme";
  *
  * @public
  */
-export interface BoxProps extends React.HTMLAttributes<HTMLDivElement>, ExtendThemeKeys {
+export interface BoxProps
+	extends React.HTMLAttributes<HTMLDivElement>,
+		ExtendThemeKeys {
 	asChild?: boolean;
 }
 

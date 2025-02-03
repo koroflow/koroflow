@@ -1,20 +1,20 @@
 {
-	"$schema": "https://ui.shadcn.com/schema.json",
-	"style": "new-york",
-	"rsc": true,
-	"tsx": true,
-	"tailwind": {
-		"config": "../../configs/tailwind-config/config.ts",
-		"css": "./global.css",
-		"baseColor": "neutral",
-		"cssVariables": true,
-		"prefix": ""
-	},
-	"aliases": {
-		"components": "@koroflow/shadcn/components",
-		"utils": "@koroflow/shadcn/utils",
-		"hooks": "@koroflow/shadcn/hooks",
-		"lib": "@koroflow/shadcn/libs",
-		"ui": "@koroflow/shadcn/components/ui"
-	}
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "../../configs/tailwind-config/config.ts",
+    "css": "./global.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@koroflow/shadcn/components",
+    "utils": "@koroflow/shadcn/utils",
+    "hooks": "@koroflow/shadcn/hooks",
+    "lib": "@koroflow/shadcn/libs",
+    "ui": "@koroflow/shadcn/components/ui"
+  }
 }

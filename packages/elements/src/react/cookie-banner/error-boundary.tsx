@@ -18,7 +18,9 @@ interface ErrorBoundaryProps {
 	 * Can be either a React node or a function that receives error details and returns a React node.
 	 * When provided as a function, it receives the error object and error info as arguments.
 	 */
-	fallback: React.ReactNode | ((error: Error, errorInfo: ErrorInfo) => React.ReactNode);
+	fallback:
+		| React.ReactNode
+		| ((error: Error, errorInfo: ErrorInfo) => React.ReactNode);
 }
 
 /**
@@ -52,7 +54,10 @@ interface ErrorBoundaryState {
  *
  * @public
  */
-export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+export class ErrorBoundary extends React.Component<
+	ErrorBoundaryProps,
+	ErrorBoundaryState
+> {
 	constructor(props: ErrorBoundaryProps) {
 		super(props);
 		this.state = { hasError: false, error: null, errorInfo: null };

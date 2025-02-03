@@ -11,7 +11,10 @@ import "../ui/components/card.css";
 import { Box } from "../primitives/box";
 
 import { type FC, useState } from "react";
-import { ConsentManagerWidgetRoot, type ConsentManagerWidgetRootProps } from "./atoms/root";
+import {
+	ConsentManagerWidgetRoot,
+	type ConsentManagerWidgetRootProps,
+} from "./atoms/root";
 import {
 	ConsentManagerWidgetAcceptAllButton,
 	ConsentManagerWidgetAccordion,
@@ -27,7 +30,6 @@ import {
 	ConsentManagerWidgetSaveButton,
 	ConsentManagerWidgetSwitch,
 } from "./components";
-import type { ConsentManagerWidgetTheme } from "./theme";
 
 /**
  * Props for the ConsentManagerWidget component
@@ -36,7 +38,8 @@ import type { ConsentManagerWidgetTheme } from "./theme";
  * Extends ThemeContextValue to provide comprehensive theming support
  * while maintaining type safety for consent management specific features.
  */
-interface ConsentManagerWidgetProps extends Omit<ConsentManagerWidgetRootProps, "children"> {
+interface ConsentManagerWidgetProps
+	extends Omit<ConsentManagerWidgetRootProps, "children"> {
 	/** Hides the Koroflow branding when true */
 	hideBrading?: boolean;
 }
@@ -82,7 +85,10 @@ interface ConsentManagerWidgetProps extends Omit<ConsentManagerWidgetRootProps, 
  * />
  * ```
  */
-const SingaltonConsentManagerWidget = ({ hideBrading, ...props }: ConsentManagerWidgetProps) => {
+const SingaltonConsentManagerWidget = ({
+	hideBrading,
+	...props
+}: ConsentManagerWidgetProps) => {
 	const [openItems, setOpenItems] = useState<string[]>([]);
 
 	return (
@@ -113,8 +119,14 @@ const SingaltonConsentManagerWidget = ({ hideBrading, ...props }: ConsentManager
 					baseClassName="consent-manager-widget-branding"
 					themeKey="consent-manager-widget.branding"
 				>
-					<a className="consent-manager-widget-branding-link" href="https://koroflow.com">
-						Secured by <span className="consent-manager-widget-branding-link-span">Koroflow</span>
+					<a
+						className="consent-manager-widget-branding-link"
+						href="https://koroflow.com"
+					>
+						Secured by{" "}
+						<span className="consent-manager-widget-branding-link-span">
+							Koroflow
+						</span>
 					</a>
 				</Box>
 			)}
@@ -133,7 +145,8 @@ SingaltonConsentManagerWidget.displayName = "ConsentManagerWidget";
  *
  * @public
  */
-export interface ConsentManagerWidgetComponent extends FC<ConsentManagerWidgetProps> {
+export interface ConsentManagerWidgetComponent
+	extends FC<ConsentManagerWidgetProps> {
 	/** Root container component */
 	AccordionItems: typeof ConsentManagerWidgetAccordionItems;
 	/** Button to accept all consent options */
@@ -169,7 +182,8 @@ export interface ConsentManagerWidgetComponent extends FC<ConsentManagerWidgetPr
  * This is the primary export that combines the base widget with all its
  * sub-components for building custom consent management interfaces.
  */
-const ConsentManagerWidget = SingaltonConsentManagerWidget as ConsentManagerWidgetComponent;
+const ConsentManagerWidget =
+	SingaltonConsentManagerWidget as ConsentManagerWidgetComponent;
 
 // Attach all sub-components
 ConsentManagerWidget.AccordionItems = ConsentManagerWidgetAccordionItems;

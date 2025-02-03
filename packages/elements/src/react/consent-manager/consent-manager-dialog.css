@@ -1,55 +1,53 @@
 .consent-manager-dialog-card .consent-manager-widget-branding {
-	margin-left: -22px;
-	margin-right: -22px;
-	width: auto;
+  margin-left: -22px;
+  margin-right: -22px;
+  width: auto;
 }
 
 .consent-manager-dialog-card .card-header {
-	position: relative;
+  position: relative;
 }
 
 .consent-manager-dialog-header-close {
-	position: absolute;
-	right: 22px;
-	top: 22px;
+  position: absolute;
+  right: 22px;
+  top: 22px;
 }
 
 .consent-manager-dialog-root {
+  --kf-card-padding: 1.5rem;
+  --kf-card-radius: 1.25rem;
+  --kf-card-gap: 0.375rem;
 
-	--kf-card-padding: 1.5rem;
-	--kf-card-radius: 1.25rem;
-	--kf-card-gap: 0.375rem;
-
-	position: fixed;
-	inset: 0px;
-	z-index: 999999999;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: var(--kf-card-radius);
-	background:transparent;
+  position: fixed;
+  inset: 0px;
+  z-index: 999999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--kf-card-radius);
+  background: transparent;
 }
 
 .consent-manager-dialog-container {
-	width: full;
-	max-width: 28rem /* 448px */;
-	margin-left: auto;
-	margin-right: auto;
+  width: full;
+  max-width: 28rem /* 448px */;
+  margin-left: auto;
+  margin-right: auto;
 }
 .consent-manager-dialog-card .card-footer {
-	width: 100%;
-	justify-content: center;
-	font-size: 14px;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-	border-top-width: 1px;
-	border-top-color: hsl(var(--kf-stroke-soft-200));
+  width: 100%;
+  justify-content: center;
+  font-size: 14px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-top-width: 1px;
+  border-top-color: hsl(var(--kf-stroke-soft-200));
 }
 
-
 .consent-manager-overlay {
-	position: fixed;
-	inset: 0px;
-	background-color: rgb(0 0 0 / 0.5);
-	z-index: 999999997;
+  position: fixed;
+  inset: 0px;
+  background-color: rgb(0 0 0 / 0.5);
+  z-index: 999999997;
 }

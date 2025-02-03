@@ -1,5 +1,10 @@
 {
-	"title": "Guides",
-	"defaultOpen": true,
-	"pages": ["cookie-banner", "consent-manager-dialog", "consent-manager-widget", "..."]
+  "title": "Guides",
+  "defaultOpen": true,
+  "pages": [
+    "cookie-banner",
+    "consent-manager-dialog",
+    "consent-manager-widget",
+    "..."
+  ]
 }

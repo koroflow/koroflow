@@ -36,18 +36,20 @@ type DialogCardProps = {
  * </DialogCard>
  * ```
  */
-const DialogCard = forwardRef<HTMLDivElement, DialogCardProps>(({ children, ...props }, ref) => {
-	return (
-		<Box
-			ref={ref as Ref<HTMLDivElement>}
-			baseClassName="card consent-manager-dialog-card"
-			{...props}
-			themeKey="consent-manager-widget.dialog.root"
-		>
-			{children}
-		</Box>
-	);
-});
+const DialogCard = forwardRef<HTMLDivElement, DialogCardProps>(
+	({ children, ...props }, ref) => {
+		return (
+			<Box
+				ref={ref as Ref<HTMLDivElement>}
+				baseClassName="card consent-manager-dialog-card"
+				{...props}
+				themeKey="consent-manager-widget.dialog.root"
+			>
+				{children}
+			</Box>
+		);
+	},
+);
 
 /**
  * The header section of the privacy dialog.
@@ -82,20 +84,21 @@ const DialogHeader = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
  * - Should be used within DialogHeader
  * - Supports theme customization
  */
-const DialogHeaderTitle = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
-	({ children, ...props }, ref) => {
-		return (
-			<Box
-				ref={ref as Ref<HTMLDivElement>}
-				baseClassName="card-title"
-				themeKey="consent-manager-widget.dialog.title"
-				{...props}
-			>
-				{children}
-			</Box>
-		);
-	},
-);
+const DialogHeaderTitle = forwardRef<
+	HTMLDivElement,
+	Omit<BoxProps, "themeKey">
+>(({ children, ...props }, ref) => {
+	return (
+		<Box
+			ref={ref as Ref<HTMLDivElement>}
+			baseClassName="card-title"
+			themeKey="consent-manager-widget.dialog.title"
+			{...props}
+		>
+			{children}
+		</Box>
+	);
+});
 
 /**
  * The description component for the privacy dialog header.
@@ -106,20 +109,21 @@ const DialogHeaderTitle = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>
  * - Supports theme customization
  * - Important for explaining privacy choices to users
  */
-const DialogHeaderDescription = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
-	({ children, ...props }, ref) => {
-		return (
-			<Box
-				ref={ref as Ref<HTMLDivElement>}
-				baseClassName="card-description"
-				themeKey="consent-manager-widget.dialog.description"
-				{...props}
-			>
-				{children}
-			</Box>
-		);
-	},
-);
+const DialogHeaderDescription = forwardRef<
+	HTMLDivElement,
+	Omit<BoxProps, "themeKey">
+>(({ children, ...props }, ref) => {
+	return (
+		<Box
+			ref={ref as Ref<HTMLDivElement>}
+			baseClassName="card-description"
+			themeKey="consent-manager-widget.dialog.description"
+			{...props}
+		>
+			{children}
+		</Box>
+	);
+});
 
 /**
  * The main content area of the privacy dialog.
@@ -154,20 +158,28 @@ const DialogContent = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
  * - Includes Koroflow branding by default
  * - Can be customized through theme configuration
  */
-const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(({ ...props }, ref) => {
-	return (
-		<Box
-			ref={ref as Ref<HTMLDivElement>}
-			baseClassName="card-footer"
-			themeKey="consent-manager-widget.dialog.footer"
-			{...props}
-		>
-			<a className="consent-manager-widget-branding-link" href="https://koroflow.com">
-				Secured by <span className="consent-manager-widget-branding-link-span">Koroflow</span>
-			</a>
-		</Box>
-	);
-});
+const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
+	({ ...props }, ref) => {
+		return (
+			<Box
+				ref={ref as Ref<HTMLDivElement>}
+				baseClassName="card-footer"
+				themeKey="consent-manager-widget.dialog.footer"
+				{...props}
+			>
+				<a
+					className="consent-manager-widget-branding-link"
+					href="https://koroflow.com"
+				>
+					Secured by{" "}
+					<span className="consent-manager-widget-branding-link-span">
+						Koroflow
+					</span>
+				</a>
+			</Box>
+		);
+	},
+);
 
 /**
  * A pre-configured privacy settings dialog card.
@@ -187,21 +199,29 @@ const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(({ .
  * - Includes consent type management
  * - Built-in accessibility features
  */
-export const ConsentCustomizationCard = ({ noStyle }: { noStyle?: boolean }) => (
+export const ConsentCustomizationCard = ({
+	noStyle,
+}: { noStyle?: boolean }) => (
 	<DialogCard>
 		<DialogHeader>
 			<DialogHeaderTitle>Privacy Settings</DialogHeaderTitle>
 			<DialogHeaderDescription>
-				Customize your privacy settings here. You can choose which types of cookies and tracking
-				technologies you allow.
+				Customize your privacy settings here. You can choose which types of
+				cookies and tracking technologies you allow.
 			</DialogHeaderDescription>
 		</DialogHeader>
 		<DialogContent>
 			<ConsentManagerWidget hideBrading noStyle={noStyle} useProvider={false} />
 		</DialogContent>
 		<DialogFooter>
-			<a className="consent-manager-widget-branding-link" href="https://koroflow.com">
-				Secured by <span className="consent-manager-widget-branding-link-span">Koroflow</span>
+			<a
+				className="consent-manager-widget-branding-link"
+				href="https://koroflow.com"
+			>
+				Secured by{" "}
+				<span className="consent-manager-widget-branding-link-span">
+					Koroflow
+				</span>
 			</a>
 		</DialogFooter>
 	</DialogCard>

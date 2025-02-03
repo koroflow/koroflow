@@ -1,13 +1,17 @@
 {
-	"name": "default",
-	"type": "registry:style",
-	"dependencies": ["tailwindcss-animate", "class-variance-authority", "lucide-react"],
-	"registryDependencies": ["utils"],
-	"tailwind": {
-		"config": {
-			"plugins": ["require(\"tailwindcss-animate\")"]
-		}
-	},
-	"cssVars": {},
-	"files": []
+  "name": "default",
+  "type": "registry:style",
+  "dependencies": [
+    "tailwindcss-animate",
+    "class-variance-authority",
+    "lucide-react"
+  ],
+  "registryDependencies": ["utils"],
+  "tailwind": {
+    "config": {
+      "plugins": ["require(\"tailwindcss-animate\")"]
+    }
+  },
+  "cssVars": {},
+  "files": []
 }

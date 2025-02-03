@@ -1,58 +1,58 @@
 .consent-manager-widget {
-	& > :not([hidden]) ~ :not([hidden]) {
-		--tw-space-y-reverse: 0;
-		margin-top: calc(1.5rem /* 24px */ * calc(1 - var(--tw-space-y-reverse)));
-		margin-bottom: calc(1.5rem /* 24px */ * var(--tw-space-y-reverse));
-	}
+  & > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(1.5rem /* 24px */ * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(1.5rem /* 24px */ * var(--tw-space-y-reverse));
+  }
 }
 
 .consent-manager-widget .accordion-trigger {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	position: relative;
-	& .accordion-trigger-sub-group {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-	}
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  & .accordion-trigger-sub-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
 }
 
 .consent-manager-widget-footer {
-	display: flex;
-	justify-content: space-between;
-	gap: 1rem;
-	@media (min-width: 640px) {
-		flex-direction: row;
-	}
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  @media (min-width: 640px) {
+    flex-direction: row;
+  }
 }
 
 .consent-manager-widget-footer-sub-group {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	gap: 1rem /* 16px */;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem /* 16px */;
 }
 @media (max-width: 640px) {
-	.button, {
+  .button, {
 		width: 100%;
 	}
 }
 
 .consent-manager-widget-branding {
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	border-top-width: 1px;
-	border-top-color: hsl(var(--kf-stroke-soft-200));
-	padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-top-width: 1px;
+  border-top-color: hsl(var(--kf-stroke-soft-200));
+  padding-top: 1rem;
 }
 
 .consent-manager-widget-branding-link {
-	text-decoration: none;
-	text-align: center;
+  text-decoration: none;
+  text-align: center;
 
-	.consent-manager-widget-branding-link-span {
-		color: #47c2ff;
-	}
+  .consent-manager-widget-branding-link-span {
+    color: #47c2ff;
+  }
 }
