@@ -1,8 +1,9 @@
 import { cn } from '@koroflow/shadcn/libs';
+import type { ReactNode } from 'react';
 
 export interface OrbitingCirclesProps {
 	className?: string;
-	children?: React.ReactNode;
+	children?: ReactNode;
 	reverse?: boolean;
 	duration?: number;
 	delay?: number;

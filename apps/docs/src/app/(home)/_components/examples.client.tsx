@@ -1,14 +1,14 @@
 'use client';
 
 import { AnimatePresence, motion } from 'motion/react';
-import { useEffect, useState } from 'react';
+import { type ReactNode, useEffect, useState } from 'react';
 import { BorderIcon } from '~/components/marketing/border-icon';
 
 interface FeatureOption {
 	id: number;
 	title: string;
 	description: string;
-	code: React.ReactNode;
+	code: ReactNode;
 }
 
 interface ExamplesClientProps {
@@ -51,12 +51,7 @@ export function ExamplesClient({ features }: ExamplesClientProps) {
 									setSelectedIndex(index);
 									setProgress(0);
 								}}
-								className={`
-									shrink-0 
-									w-[280px] sm:w-[320px] md:w-full 
-									text-left p-4 
-									rounded border relative 
-									${selectedIndex === index ? 'bg-accent/70' : 'hover:bg-muted/50'}
+								className={`w-[280px] shrink-0 rounded border p-4 text-left sm:w-[320px] md:w-full relative${selectedIndex === index ? 'bg-accent/70' : 'hover:bg-muted/50'}
 								`}
 								animate={{
 									opacity: index === selectedIndex ? 1 : 0.7,
@@ -117,7 +112,7 @@ export function ExamplesClient({ features }: ExamplesClientProps) {
 							index === selectedIndex && (
 								<motion.div
 									key={feature.id}
-									className="w-full [&>figure]:bg-transparent! [&>figure]:my-0! [&_code]:break-all"
+									className="w-full [&>figure]:my-0! [&>figure]:bg-transparent! [&_code]:break-all"
 									initial={{ y: 20, opacity: 0 }}
 									animate={{ y: 0, opacity: 1 }}
 									exit={{ y: -20, opacity: 0 }}

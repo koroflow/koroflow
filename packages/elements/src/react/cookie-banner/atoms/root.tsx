@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from 'motion/react';
 import {
+	type CSSProperties,
 	type FC,
 	type HTMLAttributes,
 	type ReactNode,
@@ -209,7 +210,7 @@ const CookieBannerRootChildren = forwardRef<
 			disableAnimation,
 			...props
 		}: CookieBannerRootChildrenProps & {
-			style?: React.CSSProperties;
+			style?: CSSProperties;
 			className?: string;
 		},
 		ref

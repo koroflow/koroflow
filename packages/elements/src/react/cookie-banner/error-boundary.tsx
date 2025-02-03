@@ -1,6 +1,6 @@
 'use client';
 
-import React, { type ErrorInfo } from 'react';
+import { Component, type ErrorInfo, type ReactNode } from 'react';
 
 /**
  * Props for the ErrorBoundary component.
@@ -9,7 +9,7 @@ import React, { type ErrorInfo } from 'react';
  */
 interface ErrorBoundaryProps {
 	/** @remarks React elements to be rendered within the boundary */
-	children: React.ReactNode;
+	children: ReactNode;
 
 	/**
 	 * UI to display when an error occurs.
@@ -18,9 +18,7 @@ interface ErrorBoundaryProps {
 	 * Can be either a React node or a function that receives error details and returns a React node.
 	 * When provided as a function, it receives the error object and error info as arguments.
 	 */
-	fallback:
-		| React.ReactNode
-		| ((error: Error, errorInfo: ErrorInfo) => React.ReactNode);
+	fallback: ReactNode | ((error: Error, errorInfo: ErrorInfo) => ReactNode);
 }
 
 /**
@@ -54,7 +52,7 @@ interface ErrorBoundaryState {
  *
  * @public
  */
-export class ErrorBoundary extends React.Component<
+export class ErrorBoundary extends Component<
 	ErrorBoundaryProps,
 	ErrorBoundaryState
 > {

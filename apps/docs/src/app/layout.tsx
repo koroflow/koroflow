@@ -1,14 +1,14 @@
+import './global.css';
+
+import { RootProvider } from 'fumadocs-ui/provider';
+import { Inter } from 'next/font/google';
+import type { ReactNode } from 'react';
+import '@koroflow/elements/globals.css';
 import {
 	ConsentManagerDialog,
 	ConsentManagerProvider,
 	CookieBanner,
 } from '@koroflow/elements';
-import { RootProvider } from 'fumadocs-ui/provider';
-import { Inter } from 'next/font/google';
-import type { ReactNode } from 'react';
-
-import './global.css';
-import '@koroflow/elements/globals.css';
 
 const inter = Inter({
 	subsets: ['latin'],

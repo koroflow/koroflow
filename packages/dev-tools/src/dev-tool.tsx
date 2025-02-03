@@ -1,7 +1,8 @@
 'use client';
 import type { NamespaceProps, PrivacyConsentState } from '@koroflow/core-js';
-import type React from 'react';
+
 import {
+	type FC,
 	createContext,
 	useCallback,
 	useContext,
@@ -31,7 +32,9 @@ export const getStore = () => {
 	const [localState, setLocalState] = useState(context.state);
 
 	useEffect(() => {
-		if (!context.store) return;
+		if (!context.store) {
+			return;
+		}
 
 		// Update local state when context state changes
 		setLocalState(context.state);
@@ -57,7 +60,7 @@ interface ConsentManagerProviderProps extends NamespaceProps {
 	position?: 'bottom-right' | 'top-right' | 'bottom-left' | 'top-left';
 }
 
-export const KoroflowDevTool: React.FC<ConsentManagerProviderProps> = ({
+export const KoroflowDevTool: FC<ConsentManagerProviderProps> = ({
 	namespace = 'KoroflowStore',
 	position = 'bottom-right',
 }) => {

@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { CodeBlock } from '~/components/marketing/codeblock';
 import { Section } from '~/components/marketing/section';
 import { ExamplesClient } from './examples.client';
@@ -6,7 +7,7 @@ interface FeatureOption {
 	id: number;
 	title: string;
 	description: string;
-	code: React.ReactNode;
+	code: ReactNode;
 }
 
 const featureOptions: FeatureOption[] = [
@@ -21,7 +22,7 @@ const featureOptions: FeatureOption[] = [
 import { ConsentManagerDialog } from "@koroflow/elements/consent-manager"
 import { CookieBanner } from "@koroflow/elements/cookie-banner"
 
-function Layout({ children }: { children: React.ReactNode }) {
+function Layout({ children }: { children: ReactNode }) {
   return (
     <ConsentManagerProvider>
       <CookieBanner />

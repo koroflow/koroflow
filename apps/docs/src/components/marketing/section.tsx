@@ -73,7 +73,7 @@ const Section = forwardRef<HTMLElement, SectionProps>(
 									{description}
 								</p>
 							)}
-							<div className="pointer-events-none absolute bottom-0 left-0 right-0 h-full w-full bg-linear-to-t from-background dark:from-background -z-10 from-50%" />
+							<div className="-z-10 pointer-events-none absolute right-0 bottom-0 left-0 h-full w-full bg-linear-to-t from-50% from-background dark:from-background" />
 							{/* <FlickeringGrid
                 squareSize={4}
                 gridGap={4}
