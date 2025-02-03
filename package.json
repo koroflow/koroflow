@@ -4,6 +4,7 @@
 	"scripts": {
 		"build": "turbo build",
 		"check-types": "turbo check-types",
+		"ci:publish": "pnpm publish -r",
 		"dev": "turbo dev",
 		"fmt:check": "biome check . && turbo lint",
 		"fmt": "biome check --write --unsafe .",
@@ -11,6 +12,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
+		"@changesets/cli": "^2.27.12",
 		"@rsbuild/core": "1.2.0-beta.1",
 		"@rsbuild/plugin-react": "^1.1.0",
 		"@rslib/core": "^0.4.0",
