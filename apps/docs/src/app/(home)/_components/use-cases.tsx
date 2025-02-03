@@ -113,7 +113,7 @@ export function Card1() {
 							variants={variants.card1}
 							initial="base"
 							whileHover="hover"
-							className="z-1 flex h-full w-full items-center justify-between gap-x-2 rounded-md border bg-background p-5 px-2.5"
+							className="z-10 flex h-full w-full items-center justify-between gap-x-2 rounded-md border bg-background p-5 px-2.5"
 						>
 							<div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500">
 								<SearchIcon className="h-5 w-5 text-white" />
