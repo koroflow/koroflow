@@ -24,7 +24,6 @@
 		"zod": "^3.24.1"
 	},
 	"devDependencies": {
-		"@koroflow/tailwind-config": "workspace:*",
 		"@koroflow/typescript-config": "workspace:*",
 		"@types/mdx": "^2.0.13",
 		"@types/react": "^19.0.8",
