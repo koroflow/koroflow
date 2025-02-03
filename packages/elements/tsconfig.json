@@ -2,10 +2,7 @@
 	"extends": "@koroflow/typescript-config/react-library.json",
 	"compilerOptions": {
 		"moduleResolution": "node10",
-		"baseUrl": ".",
-		"paths": {
-			"~/*": ["./src/*"]
-		}
+		"baseUrl": "."
 	},
 	"include": ["src"],
 	"exclude": ["node_modules"]

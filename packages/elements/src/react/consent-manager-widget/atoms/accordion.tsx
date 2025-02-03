@@ -1,4 +1,4 @@
-import type { AllConsentNames } from "@koroflow/core-js";
+import type { AllConsentNames } from '@koroflow/core-js';
 
 import {
 	type ComponentPropsWithoutRef,
@@ -6,11 +6,11 @@ import {
 	type Ref,
 	forwardRef,
 	useCallback,
-} from "react";
-import { useConsentManager } from "~/react/common";
-import { Box, type BoxProps } from "~/react/primitives/box";
-import * as RadixAccordion from "~/react/ui/components/accordion";
-import * as RadixSwitch from "~/react/ui/components/switch";
+} from 'react';
+import { useConsentManager } from '../../common';
+import { Box, type BoxProps } from '../../primitives/box';
+import * as RadixAccordion from '../../ui/components/accordion';
+import * as RadixSwitch from '../../ui/components/switch';
 
 /**
  * Accordion sub-group component for organizing consent options.
@@ -22,13 +22,13 @@ import * as RadixSwitch from "~/react/ui/components/switch";
  */
 const ConsentManagerWidgetAccordionSubGroup = forwardRef<
 	HTMLDivElement,
-	Omit<BoxProps, "themeKey">
+	Omit<BoxProps, 'themeKey'>
 >(({ children, ...props }, ref) => {
 	return (
 		<Box
 			ref={ref as Ref<HTMLDivElement>}
 			baseClassName="accordion-trigger-sub-group"
-			themeKey={"consent-manager-widget.accordion.trigger-sub-group"}
+			themeKey={'consent-manager-widget.accordion.trigger-sub-group'}
 			{...props}
 		>
 			{children}
@@ -65,7 +65,7 @@ const ConsentManagerWidgetAccordionItems = () => {
 		(name: AllConsentNames, checked: boolean) => {
 			setConsent(name, checked);
 		},
-		[setConsent],
+		[setConsent]
 	);
 	return getDisplayedConsents().map((consent) => (
 		<ConsentManagerWidgetAccordionItem
@@ -76,8 +76,8 @@ const ConsentManagerWidgetAccordionItems = () => {
 			<ConsentManagerWidgetAccordionTrigger themeKey="consent-manager-widget.accordion.trigger">
 				<ConsentManagerWidgetAccordionSubGroup>
 					<ConsentManagerWidgetAccordionArrow />
-					{consent.name.replace("_", " ").charAt(0).toUpperCase() +
-						consent.name.replace("_", " ").slice(1)}
+					{consent.name.replace('_', ' ').charAt(0).toUpperCase() +
+						consent.name.replace('_', ' ').slice(1)}
 				</ConsentManagerWidgetAccordionSubGroup>
 
 				<ConsentManagerWidgetSwitch
@@ -90,17 +90,17 @@ const ConsentManagerWidgetAccordionItems = () => {
 					}
 					disabled={consent.disabled}
 					theme={{
-						root: { themeKey: "consent-manager-widget.switch" },
-						thumb: { themeKey: "consent-manager-widget.switch.thumb" },
-						track: { themeKey: "consent-manager-widget.switch.track" },
+						root: { themeKey: 'consent-manager-widget.switch' },
+						thumb: { themeKey: 'consent-manager-widget.switch.thumb' },
+						track: { themeKey: 'consent-manager-widget.switch.track' },
 					}}
 				/>
 			</ConsentManagerWidgetAccordionTrigger>
 			<ConsentManagerWidgetAccordionContent
 				theme={{
-					content: { themeKey: "consent-manager-widget.accordion.content" },
+					content: { themeKey: 'consent-manager-widget.accordion.content' },
 					contentInner: {
-						themeKey: "consent-manager-widget.accordion.content",
+						themeKey: 'consent-manager-widget.accordion.content',
 					},
 				}}
 			>

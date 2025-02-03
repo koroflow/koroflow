@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 /**
  * @packageDocumentation
@@ -6,11 +6,11 @@
  * Built with accessibility and customization in mind, following GDPR, CCPA, and other privacy regulation requirements.
  */
 
-import { type ReactNode, type Ref, forwardRef } from "react";
+import { type ReactNode, type Ref, forwardRef } from 'react';
 
-import { ConsentManagerWidget } from "~/index";
-import { Box, type BoxProps } from "../../primitives/box";
-import type { ClassNameStyle } from "../../theme";
+import { ConsentManagerWidget } from '../../consent-manager-widget/consent-manager-widget';
+import { Box, type BoxProps } from '../../primitives/box';
+import type { ClassNameStyle } from '../../theme';
 
 /**
  * Props for the DialogCard and related components
@@ -49,7 +49,7 @@ const DialogCard = forwardRef<HTMLDivElement, DialogCardProps>(
 				{children}
 			</Box>
 		);
-	},
+	}
 );
 
 /**
@@ -61,7 +61,7 @@ const DialogCard = forwardRef<HTMLDivElement, DialogCardProps>(
  * - Should be the first child of DialogCard
  * - Styled according to the theme configuration
  */
-const DialogHeader = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
+const DialogHeader = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
 	({ children, ...props }, ref) => {
 		return (
 			<Box
@@ -73,7 +73,7 @@ const DialogHeader = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
 				{children}
 			</Box>
 		);
-	},
+	}
 );
 
 /**
@@ -87,7 +87,7 @@ const DialogHeader = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
  */
 const DialogHeaderTitle = forwardRef<
 	HTMLDivElement,
-	Omit<BoxProps, "themeKey">
+	Omit<BoxProps, 'themeKey'>
 >(({ children, ...props }, ref) => {
 	return (
 		<Box
@@ -112,7 +112,7 @@ const DialogHeaderTitle = forwardRef<
  */
 const DialogHeaderDescription = forwardRef<
 	HTMLDivElement,
-	Omit<BoxProps, "themeKey">
+	Omit<BoxProps, 'themeKey'>
 >(({ children, ...props }, ref) => {
 	return (
 		<Box
@@ -135,7 +135,7 @@ const DialogHeaderDescription = forwardRef<
  * - Supports custom content and styling
  * - Handles user interactions with privacy settings
  */
-const DialogContent = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
+const DialogContent = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
 	({ children, ...props }, ref) => {
 		return (
 			<Box
@@ -147,7 +147,7 @@ const DialogContent = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
 				{children}
 			</Box>
 		);
-	},
+	}
 );
 
 /**
@@ -159,7 +159,7 @@ const DialogContent = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
  * - Includes Koroflow branding by default
  * - Can be customized through theme configuration
  */
-const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
+const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
 	({ ...props }, ref) => {
 		return (
 			<Box
@@ -172,14 +172,14 @@ const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, "themeKey">>(
 					className="consent-manager-widget-branding-link"
 					href="https://koroflow.com"
 				>
-					Secured by{" "}
+					Secured by{' '}
 					<span className="consent-manager-widget-branding-link-span">
 						Koroflow
 					</span>
 				</a>
 			</Box>
 		);
-	},
+	}
 );
 
 /**
@@ -217,7 +217,7 @@ const ConsentCustomizationCard = ({ noStyle }: { noStyle?: boolean }) => (
 				className="consent-manager-widget-branding-link"
 				href="https://koroflow.com"
 			>
-				Secured by{" "}
+				Secured by{' '}
 				<span className="consent-manager-widget-branding-link-span">
 					Koroflow
 				</span>

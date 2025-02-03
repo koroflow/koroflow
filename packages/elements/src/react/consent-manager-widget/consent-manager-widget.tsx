@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 /**
  * @packageDocumentation
@@ -6,41 +6,26 @@
  * Implements a compound component pattern for flexible consent interface building.
  */
 
-import "./consent-manager-widget.css";
-import "../ui/components/card.css";
-import { Box } from "../primitives/box";
+import './consent-manager-widget.css';
+import '../ui/components/card.css';
+import { Box } from '../primitives/box';
 
-import { useState } from "react";
+import { useState } from 'react';
 import {
 	ConsentManagerWidgetAccordion,
 	ConsentManagerWidgetAccordionItems,
-} from "./atoms/accordion";
+} from './atoms/accordion';
 import {
 	ConsentManagerWidgetAcceptAllButton,
 	ConsentManagerWidgetSaveButton,
-} from "./atoms/button";
+} from './atoms/button';
 import {
 	ConsentManagerWidgetFooter,
 	ConsentManagerWidgetFooterSubGroup,
 	ConsentManagerWidgetRejectButton,
-} from "./atoms/footer";
-import {
-	ConsentManagerWidgetRoot,
-	type ConsentManagerWidgetRootProps,
-} from "./atoms/root";
-
-/**
- * Props for the ConsentManagerWidget component
- *
- * @remarks
- * Extends ThemeContextValue to provide comprehensive theming support
- * while maintaining type safety for consent management specific features.
- */
-export interface ConsentManagerWidgetProps
-	extends Omit<ConsentManagerWidgetRootProps, "children"> {
-	/** Hides the Koroflow branding when true */
-	hideBrading?: boolean;
-}
+} from './atoms/footer';
+import { ConsentManagerWidgetRoot } from './atoms/root';
+import type { ConsentManagerWidgetProps } from './types';
 
 /**
  * The main consent management widget component.
@@ -121,7 +106,7 @@ export const ConsentManagerWidget = ({
 						className="consent-manager-widget-branding-link"
 						href="https://koroflow.com"
 					>
-						Secured by{" "}
+						Secured by{' '}
 						<span className="consent-manager-widget-branding-link-span">
 							Koroflow
 						</span>
