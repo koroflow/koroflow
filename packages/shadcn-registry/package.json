@@ -63,7 +63,7 @@
 	},
 	"dependencies": {
 		"@koroflow/core-js": "0.0.1-beta.8",
-		"@koroflow/dev-tools": "0.0.1-beta.6",
+		"@koroflow/dev-tools": "0.0.1-beta.8",
 		"@koroflow/elements": "workspace:*",
 		"@radix-ui/react-accordion": "1.2.2",
 		"@radix-ui/react-dialog": "1.1.4",
