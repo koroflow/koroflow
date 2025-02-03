@@ -1,14 +1,14 @@
 'use client';
 
 import { AnimatePresence, motion } from 'motion/react';
-import { useEffect, useState } from 'react';
+import { type ReactNode, useEffect, useState } from 'react';
 import { BorderIcon } from '~/components/marketing/border-icon';
 
 interface FeatureOption {
 	id: number;
 	title: string;
 	description: string;
-	code: React.ReactNode;
+	code: ReactNode;
 }
 
 interface ExamplesClientProps {

@@ -1,7 +1,7 @@
 'use client';
 import { cn } from '@koroflow/shadcn/libs';
 import { motion } from 'motion/react';
-import React, { useId } from 'react';
+import { Fragment, useId } from 'react';
 
 interface PathAnimation {
 	startColor: string;
@@ -26,7 +26,7 @@ export const GoogleGeminiEffect = ({
 		>
 			<title> diagram </title>
 			{pathAnimations.map((animation, index) => (
-				<React.Fragment key={ids[index]}>
+				<Fragment key={ids[index]}>
 					<path
 						d={
 							[
@@ -100,7 +100,7 @@ export const GoogleGeminiEffect = ({
 							/>
 						</motion.linearGradient>
 					</defs>
-				</React.Fragment>
+				</Fragment>
 			))}
 		</svg>
 	);

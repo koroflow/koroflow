@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef } from 'react';
+import { type HTMLAttributes, forwardRef } from 'react';
 
 import { Slot } from '@radix-ui/react-slot';
 
@@ -13,7 +13,7 @@ import { type ExtendThemeKeys, useStyles } from '../theme';
  * @public
  */
 export interface BoxProps
-	extends React.HTMLAttributes<HTMLDivElement>,
+	extends HTMLAttributes<HTMLDivElement>,
 		ExtendThemeKeys {
 	asChild?: boolean;
 }

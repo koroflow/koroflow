@@ -1,7 +1,5 @@
 'use client';
-
-import type React from 'react';
-import { useState } from 'react';
+import { type FC, useState } from 'react';
 
 interface FeatureOption {
 	id: number;
@@ -14,7 +12,7 @@ interface FeatureSelectorProps {
 	features: FeatureOption[];
 }
 
-export const ExampleGrid: React.FC<FeatureSelectorProps> = ({ features }) => {
+export const ExampleGrid: FC<FeatureSelectorProps> = ({ features }) => {
 	const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
 	return (

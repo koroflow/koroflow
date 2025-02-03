@@ -1,10 +1,16 @@
 import { Slot } from '@radix-ui/react-slot';
-import * as React from 'react';
 
 import { type VariantProps, tv } from 'tailwind-variants';
 import type { PolymorphicComponentProps } from '../libs/polymorphic';
 import { recursiveCloneChildren } from '../libs/recursive-clone-children';
 import './button.css';
+import {
+	type ButtonHTMLAttributes,
+	type ElementType,
+	type ReactElement,
+	forwardRef,
+	useId,
+} from 'react';
 /**
  * Constants for component display names
  * @internal
@@ -132,7 +138,7 @@ export type ButtonSharedProps = VariantProps<typeof buttonVariants>;
  * @public
  */
 type ButtonRootProps = VariantProps<typeof buttonVariants> &
-	React.ButtonHTMLAttributes<HTMLButtonElement> & {
+	ButtonHTMLAttributes<HTMLButtonElement> & {
 		/**
 		 * When true, the component will render its children directly without wrapping them in a button element
 		 */
@@ -159,12 +165,12 @@ type ButtonRootProps = VariantProps<typeof buttonVariants> &
  *
  * @public
  */
-const ButtonRoot = React.forwardRef<HTMLButtonElement, ButtonRootProps>(
+const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
 	(
 		{ children, variant, mode, size, asChild, className, ...rest },
 		forwardedRef
 	) => {
-		const uniqueId = React.useId();
+		const uniqueId = useId();
 		const Component = asChild ? Slot : 'button';
 		const { root } = buttonVariants({ variant, mode, size });
 
@@ -175,7 +181,7 @@ const ButtonRoot = React.forwardRef<HTMLButtonElement, ButtonRootProps>(
 		};
 
 		const extendedChildren = recursiveCloneChildren(
-			children as React.ReactElement[],
+			children as ReactElement[],
 			sharedProps,
 			[BUTTON_ICON_NAME],
 			uniqueId,
@@ -215,7 +221,7 @@ ButtonRoot.displayName = BUTTON_ROOT_NAME;
  *
  * @public
  */
-function ButtonIcon<T extends React.ElementType>({
+function ButtonIcon<T extends ElementType>({
 	variant,
 	mode,
 	size,

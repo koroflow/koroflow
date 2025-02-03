@@ -1,8 +1,9 @@
 import { cn } from '@koroflow/shadcn/libs';
+import type { CSSProperties, ReactNode } from 'react';
 
 export interface OrbitingCirclesProps {
 	className?: string;
-	children?: React.ReactNode;
+	children?: ReactNode;
 	reverse?: boolean;
 	duration?: number;
 	delay?: number;
@@ -44,7 +45,7 @@ export default function OrbitingCircles({
 						'--duration': duration,
 						'--radius': radius,
 						'--delay': -delay,
-					} as React.CSSProperties
+					} as CSSProperties
 				}
 				className={cn(
 					'absolute flex size-[2rem] transform-gpu animate-orbit items-center justify-center rounded-full border border-border bg-background [animation-delay:calc(var(--delay)*1000ms)] dark:bg-background',

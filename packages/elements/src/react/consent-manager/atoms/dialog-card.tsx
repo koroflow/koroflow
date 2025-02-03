@@ -6,7 +6,7 @@
  * Built with accessibility and customization in mind, following GDPR, CCPA, and other privacy regulation requirements.
  */
 
-import { type Ref, forwardRef } from 'react';
+import { type ReactNode, type Ref, forwardRef } from 'react';
 import { Box, type BoxProps } from '../../primitives/box';
 import type { ClassNameStyle } from '../../theme';
 import ConsentManagerWidget from '../consent-manager-widget';
@@ -17,7 +17,7 @@ import ConsentManagerWidget from '../consent-manager-widget';
  */
 type DialogCardProps = {
 	/** The content to be rendered inside the dialog card */
-	children?: React.ReactNode;
+	children?: ReactNode;
 } & ClassNameStyle;
 
 /**

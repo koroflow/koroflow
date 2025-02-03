@@ -1,22 +1,23 @@
 import { cn } from '@koroflow/shadcn/libs';
-import * as React from 'react';
+
+import { type HTMLAttributes, type ReactNode, forwardRef } from 'react';
 import { BorderIcon } from './border-icon';
 
 // Types
-interface FeatureProps extends React.HTMLAttributes<HTMLDivElement> {
+interface FeatureProps extends HTMLAttributes<HTMLDivElement> {
 	title: string;
 	description: string;
-	icon: React.ReactNode;
+	icon: ReactNode;
 	index: number;
 	comingSoon?: boolean;
 }
 
-interface RootProps extends React.HTMLAttributes<HTMLDivElement> {
-	children: React.ReactNode;
+interface RootProps extends HTMLAttributes<HTMLDivElement> {
+	children: ReactNode;
 }
 
 // Components
-const Root = React.forwardRef<HTMLDivElement, RootProps>(
+const Root = forwardRef<HTMLDivElement, RootProps>(
 	({ className, children, ...props }, ref) => {
 		return (
 			<div
@@ -34,7 +35,7 @@ const Root = React.forwardRef<HTMLDivElement, RootProps>(
 );
 Root.displayName = 'FeaturesRoot';
 
-const Item = React.forwardRef<HTMLDivElement, FeatureProps>(
+const Item = forwardRef<HTMLDivElement, FeatureProps>(
 	(
 		{ title, description, icon, index, comingSoon, className, ...props },
 		ref

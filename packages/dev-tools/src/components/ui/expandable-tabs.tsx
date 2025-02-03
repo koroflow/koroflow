@@ -2,7 +2,8 @@
 
 import type { LucideIcon } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
-import * as React from 'react';
+
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useOnClickOutside } from 'usehooks-ts';
 import { cn } from '../../libs/utils';
 
@@ -48,12 +49,12 @@ const spanVariants = {
 
 const transition = { delay: 0.1, type: 'spring', bounce: 0, duration: 0.6 };
 
-const Separator = React.memo(() => (
+const Separator = memo(() => (
 	<div className="mx-1 h-[24px] w-[1.2px] bg-border" aria-hidden="true" />
 ));
 Separator.displayName = 'Separator';
 
-const TabButton = React.memo(
+const TabButton = memo(
 	({
 		tab,
 		index,
@@ -111,18 +112,18 @@ export function ExpandableTabs({
 	activeColor = 'text-primary',
 	onChange,
 }: ExpandableTabsProps) {
-	const [selected, setSelected] = React.useState<number | null>(0);
-	const outsideClickRef = React.useRef<HTMLDivElement>(null);
+	const [selected, setSelected] = useState<number | null>(0);
+	const outsideClickRef = useRef<HTMLDivElement>(null);
 
-	const handleInitialChange = React.useCallback(() => {
+	const handleInitialChange = useCallback(() => {
 		onChange?.(0);
 	}, [onChange]);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		handleInitialChange();
 	}, [handleInitialChange]);
 
-	const handleOutsideClick = React.useCallback(() => {
+	const handleOutsideClick = useCallback(() => {
 		setSelected(null);
 		onChange?.(null);
 	}, [onChange]);
@@ -130,7 +131,7 @@ export function ExpandableTabs({
 	//@ts-expect-error
 	useOnClickOutside(outsideClickRef, handleOutsideClick);
 
-	const handleSelect = React.useCallback(
+	const handleSelect = useCallback(
 		(index: number) => {
 			setSelected(index);
 			onChange?.(index);
@@ -138,7 +139,7 @@ export function ExpandableTabs({
 		[onChange]
 	);
 
-	const containerClassName = React.useMemo(
+	const containerClassName = useMemo(
 		() =>
 			cn(
 				'flex flex-wrap items-center gap-2 rounded-2xl border bg-background p-1 shadow-sm',

@@ -1,4 +1,11 @@
-import * as React from 'react';
+import {
+	Children,
+	type ComponentType,
+	type ReactElement,
+	type ReactNode,
+	cloneElement,
+	isValidElement,
+} from 'react';
 
 /**
  * Recursively clones React children, adding additional props to components with matched display names.
@@ -12,41 +19,34 @@ import * as React from 'react';
  * @returns The cloned node(s) with the additional props applied to the matched components.
  */
 export function recursiveCloneChildren(
-	children: React.ReactNode,
+	children: ReactNode,
 	additionalProps: Record<string, unknown>,
 	displayNames: string[],
 	uniqueId: string,
 	asChild?: boolean
-): React.ReactNode | React.ReactNode[] {
-	const mappedChildren = React.Children.map(
-		children,
-		(child: React.ReactNode) => {
-			if (!React.isValidElement(child)) {
-				return child;
-			}
-
-			const displayName =
-				(child.type as React.ComponentType)?.displayName || '';
-			const newProps = displayNames.includes(displayName)
-				? additionalProps
-				: {};
-
-			const childProps = (child as React.ReactElement<Record<string, unknown>>)
-				.props;
-
-			return React.cloneElement(
-				child,
-				{ ...newProps, key: `${uniqueId}-${child.key || displayName}` },
-				recursiveCloneChildren(
-					childProps?.children as React.ReactNode,
-					additionalProps,
-					displayNames,
-					uniqueId,
-					childProps?.asChild as boolean | undefined
-				)
-			);
+): ReactNode | ReactNode[] {
+	const mappedChildren = Children.map(children, (child: ReactNode) => {
+		if (!isValidElement(child)) {
+			return child;
 		}
-	);
+
+		const displayName = (child.type as ComponentType)?.displayName || '';
+		const newProps = displayNames.includes(displayName) ? additionalProps : {};
+
+		const childProps = (child as ReactElement<Record<string, unknown>>).props;
+
+		return cloneElement(
+			child,
+			{ ...newProps, key: `${uniqueId}-${child.key || displayName}` },
+			recursiveCloneChildren(
+				childProps?.children as ReactNode,
+				additionalProps,
+				displayNames,
+				uniqueId,
+				childProps?.asChild as boolean | undefined
+			)
+		);
+	});
 
 	return asChild ? mappedChildren?.[0] : mappedChildren;
 }

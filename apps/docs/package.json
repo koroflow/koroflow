@@ -3,8 +3,7 @@
 	"version": "0.0.1-beta.9",
 	"private": true,
 	"scripts": {
-		"build": "pnpm build:copy-registry && next build",
-		"build:copy-registry": "cp -r ../../packages/shadcn-registry/src/public/r ./public/r",
+		"build": "next build",
 		"dev": "next dev",
 		"fmt": "pnpm biome format --write .",
 		"postinstall": "fumadocs-mdx",
