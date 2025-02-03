@@ -37,7 +37,7 @@ jobs:
         run: pnpm turbo run type-check
         
       - name: Lint
-        run: pnpm turbo run lint
+        run: pnpm biome ci .
         
       - name: Test
         run: pnpm turbo run test
