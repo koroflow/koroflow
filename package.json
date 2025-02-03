@@ -1,6 +1,6 @@
 {
 	"name": "koroflow",
-	"version": "0.0.1-beta.9",
+	"version": "0.0.1-beta.8",
 	"private": true,
 	"scripts": {
 		"build": "turbo build",
@@ -10,7 +10,9 @@
 		"dev": "turbo dev",
 		"fmt": "turbo fmt",
 		"lint": "turbo lint",
-		"lint:fix": "turbo lint -- --write"
+		"lint:fix": "turbo lint -- --write",
+		"release": "pnpm build && changeset publish",
+		"version": "changeset version && pnpm install --lockfile-only"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",

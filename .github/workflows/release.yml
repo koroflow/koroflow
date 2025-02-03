@@ -4,14 +4,19 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch: # Manual trigger
+
+# Prevent concurrent releases
+concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    permissions: 
-      contents: read    # read-only access for security
-      packages: read    # for reading packages
+    permissions:
+      contents: read
+      packages: write # For publishing
+      pull-requests: read # For checking PRs
 
     steps:
       - name: Checkout
@@ -30,8 +35,21 @@ jobs:
         with:
           version: 8
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Create Release or Publish
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          version: pnpm changeset version
+          publish: pnpm release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # Add a package.json script:
+      # "release": "pnpm build && changeset publish"
 
       - name: Build packages
         run: pnpm build
