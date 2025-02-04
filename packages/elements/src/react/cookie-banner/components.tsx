@@ -107,6 +107,7 @@ const CookieBannerFooter = forwardRef<
 		<Box
 			ref={ref as Ref<HTMLDivElement>}
 			baseClassName="cookie-banner-footer"
+			data-testid="cookie-banner-footer"
 			themeKey="cookie-banner.footer"
 			{...props}
 		>

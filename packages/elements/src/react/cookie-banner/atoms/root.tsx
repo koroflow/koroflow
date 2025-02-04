@@ -226,7 +226,7 @@ const CookieBannerRootChildren = forwardRef<
 				'cookie-banner cookie-banner-root cookie-banner-root-bottom-left',
 			],
 			style,
-			className: forwardedClassName,
+			className: className || forwardedClassName,
 		});
 
 		/**
@@ -254,17 +254,24 @@ const CookieBannerRootChildren = forwardRef<
 					<>
 						<Overlay />
 						{disableAnimation ? (
-							<div ref={ref} {...props} {...contentStyle}>
+							<div
+								ref={ref}
+								{...props}
+								{...contentStyle}
+								data-testid="cookie-banner-root"
+							>
 								{children}
 							</div>
 						) : (
 							<AnimatePresence>
 								<motion.div
+									ref={ref}
 									initial={{ opacity: 0, y: 50 }}
 									animate={{ opacity: 1, y: 0 }}
 									exit={{ opacity: 0, y: 50 }}
 									transition={{ type: 'spring', stiffness: 300, damping: 30 }}
 									{...contentStyle}
+									data-testid="cookie-banner-root"
 								>
 									{children}
 								</motion.div>
