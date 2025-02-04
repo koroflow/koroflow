@@ -5,9 +5,9 @@ export const navigation = {
 		// { name: 'Go to ', href: 'https://claude.ai/', highlight: true },
 	],
 	secondaryLinks: [
-		{ name: 'Welcome', href: '/docs/welcome' },
+		// { name: 'Welcome', href: '/docs/welcome' },
 		{ name: 'Documentation', href: '/docs' },
 		{ name: 'Release Notes', href: '/docs/release-notes' },
-		{ name: 'Developer Newsletter', href: '/docs/developer-newsletter' },
+		// { name: 'Developer Newsletter', href: '/docs/developer-newsletter' },
 	],
 };

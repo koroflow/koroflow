@@ -8,6 +8,6 @@ export const source = loader({
 });
 
 export const releaseNotesSource = loader({
-	baseUrl: '/release-notes',
+	baseUrl: '/docs/release-notes',
 	source: createMDXSource(releaseNotes),
 });

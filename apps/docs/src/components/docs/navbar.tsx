@@ -4,19 +4,38 @@ import { ThemeToggle } from 'fumadocs-ui/components/layout/theme-toggle';
 import { X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import logo from '../../../public/logo.svg';
 import { navigation } from './navigation';
 import { LargeSearchToggle } from './search';
+
 const Navbar = () => {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+	const pathname = usePathname();
+
+	const isLinkActive = (href: string) => {
+		// Handle exact matches for root docs
+		if (href === '/docs') {
+			return pathname === '/docs' || pathname === '/docs/';
+		}
+		// Handle nested routes like /docs/release-notes
+		if (href.startsWith('/docs/')) {
+			return pathname === href || pathname.startsWith(`${href}/`);
+		}
+		// Handle home page
+		if (href === '/') {
+			return pathname === '/';
+		}
+		return false;
+	};
 
 	const toggleMobileMenu = () => {
 		setIsMobileMenuOpen(!isMobileMenuOpen);
 	};
 
 	return (
-		<nav className="fixed top-0 z-30 w-full border-fd-border border-b bg-fd-background lg:sticky dark:border-fd-border dark:bg-fd-background">
+		<nav className="fixed top-0 z-40 w-full border-fd-border border-b bg-fd-background lg:sticky dark:border-fd-border dark:bg-fd-background">
 			<div className="mx-auto max-w-8xl">
 				<div className="flex h-16 items-center justify-between px-4 lg:px-12">
 					<div className="flex items-center">
@@ -46,8 +65,12 @@ const Navbar = () => {
 								key={link.name}
 								href={link.href}
 								className={`font-medium text-sm ${
-									link.highlight
-										? 'rounded-full bg-fd-primary px-4 py-2 text-fd-primary-foreground transition duration-150 ease-in-out hover:bg-fd-primary/90'
+									isLinkActive(link.href)
+										? // ? link.highlight
+											// 	? 'rounded-full bg-fd-primary px-4 py-2 text-fd-primary-foreground'
+											// 	: 'text-fd-foreground'
+											// : link.highlight
+											'rounded-full bg-fd-primary px-4 py-2 text-fd-primary-foreground transition duration-150 ease-in-out hover:bg-fd-primary/90'
 										: 'text-fd-muted-foreground hover:text-fd-foreground dark:text-fd-muted-foreground dark:hover:text-fd-foreground'
 								}`}
 							>
@@ -87,12 +110,12 @@ const Navbar = () => {
 
 				<div className="hidden h-12 border-fd-border border-t px-12 lg:flex dark:border-fd-border">
 					<div className="flex space-x-6">
-						{navigation.secondaryLinks.map((link, index) => (
+						{navigation.secondaryLinks.map((link) => (
 							<Link
 								key={link.name}
 								href={link.href}
 								className={`flex items-center font-medium text-sm ${
-									index === 1
+									isLinkActive(link.href)
 										? 'border-fd-primary border-b-2 text-fd-foreground dark:text-fd-foreground'
 										: 'text-fd-muted-foreground hover:text-fd-foreground dark:text-fd-muted-foreground dark:hover:text-fd-foreground'
 								}`}
@@ -146,7 +169,12 @@ const Navbar = () => {
 								<Link
 									key={link.name}
 									href={link.href}
-									className="block font-medium text-base text-fd-foreground dark:text-fd-foreground"
+									className={`block font-medium text-base ${
+										isLinkActive(link.href)
+											? 'text-fd-foreground'
+											: 'text-fd-muted-foreground hover:text-fd-foreground dark:text-fd-muted-foreground dark:hover:text-fd-foreground'
+									}`}
+									onClick={() => setIsMobileMenuOpen(false)}
 								>
 									{link.name}
 								</Link>

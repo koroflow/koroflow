@@ -12,7 +12,6 @@ import {
 	MessageSquareCode,
 	Palette,
 } from 'lucide-react';
-import Navbar from '~/components/docs/navbar';
 import GetStarted from '../../public/cookie-banner.png';
 
 export const linkItems: LinkItemType[] = [
@@ -56,7 +55,7 @@ export const docsOptions: BaseLayoutProps = {
 		// 	</>
 		// ),
 		// transparentMode: 'top',
-		component: <Navbar />,
+		component: undefined,
 	},
 	links: [...linkItems],
 };
