@@ -1,15 +1,15 @@
 import type { SVGProps } from 'react';
 
-interface QubecIconProps {
+interface QuebecIconProps {
 	title?: string;
 	titleId?: string;
 }
 
-export const QubecIcon = ({
-	title = 'Qubec',
-	titleId = 'qubec',
+export const QuebecIcon = ({
+	title = 'Quebec',
+	titleId = 'quebec',
 	...props
-}: SVGProps<SVGSVGElement> & QubecIconProps) => (
+}: SVGProps<SVGSVGElement> & QuebecIconProps) => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 204 272"
