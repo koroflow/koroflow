@@ -1,7 +1,11 @@
 import { DocsLayout } from 'fumadocs-ui/layouts/docs';
+import {
+	Sidebar,
+	SidebarPageTree,
+	SidebarViewport,
+} from 'fumadocs-ui/layouts/docs/sidebar';
 import type { ReactNode } from 'react';
 import { docsOptions } from '~/app/layout.config';
-import ArticleLayout from '~/components/docs/side-bar';
 import type { source } from '~/lib/source';
 
 /**
@@ -39,7 +43,16 @@ export function SharedDocsLayout({ children, source }: SharedDocsLayoutProps) {
 			tree={source.pageTree}
 			{...docsOptions}
 			sidebar={{
-				component: <ArticleLayout tree={source.pageTree} />,
+				component: (
+					<Sidebar
+						aria-label="Documentation navigation"
+						className="fixed top-[calc(var(--fd-banner-height)+var(--fd-nav-height))] z-30 md:sticky md:h-[var(--fd-sidebar-height)] md:ps-[var(--fd-layout-offset)]"
+					>
+						<SidebarViewport>
+							<SidebarPageTree />
+						</SidebarViewport>
+					</Sidebar>
+				),
 			}}
 		>
 			{children}

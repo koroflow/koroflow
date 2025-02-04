@@ -25,7 +25,7 @@ export const PreviewProvider = ({
 
 	return (
 		<SandboxProvider
-			theme={resolvedTheme as 'light' | 'dark'}
+			theme={(resolvedTheme as 'light' | 'dark') ?? 'light'}
 			{...props}
 			options={{
 				...options,

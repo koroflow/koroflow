@@ -86,6 +86,7 @@ export const SnippetCopyButton = ({
 			variant="ghost"
 			size="icon"
 			onClick={copyToClipboard}
+			aria-label={isCopied ? 'Copied' : 'Copy to clipboard'}
 			className="opacity-0 transition-opacity group-hover:opacity-100"
 			{...props}
 		>
