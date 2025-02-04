@@ -1,5 +1,11 @@
 {
 	"title": "Docs",
 	"root": true,
-	"pages": ["---Introduction---", "index"]
+	"pages": [
+		"---Introduction---",
+		"index",
+		"--- Open Source ---",
+		"contributing",
+		"license"
+	]
 }

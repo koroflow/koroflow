@@ -3,9 +3,10 @@
 	"pages": [
 		"---Introduction---",
 		"index",
-		"regulations",
-		"setup",
-		"---Components---",
-		"..."
+		"privacy-compliance-best-practices",
+		"faq",
+		"---Laws---",
+		"ccpa",
+		"gdpr"
 	]
 }

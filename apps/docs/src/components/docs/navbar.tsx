@@ -64,16 +64,16 @@ const Navbar = () => {
 					<div className="hidden items-center gap-4 lg:flex">
 						{navigation.mainLinks.map((link) => (
 							<Link
-								key={link.name}
-								href={link.href}
+								key={link.text}
+								href={link.url}
 								className={cn(
 									'font-medium text-sm transition-colors',
-									isLinkActive(link.href)
+									isLinkActive(link.url)
 										? 'text-fd-foreground'
 										: 'text-fd-muted-foreground hover:text-fd-foreground'
 								)}
 							>
-								{link.name}
+								{link.icon ? link.icon : link.text}
 							</Link>
 						))}
 						<ThemeToggle />
@@ -121,17 +121,17 @@ const Navbar = () => {
 					<div className="space-y-1 px-4 pt-2 pb-3">
 						{navigation.mainLinks.map((link) => (
 							<Link
-								key={link.name}
-								href={link.href}
+								key={link.text}
+								href={link.url}
 								className={cn(
 									'block rounded-md px-3 py-2 font-medium text-base transition-colors',
-									isLinkActive(link.href)
+									isLinkActive(link.url)
 										? 'bg-fd-accent text-fd-foreground'
 										: 'text-fd-muted-foreground hover:bg-fd-accent/50 hover:text-fd-foreground'
 								)}
 								onClick={() => setIsMobileMenuOpen(false)}
 							>
-								{link.name}
+								{link.icon ? link.icon : link.text}
 							</Link>
 						))}
 						{navigation.secondaryLinks.map((link) => (
