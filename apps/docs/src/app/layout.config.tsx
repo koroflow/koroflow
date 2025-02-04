@@ -82,7 +82,7 @@ export const homePageOptions: BaseLayoutProps = {
 		{
 			type: 'menu',
 			text: 'Documentation',
-			url: '/docs/getting-started',
+			url: '/docs/components',
 			items: [
 				{
 					menu: {

@@ -35,7 +35,7 @@ export const siteConfig = {
 		title: 'Consent infrastructure for the modern web',
 		description:
 			'Transform privacy consent from a compliance checkbox into a fully observable system. Built for developers who care about performance, privacy, and clean code.',
-		cta: { text: 'Get Started', href: '/docs/getting-started' },
+		cta: { text: 'Get Started', href: '/docs/components' },
 		demo: {
 			text: 'Book A Demo',
 			href: 'https://cal.com/christopherburns/koroflow',

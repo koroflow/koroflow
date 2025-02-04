@@ -22,7 +22,7 @@ React components for building privacy-first user interfaces.
 ## Documentation
 
 For detailed documentation and examples, visit:
-[https://koroflow.com/docs/getting-started](https://koroflow.com/docs/getting-started)
+[https://koroflow.com/docs/components](https://koroflow.com/docs/components)
 
 ## Installation
 
