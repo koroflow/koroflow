@@ -40,20 +40,20 @@ export const linkItems: LinkItemType[] = [
  */
 export const docsOptions: BaseLayoutProps = {
 	nav: {
-		// title: (
-		// 	<>
-		// 		<Image
-		// 			src={logo}
-		// 			alt="Koroflow"
-		// 			width={93}
-		// 			height={16}
-		// 			className="h-4 w-auto dark:invert"
-		// 		/>
-		// 		<span className="inline-flex items-center rounded-full border bg-fd-primary/10 px-2.5 py-0.5 font-semibold text-fd-primary text-xs">
-		// 			Beta
-		// 		</span>
-		// 	</>
-		// ),
+		title: (
+			<>
+				<Image
+					src={logo}
+					alt="Koroflow"
+					width={93}
+					height={16}
+					className="h-4 w-auto dark:invert"
+				/>
+				<span className="inline-flex items-center rounded-full border bg-fd-primary/10 px-2.5 py-0.5 font-semibold text-fd-primary text-xs">
+					Beta
+				</span>
+			</>
+		),
 		// transparentMode: 'top',
 		component: undefined,
 	},
