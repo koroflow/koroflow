@@ -24,7 +24,6 @@ export type SwitchStylesKeys = {
  */
 export interface SwitchProps
 	extends ComponentPropsWithoutRef<typeof SwitchPrimitives.Root> {
-	asChild?: boolean;
 	theme?: {
 		root: ExtendThemeKeys;
 		thumb: ExtendThemeKeys;
@@ -62,17 +61,14 @@ const Switch = forwardRef<
 			disabled={disabled}
 			{...rest}
 			{...switchRoot}
-			asChild
 		>
-			<span>
-				<Box
-					themeKey={theme?.track.themeKey ?? 'switch.track'}
-					baseClassName={['switch-track', disabled && 'switch-track-disabled']}
-					style={theme?.track.style}
-				>
-					<SwitchPrimitives.Thumb {...switchThumb} />
-				</Box>
-			</span>
+			<Box
+				themeKey={theme?.track.themeKey ?? 'switch.track'}
+				baseClassName={['switch-track', disabled && 'switch-track-disabled']}
+				style={theme?.track.style}
+			>
+				<SwitchPrimitives.Thumb {...switchThumb} />
+			</Box>
 		</SwitchPrimitives.Root>
 	);
 });
