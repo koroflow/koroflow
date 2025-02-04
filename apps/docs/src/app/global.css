@@ -22,17 +22,17 @@
 	--color-fd-primary: hsl(200 100% 63.9%);
 }
 
-#nd-docs-layout, #custom-nav {
+#nd-docs-layout,
+#custom-nav {
 	--fd-layout-width: 1400px !important;
 	--fd-nav-height: 58px !important; /* Default for mobile */
 }
 
-
 /* Override for desktop */
 @media (min-width: 1024px) {
-  #nd-docs-layout {
-    --fd-nav-height: 112px !important;
-  }
+	#nd-docs-layout {
+		--fd-nav-height: 112px !important;
+	}
 }
 
 @theme {
