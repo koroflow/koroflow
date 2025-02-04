@@ -136,6 +136,15 @@ export const createConsentManagerStore = (
 		 */
 		setConsent: (name, value) => {
 			set((state) => {
+				const consentType = state.consentTypes.find(
+					(type) => type.name === name
+				);
+
+				// Don't allow changes to disabled consent types
+				if (consentType?.disabled) {
+					return state;
+				}
+
 				const newConsents = { ...state.consents, [name]: value };
 				localStorage.setItem(
 					STORAGE_KEY,
