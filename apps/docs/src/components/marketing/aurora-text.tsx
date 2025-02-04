@@ -19,9 +19,8 @@ export function AuroraText({
 		>
 			{children}
 			<div className="aurora pointer-events-none absolute inset-0 mix-blend-lighten dark:mix-blend-darken">
-				{[...Array(5)].map((_, i) => (
+				{[...new Array(5)].map((_, i) => (
 					<div
-						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 						key={i}
 						className="aurora__item absolute h-[60vw] w-[60vw]"
 						style={{

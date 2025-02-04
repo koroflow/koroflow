@@ -219,7 +219,7 @@ const Particles: React.FC<ParticlesProps> = ({
 		return remapped > 0 ? remapped : 0;
 	};
 
-	const animationFrameId = useRef<number>();
+	const animationFrameId = useRef<number | null>(null);
 
 	const animate = () => {
 		clearContext();
@@ -272,10 +272,11 @@ const Particles: React.FC<ParticlesProps> = ({
 		animationFrameId.current = window.requestAnimationFrame(animate);
 	};
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		const observer = new IntersectionObserver(
 			([entry]) => {
-				if (entry.isIntersecting) {
+				if (entry?.isIntersecting) {
 					animate();
 				} else if (animationFrameId.current) {
 					cancelAnimationFrame(animationFrameId.current);
@@ -294,7 +295,7 @@ const Particles: React.FC<ParticlesProps> = ({
 			}
 			observer.disconnect();
 		};
-	}, []);
+	}, []); // Remove animate from dependencies since it's defined in component scope
 
 	return (
 		<div

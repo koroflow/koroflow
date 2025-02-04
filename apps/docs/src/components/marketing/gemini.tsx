@@ -16,6 +16,7 @@ export const GoogleGeminiEffect = ({
 	pathAnimations: PathAnimation[];
 	className?: string;
 }) => {
+	// biome-ignore lint/correctness/useHookAtTopLevel: need to generate ids for each path
 	const ids = pathAnimations.map(() => useId());
 
 	return (
