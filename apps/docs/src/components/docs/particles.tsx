@@ -51,7 +51,7 @@ function hexToRgb(hex: string): number[] {
 			.join('');
 	}
 
-	const hexInt = Number.parseInt(hex, 16);
+	const hexInt = Number.parseInt(hexValue, 16);
 	const red = (hexInt >> 16) & 255;
 	const green = (hexInt >> 8) & 255;
 	const blue = hexInt & 255;

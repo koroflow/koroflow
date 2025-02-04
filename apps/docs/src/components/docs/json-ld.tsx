@@ -10,6 +10,7 @@ export const JsonLd = ({ code }: JsonLdProps) =>
 		try {
 			// Ensure code has @context property
 			if (!('@context' in code)) {
+				// biome-ignore lint/suspicious/noConsole: <explanation>
 				console.warn('Invalid JSON-LD: Missing @context property');
 				return null;
 			}
@@ -21,6 +22,7 @@ export const JsonLd = ({ code }: JsonLdProps) =>
 				/>
 			);
 		} catch (error) {
+			// biome-ignore lint/suspicious/noConsole: <explanation>
 			console.error('Failed to serialize JSON-LD:', error);
 			return null;
 		}
