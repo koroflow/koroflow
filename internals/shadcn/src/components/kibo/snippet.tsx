@@ -1,22 +1,28 @@
-"use client";
+'use client';
 
-import { cn } from "~/libs";
-import { Button } from "../ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+import { cn } from '~/libs';
+import { Button } from '../ui/button';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 
-import { CheckIcon, CopyIcon } from "lucide-react";
+import { CheckIcon, CopyIcon } from 'lucide-react';
 import {
 	type ComponentProps,
 	type HTMLAttributes,
 	type ReactElement,
 	cloneElement,
 	useState,
-} from "react";
+} from 'react';
 
 export type SnippetProps = ComponentProps<typeof Tabs>;
 
 export const Snippet = ({ className, ...props }: SnippetProps) => (
-	<Tabs className={cn("group overflow-hidden rounded-md border shadow-sm", className)} {...props} />
+	<Tabs
+		className={cn(
+			'group overflow-hidden rounded-md border shadow-sm',
+			className
+		)}
+		{...props}
+	/>
 );
 
 export type SnippetHeaderProps = HTMLAttributes<HTMLDivElement>;
@@ -24,8 +30,8 @@ export type SnippetHeaderProps = HTMLAttributes<HTMLDivElement>;
 export const SnippetHeader = ({ className, ...props }: SnippetHeaderProps) => (
 	<div
 		className={cn(
-			"flex flex-row items-center justify-between border-b bg-secondary p-1",
-			className,
+			'flex flex-row items-center justify-between border-b bg-secondary p-1',
+			className
 		)}
 		{...props}
 	/>
@@ -50,7 +56,11 @@ export const SnippetCopyButton = ({
 	const [isCopied, setIsCopied] = useState(false);
 
 	const copyToClipboard = () => {
-		if (typeof window === "undefined" || !navigator.clipboard.writeText || !value) {
+		if (
+			typeof window === 'undefined' ||
+			!navigator.clipboard.writeText ||
+			!value
+		) {
 			return;
 		}
 
@@ -90,14 +100,21 @@ export const SnippetTabsList = TabsList;
 
 export type SnippetTabsTriggerProps = ComponentProps<typeof TabsTrigger>;
 
-export const SnippetTabsTrigger = ({ className, ...props }: SnippetTabsTriggerProps) => (
-	<TabsTrigger className={cn("gap-1.5", className)} {...props} />
+export const SnippetTabsTrigger = ({
+	className,
+	...props
+}: SnippetTabsTriggerProps) => (
+	<TabsTrigger className={cn('gap-1.5', className)} {...props} />
 );
 
 export type SnippetTabsContentProps = ComponentProps<typeof TabsContent>;
 
-export const SnippetTabsContent = ({ className, children, ...props }: SnippetTabsContentProps) => (
-	<TabsContent asChild className={cn("mt-0 p-4 text-sm", className)} {...props}>
+export const SnippetTabsContent = ({
+	className,
+	children,
+	...props
+}: SnippetTabsContentProps) => (
+	<TabsContent asChild className={cn('mt-0 p-4 text-sm', className)} {...props}>
 		<pre>{children}</pre>
 	</TabsContent>
 );

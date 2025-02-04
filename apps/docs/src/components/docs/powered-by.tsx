@@ -1,7 +1,7 @@
 // import { env } from "@/env";
-import { cn } from "@koroflow/shadcn/libs";
+import { cn } from '@koroflow/shadcn/libs';
 
-import Image from "next/image";
+import Image from 'next/image';
 
 type PoweredByProps = {
 	packages: { name: string; url: string }[];
@@ -18,8 +18,8 @@ export const PoweredBy = ({ packages }: PoweredByProps) => (
 					target="_blank"
 					rel="noopener noreferrer"
 					className={cn(
-						"flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1 transition-all",
-						"hover:bg-secondary/80",
+						'flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1 transition-all',
+						'hover:bg-secondary/80'
 					)}
 				>
 					<Image

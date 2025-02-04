@@ -1,5 +1,5 @@
 import { cn } from '@koroflow/shadcn/libs';
-import {} from 'fumadocs-ui/components/tabs';
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import {
 	DocsBody,
@@ -17,6 +17,8 @@ import { source } from '~/lib/source';
 
 const components = {
 	...defaultMdxComponents,
+	Tabs,
+	Tab,
 	Installer,
 	Preview,
 	PoweredBy,

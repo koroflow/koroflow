@@ -1,14 +1,14 @@
 export const tsconfig = JSON.stringify(
 	{
 		compilerOptions: {
-			jsx: "react-jsx",
+			jsx: 'react-jsx',
 			esModuleInterop: true,
-			baseUrl: ".",
+			baseUrl: '.',
 			paths: {
-				"@/*": ["./*"],
+				'@/*': ['./*'],
 			},
 		},
 	},
 	null,
-	2,
+	2
 );

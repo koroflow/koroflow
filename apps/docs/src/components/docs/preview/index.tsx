@@ -9,13 +9,17 @@ import {
 	SandboxTabsContent,
 	SandboxTabsList,
 	SandboxTabsTrigger,
-} from "@koroflow/shadcn/components";
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@koroflow/shadcn/components";
-import { AppWindowIcon, CodeIcon, TerminalIcon } from "lucide-react";
-import type { ComponentProps } from "react";
-import { PreviewProvider } from "./provider";
-import { tsconfig } from "./tsconfig";
-import { utils } from "./utils";
+} from '@koroflow/shadcn/components';
+import {
+	ResizableHandle,
+	ResizablePanel,
+	ResizablePanelGroup,
+} from '@koroflow/shadcn/components';
+import { AppWindowIcon, CodeIcon, TerminalIcon } from 'lucide-react';
+import type { ComponentProps } from 'react';
+import { PreviewProvider } from './provider';
+import { tsconfig } from './tsconfig';
+import { utils } from './utils';
 
 type PreviewProps = {
 	name: string;
@@ -23,73 +27,18 @@ type PreviewProps = {
 	dependencies?: Record<string, string>;
 };
 
-const parseDependencyVersion = (dependency: string) => {
-	const [name, version] = (dependency as string).match(/^(.+?)(?:@(.+))?$/)?.slice(1) ?? [];
-
-	return { name, version: version ?? "latest" };
-};
-
-const parseContent = (content: string) => {
-	return content.replace(/@\/registry\/new-york\/ui\//g, "@/components/ui/");
-};
-
-export const Preview = async ({ name, code, dependencies: demoDependencies }: PreviewProps) => {
-
-
+export const Preview = ({
+	code,
+	dependencies: demoDependencies,
+}: PreviewProps) => {
 	const dependencies: Record<string, string> = {};
 	const devDependencies: Record<string, string> = {};
 
-	const files: ComponentProps<typeof SandboxProvider>["files"] = {
-		"/App.tsx": code,
-		"/tsconfig.json": tsconfig,
-		"/lib/utils.ts": utils,
+	const files: ComponentProps<typeof SandboxProvider>['files'] = {
+		'/App.tsx': code,
+		'/tsconfig.json': tsconfig,
+		'/lib/utils.ts': utils,
 	};
-
-	// const parseShadcnComponents = async (str: string) => {
-	// 	const parsedString = parseContent(str);
-	// 	const matches = parsedString.match(/@\/components\/ui\/(?!kibo-ui\/)([^'"\s]+)/g);
-
-	// 	if (matches) {
-	// 		const components = [...new Set(matches.map((m) => m.replace("@/components/ui/", "")))];
-
-	// 		for (const component of components) {
-	// 			try {
-	// 				const mod = (await import(`./shadcn/${component}.json`)) as {
-	// 					name: string;
-	// 					dependencies?: Record<string, string>;
-	// 					devDependencies?: Record<string, string>;
-	// 					files?: { content: string }[];
-	// 				};
-
-	// 				// Load required shadcn/ui component
-	// 				files[`/components/ui/${mod.name}.tsx`] = parseContent(mod.files?.[0]?.content ?? "");
-
-	// 				// Load required dependencies
-	// 				if (mod.dependencies) {
-	// 					for (const dep of Object.values(mod.dependencies)) {
-	// 						const { name, version } = parseDependencyVersion(dep);
-
-	// 						dependencies[name] = version;
-	// 					}
-	// 				}
-
-	// 				// Load required devDependencies
-	// 				if (mod.devDependencies) {
-	// 					for (const dep of Object.values(mod.devDependencies)) {
-	// 						const { name, version } = parseDependencyVersion(dep);
-
-	// 						devDependencies[name] = version;
-	// 					}
-	// 				}
-
-	// 				await parseShadcnComponents(mod.files?.[0]?.content ?? "");
-	// 			} catch (error) {
-	// 				console.warn(`Failed to load shadcn component: ${component}`);
-	// 			}
-	// 		}
-	// 	}
-	// };
-
 
 	// Scan the demo code for any imports of shadcn/ui components
 	// await parseShadcnComponents(code);
@@ -104,32 +53,19 @@ export const Preview = async ({ name, code, dependencies: demoDependencies }: Pr
 	return (
 		<PreviewProvider
 			template="react-ts"
-			// options={{ bundlerURL: 'https://sandpack-bundler.codesandbox.io' }}
 			options={{
 				externalResources: [
 					// "https://cdn.tailwindcss.com",
-					"https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+					'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
 				],
 			}}
 			customSetup={{
 				dependencies: {
-					// // shadcn/ui global dependencies
-					// "@radix-ui/react-icons": "latest",
-					// clsx: "latest",
-					// "tailwind-merge": "latest",
-					// "class-variance-authority": "latest",
-
-					// // Tailwind dependencies
-					// tailwindcss: "latest",
-					// "tailwindcss-animate": "latest",
 					...dependencies,
-
 					// koroflow
-					"@koroflow/elements": "latest",
+					'@koroflow/elements': 'latest',
 				},
 				devDependencies: {
-					// autoprefixer: "latest",
-					// postcss: "latest",
 					...devDependencies,
 				},
 			}}
@@ -153,9 +89,12 @@ export const Preview = async ({ name, code, dependencies: demoDependencies }: Pr
 						</SandboxTabsTrigger>
 					</SandboxTabsList>
 					<SandboxTabsContent value="code" className="overflow-hidden">
-						<ResizablePanelGroup direction="horizontal" className="overflow-hidden">
+						<ResizablePanelGroup
+							direction="horizontal"
+							className="overflow-hidden"
+						>
 							<ResizablePanel
-								className="!overflow-y-auto"
+								className="!overflow-y-auto bg-[var(--sp-colors-surface1)]"
 								defaultSize={25}
 								minSize={20}
 								maxSize={40}
@@ -163,7 +102,7 @@ export const Preview = async ({ name, code, dependencies: demoDependencies }: Pr
 								<SandboxFileExplorer />
 							</ResizablePanel>
 							<ResizableHandle withHandle />
-							<ResizablePanel className="!overflow-y-auto">
+							<ResizablePanel className="!overflow-y-auto bg-[var(--sp-colors-surface1)]">
 								<SandboxCodeEditor />
 							</ResizablePanel>
 						</ResizablePanelGroup>

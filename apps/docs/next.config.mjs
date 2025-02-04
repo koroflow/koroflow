@@ -9,12 +9,12 @@ const config = {
 	images: {
 		formats: ['image/avif', 'image/webp'],
 		remotePatterns: [
-		  {
-			hostname: 'img.logo.dev',
-			protocol: 'https',
-		  },
+			{
+				hostname: 'img.logo.dev',
+				protocol: 'https',
+			},
 		],
-	  },
+	},
 	reactStrictMode: true,
 	// biome-ignore lint/suspicious/useAwait: <explanation>
 	async redirects() {

@@ -33,11 +33,23 @@ export type SandboxProviderProps = SandpackProviderProps;
 export const SandboxProvider = ({
 	className,
 	...props
-}: SandpackProviderProps) => (
-	<div className={cn('size-full', className)}>
-		<SandpackProvider className="!size-full !max-h-none" {...props} />
-	</div>
-);
+}: SandpackProviderProps) => {
+	const [isMounted, setIsMounted] = useState(false);
+
+	useEffect(() => {
+		setIsMounted(true);
+	}, []);
+
+	if (!isMounted) {
+		return null;
+	}
+
+	return (
+		<div className={cn('not-prose size-full max-h-[30rem]', className)}>
+			<SandpackProvider className="!size-full !max-h-none" {...props} />
+		</div>
+	);
+};
 
 export type SandboxLayoutProps = SandpackLayoutProps;
 
@@ -127,7 +139,7 @@ export const SandboxTabsList = ({
 }: SandboxTabsListProps) => (
 	<div
 		className={cn(
-			'inline-flex w-full shrink-0 items-center justify-start border-b bg-secondary p-2 text-muted-foreground',
+			'flex flex-row items-end gap-4 overflow-x-auto bg-fd-secondary px-4 text-fd-muted-foreground',
 			className
 		)}
 		role="tablist"
@@ -157,7 +169,7 @@ export const SandboxTabsTrigger = ({
 			data-state={selectedTab === value ? 'active' : 'inactive'}
 			onClick={() => setSelectedTab(value)}
 			className={cn(
-				'inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-md px-3 py-1 font-medium text-sm ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow',
+				'flex flex-row items-center gap-2 whitespace-nowrap border-transparent py-2 font-medimedimedium transition-colors hover:text-fd-accent-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=active]:border-fd-primary data-[state=active]:text-fd-primary',
 				className
 			)}
 			{...props}
@@ -182,7 +194,7 @@ export const SandboxTabsContent = ({
 			aria-hidden={selectedTab !== value}
 			data-state={selectedTab === value ? 'active' : 'inactive'}
 			className={cn(
-				'min-h-[25rem] min-h-[25rem] min-h-[25rem] flex-1 overflow-y-auto ring-offset-background transition-opacity duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+				'min-h-[25rem] flex-1 overflow-y-auto ring-offset-background transition-opacity duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
 				selectedTab === value
 					? 'h-auto w-auto opacity-100'
 					: 'pointer-events-none absolute h-0 w-0 opacity-0',

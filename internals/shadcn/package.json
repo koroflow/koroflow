@@ -11,9 +11,7 @@
 		},
 		"./globals.css": "./dist/globals.css"
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"scripts": {
 		"build": "rslib build",
 		"check-types": "tsc --noEmit",
