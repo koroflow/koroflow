@@ -6,6 +6,7 @@ import {
 } from 'fumadocs-ui/layouts/docs/sidebar';
 import type { ReactNode } from 'react';
 import { docsOptions } from '~/app/layout.config';
+import { HeaderBg } from '~/components/docs/header-bg';
 import type { source } from '~/lib/source';
 
 /**
@@ -18,6 +19,7 @@ import type { source } from '~/lib/source';
 interface SharedDocsLayoutProps {
 	children: ReactNode;
 	source: typeof source;
+	noSidebar?: boolean;
 }
 
 /**
@@ -37,25 +39,38 @@ interface SharedDocsLayoutProps {
  * </SharedDocsLayout>
  * ```
  */
-export function SharedDocsLayout({ children, source }: SharedDocsLayoutProps) {
+export function SharedDocsLayout({
+	children,
+	noSidebar = false,
+	source,
+}: SharedDocsLayoutProps) {
 	return (
-		<DocsLayout
-			tree={source.pageTree}
-			{...docsOptions}
-			sidebar={{
-				component: (
-					<Sidebar
-						aria-label="Documentation navigation"
-						className="fixed top-[calc(var(--fd-banner-height)+var(--fd-nav-height))] z-30 md:sticky md:h-[var(--fd-sidebar-height)] md:ps-[var(--fd-layout-offset)]"
-					>
-						<SidebarViewport>
-							<SidebarPageTree />
-						</SidebarViewport>
-					</Sidebar>
-				),
-			}}
-		>
-			{children}
-		</DocsLayout>
+		<div className="relative">
+			{/* Background Pattern */}
+			<HeaderBg className="top-0" />
+
+			<DocsLayout
+				tree={source.pageTree}
+				{...docsOptions}
+				sidebar={
+					noSidebar
+						? undefined
+						: {
+								component: (
+									<Sidebar
+										aria-label="Documentation navigation"
+										className="fixed top-[calc(var(--fd-banner-height)+var(--fd-nav-height))] z-30 md:sticky md:h-[var(--fd-sidebar-height)] md:ps-[var(--fd-layout-offset)]"
+									>
+										<SidebarViewport>
+											<SidebarPageTree />
+										</SidebarViewport>
+									</Sidebar>
+								),
+							}
+				}
+			>
+				{children}
+			</DocsLayout>
+		</div>
 	);
 }

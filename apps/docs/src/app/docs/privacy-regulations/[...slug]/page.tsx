@@ -3,6 +3,7 @@ import {
 	SharedDocsPage,
 	generateSharedMetadata,
 } from '../../_components/shared-docs-page';
+import { Laws } from '../_components/laws';
 
 /**
  * The main documentation page component that renders content based on the current slug.
@@ -16,7 +17,11 @@ export default async function Page(props: {
 	params: Promise<{ slug?: string[] }>;
 }) {
 	const params = await props.params;
-	return SharedDocsPage({ params, source: privacyRegulationsSource });
+	return SharedDocsPage({
+		params,
+		source: privacyRegulationsSource,
+		otherComponents: { Laws },
+	});
 }
 
 /**

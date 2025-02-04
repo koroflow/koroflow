@@ -1,5 +1,5 @@
 import { cn } from '@koroflow/shadcn/libs';
-import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import {
 	DocsBody,
@@ -9,9 +9,11 @@ import {
 } from 'fumadocs-ui/page';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import type { ComponentType } from 'react';
 import { Installer } from '~/components/docs/installer';
 import { PoweredBy } from '~/components/docs/powered-by';
 import { Preview } from '~/components/docs/preview';
+import { Tab, Tabs } from '~/components/docs/tabs';
 import type { source as Source } from '~/lib/source';
 
 /**
@@ -37,6 +39,7 @@ const components = {
 interface SharedDocsPageProps {
 	params: { slug?: string[] };
 	source: typeof Source;
+	otherComponents?: Record<string, ComponentType>;
 }
 
 /**
@@ -58,7 +61,11 @@ interface SharedDocsPageProps {
  * />
  * ```
  */
-export function SharedDocsPage({ params, source }: SharedDocsPageProps) {
+export function SharedDocsPage({
+	params,
+	source,
+	otherComponents,
+}: SharedDocsPageProps) {
 	const page = source.getPage(params.slug);
 
 	if (!page) {
@@ -78,7 +85,7 @@ export function SharedDocsPage({ params, source }: SharedDocsPageProps) {
 			</DocsTitle>
 			<DocsDescription>{page.data.description}</DocsDescription>
 			<DocsBody className={cn()}>
-				<MDX components={{ ...components }} />
+				<MDX components={{ ...components, ...otherComponents }} />
 			</DocsBody>
 		</DocsPage>
 	);
