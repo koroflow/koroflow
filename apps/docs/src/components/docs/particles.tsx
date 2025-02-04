@@ -42,10 +42,10 @@ interface ParticlesProps {
 	vy?: number;
 }
 function hexToRgb(hex: string): number[] {
-	hex = hex.replace('#', '');
+	let hexValue = hex.replace('#', '');
 
-	if (hex.length === 3) {
-		hex = hex
+	if (hexValue.length === 3) {
+		hexValue = hexValue
 			.split('')
 			.map((char) => char + char)
 			.join('');
@@ -78,6 +78,7 @@ const Particles: React.FC<ParticlesProps> = ({
 	const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
 	const dpr = typeof window !== 'undefined' ? window.devicePixelRatio : 1;
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: used for color
 	useEffect(() => {
 		if (canvasRef.current) {
 			context.current = canvasRef.current.getContext('2d');
@@ -92,19 +93,6 @@ const Particles: React.FC<ParticlesProps> = ({
 	}, [color]);
 
 	useEffect(() => {
-		onMouseMove();
-	}, [mousePosition.x, mousePosition.y]);
-
-	useEffect(() => {
-		initCanvas();
-	}, [refresh]);
-
-	const initCanvas = () => {
-		resizeCanvas();
-		drawParticles();
-	};
-
-	const onMouseMove = () => {
 		if (canvasRef.current) {
 			const rect = canvasRef.current.getBoundingClientRect();
 			const { w, h } = canvasSize.current;
@@ -116,6 +104,16 @@ const Particles: React.FC<ParticlesProps> = ({
 				mouse.current.y = y;
 			}
 		}
+	}, [mousePosition.x, mousePosition.y]);
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies: used for refresh
+	useEffect(() => {
+		initCanvas();
+	}, [refresh]);
+
+	const initCanvas = () => {
+		resizeCanvas();
+		drawParticles();
 	};
 
 	type Circle = {
