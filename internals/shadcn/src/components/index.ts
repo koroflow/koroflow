@@ -29,7 +29,7 @@ export {
 	SandboxFileExplorer,
 	SandboxLayout,
 	SandboxPreview,
-	type SandboxProvider,
+	SandboxProvider,
 	SandboxTabs,
 	SandboxTabsContent,
 	SandboxTabsList,

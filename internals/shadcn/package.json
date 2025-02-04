@@ -11,7 +11,9 @@
 		},
 		"./globals.css": "./dist/globals.css"
 	},
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"build": "rslib build",
 		"check-types": "tsc --noEmit",
@@ -25,6 +27,8 @@
 		"@radix-ui/react-tabs": "^1.1.2",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
+		"lucide-react": "^0.474.0",
+		"react-resizable-panels": "^2.1.7",
 		"tailwind-merge": "^3.0.1"
 	},
 	"devDependencies": {

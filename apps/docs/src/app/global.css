@@ -3,6 +3,8 @@
 @import "fumadocs-ui/css/preset.css";
 
 @source "../../node_modules/fumadocs-ui/dist/**/*.js";
+@source "../../node_modules/@koroflow/shadcn/dist/**/*.js";
+
 
 #nd-docs-layout,
 #nd-sidebar {
