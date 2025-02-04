@@ -1,3 +1,7 @@
+---
+description: Rules that apply to all packages in the monorepo
+globs: **/*.{ts,tsx,js,jsx}
+---
 # Component Library Generation Context
 
 When generating React component libraries similar to Clerk Elements, follow these principles and patterns to maintain a consistent and developer-friendly experience.
@@ -15,6 +19,7 @@ When generating React component libraries similar to Clerk Elements, follow thes
 - Use proper type definitions for all props and refs
 - Implement proper generic constraints where necessary
 - Export type definitions for public API
+- Avoid enums; use maps instead.
 
 3. **Accessibility**
 - Support keyboard navigation
