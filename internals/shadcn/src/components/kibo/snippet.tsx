@@ -64,12 +64,17 @@ export const SnippetCopyButton = ({
 			return;
 		}
 
-		navigator.clipboard.writeText(value).then(() => {
-			setIsCopied(true);
-			onCopy?.();
-
-			setTimeout(() => setIsCopied(false), timeout);
-		}, onError);
+		navigator.clipboard.writeText(value).then(
+			() => {
+				setIsCopied(true);
+				onCopy?.();
+				setTimeout(() => setIsCopied(false), timeout);
+			},
+			(error: Error) => {
+				console.error('Failed to copy to clipboard:', error);
+				onError?.(error);
+			}
+		);
 	};
 
 	if (asChild) {
