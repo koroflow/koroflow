@@ -12,7 +12,7 @@ import { notFound } from 'next/navigation';
 import { Installer } from '~/components/docs/installer';
 import { PoweredBy } from '~/components/docs/powered-by';
 import { Preview } from '~/components/docs/preview';
-import { source } from '~/lib/source';
+import { releaseNotesSource } from '~/lib/source';
 
 const components = {
 	...defaultMdxComponents,
@@ -27,7 +27,7 @@ export default async function Page(props: {
 	params: Promise<{ slug?: string[] }>;
 }) {
 	const params = await props.params;
-	const page = source.getPage(params.slug);
+	const page = releaseNotesSource.getPage(params.slug);
 
 	if (!page) {
 		notFound();
@@ -59,13 +59,14 @@ export default async function Page(props: {
 	);
 }
 
-export const generateStaticParams = async () => source.generateParams();
+export const generateStaticParams = async () =>
+	releaseNotesSource.generateParams();
 
 export async function generateMetadata(props: {
 	params: Promise<{ slug?: string[] }>;
 }): Promise<Metadata> {
 	const params = await props.params;
-	const page = source.getPage(params.slug);
+	const page = releaseNotesSource.getPage(params.slug);
 
 	if (!page) {
 		notFound();

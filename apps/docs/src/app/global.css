@@ -22,6 +22,11 @@
 	--color-fd-primary: hsl(200 100% 63.9%);
 }
 
+#nd-docs-layout {
+	--fd-layout-width: 1400px !important;
+	--fd-nav-height: 112px !important;
+}
+
 @theme {
 	/* Base colors */
 	--color-border: hsl(var(--border));
