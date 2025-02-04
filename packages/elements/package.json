@@ -1,6 +1,6 @@
 {
 	"name": "@koroflow/elements",
-	"version": "0.0.1-beta.9",
+	"version": "0.0.1-beta.11",
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
@@ -31,9 +31,6 @@
 			"require": "./dist/index.cjs"
 		}
 	},
-	"main": "./dist/index.cjs",
-	"module": "./dist/index.js",
-	"types": "./dist/index.d.ts",
 	"files": ["dist"],
 	"scripts": {
 		"build": "rslib build",

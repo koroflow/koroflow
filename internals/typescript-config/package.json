@@ -1,5 +1,6 @@
 {
 	"name": "@koroflow/typescript-config",
+	"version": "0.0.1-beta.10",
 	"private": true,
 	"type": "module",
 	"scripts": {
