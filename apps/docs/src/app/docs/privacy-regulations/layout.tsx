@@ -1,19 +1,19 @@
-import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import type { ReactNode } from 'react';
-import { docsOptions } from '~/app/layout.config';
-import ArticleLayout from '~/components/docs/side-bar';
 import { privacyRegulationsSource } from '~/lib/source';
+import { SharedDocsLayout } from '../_components/shared-docs-layout';
 
+/**
+ * Layout component that wraps all documentation pages.
+ * Provides consistent navigation, sidebar and structure across doc pages.
+ *
+ * @param props - The component props
+ * @param props.children - The page content to be wrapped by the layout
+ * @returns The rendered layout with navigation and child content
+ */
 export default function Layout({ children }: { children: ReactNode }) {
 	return (
-		<DocsLayout
-			tree={privacyRegulationsSource.pageTree}
-			{...docsOptions}
-			sidebar={{
-				component: <ArticleLayout tree={privacyRegulationsSource.pageTree} />,
-			}}
-		>
+		<SharedDocsLayout source={privacyRegulationsSource}>
 			{children}
-		</DocsLayout>
+		</SharedDocsLayout>
 	);
 }
