@@ -219,6 +219,8 @@ const Particles: React.FC<ParticlesProps> = ({
 		return remapped > 0 ? remapped : 0;
 	};
 
+	const animationFrameId = useRef<number>();
+
 	const animate = () => {
 		clearContext();
 		circles.current.forEach((circle: Circle, i: number) => {
@@ -267,8 +269,32 @@ const Particles: React.FC<ParticlesProps> = ({
 				// update the circle position
 			}
 		});
-		window.requestAnimationFrame(animate);
+		animationFrameId.current = window.requestAnimationFrame(animate);
 	};
+
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) {
+					animate();
+				} else if (animationFrameId.current) {
+					cancelAnimationFrame(animationFrameId.current);
+				}
+			},
+			{ threshold: 0 }
+		);
+
+		if (canvasRef.current) {
+			observer.observe(canvasRef.current);
+		}
+
+		return () => {
+			if (animationFrameId.current) {
+				cancelAnimationFrame(animationFrameId.current);
+			}
+			observer.disconnect();
+		};
+	}, []);
 
 	return (
 		<div
