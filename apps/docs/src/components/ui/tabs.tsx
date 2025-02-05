@@ -33,7 +33,7 @@ const TabsList = forwardRef<
 		ref={ref}
 		{...props}
 		className={cn(
-			'flex flex-row items-end gap-4 overflow-x-auto bg-fd-secondary px-4 text-fd-muted-foreground',
+			'flex flex-row items-end gap-4 overflow-x-auto overflow-y-hidden bg-fd-secondary px-4 text-fd-muted-foreground',
 			props.className
 		)}
 	/>

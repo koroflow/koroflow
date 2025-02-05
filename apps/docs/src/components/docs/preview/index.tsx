@@ -55,7 +55,6 @@ export const Preview = ({
 			template="react-ts"
 			options={{
 				externalResources: [
-					// "https://cdn.tailwindcss.com",
 					'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
 				],
 			}}

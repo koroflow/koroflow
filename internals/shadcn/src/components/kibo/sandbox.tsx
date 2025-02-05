@@ -30,23 +30,134 @@ import { cn } from '~/libs';
 
 export type SandboxProviderProps = SandpackProviderProps;
 
+const githubLight = {
+	colors: {
+		surface1: '#ffffff',
+		surface2: '#F3F3F3',
+		surface3: '#f5f5f5',
+		clickable: '#959da5',
+		base: '#24292e',
+		disabled: '#d1d4d8',
+		hover: '#24292e',
+		accent: '#24292e',
+	},
+	syntax: {
+		keyword: '#d73a49',
+		property: '#005cc5',
+		plain: '#24292e',
+		static: '#032f62',
+		string: '#032f62',
+		definition: '#6f42c1',
+		punctuation: '#24292e',
+		tag: '#22863a',
+		comment: {
+			color: '#6a737d',
+			fontStyle: 'normal',
+		},
+	},
+	font: {
+		body: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+		mono: '"Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace',
+		size: '13px',
+		lineHeight: '20px',
+	},
+};
+
+const githubDark = {
+	...githubLight,
+	colors: {
+		surface1: '#18191c',
+		surface2: '#18191c',
+		surface3: '#18191c',
+		clickable: '#959da5',
+		base: '#e1e4e8',
+		disabled: '#6a737d',
+		hover: '#e1e4e8',
+		accent: '#e1e4e8',
+	},
+	syntax: {
+		keyword: '#f97583',
+		property: '#79b8ff',
+		plain: '#e1e4e8',
+		static: '#9ecbff',
+		string: '#9ecbff',
+		definition: '#b392f0',
+		punctuation: '#e1e4e8',
+		tag: '#85e89d',
+		comment: {
+			color: '#6a737d',
+			fontStyle: 'normal',
+		},
+	},
+	font: {
+		body: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+		mono: '"Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace',
+		size: '13px',
+		lineHeight: '20px',
+	},
+};
+
+const SandboxSkeleton = () => (
+	<div className="flex h-full w-full animate-pulse flex-col gap-2 p-4">
+		{/* Header skeleton */}
+		<div className="flex items-center gap-2">
+			<div className="h-4 w-20 rounded-md bg-muted/20" />
+			<div className="h-4 w-16 rounded-md bg-muted/20" />
+		</div>
+
+		{/* Content skeleton */}
+		<div className="flex flex-1 gap-2">
+			{/* Code panel */}
+			<div className="flex-1 space-y-2 rounded-md bg-muted/10 p-4">
+				<div className="h-3 w-3/4 rounded bg-muted/20" />
+				<div className="h-3 w-1/2 rounded bg-muted/20" />
+				<div className="h-3 w-2/3 rounded bg-muted/20" />
+				<div className="h-3 w-1/2 rounded bg-muted/20" />
+			</div>
+
+			{/* Preview panel */}
+			<div className="flex-1 rounded-md bg-muted/10" />
+		</div>
+	</div>
+);
+
 export const SandboxProvider = ({
 	className,
+	theme = 'light',
 	...props
 }: SandpackProviderProps) => {
 	const [isMounted, setIsMounted] = useState(false);
+	const [isSSR, setIsSSR] = useState(true);
 
 	useEffect(() => {
 		setIsMounted(true);
+		setIsSSR(false);
 	}, []);
 
-	if (!isMounted) {
-		return null;
-	}
-
 	return (
-		<div className={cn('not-prose size-full max-h-[30rem]', className)}>
-			<SandpackProvider className="!size-full !max-h-none" {...props} />
+		<div
+			className={cn(
+				'not-prose relative',
+				'size-full max-h-[30rem]',
+				'rounded-lg border border-white/10',
+				'bg-gradient-to-b from-fd-card/80 to-fd-card',
+				'shadow-[0_0_1px_1px_rgba(0,0,0,0.1)]',
+				className
+			)}
+		>
+			{isMounted ? (
+				<SandpackProvider
+					className="!size-full !max-h-none"
+					//@ts-ignore
+					theme={theme === 'light' ? githubLight : githubDark}
+					options={{
+						initMode: isSSR ? 'user-visible' : 'immediate',
+					}}
+					{...props}
+				/>
+			) : (
+				<SandboxSkeleton />
+			)}
 		</div>
 	);
 };
@@ -56,7 +167,12 @@ export type SandboxLayoutProps = SandpackLayoutProps;
 export const SandboxLayout = ({ className, ...props }: SandpackLayoutProps) => (
 	<SandpackLayout
 		className={cn(
-			'!rounded-none !border-none !bg-transparent !h-full',
+			'!rounded-lg !border-none',
+			'!h-full overflow-hidden',
+			'[&_.cm-editor]:!bg-background/50',
+			'[&_.sp-wrapper]:!bg-background/50',
+			'[&_.sp-preview-container]:!bg-background/50',
+			'[&_.sp-preview-container]:!backdrop-blur-sm',
 			className
 		)}
 		{...props}
@@ -119,7 +235,10 @@ export const SandboxTabs = ({
 		<SandboxTabsContext.Provider value={{ selectedTab, setSelectedTab }}>
 			<div
 				className={cn(
-					'group relative flex size-full flex-col overflow-hidden rounded-lg border text-sm',
+					'group relative flex size-full flex-col',
+					'overflow-hidden rounded-lg border border-white/10',
+					'bg-gradient-to-b from-fd-card/80 to-fd-card',
+					'shadow-[0_0_1px_1px_rgba(0,0,0,0.1)]',
 					className
 				)}
 				{...props}
@@ -139,7 +258,7 @@ export const SandboxTabsList = ({
 }: SandboxTabsListProps) => (
 	<div
 		className={cn(
-			'flex flex-row items-end gap-4 overflow-x-auto bg-fd-secondary px-4 text-fd-muted-foreground',
+			'flex h-13 flex-row items-center gap-2 overflow-x-auto border-fd-primary/10 border-b bg-gradient-to-b from-fd-background/80 to-transparent px-4 py-2 text-fd-muted-foreground shadow-[inset_0_-1px_0_rgba(0,0,0,0.1)]',
 			className
 		)}
 		role="tablist"
@@ -166,12 +285,23 @@ export const SandboxTabsTrigger = ({
 		<button
 			role="tab"
 			aria-selected={selectedTab === value}
-			data-state={selectedTab === value ? 'active' : 'inactive'}
 			onClick={() => setSelectedTab(value)}
 			className={cn(
-				'flex flex-row items-center gap-2 whitespace-nowrap border-transparent py-2 font-medimedimedium transition-colors hover:text-fd-accent-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=active]:border-fd-primary data-[state=active]:text-fd-primary',
+				'relative flex flex-row items-center justify-center gap-x-2 whitespace-nowrap border-transparent border-b',
+				'px-3 py-1.5 font-medium text-sm',
+				'transition-all duration-200',
+				'text-fd-muted-foreground hover:text-fd-foreground',
+				'rounded-md bg-transparent',
+				'data-[state=active]:bg-fd-primary/[0.08]',
+				'data-[state=active]:text-fd-primary',
+				'data-[state=active]:shadow-[inset_0_1px_3px_rgba(0,0,0,0.1)]',
+				'data-[state=active]:border-fd-primary/20',
+				'focus-visible:outline-none focus-visible:ring-2',
+				'focus-visible:ring-fd-primary/20',
+				'disabled:pointer-events-none disabled:opacity-50',
 				className
 			)}
+			data-state={selectedTab === value ? 'active' : 'inactive'}
 			{...props}
 		/>
 	);
@@ -194,10 +324,11 @@ export const SandboxTabsContent = ({
 			aria-hidden={selectedTab !== value}
 			data-state={selectedTab === value ? 'active' : 'inactive'}
 			className={cn(
-				'min-h-[25rem] flex-1 overflow-y-auto ring-offset-background transition-opacity duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
-				selectedTab === value
-					? 'h-auto w-auto opacity-100'
-					: 'pointer-events-none absolute h-0 w-0 opacity-0',
+				'ring-offset-background',
+				'focus-visible:outline-none',
+				'focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+				'h-full min-h-[300px]',
+				selectedTab === value ? 'fade-in-0 animate-in' : 'hidden',
 				className
 			)}
 			{...props}
@@ -233,8 +364,19 @@ export const SandboxPreview = ({
 	...props
 }: SandboxPreviewProps) => (
 	<SandpackPreview
-		className={cn('h-full', className)}
+		className={cn(
+			'h-full min-h-[300px]',
+			'[&_.sp-preview-container]:!h-full',
+			'[&_.sp-preview-iframe]:!h-full',
+			'[&_.sp-preview-actions]:!bottom-4',
+			className
+		)}
 		showOpenInCodeSandbox={showOpenInCodeSandbox}
+		style={{
+			height: '100%',
+			flex: '1 1 auto',
+			minHeight: '300px',
+		}}
 		{...props}
 	/>
 );
