@@ -2,32 +2,13 @@
 title: Cookie Banner
 description: A customizable cookie consent banner that handles privacy compliance with zero configuration required.
 ---
+import CookieBannerExample from '../../examples/cookie-banner';
 
 The Cookie Banner component provides an elegant way to obtain and manage cookie consent from your users. It handles all the complexity of privacy regulations while providing a smooth user experience that integrates naturally with your application.
 
 {/* ![CookieBanner](../../../public/cookie-banner.png) */}
 
-
-<Preview name="sandbox" code={`import {
-  ConsentManagerProvider,
-  ConsentManagerDialog,
-  CookieBanner,
-} from '@koroflow/elements';
-
-import '@koroflow/elements/globals.css';
-
-function App() {
-  return (
-	  <ConsentManagerProvider initialGdprTypes={['necessary', 'marketing']}>
-		  <CookieBanner />
-		  <ConsentManagerDialog />
-		   Your App here
-	  </ConsentManagerProvider>
-  );
-}
-
-export default App;
-`} />
+<CookieBannerExample/>
 
 ## Understanding Cookie Consent
 
