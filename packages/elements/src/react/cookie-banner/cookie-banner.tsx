@@ -161,6 +161,7 @@ export const CookieBanner: FC<CookieBannerProps> = ({
 								action="reject-consent"
 								closeCookieBanner
 								themeKey="cookie-banner.footer.reject-button"
+								data-testid="cookie-banner-reject-button"
 							>
 								{rejectButtonText}
 							</ConsentButton>
@@ -168,6 +169,7 @@ export const CookieBanner: FC<CookieBannerProps> = ({
 								action="open-consent-dialog"
 								closeCookieBanner
 								themeKey="cookie-banner.footer.customize-button"
+								data-testid="cookie-banner-customize-button"
 							>
 								{customizeButtonText}
 							</ConsentButton>
@@ -177,6 +179,7 @@ export const CookieBanner: FC<CookieBannerProps> = ({
 							variant="primary"
 							closeCookieBanner
 							themeKey="cookie-banner.footer.accept-button"
+							data-testid="cookie-banner-accept-button"
 						>
 							{acceptButtonText}
 						</ConsentButton>

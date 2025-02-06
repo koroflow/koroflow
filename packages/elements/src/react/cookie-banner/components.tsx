@@ -42,6 +42,7 @@ const CookieBannerTitle = forwardRef<
 		<Box
 			ref={ref as Ref<HTMLDivElement>}
 			baseClassName="cookie-banner-title"
+			data-testid="cookie-banner-title"
 			themeKey="cookie-banner.header.title"
 			{...props}
 		>
@@ -74,6 +75,7 @@ const CookieBannerDescription = forwardRef<
 		<Box
 			ref={ref as Ref<HTMLDivElement>}
 			baseClassName="cookie-banner-description"
+			data-testid="cookie-banner-description"
 			themeKey="cookie-banner.header.description"
 			{...props}
 		>
@@ -140,6 +142,7 @@ const CookieBannerCard = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
 			<Box
 				ref={ref as Ref<HTMLDivElement>}
 				baseClassName="cookie-banner-card"
+				data-testid="cookie-banner-card"
 				themeKey="cookie-banner.card"
 				{...props}
 			>
@@ -166,6 +169,7 @@ const CookieBannerHeader = forwardRef<
 		<Box
 			ref={ref as Ref<HTMLDivElement>}
 			baseClassName="cookie-banner-header"
+			data-testid="cookie-banner-header"
 			themeKey="cookie-banner.header.root"
 			{...props}
 		>
@@ -191,6 +195,7 @@ const CookieBannerFooterSubGroup = forwardRef<
 		<Box
 			ref={ref as Ref<HTMLDivElement>}
 			baseClassName="cookie-banner-footer-sub-group"
+			data-testid="cookie-banner-footer-sub-group"
 			themeKey="cookie-banner.footer.sub-group"
 			{...props}
 		>
@@ -223,6 +228,7 @@ const CookieBannerRejectButton = forwardRef<
 		<ConsentButton
 			ref={ref as Ref<HTMLButtonElement>}
 			action="reject-consent"
+			data-testid="cookie-banner-reject-button"
 			closeCookieBanner
 			{...props}
 		>
@@ -248,6 +254,7 @@ const CookieBannerCustomizeButton = forwardRef<
 		<ConsentButton
 			ref={ref as Ref<HTMLButtonElement>}
 			action="open-consent-dialog"
+			data-testid="cookie-banner-customize-button"
 			{...props}
 		>
 			{children}
@@ -282,6 +289,7 @@ const CookieBannerAcceptButton = forwardRef<
 			ref={ref as Ref<HTMLButtonElement>}
 			action="accept-consent"
 			variant="primary"
+			data-testid="cookie-banner-accept-button"
 			closeCookieBanner
 			noStyle={noStyle}
 			{...props}

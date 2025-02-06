@@ -58,7 +58,12 @@ const CookieBannerOverlay = forwardRef<HTMLDivElement, OverlayProps>(
 
 		return showPopup ? (
 			disableAnimation ? (
-				<div ref={ref} {...props} {...theme} />
+				<div
+					ref={ref}
+					{...props}
+					{...theme}
+					data-testid="cookie-banner-overlay"
+				/>
 			) : (
 				<AnimatePresence>
 					<motion.div
@@ -67,6 +72,7 @@ const CookieBannerOverlay = forwardRef<HTMLDivElement, OverlayProps>(
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
+						data-testid="cookie-banner-overlay"
 					/>
 				</AnimatePresence>
 			)
