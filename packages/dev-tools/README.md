@@ -12,7 +12,7 @@
 ## Documentation
 
 For detailed documentation and examples, visit:
-[https://consent.management/docs/frameowkr/react/dev-tool](https://consent.management/docs/teact/dev-tool)
+[https://consent.management/docs/framework/react/dev-tool](https://consent.management/docs/teact/dev-tool)
 
 ## Installation
 

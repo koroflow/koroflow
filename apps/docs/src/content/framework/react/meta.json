@@ -1,5 +1,6 @@
 {
-	"title": "Components",
+	"title": "React",
+	"root": true,
 	"pages": [
 		"--- Introduction ---",
 		"index",

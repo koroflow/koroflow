@@ -25,8 +25,8 @@ const config = {
 				permanent: true,
 			},
 			{
-				source: '/docs/frameowkr/react/consent-solution',
-				destination: '/docs/frameowkr/react/index',
+				source: '/docs/framework/react/consent-solution',
+				destination: '/docs/framework/react/index',
 				permanent: true,
 			},
 		];

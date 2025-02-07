@@ -112,7 +112,7 @@ export const homePageOptions: BaseLayoutProps = {
 					text: 'Cookie Banner',
 					description:
 						'A customizable cookie consent banner that handles privacy compliance with zero configuration required.',
-					url: '/docs/frameowkr/react/cookie-banner',
+					url: '/docs/framework/react/cookie-banner',
 					menu: {
 						className: 'lg:col-start-2',
 					},
@@ -123,7 +123,7 @@ export const homePageOptions: BaseLayoutProps = {
 					text: 'Consent Dialog',
 					description:
 						'An accessible, animated modal interface that wraps the Consent Manager Widget for a focused privacy customization experience.',
-					url: '/docs/frameowkr/react/consent-manager-dialog',
+					url: '/docs/framework/react/consent-manager-dialog',
 					menu: {
 						className: 'lg:col-start-2',
 					},
@@ -133,7 +133,7 @@ export const homePageOptions: BaseLayoutProps = {
 					text: 'Consent Widget',
 					description:
 						'A flexible, composable widget for building custom privacy consent interfaces.',
-					url: '/docs/frameowkr/react/consent-manager-widget',
+					url: '/docs/framework/react/consent-manager-widget',
 					menu: {
 						className: 'lg:col-start-3 lg:row-start-1',
 					},
@@ -143,7 +143,7 @@ export const homePageOptions: BaseLayoutProps = {
 					text: 'Styling',
 					description:
 						'Learn how to customize the appearance of @consent-management/react components through our flexible theming system.',
-					url: '/docs/frameowkr/react/guides/customization',
+					url: '/docs/framework/react/guides/customization',
 					menu: {
 						className: 'lg:col-start-3',
 					},
