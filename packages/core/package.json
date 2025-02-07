@@ -1,5 +1,5 @@
 {
-	"name": "@koroflow/core-js",
+	"name": "@consent-management/core",
 	"version": "0.0.1-beta.11",
 	"type": "module",
 	"main": "dist/index.cjs",
@@ -17,7 +17,7 @@
 		"zustand": "^5.0.3"
 	},
 	"devDependencies": {
-		"@koroflow/typescript-config": "workspace:*"
+		"@consent-management/typescript-config": "workspace:*"
 	},
 	"publishConfig": {
 		"access": "public"

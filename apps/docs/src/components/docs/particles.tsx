@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '@koroflow/shadcn/libs';
+import { cn } from '@consent-management/shadcn/libs';
 import type React from 'react';
 import { useEffect, useRef, useState } from 'react';
 

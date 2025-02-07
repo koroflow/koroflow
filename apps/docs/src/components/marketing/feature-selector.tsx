@@ -1,4 +1,4 @@
-import { cn } from '@koroflow/shadcn/libs';
+import { cn } from '@consent-management/shadcn/libs';
 
 import { type HTMLAttributes, type ReactNode, forwardRef } from 'react';
 import { BorderIcon } from './border-icon';

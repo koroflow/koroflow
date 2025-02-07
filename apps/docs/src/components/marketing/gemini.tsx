@@ -1,5 +1,5 @@
 'use client';
-import { cn } from '@koroflow/shadcn/libs';
+import { cn } from '@consent-management/shadcn/libs';
 import { motion } from 'motion/react';
 import { Fragment, useId } from 'react';
 

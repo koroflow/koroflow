@@ -1,4 +1,4 @@
-import { cn } from '@koroflow/shadcn/libs';
+import { cn } from '@consent-management/shadcn/libs';
 import { useI18n, useSearchContext } from 'fumadocs-ui/provider';
 import { SearchIcon } from 'lucide-react';
 import type { ButtonHTMLAttributes } from 'react';

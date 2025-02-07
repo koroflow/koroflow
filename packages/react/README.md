@@ -1,6 +1,6 @@
 <div align="center">
    <img src="https://koroflow.com/logo-icon.png" alt="Koroflow Logo" width="64" height="64" />
-  <h1>@koroflow/elements</h1>
+  <h1>@consent-management/react</h1>
   <p>Transform privacy consent from a compliance checkbox into a fully observable system</p>
 
   [![GitHub stars](https://img.shields.io/github/stars/koroflow/koroflow?style=flat-square)](https://github.com/koroflow/koroflow)
@@ -27,17 +27,17 @@ For detailed documentation and examples, visit:
 ## Installation
 
 ```bash
-npm install @koroflow/elements
+npm install @consent-management/react
 # or
-yarn add @koroflow/elements
+yarn add @consent-management/react
 # or
-pnpm add @koroflow/elements
+pnpm add @consent-management/react
 ```
 
 ## Quick Start
 
 ```tsx
-import { ConsentManagerProvider, CookieBanner, ConsentManagerDialog } from "@koroflow/elements";
+import { ConsentManagerProvider, CookieBanner, ConsentManagerDialog } from "@consent-management/react";
 
 export default function App() {
   return (

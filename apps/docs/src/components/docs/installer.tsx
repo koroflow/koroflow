@@ -7,7 +7,7 @@ import {
 	SnippetTabsContent,
 	SnippetTabsList,
 	SnippetTabsTrigger,
-} from '@koroflow/shadcn/components';
+} from '@consent-management/shadcn/components';
 
 import Image from 'next/image';
 import { useState } from 'react';

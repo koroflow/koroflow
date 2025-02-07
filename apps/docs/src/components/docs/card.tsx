@@ -1,4 +1,4 @@
-import { cn } from '@koroflow/shadcn/libs';
+import { cn } from '@consent-management/shadcn/libs';
 import Link from 'fumadocs-core/link';
 import type { HTMLAttributes, ReactElement, ReactNode } from 'react';
 

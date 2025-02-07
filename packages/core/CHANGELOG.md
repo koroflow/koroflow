@@ -1,4 +1,4 @@
-# @koroflow/core-js
+# @consent-management/core
 
 
 ## 0.0.1-beta.11

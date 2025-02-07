@@ -1,8 +1,8 @@
 'use client';
 
-import { buttonVariants } from '@koroflow/shadcn/components';
+import { buttonVariants } from '@consent-management/shadcn/components';
 
-import { cn } from '@koroflow/shadcn/libs';
+import { cn } from '@consent-management/shadcn/libs';
 import Link from 'next/link';
 import { useRef } from 'react';
 

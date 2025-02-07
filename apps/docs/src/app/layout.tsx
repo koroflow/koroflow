@@ -1,14 +1,14 @@
 import './global.css';
-import { cn } from '@koroflow/shadcn/libs';
+import { cn } from '@consent-management/shadcn/libs';
 import { RootProvider } from 'fumadocs-ui/provider';
 import { Fira_Mono, Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
-import '@koroflow/elements/globals.css';
+import '@consent-management/react/globals.css';
 import {
 	ConsentManagerDialog,
 	ConsentManagerProvider,
 	CookieBanner,
-} from '@koroflow/elements';
+} from '@consent-management/react';
 
 const inter = Inter({
 	subsets: ['latin'],

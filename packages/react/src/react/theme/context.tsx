@@ -2,7 +2,7 @@
 
 /**
  * @packageDocumentation
- * Provides theme context and hooks for Koroflow Elements components.
+ * Provides theme context and hooks for @consent-management/react components.
  * Implements a flexible theming system with TypeScript support and runtime safety.
  */
 

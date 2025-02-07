@@ -1,12 +1,12 @@
 ---
-title: Introduction to Koroflow
-description: Koroflow transforms privacy consent from a compliance checkbox into a fully observable system. Built for modern development teams, it unifies analytics, consent tracking, and privacy controls into a single performant solution - no more slow cookie banners or blind spots in user privacy choices.
+title: Introduction to consent.management
+description: consent.management transforms privacy consent from a compliance checkbox into a fully observable system. Built for modern development teams, it unifies analytics, consent tracking, and privacy controls into a single performant solution - no more slow cookie banners or blind spots in user privacy choices.
 ---
-## What is Koroflow?
+## What is consent.management?
 
-Koroflow is an open source platform that transforms privacy consent from a compliance checkbox into a fully observable system. Inspired by the developer experience and quality standards set by platforms like Vercel, Clerk, Resend, and Unkey, we're building privacy infrastructure that developers truly deserve.
+consent.management is an open source platform that transforms privacy consent from a compliance checkbox into a fully observable system. Inspired by the developer experience and quality standards set by platforms like Vercel, Clerk, Resend, and Unkey, we're building privacy infrastructure that developers truly deserve.
 
-Built for modern development teams, Koroflow unifies analytics, consent management, and privacy controls into a single, performant solution that gives you complete visibility into how users interact with your privacy choices.
+Built for modern development teams, consent.management unifies analytics, consent management, and privacy controls into a single, performant solution that gives you complete visibility into how users interact with your privacy choices.
 
 Gone are the days of:
 - Cookie banners that slow down your site
@@ -36,13 +36,6 @@ Koroflow is currently in early alpha with a focus on core privacy management:
 - Local storage consent state
 - Developer tools for testing
 
-🚧 **Coming Soon**:
-- Cloud-based consent analytics
-- Server-side event relay system
-- Multi-vendor event distribution
-- Advanced consent metrics
-- Enterprise features
-
 ## Performance-First Design
 
 Unlike traditional cookie banners that add hundreds of kilobytes to your bundle size, Koroflow's privacy components are designed with performance in mind:
@@ -54,7 +47,7 @@ Unlike traditional cookie banners that add hundreds of kilobytes to your bundle 
 
 ```tsx
 // Simple, performant implementation
-import { ConsentManagerProvider } from "@@koroflow/elements/headless"
+import { ConsentManagerProvider } from "@@consent-management/react/headless"
 import { CookieBanner } from "your-app/ui"
 
 export default function App() {
@@ -139,12 +132,12 @@ Ready to modernize your privacy infrastructure? Choose your path:
 <Cards>
   <Card 
     title="Quick Start Guide" 
-    description="Set up Koroflow in your project in under 5 minutes"
+    description="Set up consent.management in your project in under 5 minutes"
     href="/docs/components" 
   />
   <Card 
     title="Regulations" 
-    description="Understand the regulations that Koroflow supports"
+    description="Understand the regulations that consent.management supports"
     href="/docs/regulations" 
   />
 </Cards>

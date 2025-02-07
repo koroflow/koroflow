@@ -24,22 +24,22 @@ First, install the development tools package:
 <Tabs groupId="manual-install" items={["npm", "pnpm", "yarn", "bun"]}>
   <Tab value="npm">
   ```bash 
-  npm install @koroflow/dev-tools
+  npm install @consent-management/dev-tools
   ```
   </Tab>
   <Tab value="pnpm">
   ```bash 
-  pnpm install @koroflow/dev-tools
+  pnpm install @consent-management/dev-tools
   ```
   </Tab>
   <Tab value="yarn">
   ```bash
-  yarn add @koroflow/dev-tools
+  yarn add @consent-management/dev-tools
   ```
   </Tab>
   <Tab value="bun">
   ```bash
-  bun add @koroflow/dev-tools 
+  bun add @consent-management/dev-tools 
   ```
   </Tab>
 </Tabs>
@@ -48,13 +48,13 @@ First, install the development tools package:
 Then add the development tools to your application:
 
 ```tsx
-import KoroflowDevTool from '@koroflow/dev-tool'
+import ConsentManagerDevTool from '@consent-management/dev-tool'
 
 function App() {
   return (
     <>
       <YourApp />
-      {process.env.NODE_ENV === 'development' && <KoroflowDevTool />}
+      {process.env.NODE_ENV === 'development' && <ConsentManagerDevTool />}
     </>
   )
 }
@@ -69,7 +69,7 @@ The dev tools will automatically appear in your application during development. 
 Adapt the dev tools to match your development environment:
 
 ```tsx
-<KoroflowDevTool 
+<ConsentManagerDevTool 
   theme={{
     panel: "bg-slate-900 text-white",
     timeline: "border-t border-slate-700",
@@ -115,7 +115,7 @@ To get the most out of the development tools:
 4. Remove dev tools in production
    ```tsx
    // Automatically removed in production builds
-   {process.env.NODE_ENV === 'development' && <KoroflowDevTool />}
+   {process.env.NODE_ENV === 'development' && <ConsentManagerDevTool />}
    ```
 
 ## Security Considerations

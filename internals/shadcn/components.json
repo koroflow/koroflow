@@ -11,10 +11,10 @@
 		"prefix": ""
 	},
 	"aliases": {
-		"components": "@koroflow/shadcn/components",
-		"utils": "@koroflow/shadcn/utils",
-		"hooks": "@koroflow/shadcn/hooks",
-		"lib": "@koroflow/shadcn/libs",
-		"ui": "@koroflow/shadcn/components/ui"
+		"components": "@consent-management/shadcn/components",
+		"utils": "@consent-management/shadcn/utils",
+		"hooks": "@consent-management/shadcn/hooks",
+		"lib": "@consent-management/shadcn/libs",
+		"ui": "@consent-management/shadcn/components/ui"
 	}
 }

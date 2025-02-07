@@ -1,5 +1,5 @@
 {
-	"extends": "@koroflow/typescript-config/react-library.json",
+	"extends": "@consent-management/typescript-config/react-library.json",
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {

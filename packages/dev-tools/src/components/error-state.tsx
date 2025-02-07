@@ -22,8 +22,8 @@ export function ErrorState({
 
 				<AlertDescription className="-ml-7 mt-2">
 					<p className="mb-2">
-						The @koroflow/core SDK could not be found in the global scope. This
-						usually means either:
+						The @consent-management/core SDK could not be found in the global
+						scope. This usually means either:
 					</p>
 					<ul className="list-disc space-y-1 pl-6">
 						<li>The namespace has been changed from its default value</li>

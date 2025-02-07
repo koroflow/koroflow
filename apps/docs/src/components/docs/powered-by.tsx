@@ -1,5 +1,5 @@
 // import { env } from "@/env";
-import { cn } from '@koroflow/shadcn/libs';
+import { cn } from '@consent-management/shadcn/libs';
 
 import Image from 'next/image';
 

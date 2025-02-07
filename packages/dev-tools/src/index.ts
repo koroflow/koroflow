@@ -1,3 +1,3 @@
-import { KoroflowDevTool } from './dev-tool';
+import { ConsentManagerDevTool } from './dev-tool';
 
-export default KoroflowDevTool;
+export default ConsentManagerDevTool;

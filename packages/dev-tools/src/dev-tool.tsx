@@ -1,5 +1,8 @@
 'use client';
-import type { NamespaceProps, PrivacyConsentState } from '@koroflow/core-js';
+import type {
+	NamespaceProps,
+	PrivacyConsentState,
+} from '@consent-management/core';
 
 import {
 	type FC,
@@ -60,8 +63,8 @@ interface ConsentManagerProviderProps extends NamespaceProps {
 	position?: 'bottom-right' | 'top-right' | 'bottom-left' | 'top-left';
 }
 
-export const KoroflowDevTool: FC<ConsentManagerProviderProps> = ({
-	namespace = 'KoroflowStore',
+export const ConsentManagerDevTool: FC<ConsentManagerProviderProps> = ({
+	namespace = 'ConsentManagerStore',
 	position = 'bottom-right',
 }) => {
 	const [state, setState] = useState<PrivacyConsentState | null>(null);

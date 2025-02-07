@@ -1,6 +1,6 @@
 <div align="center">
    <img src="https://koroflow.com/logo-icon.png" alt="Koroflow Logo" width="64" height="64" />
-  <h1>Koroflow</h1>
+  <h1>consent.management</h1>
   <p>Transform privacy consent from a compliance checkbox into a fully observable system</p>
 
   [![GitHub stars](https://img.shields.io/github/stars/koroflow/koroflow?style=flat-square)](https://github.com/koroflow/koroflow)
@@ -25,22 +25,22 @@ Koroflow unifies analytics, consent tracking, and privacy controls into a single
 
 | Package | Description | Version |
 |---------|-------------|---------|
-| `@koroflow/core-js` | Core consent and event management | [![npm](https://img.shields.io/npm/v/@koroflow/core-js?style=flat-square)](https://www.npmjs.com/package/@koroflow/core-js) |
-| `@koroflow/elements` | shadcn/ui based components | [![npm](https://img.shields.io/npm/v/@koroflow/elements?style=flat-square)](https://www.npmjs.com/package/@koroflow/elements) |
-| `@koroflow/dev-tools` | Development and debugging tools | [![npm](https://img.shields.io/npm/v/@koroflow/dev-tools?style=flat-square)](https://www.npmjs.com/package/@koroflow/dev-tools) |
+| `@consent-management/core` | Core consent and event management | [![npm](https://img.shields.io/npm/v/@consent-management/core?style=flat-square)](https://www.npmjs.com/package/@consent-management/core) |
+| `@consent-management/react` | shadcn/ui based components | [![npm](https://img.shields.io/npm/v/@consent-management/react?style=flat-square)](https://www.npmjs.com/package/@consent-management/react) |
+| `@consent-management/dev-tools` | Development and debugging tools | [![npm](https://img.shields.io/npm/v/@consent-management/dev-tools?style=flat-square)](https://www.npmjs.com/package/@consent-management/dev-tools) |
 
 ## ⚡ Quick Start
 
 ```bash
 # Install packages
-npm install @koroflow/elements
+npm install @consent-management/react
 
 # Optional: Install dev tools
-npm install -D @koroflow/dev-tools
+npm install -D @consent-management/dev-tools
 ```
 
 ```tsx
-import { ConsentManagerProvider, CookieBanner, ConsentManagerDialog } from "@koroflow/elements";
+import { ConsentManagerProvider, CookieBanner, ConsentManagerDialog } from "@consent-management/react";
 
 export default function App() {
   return (

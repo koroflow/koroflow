@@ -1,6 +1,6 @@
 <div align="center">
    <img src="https://koroflow.com/logo-icon.png" alt="Koroflow Logo" width="64" height="64" />
-  <h1>@koroflow/core</h1>
+  <h1>@consent-management/core</h1>
   <p>Transform privacy consent from a compliance checkbox into a fully observable system</p>
 
   [![GitHub stars](https://img.shields.io/github/stars/koroflow/koroflow?style=flat-square)](https://github.com/koroflow/koroflow)
@@ -16,11 +16,11 @@ More documentation coming soon.
 ## Installation
 
 ```bash
-npm install @koroflow/core
+npm install @consent-management/core
 # or
-yarn add @koroflow/core
+yarn add @consent-management/core
 # or
-pnpm add @koroflow/core
+pnpm add @consent-management/core
 ```
 
 ## License

@@ -62,10 +62,10 @@ importers:
 
   apps/docs:
     dependencies:
-      '@koroflow/elements':
+      '@consent-management/react':
         specifier: workspace:*
-        version: link:../../packages/elements
-      '@koroflow/shadcn':
+        version: link:../../packages/react
+      '@consent-management/shadcn':
         specifier: workspace:*
         version: link:../../internals/shadcn
       '@radix-ui/react-select':
@@ -117,7 +117,7 @@ importers:
         specifier: ^3.24.1
         version: 3.24.1
     devDependencies:
-      '@koroflow/typescript-config':
+      '@consent-management/typescript-config':
         specifier: workspace:*
         version: link:../../internals/typescript-config
       '@types/mdx':
@@ -172,7 +172,7 @@ importers:
         specifier: ^3.0.1
         version: 3.0.1
     devDependencies:
-      '@koroflow/typescript-config':
+      '@consent-management/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
 
@@ -184,13 +184,13 @@ importers:
         specifier: ^5.0.3
         version: 5.0.3(@types/react@19.0.8)(react@19.0.0)
     devDependencies:
-      '@koroflow/typescript-config':
+      '@consent-management/typescript-config':
         specifier: workspace:*
         version: link:../../internals/typescript-config
 
   packages/dev-tools:
     dependencies:
-      '@koroflow/core-js':
+      '@consent-management/core':
         specifier: workspace:*
         version: link:../core
       '@radix-ui/react-accordion':
@@ -242,16 +242,16 @@ importers:
         specifier: ^5.0.3
         version: 5.0.3(@types/react@19.0.8)(react@19.0.0)
     devDependencies:
-      '@koroflow/typescript-config':
+      '@consent-management/typescript-config':
         specifier: workspace:*
         version: link:../../internals/typescript-config
       postcss:
         specifier: ^8.5.1
         version: 8.5.1
 
-  packages/elements:
+  packages/react:
     dependencies:
-      '@koroflow/core-js':
+      '@consent-management/core':
         specifier: workspace:*
         version: link:../core
       '@radix-ui/react-accordion':
@@ -282,7 +282,7 @@ importers:
         specifier: ^5.0.3
         version: 5.0.3(@types/react@19.0.8)(react@19.0.0)
     devDependencies:
-      '@koroflow/typescript-config':
+      '@consent-management/typescript-config':
         specifier: workspace:*
         version: link:../../internals/typescript-config
 

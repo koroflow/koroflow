@@ -2,7 +2,7 @@
 import type {
 	PrivacyConsentState,
 	createConsentManagerStore,
-} from '@koroflow/core-js';
+} from '@consent-management/core';
 import { useContext } from 'react';
 import { ConsentStateContext } from './consent-manager';
 

@@ -1,4 +1,4 @@
-# @koroflow/elements
+# @consent-management/react
 
 ## 0.0.1-beta.11
 
@@ -12,7 +12,7 @@
 
 - all build tools now use rslib + new formatting from biomejs
 - Updated dependencies
-  - @koroflow/core-js@0.0.1
+  - @consent-management/core@0.0.1
 
 ## 0.0.1-beta.9
 
@@ -20,4 +20,4 @@
 
 - 1912aa9: Refactored codebase to use Ultracite Biome Config for stricter linting
 - Updated dependencies [1912aa9]
-  - @koroflow/core-js@0.0.1-beta.9
+  - @consent-management/core@0.0.1-beta.9

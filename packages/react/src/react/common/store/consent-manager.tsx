@@ -6,7 +6,7 @@ import {
 	type NamespaceProps,
 	type PrivacyConsentState,
 	createConsentManagerStore,
-} from '@koroflow/core-js';
+} from '@consent-management/core';
 import {
 	type ReactNode,
 	createContext,
@@ -145,7 +145,7 @@ export function ConsentManagerProvider({
 	children,
 	initialGdprTypes,
 	initialComplianceSettings,
-	namespace = 'KoroflowStore',
+	namespace = 'ConsentManagerStore',
 	noStyle = false,
 }: ConsentManagerProviderProps) {
 	// Create a stable reference to the store

@@ -1,4 +1,4 @@
-import type { AllConsentNames } from '@koroflow/core-js';
+import type { AllConsentNames } from '@consent-management/core';
 
 import {
 	type ComponentPropsWithoutRef,

@@ -1,4 +1,4 @@
-import { cn } from '@koroflow/shadcn/libs';
+import { cn } from '@consent-management/shadcn/libs';
 import { type SVGProps, useId } from 'react';
 
 interface DotPatternProps extends SVGProps<SVGSVGElement> {

@@ -142,7 +142,7 @@ export const homePageOptions: BaseLayoutProps = {
 					icon: <Palette />,
 					text: 'Styling',
 					description:
-						'Learn how to customize the appearance of Koroflow Elements components through our flexible theming system.',
+						'Learn how to customize the appearance of @consent-management/react components through our flexible theming system.',
 					url: '/docs/components/guides/customization',
 					menu: {
 						className: 'lg:col-start-3',
