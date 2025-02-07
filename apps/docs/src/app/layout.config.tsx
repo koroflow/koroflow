@@ -54,7 +54,8 @@ export const docsOptions: BaseLayoutProps = {
 				</span>
 			</>
 		),
-		transparentMode: 'top',
+		// transparentMode: 'top',
+		component: undefined,
 	},
 	links: [...linkItems],
 };
@@ -81,7 +82,7 @@ export const homePageOptions: BaseLayoutProps = {
 		{
 			type: 'menu',
 			text: 'Documentation',
-			url: '/docs/getting-started',
+			url: '/docs/components',
 			items: [
 				{
 					menu: {
@@ -104,14 +105,14 @@ export const homePageOptions: BaseLayoutProps = {
 					text: 'Getting Started',
 					description:
 						' Our plug-and-play components handle compliance so you can focus on your product',
-					url: '/docs/getting-started',
+					url: '/docs/components',
 				},
 				{
 					icon: <Cookie />,
 					text: 'Cookie Banner',
 					description:
 						'A customizable cookie consent banner that handles privacy compliance with zero configuration required.',
-					url: '/docs/guides/cookie-banner',
+					url: '/docs/components/cookie-banner',
 					menu: {
 						className: 'lg:col-start-2',
 					},
@@ -122,7 +123,7 @@ export const homePageOptions: BaseLayoutProps = {
 					text: 'Consent Dialog',
 					description:
 						'An accessible, animated modal interface that wraps the Consent Manager Widget for a focused privacy customization experience.',
-					url: '/docs/guides/consent-manager-dialog',
+					url: '/docs/components/consent-manager-dialog',
 					menu: {
 						className: 'lg:col-start-2',
 					},
@@ -132,7 +133,7 @@ export const homePageOptions: BaseLayoutProps = {
 					text: 'Consent Widget',
 					description:
 						'A flexible, composable widget for building custom privacy consent interfaces.',
-					url: '/docs/guides/consent-manager-widget',
+					url: '/docs/components/consent-manager-widget',
 					menu: {
 						className: 'lg:col-start-3 lg:row-start-1',
 					},
@@ -142,7 +143,7 @@ export const homePageOptions: BaseLayoutProps = {
 					text: 'Styling',
 					description:
 						'Learn how to customize the appearance of Koroflow Elements components through our flexible theming system.',
-					url: '/docs/guides/customization',
+					url: '/docs/components/guides/customization',
 					menu: {
 						className: 'lg:col-start-3',
 					},

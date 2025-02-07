@@ -21,13 +21,22 @@ const Section = forwardRef<HTMLElement, SectionProps>(
 	) => {
 		const internalRef = useRef<HTMLElement>(null);
 		const ref = forwardedRef || internalRef;
-		const sectionId = title ? title.toLowerCase().replace(/\s+/g, '-') : id;
-		const alignmentClass =
-			align === 'left'
-				? 'text-left'
-				: align === 'right'
-					? 'text-right'
-					: 'text-center';
+
+		const alignmentClasses = {
+			left: 'text-left',
+			right: 'text-right',
+			center: 'text-center',
+		} as const;
+
+		const alignmentClass = alignmentClasses[align ?? 'center'];
+
+		const marginClasses = {
+			left: '',
+			right: 'ml-auto',
+			center: 'mx-auto',
+		} as const;
+
+		const marginClass = marginClasses[align ?? 'center'];
 
 		return (
 			<section id={id} ref={ref}>
@@ -49,11 +58,7 @@ const Section = forwardRef<HTMLElement, SectionProps>(
 								<h3
 									className={cn(
 										'mx-0 mt-4 max-w-lg text-balance font-bold text-5xl text-foreground lowercase leading-[1.2] tracking-tighter sm:max-w-none sm:text-4xl md:text-5xl lg:text-6xl',
-										align === 'center'
-											? 'mx-auto'
-											: align === 'right'
-												? 'ml-auto'
-												: ''
+										marginClass
 									)}
 								>
 									{subtitle}
@@ -63,11 +68,7 @@ const Section = forwardRef<HTMLElement, SectionProps>(
 								<p
 									className={cn(
 										'mt-6 max-w-2xl text-balance text-lg text-muted-foreground leading-8',
-										align === 'center'
-											? 'mx-auto'
-											: align === 'right'
-												? 'ml-auto'
-												: ''
+										marginClass
 									)}
 								>
 									{description}

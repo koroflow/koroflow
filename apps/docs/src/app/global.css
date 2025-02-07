@@ -3,6 +3,7 @@
 @import "fumadocs-ui/css/preset.css";
 
 @source "../../node_modules/fumadocs-ui/dist/**/*.js";
+@source "../../node_modules/@koroflow/shadcn/dist/**/*.js";
 
 #nd-docs-layout,
 #nd-sidebar {
@@ -13,12 +14,20 @@
 	@apply border-none!;
 }
 
-.light {
+:root {
 	--color-fd-primary: hsl(200 69.8% 48%);
+	--fd-layout-width: 1400px !important;
+	--fd-nav-height: 58px !important; /* Default for mobile */
 }
 
-.dark {
+:root .dark {
 	--color-fd-primary: hsl(200 100% 63.9%);
+}
+/* Override for desktop */
+@media (min-width: 1024px) {
+	:root {
+		--fd-nav-height: 112px !important;
+	}
 }
 
 @theme {

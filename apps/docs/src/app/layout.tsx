@@ -1,7 +1,7 @@
 import './global.css';
-
+import { cn } from '@koroflow/shadcn/libs';
 import { RootProvider } from 'fumadocs-ui/provider';
-import { Inter } from 'next/font/google';
+import { Fira_Mono, Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
 import '@koroflow/elements/globals.css';
 import {
@@ -12,11 +12,22 @@ import {
 
 const inter = Inter({
 	subsets: ['latin'],
+	variable: '--font-inter',
+});
+
+const firaMono = Fira_Mono({
+	subsets: ['latin'],
+	weight: ['400', '500', '700'],
+	variable: '--font-fira-mono',
 });
 
 export default function Layout({ children }: { children: ReactNode }) {
 	return (
-		<html lang="en" className={inter.className} suppressHydrationWarning>
+		<html
+			lang="en"
+			className={cn(inter.variable, firaMono.variable)}
+			suppressHydrationWarning
+		>
 			<body className="flex min-h-screen flex-col">
 				<RootProvider>
 					<ConsentManagerProvider initialGdprTypes={['necessary', 'marketing']}>

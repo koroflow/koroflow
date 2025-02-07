@@ -1,4 +1,3 @@
-// import { Icons } from "@/components/icons";
 import {
 	Bolt,
 	Brain,
@@ -8,9 +7,7 @@ import {
 	ShieldIcon,
 	ZapIcon,
 } from 'lucide-react';
-import { GithubIcon } from '~/components/icons/github';
 import { ReactIcon } from '~/components/icons/react';
-import { XIcon } from '~/components/icons/x';
 
 export const BLUR_FADE_DELAY = 0.15;
 
@@ -35,7 +32,7 @@ export const siteConfig = {
 		title: 'Consent infrastructure for the modern web',
 		description:
 			'Transform privacy consent from a compliance checkbox into a fully observable system. Built for developers who care about performance, privacy, and clean code.',
-		cta: { text: 'Get Started', href: '/docs/getting-started' },
+		cta: { text: 'Get Started', href: '/docs/components' },
 		demo: {
 			text: 'Book A Demo',
 			href: 'https://cal.com/christopherburns/koroflow',
@@ -87,19 +84,38 @@ export const siteConfig = {
 		},
 	],
 	footer: {
-		socialLinks: [
-			{
-				icon: <GithubIcon className="h-5 w-5" />,
-				url: 'https://github.com/koroflow/koroflow',
-			},
-			{
-				icon: <XIcon className="h-5 w-5" />,
-				url: 'https://x.com/koroflow',
-			},
-		],
 		links: [
-			{ text: 'Documentation', url: '/docs' },
-			{ text: 'GitHub', url: 'https://github.com/koroflow/koroflow' },
+			{
+				title: 'Product',
+				items: [
+					{ text: 'Documentation', url: '/docs' },
+					{ text: 'Components', url: '/docs/components' },
+					{ text: 'Privacy Regulations', url: '/docs/privacy-regulations' },
+				],
+			},
+			{
+				title: 'Company',
+				items: [
+					{
+						text: 'GitHub',
+						url: 'https://github.com/koroflow/koroflow',
+						external: true,
+					},
+					{ text: 'Twitter', url: 'https://x.com/koroflow', external: true },
+					{
+						text: 'Contact',
+						url: 'mailto:support@koroflow.dev',
+						external: true,
+					},
+				],
+			},
+			{
+				title: 'Legal',
+				items: [
+					{ text: 'Privacy Policy', url: '/privacy' },
+					{ text: 'Terms of Service', url: '/terms' },
+				],
+			},
 		],
 		bottomText: 'Open source privacy infrastructure.',
 		brandText: 'KOROFLOW',

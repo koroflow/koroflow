@@ -1,0 +1,14 @@
+{
+	"title": "Components",
+	"pages": [
+		"--- Introduction ---",
+		"index",
+		"--- Components ---",
+		"cookie-banner",
+		"consent-manager-widget",
+		"consent-manager-dialog",
+		"dev-tool",
+		"--- Guides ---",
+		"guides/customization"
+	]
+}

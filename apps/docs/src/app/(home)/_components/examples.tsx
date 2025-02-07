@@ -18,9 +18,7 @@ const featureOptions: FeatureOption[] = [
 		code: (
 			<CodeBlock
 				lang="jsx"
-				code={`import { ConsentManagerProvider } from "@koroflow/elements/headless"
-import { ConsentManagerDialog } from "@koroflow/elements/consent-manager"
-import { CookieBanner } from "@koroflow/elements/cookie-banner"
+				code={`import { ConsentManagerProvider,ConsentManagerDialog, CookieBanner } from "@koroflow/elements"
 
 function Layout({ children }: { children: ReactNode }) {
   return (
@@ -42,9 +40,7 @@ function Layout({ children }: { children: ReactNode }) {
 		code: (
 			<CodeBlock
 				lang="jsx"
-				code={`import { ConsentManagerProvider } from "@koroflow/elements/headless"
-import { ConsentManagerDialog } from "@koroflow/elements/consent-manager"
-import { CookieBanner } from "@koroflow/elements/cookie-banner"
+				code={`import { ConsentManagerProvider,ConsentManagerDialog,CookieBanner } from "@koroflow/elements"
 
 const modernTheme = {
   'cookie-banner.root': 'fixed bottom-0 w-full p-4 bg-white/80 backdrop-blur-sm',

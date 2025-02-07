@@ -51,7 +51,7 @@ export function ExamplesClient({ features }: ExamplesClientProps) {
 									setSelectedIndex(index);
 									setProgress(0);
 								}}
-								className={`w-[280px] shrink-0 rounded border p-4 text-left sm:w-[320px] md:w-full relative${selectedIndex === index ? 'bg-accent/70' : 'hover:bg-muted/50'}
+								className={`relative w-[280px] shrink-0 rounded border p-4 text-left sm:w-[320px] md:w-full ${selectedIndex === index ? 'bg-accent/70' : 'hover:bg-muted/50'}
 								`}
 								animate={{
 									opacity: index === selectedIndex ? 1 : 0.7,

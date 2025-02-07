@@ -13,10 +13,7 @@ import {
 	UserSearch,
 	XCircleIcon,
 } from 'lucide-react';
-// import { Section } from "@/components/section";
-// import OrbitingCircles from "@/components/ui/orbiting-circles";
 import { motion } from 'motion/react';
-import { useReducedMotion } from 'motion/react';
 import { BorderIcon } from '~/components/marketing/border-icon';
 import OrbitingCircles from '~/components/marketing/orbiting-circles';
 import { Section } from '~/components/marketing/section';
@@ -234,6 +231,15 @@ const Card2 = () => {
 		},
 	];
 
+	const getScale = (index: number) => {
+		if (index === 0) {
+			return 0.85;
+		}
+		// biome-ignore lint/style/useBlockStatements: <explanation>
+		if (index === 4) return 1.1;
+		return 1;
+	};
+
 	return (
 		<div className="h-full overflow-hidden border-b p-0 lg:border-r lg:border-b-0">
 			<motion.div
@@ -252,7 +258,7 @@ const Card2 = () => {
 								whileHover={{
 									y: -85,
 									opacity: index === 4 ? 1 : 0.6,
-									scale: index === 0 ? 0.85 : index === 4 ? 1.1 : 1,
+									scale: getScale(index),
 									transition: {
 										type: 'spring',
 										stiffness: 400,
@@ -338,10 +344,7 @@ const Card3 = () => {
 	);
 };
 
-// Add reduced motion support
 export function UseCases() {
-	const shouldReduceMotion = useReducedMotion();
-
 	return (
 		<Section id="use-cases" title="Use Cases">
 			<motion.div

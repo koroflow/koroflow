@@ -1,12 +1,11 @@
 {
-	"title": "ui",
+	"title": "Docs",
 	"root": true,
 	"pages": [
 		"---Introduction---",
 		"index",
-		"regulations",
-		"setup",
-		"---Components---",
-		"..."
+		"--- Open Source ---",
+		"contributing",
+		"license"
 	]
 }

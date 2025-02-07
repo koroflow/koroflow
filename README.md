@@ -100,7 +100,7 @@ pnpm test
 
 ## 📚 Documentation
 
-- [Getting Started](https://koroflow.com/docs/getting-started)
+- [Getting Started](https://koroflow.com/docs/components)
 - [Core Concepts](https://koroflow.com/docs/concepts)
 - [API Reference](https://koroflow.com/docs/api)
 - [UI Components](https://koroflow.com/docs/components)

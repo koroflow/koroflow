@@ -6,6 +6,15 @@ const withMDX = createMDX({
 
 /** @type {import('next').NextConfig} */
 const config = {
+	images: {
+		formats: ['image/avif', 'image/webp'],
+		remotePatterns: [
+			{
+				hostname: 'img.logo.dev',
+				protocol: 'https',
+			},
+		],
+	},
 	reactStrictMode: true,
 	// biome-ignore lint/suspicious/useAwait: <explanation>
 	async redirects() {
@@ -17,35 +26,8 @@ const config = {
 			},
 			{
 				source: '/docs/components/consent-solution',
-				destination: '/docs/getting-started',
+				destination: '/docs/components/index',
 				permanent: true,
-			},
-			{
-				source: '/r',
-				destination: '/r/index.json',
-				permanent: true,
-			},
-			{
-				source: '/r/index',
-				destination: '/r/index.json',
-				permanent: true,
-			},
-			{
-				source: '/docs/elements',
-				destination: '/docs/getting-started',
-				permanent: true,
-			},
-			{
-				source: '/r/:name((?!index\\.json|styles/).*)',
-				destination: '/r/styles/default/:name.json',
-				permanent: true,
-				missing: [
-					{
-						type: 'query',
-						key: '_redirected',
-						value: undefined,
-					},
-				],
 			},
 		];
 	},

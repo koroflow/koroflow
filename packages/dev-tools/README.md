@@ -12,7 +12,7 @@
 ## Documentation
 
 For detailed documentation and examples, visit:
-[https://koroflow.com/docs/guides/dev-tool](https://koroflow.com/docs/guides/dev-tool)
+[https://koroflow.com/docs/components/dev-tool](https://koroflow.com/docs/components/dev-tool)
 
 ## Installation
 
