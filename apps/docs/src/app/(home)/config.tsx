@@ -12,7 +12,7 @@ import { ReactIcon } from '~/components/icons/react';
 export const BLUR_FADE_DELAY = 0.15;
 
 export const siteConfig = {
-	name: 'Koroflow',
+	name: 'Consent Management',
 	description: 'Consent infrastructure for the modern web.',
 	cta: 'Get Started',
 	url: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',

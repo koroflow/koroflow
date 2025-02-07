@@ -3,7 +3,6 @@ import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 import Image from 'next/image';
 import { GithubIcon } from '~/components/icons/github';
 import { XIcon } from '~/components/icons/x';
-import logo from '../../public/logo.svg';
 
 import {
 	Book,
@@ -12,6 +11,7 @@ import {
 	MessageSquareCode,
 	Palette,
 } from 'lucide-react';
+import { ConsentManagementIcon } from '~/components/icons/logo';
 import GetStarted from '../../public/cookie-banner.png';
 
 export const linkItems: LinkItemType[] = [
@@ -42,13 +42,7 @@ export const docsOptions: BaseLayoutProps = {
 	nav: {
 		title: (
 			<>
-				<Image
-					src={logo}
-					alt="Koroflow"
-					width={93}
-					height={16}
-					className="h-4 w-auto dark:invert"
-				/>
+				<ConsentManagementIcon className="h-6 w-auto text-black dark:text-white" />
 				<span className="inline-flex items-center rounded-full border bg-fd-primary/10 px-2.5 py-0.5 font-semibold text-fd-primary text-xs">
 					Beta
 				</span>
@@ -64,13 +58,7 @@ export const homePageOptions: BaseLayoutProps = {
 	nav: {
 		title: (
 			<>
-				<Image
-					src={logo}
-					alt="Koroflow"
-					width={93}
-					height={16}
-					className="h-4 w-auto dark:invert"
-				/>
+				<ConsentManagementIcon className="h-6 w-auto text-black dark:text-white" />
 				<span className="inline-flex items-center rounded-full border bg-fd-primary/10 px-2.5 py-0.5 font-semibold text-fd-primary text-xs">
 					Beta
 				</span>

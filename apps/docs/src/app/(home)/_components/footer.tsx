@@ -1,6 +1,5 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import logo from '../../../../public/logo.svg';
+import { ConsentManagementIcon } from '~/components/icons/logo';
 import { siteConfig } from '../config';
 
 export function Footer() {
@@ -10,11 +9,7 @@ export function Footer() {
 				{/* Logo and Description Column */}
 				<div className="col-span-2 flex flex-col items-center sm:col-span-3 sm:items-start xl:col-span-2">
 					<div className="flex flex-row gap-4">
-						<Image
-							src={logo}
-							alt="Koroflow"
-							className="h-8 w-auto dark:invert"
-						/>
+						<ConsentManagementIcon className="h-6 w-auto text-black dark:text-white" />
 						<span className="inline-flex items-center rounded-full border bg-fd-primary/10 px-2.5 py-0.5 font-semibold text-fd-primary text-xs">
 							Beta
 						</span>
@@ -50,10 +45,10 @@ export function Footer() {
 			</footer>
 
 			{/* BorderText Component */}
-			<div className="container mt-8 h-[175px] overflow-hidden">
+			<div className="container mt-4 h-[215px] overflow-hidden">
 				<div className="flex w-full justify-center">
-					<div className="bg-gradient-to-tr from-white/40 to-white/10 bg-clip-text font-bold text-[248px] text-transparent leading-none tracking-tighter">
-						{siteConfig.name}
+					<div className="bg-gradient-to-tr from-white/40 to-white/10 bg-clip-text font-bold text-[200px] text-transparent tracking-tighter">
+						consent mgmt
 					</div>
 				</div>
 			</div>
