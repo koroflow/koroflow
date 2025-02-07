@@ -1,4 +1,132 @@
 ---
-title: Core Docs
-description: Consent management transforms privacy consent from a compliance checkbox into a fully observable system. Built for modern development teams, it unifies analytics, consent tracking, and privacy controls into a single performant solution - no more slow cookie banners or blind spots in user privacy choices.
+title: Core Documentation
+description: Comprehensive guide to using the @consent-management/core package for managing privacy consents.
 ---
+
+# @consent-management/core
+
+## Introduction
+
+The `@consent-management/core` package is a headless library designed to transform privacy consent management from a simple compliance checkbox into a fully observable system. It is ideal for modern development teams looking to integrate consent management into their applications while maintaining full control over the user interface. This package unifies analytics, consent tracking, and privacy controls into a single performant solution, eliminating the need for slow cookie banners and addressing blind spots in user privacy choices.
+
+## Why Use @consent-management/core?
+
+- **Headless Architecture**: Provides the core logic and state management for consent without imposing any UI constraints, allowing developers to build custom interfaces tailored to their application's needs.
+- **Custom UI Development**: Perfect for teams that want to design their own consent interfaces while leveraging robust backend logic.
+- **Flexibility and Control**: Offers complete control over how consents are displayed and managed, enabling seamless integration with existing systems and workflows.
+
+## Installation
+
+To install the package, use one of the following commands:
+
+```bash
+npm install @consent-management/core
+# or
+yarn add @consent-management/core
+# or
+pnpm add @consent-management/core
+```
+
+## Usage
+
+### Basic Setup
+
+To create a consent manager store, import and use the `createConsentManagerStore` function. This store will handle all consent-related state and logic:
+
+```typescript
+import { createConsentManagerStore } from '@consent-management/core';
+
+const store = createConsentManagerStore();
+
+// Subscribe to state changes
+const unsubscribe = store.subscribe(
+  state => console.log('Consent updated:', state.consents)
+);
+
+// Update consent
+store.getState().setConsent('analytics', true);
+```
+
+### Use Cases
+
+1. **Custom Consent UI**: Use the core library to manage consent logic while building a custom UI that matches your application's design language.
+2. **Integration with Analytics**: Seamlessly integrate consent management with analytics tools to ensure compliance with privacy regulations.
+3. **Dynamic Consent Management**: Adjust consent options dynamically based on user location or preferences, using the library's flexible API.
+
+### Managing Consents
+
+You can manage user consents using various methods provided by the store:
+
+- **Set Consent**: Update consent for a specific type.
+  ```typescript
+  store.getState().setConsent('marketing', true);
+  ```
+
+- **Save Consents**: Save user preferences.
+  ```typescript
+  store.getState().saveConsents('all');
+  ```
+
+- **Reset Consents**: Reset all consents to default values.
+  ```typescript
+  store.getState().resetConsents();
+  ```
+
+## API Reference
+
+### createConsentManagerStore
+
+Creates a new consent manager store instance.
+
+**Parameters:**
+- `namespace` (optional): A string to namespace the store instance.
+
+**Returns:** A Zustand store instance with consent management functionality.
+
+### PrivacyConsentState
+
+Defines the core state and methods for the consent management store.
+
+**Properties:**
+- `consents`: Current consent states.
+- `consentInfo`: Information about when and how consent was given.
+- `showPopup`: Whether to show the consent popup.
+- `gdprTypes`: Active GDPR consent types.
+- `isPrivacyDialogOpen`: Whether the privacy dialog is open.
+- `complianceSettings`: Region-specific compliance settings.
+- `callbacks`: Event callbacks for consent actions.
+- `detectedCountry`: User's detected country code.
+- `privacySettings`: Privacy-related settings.
+- `includeNonDisplayedConsents`: Whether to include non-displayed consents.
+
+**Methods:**
+- `setConsent(name: AllConsentNames, value: boolean)`: Updates the consent state.
+- `setShowPopup(show: boolean)`: Controls the visibility of the consent popup.
+- `setIsPrivacyDialogOpen(isOpen: boolean)`: Controls the privacy dialog visibility.
+- `saveConsents(type: 'all' | 'custom' | 'necessary')`: Saves user consent preferences.
+- `resetConsents()`: Resets all consent preferences.
+- `setGdprTypes(types: AllConsentNames[])`: Updates active GDPR consent types.
+- `setComplianceSetting(region: ComplianceRegion, settings: Partial<ComplianceSettings>)`: Updates compliance settings.
+- `resetComplianceSettings()`: Resets compliance settings.
+- `setCallback(name: keyof Callbacks, callback: CallbackFunction | undefined)`: Sets a callback for a consent event.
+- `setDetectedCountry(country: string)`: Updates the user's detected country.
+- `getDisplayedConsents()`: Retrieves the list of consent types to display.
+- `hasConsented()`: Checks if any consent has been given.
+- `clearAllData()`: Clears all consent data.
+- `updateConsentMode()`: Updates the consent mode in external systems.
+- `setPrivacySettings(settings: Partial<PrivacySettings>)`: Updates privacy settings.
+- `getEffectiveConsents()`: Gets effective consent states.
+- `hasConsentFor(consentType: AllConsentNames)`: Checks if consent is given for a type.
+- `setIncludeNonDisplayedConsents(include: boolean)`: Controls inclusion of non-displayed consents.
+
+## License
+
+This package is licensed under the [GNU General Public License v3.0](https://github.com/koroflow/consent-management/blob/main/LICENSE).
+
+## Contributing
+
+Contributions are welcome! Please read the [contributing guidelines](https://github.com/koroflow/consent-management/blob/main/CONTRIBUTING.md) before submitting a pull request.
+
+## Support
+
+For support, please join our [Discord community](https://discord.gg/koroflow) or open an issue on [GitHub](https://github.com/koroflow/consent-management/issues).
