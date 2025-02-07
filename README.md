@@ -103,7 +103,7 @@ pnpm test
 - [Getting Started](https://consent.management/docs)
 - [Core Concepts](https://consent.management/docs/concepts)
 - [API Reference](https://consent.management/docs/api)
-- [UI Components](https://consent.management/docs/react)
+- [UI Components](https://consent.management/docs/framework/react)
 - [Privacy Regulations](https://consent.management/docs/regulations)
 
 ## 🤝 Contributing

@@ -22,7 +22,7 @@ React components for building privacy-first user interfaces.
 ## Documentation
 
 For detailed documentation and examples, visit:
-[https://consent.management/docs/react](https://consent.management/docs/react)
+[https://consent.management/docs/framework/react](https://consent.management/docs/framework/react)
 
 ## Installation
 

@@ -36,7 +36,7 @@ export const navigation = {
 	],
 	secondaryLinks: [
 		{ name: 'Documentation', href: '/docs' },
-		{ name: 'React', href: '/docs/react' },
+		{ name: 'React', href: '/docs/framework/react' },
 		// {
 		// 	name: 'Privacy Regulations',
 		// 	href: '/docs/privacy-regulations',

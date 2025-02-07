@@ -32,7 +32,7 @@ export const siteConfig = {
 		title: 'Consent infrastructure for the modern web',
 		description:
 			'Transform privacy consent from a compliance checkbox into a fully observable system. Built for developers who care about performance, privacy, and clean code.',
-		cta: { text: 'Get Started', href: '/docs/react' },
+		cta: { text: 'Get Started', href: '/docs/framework/react' },
 		demo: {
 			text: 'Book A Demo',
 			href: 'https://cal.com/christopherburns/koroflow',
@@ -89,7 +89,7 @@ export const siteConfig = {
 				title: 'Product',
 				items: [
 					{ text: 'Documentation', url: '/docs' },
-					{ text: 'Components', url: '/docs/react' },
+					{ text: 'Components', url: '/docs/framework/react' },
 					{ text: 'Privacy Regulations', url: '/docs/privacy-regulations' },
 				],
 			},
