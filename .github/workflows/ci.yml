@@ -24,6 +24,10 @@ jobs:
       - name: Install
         uses: ./.github/actions/install
       
+      # Install Playwright browsers
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install
+
       # Add Turbo cache
       - name: Cache Turbo
         uses: actions/cache@v4
