@@ -30,7 +30,7 @@ type PreviewProps = {
 };
 
 const PreviewSkeleton = () => (
-	<div className="not-prose relative max-h-[30rem] overflow-hidden rounded-lg border-2 bg-gradient-to-b from-fd-card/80 to-fd-card shadow-[0_0_1px_1px_rgba(0,0,0,0.1)]">
+	<div className="not-prose relative max-h-[30rem]">
 		<div className="flex min-h-[30rem] items-center justify-center dark:bg-[#18191c]">
 			<main className="mx-auto max-w-2xl text-center">
 				<div className="overflow-visible bg-gradient-to-t light:from-black/40 light:to-black/10 bg-clip-text font-bold text-[120px] text-transparent tracking-tighter dark:from-white/40 dark:to-white/10">
@@ -66,11 +66,15 @@ export const Preview = ({
 	}
 
 	return (
-		<div className={cn('not-prose relative')}>
+		<div
+			className={cn(
+				'not-prose relative overflow-hidden rounded-lg border-2 bg-gradient-to-b from-fd-card/80 to-fd-card shadow-[0_0_1px_1px_rgba(0,0,0,0.1)]'
+			)}
+		>
 			<div className="transition-opacity duration-500" aria-hidden="true">
 				<PreviewSkeleton />
 			</div>
-			<div className="absolute inset-0">
+			<div className="absolute inset-0 overflow-hidden">
 				<PreviewProvider
 					template="react-ts"
 					options={{

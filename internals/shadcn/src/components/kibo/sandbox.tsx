@@ -139,9 +139,7 @@ export const SandboxProvider = ({
 			className={cn(
 				'not-prose relative',
 				'size-full max-h-[30rem]',
-				'rounded-lg border border-white/10',
 				'bg-gradient-to-b from-fd-card/80 to-fd-card',
-				'shadow-[0_0_1px_1px_rgba(0,0,0,0.1)]',
 				className
 			)}
 		>
