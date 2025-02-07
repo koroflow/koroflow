@@ -1,6 +1,6 @@
 import { createFromSource } from 'fumadocs-core/search/server';
 import {
-	componentsSource,
+	frameworkSource,
 	privacyRegulationsSource,
 	releaseNotesSource,
 	source,
@@ -8,7 +8,7 @@ import {
 
 export const { GET } = createFromSource({
 	...source,
-	...componentsSource,
+	...frameworkSource,
 	...privacyRegulationsSource,
 	...releaseNotesSource,
 });

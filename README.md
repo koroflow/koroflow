@@ -1,10 +1,10 @@
 <div align="center">
    <img src="https://koroflow.com/logo-icon.png" alt="Koroflow Logo" width="64" height="64" />
-  <h1>consent.management</h1>
+  <h1>Consent Management by Koroflow</h1>
   <p>Transform privacy consent from a compliance checkbox into a fully observable system</p>
 
-  [![GitHub stars](https://img.shields.io/github/stars/koroflow/koroflow?style=flat-square)](https://github.com/koroflow/koroflow)
-  [![CI](https://img.shields.io/github/actions/workflow/status/koroflow/koroflow/ci.yml?style=flat-square)](https://github.com/koroflow/koroflow/actions/workflows/ci.yml)
+  [![GitHub stars](https://img.shields.io/github/stars/consent-management?style=flat-square)](https://github.com/koroflow/consent-management)
+  [![CI](https://img.shields.io/github/actions/workflow/status/consent-management/ci.yml?style=flat-square)](https://github.com/koroflow/consent-management/actions/workflows/ci.yml)
   [![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg?style=flat-square)](LICENSE)
   [![Discord](https://img.shields.io/discord/1312171102268690493?style=flat-square)](https://discord.gg/koroflow)
 </div>
@@ -70,8 +70,8 @@ Prerequisites:
 
 ```bash
 # Clone repository
-git clone https://github.com/koroflow/koroflow.git
-cd koroflow
+git clone https://github.com/koroflow/consent-management.git
+cd consent-management
 
 # Install dependencies
 pnpm install
@@ -100,21 +100,21 @@ pnpm test
 
 ## 📚 Documentation
 
-- [Getting Started](https://koroflow.com/docs/components)
-- [Core Concepts](https://koroflow.com/docs/concepts)
-- [API Reference](https://koroflow.com/docs/api)
-- [UI Components](https://koroflow.com/docs/components)
-- [Privacy Regulations](https://koroflow.com/docs/regulations)
+- [Getting Started](https://consent.management/docs)
+- [Core Concepts](https://consent.management/docs/concepts)
+- [API Reference](https://consent.management/docs/api)
+- [UI Components](https://consent.management/docs/react)
+- [Privacy Regulations](https://consent.management/docs/regulations)
 
 ## 🤝 Contributing
 
 We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md).
 
-- 🐛 [Report bugs](https://github.com/koroflow/koroflow/issues/new?template=bug_report.yml)
-- ✨ [Request features](https://github.com/koroflow/koroflow/issues/new?template=feature_request.yml)
-- 📚 [Improve docs](https://github.com/koroflow/koroflow/issues/new?template=doc_report.yml)
-- 🧪 [Fix tests](https://github.com/koroflow/koroflow/issues/new?template=test.yml)
-- ⚡ [Report performance issues](https://github.com/koroflow/koroflow/issues/new?template=performance.yml)
+- 🐛 [Report bugs](https://github.com/koroflow/consent-management/issues/new?template=bug_report.yml)
+- ✨ [Request features](https://github.com/koroflow/consent-management/issues/new?template=feature_request.yml)
+- 📚 [Improve docs](https://github.com/koroflow/consent-management/issues/new?template=doc_report.yml)
+- 🧪 [Fix tests](https://github.com/koroflow/consent-management/issues/new?template=test.yml)
+- ⚡ [Report performance issues](https://github.com/koroflow/consent-management/issues/new?template=performance.yml)
 
 ## 🌟 Self-Hosting vs Cloud
 

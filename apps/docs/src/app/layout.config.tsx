@@ -17,7 +17,7 @@ import GetStarted from '../../public/cookie-banner.png';
 export const linkItems: LinkItemType[] = [
 	{
 		type: 'icon',
-		url: 'https://github.com/koroflow/koroflow',
+		url: 'https://github.com/koroflow/consent-management',
 		text: 'Github',
 		icon: <GithubIcon className="h-5 w-5" />,
 		external: true,
@@ -82,7 +82,7 @@ export const homePageOptions: BaseLayoutProps = {
 		{
 			type: 'menu',
 			text: 'Documentation',
-			url: '/docs/components',
+			url: '/docs/react',
 			items: [
 				{
 					menu: {
@@ -104,15 +104,15 @@ export const homePageOptions: BaseLayoutProps = {
 					icon: <Book />,
 					text: 'Getting Started',
 					description:
-						' Our plug-and-play components handle compliance so you can focus on your product',
-					url: '/docs/components',
+						'Our plug-and-play components handle compliance so you can focus on your product',
+					url: '/docs/react',
 				},
 				{
 					icon: <Cookie />,
 					text: 'Cookie Banner',
 					description:
 						'A customizable cookie consent banner that handles privacy compliance with zero configuration required.',
-					url: '/docs/components/cookie-banner',
+					url: '/docs/frameowkr/react/cookie-banner',
 					menu: {
 						className: 'lg:col-start-2',
 					},
@@ -123,7 +123,7 @@ export const homePageOptions: BaseLayoutProps = {
 					text: 'Consent Dialog',
 					description:
 						'An accessible, animated modal interface that wraps the Consent Manager Widget for a focused privacy customization experience.',
-					url: '/docs/components/consent-manager-dialog',
+					url: '/docs/frameowkr/react/consent-manager-dialog',
 					menu: {
 						className: 'lg:col-start-2',
 					},
@@ -133,7 +133,7 @@ export const homePageOptions: BaseLayoutProps = {
 					text: 'Consent Widget',
 					description:
 						'A flexible, composable widget for building custom privacy consent interfaces.',
-					url: '/docs/components/consent-manager-widget',
+					url: '/docs/frameowkr/react/consent-manager-widget',
 					menu: {
 						className: 'lg:col-start-3 lg:row-start-1',
 					},
@@ -143,7 +143,7 @@ export const homePageOptions: BaseLayoutProps = {
 					text: 'Styling',
 					description:
 						'Learn how to customize the appearance of @consent-management/react components through our flexible theming system.',
-					url: '/docs/components/guides/customization',
+					url: '/docs/frameowkr/react/guides/customization',
 					menu: {
 						className: 'lg:col-start-3',
 					},

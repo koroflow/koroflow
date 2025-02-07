@@ -1,4 +1,4 @@
-import { componentsSource } from '~/lib/source';
+import { frameworkSource } from '~/lib/source';
 import {
 	SharedDocsPage,
 	generateSharedMetadata,
@@ -16,7 +16,7 @@ export default async function Page(props: {
 	params: Promise<{ slug?: string[] }>;
 }) {
 	const params = await props.params;
-	return SharedDocsPage({ params, source: componentsSource });
+	return SharedDocsPage({ params, source: frameworkSource });
 }
 
 /**
@@ -25,7 +25,7 @@ export default async function Page(props: {
  * @returns A promise that resolves to an array of valid route parameters
  */
 export const generateStaticParams = async () =>
-	componentsSource.generateParams();
+	frameworkSource.generateParams();
 
 /**
  * Generates the metadata for the current documentation page.
@@ -39,5 +39,5 @@ export async function generateMetadata(props: {
 	params: Promise<{ slug?: string[] }>;
 }) {
 	const params = await props.params;
-	return generateSharedMetadata(params, componentsSource);
+	return generateSharedMetadata(params, frameworkSource);
 }

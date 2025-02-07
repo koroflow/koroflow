@@ -1,10 +1,10 @@
 import { loader } from 'fumadocs-core/source';
 import { createMDXSource } from 'fumadocs-mdx';
 import {
-	components,
-	componentsMeta,
 	docs,
 	docsMeta,
+	framework,
+	frameworkMeta,
 	privacyRegulations,
 	privacyRegulationsMeta,
 	releaseNotes,
@@ -21,9 +21,9 @@ export const releaseNotesSource = loader({
 	source: createMDXSource(releaseNotes, releaseNotesMeta),
 });
 
-export const componentsSource = loader({
-	baseUrl: '/docs/components',
-	source: createMDXSource(components, componentsMeta),
+export const frameworkSource = loader({
+	baseUrl: '/docs/framework',
+	source: createMDXSource(framework, frameworkMeta),
 });
 
 export const privacyRegulationsSource = loader({

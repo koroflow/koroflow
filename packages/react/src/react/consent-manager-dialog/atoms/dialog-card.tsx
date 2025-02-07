@@ -170,11 +170,11 @@ const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
 			>
 				<a
 					className="consent-manager-widget-branding-link"
-					href="https://koroflow.com"
+					href="https://consent.management"
 				>
 					Secured by{' '}
 					<span className="consent-manager-widget-branding-link-span">
-						Koroflow
+						consent.management
 					</span>
 				</a>
 			</Box>

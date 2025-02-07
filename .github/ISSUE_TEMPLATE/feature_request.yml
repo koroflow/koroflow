@@ -8,9 +8,9 @@ body:
         Thanks for suggesting a feature! Please fill out this form as completely as possible.
         
         Before submitting:
-        1. Search [existing requests](https://github.com/koroflow/koroflow/issues)
-        2. Read the [documentation](https://koroflow.com/docs)
-        3. Join our [Discord](https://koroflow.com/discord) for discussions
+        1. Search [existing requests](https://github.com/koroflow/consent-management/issues)
+        2. Read the [documentation](https://consent.management/docs)
+        3. Join our [Discord](https://consent.management/discord) for discussions
 
   - type: dropdown
     id: type

@@ -11,8 +11,8 @@ export const { docs, meta: docsMeta } = defineDocs({
 export const { docs: releaseNotes, meta: releaseNotesMeta } = defineDocs({
 	dir: 'src/content/release-notes',
 });
-export const { docs: components, meta: componentsMeta } = defineDocs({
-	dir: 'src/content/components',
+export const { docs: framework, meta: frameworkMeta } = defineDocs({
+	dir: 'src/content/framework',
 });
 export const { docs: privacyRegulations, meta: privacyRegulationsMeta } =
 	defineDocs({

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { componentsSource } from '~/lib/source';
+import { frameworkSource } from '~/lib/source';
 import { SharedDocsLayout } from '../_components/shared-docs-layout';
 
 /**
@@ -12,6 +12,6 @@ import { SharedDocsLayout } from '../_components/shared-docs-layout';
  */
 export default function Layout({ children }: { children: ReactNode }) {
 	return (
-		<SharedDocsLayout source={componentsSource}>{children}</SharedDocsLayout>
+		<SharedDocsLayout source={frameworkSource}>{children}</SharedDocsLayout>
 	);
 }
