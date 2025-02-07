@@ -18,7 +18,7 @@ import {
 import { cn } from '@koroflow/shadcn/libs';
 import { AppWindowIcon, CodeIcon, TerminalIcon } from 'lucide-react';
 import type { ComponentProps } from 'react';
-import { exampleContent } from '~/examples/cookie-banner/examplePage';
+import { exampleContent } from '~/examples/cookie-banner/example-page';
 import { PreviewProvider } from './provider';
 import { tsconfig } from './tsconfig';
 import { utils } from './utils';
