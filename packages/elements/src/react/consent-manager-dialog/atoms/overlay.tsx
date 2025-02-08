@@ -86,7 +86,7 @@ const ConsentManagerDialogOverlay: FC<OverlayProps> = ({
 
 	return open || isPrivacyDialogOpen ? (
 		disableAnimation ? (
-			<div {...theme} data-testId="consent-manager-dialog-overlay" />
+			<div {...theme} data-testid="consent-manager-dialog-overlay" />
 		) : (
 			<AnimatePresence>
 				<motion.div
@@ -94,7 +94,7 @@ const ConsentManagerDialogOverlay: FC<OverlayProps> = ({
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
-					data-testId="consent-manager-dialog-overlay"
+					data-testid="consent-manager-dialog-overlay"
 				/>
 			</AnimatePresence>
 		)
