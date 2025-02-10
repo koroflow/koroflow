@@ -110,7 +110,7 @@
 	display: none;
 }
 
-.kf-accordion-item[data-state="open"] .accordion-arrow-open {
+.kf-accordion-item[data-state="open"] .kf-accordion-arrow-open {
 	display: none;
 }
 

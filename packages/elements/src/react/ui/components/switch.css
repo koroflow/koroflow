@@ -1,5 +1,15 @@
 /* Base switch variables */
 .kf-switch {
+
+  /* css reset */
+   font-family: inherit; /* 1 */
+	font-size: 100%; /* 1 */
+	line-height: 1.15; /* 1 */
+	margin: 0; /* 2 */
+	white-space: nowrap;
+	outline: none;
+  border: 0;
+  background: none;
 	/* Layout variables */
 	--kf-switch-height: 1.25rem;
 	--kf-switch-width: 2rem;
@@ -12,9 +22,9 @@
 	--kf-switch-thumb-size-disabled: 0.625rem;
 	--kf-switch-thumb-translate: 0.75rem;
 
-	/* Colors for light mode */
-	--kf-switch-bg-default: hsl(0, 0%, 96.86%);
-	--kf-switch-bg-hover: hsl(0, 0%, 92.16%);
+	/* Default HSL values */
+	--kf-switch-bg-default: hsl(0, 0%, 92%);
+	--kf-switch-bg-hover: hsl(0, 0%, 82%);
 	--kf-switch-bg-checked: hsl(227.94, 100%, 60%);
 	--kf-switch-bg-checked-hover: hsl(228.07, 69.8%, 48.04%);
 	--kf-switch-bg-disabled: hsl(0, 0%, 100%);
@@ -46,8 +56,8 @@
 /* Switch track */
 .kf-switch-track {
 	position: relative;
-	height: calc(var(--kf-switch-height) - 2 * var(--kf-switch-padding));
-	width: calc(var(--kf-switch-width) - 2 * var(--kf-switch-padding));
+	height: calc(var(--kf-switch-height) * var(--kf-switch-padding));
+	width: calc(var(--kf-switch-width) * var(--kf-switch-padding));
 	border-radius: 9999px;
 	padding: var(--kf-switch-padding);
 	background-color: var(--kf-switch-bg-default);
@@ -141,13 +151,7 @@
 
 /* Disabled thumb */
 .kf-switch-root[data-disabled] .kf-switch-thumb {
-	width: var(--kf-switch-thumb-size-disabled);
-	height: var(--kf-switch-thumb-size-disabled);
 	box-shadow: none;
-	margin: calc(
-		(var(--kf-switch-thumb-size) - var(--kf-switch-thumb-size-disabled)) /
-		2
-	);
 }
 
 .kf-switch-root[data-disabled][data-state="checked"] .kf-switch-thumb {

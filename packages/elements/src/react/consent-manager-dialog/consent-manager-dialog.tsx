@@ -123,7 +123,7 @@ export const ConsentManagerDialog: FC<ConsentManagerDialogProps> = ({
 					<>
 						<Overlay open={open} />
 						<motion.dialog
-							className="consent-manager-dialog-root"
+							className="kf-consent-manager-dialog-root"
 							variants={dialogVariants}
 							initial="hidden"
 							animate="visible"
@@ -133,7 +133,7 @@ export const ConsentManagerDialog: FC<ConsentManagerDialogProps> = ({
 						>
 							<motion.div
 								ref={contentRef}
-								className="consent-manager-dialog-container"
+								className="kf-consent-manager-dialog-container"
 								variants={contentVariants}
 								initial="hidden"
 								animate="visible"

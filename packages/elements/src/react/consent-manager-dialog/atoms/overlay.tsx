@@ -80,7 +80,7 @@ const ConsentManagerDialogOverlay: FC<OverlayProps> = ({
 	const { disableAnimation, noStyle: isThemeNoStyle } = useThemeContext();
 
 	const theme = useStyles('consent-manager-dialog.overlay', {
-		baseClassName: 'consent-manager-overlay',
+		baseClassName: 'kf-consent-manager-overlay',
 		noStyle: isThemeNoStyle || noStyle,
 	});
 

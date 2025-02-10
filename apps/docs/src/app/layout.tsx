@@ -3,7 +3,7 @@ import { cn } from '@koroflow/shadcn/libs';
 import { RootProvider } from 'fumadocs-ui/provider';
 import { Fira_Mono, Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
-import '@koroflow/elements/globals.css';
+
 import {
 	ConsentManagerDialog,
 	ConsentManagerProvider,

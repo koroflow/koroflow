@@ -42,7 +42,7 @@ const DialogCard = forwardRef<HTMLDivElement, DialogCardProps>(
 		return (
 			<Box
 				ref={ref as Ref<HTMLDivElement>}
-				baseClassName="kf-card consent-manager-dialog-card"
+				baseClassName="kf-card kf-consent-manager-dialog-card"
 				{...props}
 				themeKey="consent-manager-dialog.root"
 				data-testid="consent-manager-dialog-root"
@@ -67,7 +67,7 @@ const DialogHeader = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
 		return (
 			<Box
 				ref={ref as Ref<HTMLDivElement>}
-				baseClassName="kf-card-header consent-manager-dialog-card"
+				baseClassName="kf-card-header kf-consent-manager-dialog-card"
 				{...props}
 				themeKey="consent-manager-dialog.header"
 				data-testid="consent-manager-dialog-header"
@@ -175,11 +175,11 @@ const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
 				data-testid="consent-manager-dialog-footer"
 			>
 				<a
-					className="consent-manager-widget-branding-link"
+					className="kf-consent-manager-widget-branding-link"
 					href="https://koroflow.com"
 				>
 					Secured by{' '}
-					<span className="consent-manager-widget-branding-link-span">
+					<span className="kf-consent-manager-widget-branding-link-span">
 						Koroflow
 					</span>
 				</a>
@@ -220,11 +220,11 @@ const ConsentCustomizationCard = ({ noStyle }: { noStyle?: boolean }) => (
 		</DialogContent>
 		<DialogFooter>
 			<a
-				className="consent-manager-widget-branding-link"
+				className="kf-consent-manager-widget-branding-link"
 				href="https://koroflow.com"
 			>
 				Secured by{' '}
-				<span className="consent-manager-widget-branding-link-span">
+				<span className="kf-consent-manager-widget-branding-link-span">
 					Koroflow
 				</span>
 			</a>

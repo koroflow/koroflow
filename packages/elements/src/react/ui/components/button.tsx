@@ -38,7 +38,6 @@ export const buttonVariants = tv({
 		variant: {
 			primary: {},
 			neutral: {},
-			error: {},
 		},
 		mode: {
 			filled: {},
@@ -96,28 +95,6 @@ export const buttonVariants = tv({
 			variant: 'neutral',
 			mode: 'ghost',
 			class: { root: 'kf-button-neutral-ghost' },
-		},
-
-		// Error variants
-		{
-			variant: 'error',
-			mode: 'filled',
-			class: { root: 'kf-button-error-filled' },
-		},
-		{
-			variant: 'error',
-			mode: 'stroke',
-			class: { root: 'kf-button-error-stroke' },
-		},
-		{
-			variant: 'error',
-			mode: 'lighter',
-			class: { root: 'kf-button-error-lighter' },
-		},
-		{
-			variant: 'error',
-			mode: 'ghost',
-			class: { root: 'kf-button-error-ghost' },
 		},
 	],
 	defaultVariants: {

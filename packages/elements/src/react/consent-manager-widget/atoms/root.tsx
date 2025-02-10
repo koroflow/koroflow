@@ -109,7 +109,7 @@ const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
 	};
 	const content = (
 		<Box
-			baseClassName="consent-manager-widget"
+			baseClassName="kf-consent-manager-widget"
 			data-testid="consent-manager-widget-root"
 			themeKey="consent-manager-widget.root"
 			{...props}

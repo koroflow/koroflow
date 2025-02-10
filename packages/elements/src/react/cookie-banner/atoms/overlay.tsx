@@ -52,7 +52,7 @@ const CookieBannerOverlay = forwardRef<HTMLDivElement, OverlayProps>(
 		const { showPopup } = useConsentManager();
 		const { disableAnimation, noStyle: contextNoStyle } = useThemeContext();
 		const theme = useStyles('cookie-banner.overlay', {
-			baseClassName: !(contextNoStyle || noStyle) && 'cookie-banner-overlay',
+			baseClassName: !(contextNoStyle || noStyle) && 'kf-cookie-banner-overlay',
 			noStyle,
 		});
 
