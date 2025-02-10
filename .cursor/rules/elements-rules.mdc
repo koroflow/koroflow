@@ -9,6 +9,8 @@ globs: packages/elements/**/*
 - Implement React Context for state management
 - Support composition through `asChild` prop
 - Follow the Radix UI primitives pattern
+- Implement error boundaries for component failure isolation
+- Provide fallback UI for error states
 
 ## Styling
 - Use CSS Modules for component styles
