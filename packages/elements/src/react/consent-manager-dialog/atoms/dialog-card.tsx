@@ -209,7 +209,7 @@ const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
 const ConsentCustomizationCard = ({ noStyle }: { noStyle?: boolean }) => {
 	const translations = useTranslations();
 
-  return (
+	return (
 		<DialogCard>
 			<DialogHeader>
 				<DialogHeaderTitle>
