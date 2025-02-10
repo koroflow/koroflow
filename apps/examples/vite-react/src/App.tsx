@@ -1,4 +1,3 @@
-// import './App.css';
 import {
 	ConsentManagerDialog,
 	ConsentManagerProvider,
@@ -15,15 +14,17 @@ function App() {
 		<ConsentManagerProvider initialGdprTypes={['necessary', 'marketing']}>
 			<div>
 				<a href="https://vite.dev" target="_blank" rel="noreferrer">
+					{/* biome-ignore lint/nursery/noImgElement: <explanation> */}
 					<img src={viteLogo} className="logo" alt="Vite logo" />
 				</a>
 				<a href="https://react.dev" target="_blank" rel="noreferrer">
+					{/* biome-ignore lint/nursery/noImgElement: <explanation> */}
 					<img src={reactLogo} className="logo react" alt="React logo" />
 				</a>
 			</div>
 			<h1>Vite + React</h1>
 			<div className="card">
-				<button onClick={() => setCount((count) => count + 1)}>
+				<button type="button" onClick={() => setCount((count) => count + 1)}>
 					count is {count}
 				</button>
 				<p>
