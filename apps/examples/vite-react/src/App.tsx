@@ -2,7 +2,7 @@ import { useState } from 'react';
 import viteLogo from '/vite.svg';
 import reactLogo from './assets/react.svg';
 import './App.css';
-import '@koroflow/elements/globals.css';
+// import '@koroflow/elements/globals.css';
 import {
 	ConsentManagerDialog,
 	ConsentManagerProvider,

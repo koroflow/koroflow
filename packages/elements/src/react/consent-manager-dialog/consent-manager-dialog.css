@@ -2,6 +2,14 @@
 	margin-left: -22px;
 	margin-right: -22px;
 	width: auto;
+
+  --kf-cmw-stroke-soft-200: hsl(0, 0%, 92.16%);
+	--kf-cmw-branding-link-color: #47c2ff;
+}
+
+.dark .consent-manager-dialog-card,
+.dark .consent-manager-widget-branding {
+	--kf-cmw-stroke-soft-200: hsl(0, 0%, 20%);
 }
 
 .consent-manager-dialog-card .card-header {
@@ -32,7 +40,7 @@
 }
 
 .consent-manager-dialog-container {
-	width: full;
+	width: 100%;
 	max-width: 28rem /* 448px */;
 	margin-left: auto;
 	margin-right: auto;
@@ -52,5 +60,5 @@
 	position: fixed;
 	inset: 0px;
 	background-color: rgb(0 0 0 / 0.5);
-	z-index: 999999997;
+	z-index: 999999998;
 }

@@ -37,7 +37,7 @@ const Switch = forwardRef<
 >(({ className, disabled, slot, theme, ...rest }, forwardedRef) => {
 	const switchRoot = useStyles(theme?.root.themeKey ?? 'switch.root', {
 		...theme?.root,
-		baseClassName: ['switch switch-root', theme?.root.baseClassName],
+		baseClassName: ['kf-switch kf-switch-root', theme?.root.baseClassName],
 		className,
 	});
 
@@ -45,8 +45,8 @@ const Switch = forwardRef<
 		...theme?.thumb,
 		baseClassName: [
 			theme?.thumb.baseClassName,
-			'switch-thumb',
-			disabled && 'switch-thumb-disabled',
+			'kf-switch-thumb',
+			disabled && 'kf-switch-thumb-disabled',
 		],
 		style: {
 			...theme?.thumb.style,
@@ -64,7 +64,10 @@ const Switch = forwardRef<
 		>
 			<Box
 				themeKey={theme?.track.themeKey ?? 'switch.track'}
-				baseClassName={['switch-track', disabled && 'switch-track-disabled']}
+				baseClassName={[
+					'kf-switch-track',
+					disabled && 'kf-switch-track-disabled',
+				]}
 				style={theme?.track.style}
 			>
 				<SwitchPrimitives.Thumb {...switchThumb} />

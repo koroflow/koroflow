@@ -44,7 +44,7 @@
 	justify-content: center;
 	width: 100%;
 	border-top-width: 1px;
-	border-top-color: hsl(var(--kf-stroke-soft-200));
+	border-top-color: var(--kf-cmw-stroke-soft-200);
 	padding-top: 1rem;
 }
 
@@ -53,6 +53,6 @@
 	text-align: center;
 
 	.consent-manager-widget-branding-link-span {
-		color: #47c2ff;
+		color: var(--kf-cmw-branding-link-color);
 	}
 }
