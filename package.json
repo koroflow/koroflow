@@ -7,6 +7,7 @@
 		"check-types": "turbo check-types",
 		"ci:publish": "pnpm changeset tag && pnpm publish -r",
 		"ci:version": "pnpm changeset version",
+		"test": "turbo test",
 		"dev": "turbo dev",
 		"fmt": "turbo fmt",
 		"lint": "turbo lint",
