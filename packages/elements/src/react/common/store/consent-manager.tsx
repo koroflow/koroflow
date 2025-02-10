@@ -1,11 +1,15 @@
 'use client';
+
 import {
 	type AllConsentNames,
 	type ComplianceRegion,
 	type ComplianceSettings,
 	type NamespaceProps,
 	type PrivacyConsentState,
+	type TranslationConfig,
+	type Translations,
 	createConsentManagerStore,
+	defaultTranslationConfig,
 } from '@koroflow/core-js';
 import {
 	type ReactNode,
@@ -69,6 +73,25 @@ interface ConsentManagerProviderProps extends NamespaceProps {
 	 * @default false
 	 */
 	noStyle?: boolean;
+
+	/**
+	 * @remarks
+	 * Configuration for translations including available languages and settings.
+	 * Extends or overrides the default translations.
+	 *
+	 * @example
+	 * ```tsx
+	 * translationConfig={{
+	 *   translations: {
+	 *     en: customEnglishTranslations,
+	 *     de: germanTranslations
+	 *   },
+	 *   defaultLanguage: 'en',
+	 *   disableAutoLanguageSwitch: false
+	 * }}
+	 * ```
+	 */
+	translationConfig?: Partial<TranslationConfig>;
 }
 
 /**
@@ -99,6 +122,98 @@ interface ConsentManagerContextValue {
 export const ConsentStateContext = createContext<
 	ConsentManagerContextValue | undefined
 >(undefined);
+
+/**
+ * Deep merges translation objects
+ */
+function deepMergeTranslations(
+	base: Translations,
+	override: Partial<Translations>
+): Translations {
+	return {
+		cookieBanner: {
+			...base.cookieBanner,
+			...(override.cookieBanner || {}),
+		},
+		consentManagerDialog: {
+			...base.consentManagerDialog,
+			...(override.consentManagerDialog || {}),
+		},
+		consentManagerWidget: {
+			...base.consentManagerWidget,
+			...(override.consentManagerWidget || {}),
+		},
+		consentTypes: {
+			...base.consentTypes,
+			...(override.consentTypes || {}),
+		},
+	};
+}
+
+/**
+ * Merges custom translations with defaults
+ */
+function mergeTranslationConfigs(
+	defaultConfig: TranslationConfig,
+	customConfig?: Partial<TranslationConfig>
+): TranslationConfig {
+	const mergedTranslations = { ...defaultConfig.translations };
+
+	if (customConfig?.translations) {
+		// Merge English translations first
+		if (customConfig.translations.en) {
+			mergedTranslations.en = deepMergeTranslations(
+				defaultConfig.translations.en as Translations,
+				customConfig.translations.en as Partial<Translations>
+			);
+		}
+
+		// Merge other languages
+		for (const [lang, translations] of Object.entries(
+			customConfig.translations
+		)) {
+			if (lang !== 'en' && translations) {
+				const baseTranslations = mergedTranslations.en;
+				mergedTranslations[lang] = deepMergeTranslations(
+					baseTranslations as Translations,
+					translations as Partial<Translations>
+				);
+			}
+		}
+	}
+
+	return {
+		...defaultConfig,
+		...customConfig,
+		translations: mergedTranslations as Record<string, Translations>,
+	};
+}
+
+/**
+ * Detects browser language and returns appropriate default language
+ */
+function detectBrowserLanguage(
+	translations: Record<string, unknown>,
+	defaultLanguage: string | undefined,
+	disableAutoSwitch = false
+): string {
+	if (disableAutoSwitch) {
+		return defaultLanguage || 'en';
+	}
+
+	const browserLanguages = navigator?.languages || [
+		navigator?.language || 'en',
+	];
+
+	for (const lang of browserLanguages) {
+		const primaryLang = lang.split('-')[0];
+		if (primaryLang && primaryLang in translations) {
+			return primaryLang;
+		}
+	}
+
+	return 'en';
+}
 
 /**
  * Provider component for consent management functionality.
@@ -147,12 +262,28 @@ export function ConsentManagerProvider({
 	initialComplianceSettings,
 	namespace = 'KoroflowStore',
 	noStyle = false,
+	translationConfig,
 }: ConsentManagerProviderProps) {
-	// Create a stable reference to the store
-	const store = useMemo(
-		() => createConsentManagerStore(namespace),
-		[namespace]
-	);
+	const preparedTranslationConfig = useMemo(() => {
+		const mergedConfig = mergeTranslationConfigs(
+			defaultTranslationConfig,
+			translationConfig
+		);
+		const defaultLanguage = detectBrowserLanguage(
+			mergedConfig.translations,
+			mergedConfig.defaultLanguage,
+			mergedConfig.disableAutoLanguageSwitch
+		);
+		return { ...mergedConfig, defaultLanguage };
+	}, [translationConfig]);
+
+	// Create a stable reference to the store with prepared translation config
+	const store = useMemo(() => {
+		const store = createConsentManagerStore(namespace);
+		// Set translation config immediately
+		store.getState().setTranslationConfig(preparedTranslationConfig);
+		return store;
+	}, [namespace, preparedTranslationConfig]);
 
 	// Initialize state with the current state from the consent manager store
 	const [state, setState] = useState<PrivacyConsentState>(store.getState());

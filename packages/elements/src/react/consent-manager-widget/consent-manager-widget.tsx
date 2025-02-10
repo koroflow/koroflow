@@ -11,6 +11,7 @@ import '../ui/components/card.css';
 import { Box } from '../primitives/box';
 
 import { useState } from 'react';
+import { useTranslations } from '../common/store/use-translations';
 import {
 	ConsentManagerWidgetAccordion,
 	ConsentManagerWidgetAccordionItems,
@@ -73,7 +74,7 @@ export const ConsentManagerWidget = ({
 	...props
 }: ConsentManagerWidgetProps) => {
 	const [openItems, setOpenItems] = useState<string[]>([]);
-
+	const { consentManagerWidget } = useTranslations();
 	return (
 		<ConsentManagerWidgetRoot {...props}>
 			<ConsentManagerWidgetAccordion
@@ -87,14 +88,14 @@ export const ConsentManagerWidget = ({
 			<ConsentManagerWidgetFooter>
 				<ConsentManagerWidgetFooterSubGroup themeKey="consent-manager-widget.footer.sub-group">
 					<ConsentManagerWidgetRejectButton themeKey="consent-manager-widget.footer.reject-button">
-						Deny
+						{consentManagerWidget.rejectAll}
 					</ConsentManagerWidgetRejectButton>
 					<ConsentManagerWidgetAcceptAllButton themeKey="consent-manager-widget.footer.accept-button">
-						Accept All
+						{consentManagerWidget.acceptAll}
 					</ConsentManagerWidgetAcceptAllButton>
 				</ConsentManagerWidgetFooterSubGroup>
 				<ConsentManagerWidgetSaveButton themeKey="consent-manager-widget.footer.save-button">
-					Save
+					{consentManagerWidget.save}
 				</ConsentManagerWidgetSaveButton>
 			</ConsentManagerWidgetFooter>
 			{!hideBrading && (

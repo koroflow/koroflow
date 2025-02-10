@@ -123,3 +123,26 @@ export type { AllConsentNames, ConsentType };
 import type { CallbackFunction, Callbacks } from './callbacks';
 
 export type { CallbackFunction, Callbacks };
+
+/**
+ * @module
+ * Translation Types
+ *
+ * @remarks
+ * Exports types for translation configuration and translations:
+ * - Translation configuration
+ * - Translation types
+ * - Cookie banner translations
+ * - Consent manager dialog translations
+ * - Consent manager widget translations
+ */
+
+export type {
+	ConsentManagerDialogTranslations,
+	ConsentManagerWidgetTranslations,
+	ConsentTypeTranslations,
+	ConsentTypesTranslations,
+	CookieBannerTranslations,
+	TranslationConfig,
+	Translations,
+} from './translations';

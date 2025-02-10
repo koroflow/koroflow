@@ -9,6 +9,7 @@
 		"consent-manager-dialog",
 		"dev-tool",
 		"--- Guides ---",
-		"guides/customization"
+		"guides/customization",
+		"guides/translation"
 	]
 }

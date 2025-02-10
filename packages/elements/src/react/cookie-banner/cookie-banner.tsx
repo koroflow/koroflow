@@ -23,6 +23,8 @@ import {
 	CookieBannerTitle,
 } from './components';
 
+import { useTranslations } from '../common';
+
 /**
  * Props for configuring and customizing the CookieBanner component.
  *f
@@ -139,12 +141,14 @@ export interface CookieBannerProps {
 export const CookieBanner: FC<CookieBannerProps> = ({
 	theme,
 	noStyle,
-	title = 'We value your privacy',
-	description = 'This site uses cookies to improve your browsing experience, analyze site traffic, and show personalized content.',
-	rejectButtonText = 'Reject All',
-	customizeButtonText = 'Customize',
-	acceptButtonText = 'Accept All',
+	title,
+	description,
+	rejectButtonText,
+	customizeButtonText,
+	acceptButtonText,
 }) => {
+	const { cookieBanner } = useTranslations();
+
 	return (
 		<ErrorBoundary
 			fallback={<div>Something went wrong with the Cookie Banner.</div>}
@@ -152,8 +156,10 @@ export const CookieBanner: FC<CookieBannerProps> = ({
 			<CookieBannerRoot theme={theme} noStyle={noStyle}>
 				<CookieBannerCard>
 					<CookieBannerHeader>
-						<CookieBannerTitle>{title}</CookieBannerTitle>
-						<CookieBannerDescription>{description}</CookieBannerDescription>
+						<CookieBannerTitle>{title || cookieBanner.title}</CookieBannerTitle>
+						<CookieBannerDescription>
+							{description || cookieBanner.description}
+						</CookieBannerDescription>
 					</CookieBannerHeader>
 					<CookieBannerFooter>
 						<CookieBannerFooterSubGroup>
@@ -163,7 +169,7 @@ export const CookieBanner: FC<CookieBannerProps> = ({
 								themeKey="cookie-banner.footer.reject-button"
 								data-testid="cookie-banner-reject-button"
 							>
-								{rejectButtonText}
+								{rejectButtonText || cookieBanner.rejectAll}
 							</ConsentButton>
 							<ConsentButton
 								action="open-consent-dialog"
@@ -171,7 +177,7 @@ export const CookieBanner: FC<CookieBannerProps> = ({
 								themeKey="cookie-banner.footer.customize-button"
 								data-testid="cookie-banner-customize-button"
 							>
-								{customizeButtonText}
+								{customizeButtonText || cookieBanner.customize}
 							</ConsentButton>
 						</CookieBannerFooterSubGroup>
 						<ConsentButton
@@ -181,7 +187,7 @@ export const CookieBanner: FC<CookieBannerProps> = ({
 							themeKey="cookie-banner.footer.accept-button"
 							data-testid="cookie-banner-accept-button"
 						>
-							{acceptButtonText}
+							{acceptButtonText || cookieBanner.acceptAll}
 						</ConsentButton>
 					</CookieBannerFooter>
 				</CookieBannerCard>

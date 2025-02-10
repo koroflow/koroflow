@@ -17,4 +17,13 @@ export type {
 	PrivacySettings,
 	HasConsentedProps,
 	NamespaceProps,
+	TranslationConfig,
+	Translations,
+	CookieBannerTranslations,
+	ConsentManagerDialogTranslations,
+	ConsentManagerWidgetTranslations,
+	ConsentTypeTranslations,
+	ConsentTypesTranslations,
 } from './types';
+
+export { defaultTranslationConfig } from './translations';
