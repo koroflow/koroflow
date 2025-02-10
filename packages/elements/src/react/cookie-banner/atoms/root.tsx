@@ -16,6 +16,7 @@ import { ThemeContext, useStyles } from '../../theme';
 import { Overlay } from './overlay';
 
 import { useConsentManager } from '../../common';
+import { createThemeContextValue } from '../../common/utils/theme';
 import type { CookieBannerTheme } from '../theme';
 
 /**
@@ -111,14 +112,18 @@ const CookieBannerRoot: FC<CookieBannerRootProps> = ({
 	 * to create the context value for child components
 	 */
 	const contextValue = {
-		...consentManager,
 		disableAnimation,
 		noStyle,
 		theme,
 	};
 
+	const mergedContextValue = createThemeContextValue(
+		consentManager,
+		contextValue
+	);
+
 	return (
-		<ThemeContext.Provider value={contextValue}>
+		<ThemeContext.Provider value={mergedContextValue}>
 			<CookieBannerRootChildren
 				disableAnimation={disableAnimation}
 				className={className}

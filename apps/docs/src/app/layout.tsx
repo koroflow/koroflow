@@ -30,7 +30,23 @@ export default function Layout({ children }: { children: ReactNode }) {
 		>
 			<body className="flex min-h-screen flex-col">
 				<RootProvider>
-					<ConsentManagerProvider initialGdprTypes={['necessary', 'marketing']}>
+					<ConsentManagerProvider
+						initialGdprTypes={['necessary', 'marketing']}
+						translationConfig={{
+							translations: {
+								en: {
+									cookieBanner: {
+										title: 'We hate ur privacy',
+									},
+								},
+								de: {
+									cookieBanner: {
+										title: 'Wir legen Wert auf Ihre Privatsphäre',
+									},
+								},
+							},
+						}}
+					>
 						<CookieBanner />
 						<ConsentManagerDialog />
 						{children}

@@ -1,5 +1,6 @@
-export { ConsentManagerProvider } from './store/consent-manager';
-export { useConsentManager } from './store/use-consent-manager';
+export { ConsentManagerProvider } from './components/consent-manager-provider';
+export { useConsentManager } from './hooks/use-consent-manager';
+export type { ConsentManagerProviderProps } from './types/consent-manager';
 export { useTranslations } from './store/use-translations';
 
 // Re-export types and constants
