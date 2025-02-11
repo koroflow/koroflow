@@ -241,7 +241,6 @@ const ConsentCustomizationCard = ({ noStyle }: { noStyle?: boolean }) => {
 	);
 };
 
-
 const Card = DialogCard;
 const Header = DialogHeader;
 const HeaderTitle = DialogHeaderTitle;
