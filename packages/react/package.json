@@ -4,7 +4,6 @@
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
-		"./globals.css": "./dist/globals.css",
 		"./consent-manager-dialog": {
 			"types": "./dist/react/consent-manager-dialog/index.d.ts",
 			"import": "./dist/react/consent-manager-dialog/index.js",

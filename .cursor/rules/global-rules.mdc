@@ -1,3 +1,7 @@
+---
+description: Rules that apply to all packages in the monorepo
+globs: **/*.{ts,tsx,js,jsx}
+---
 # Component Library Generation Context
 
 When generating React component libraries similar to Clerk Elements, follow these principles and patterns to maintain a consistent and developer-friendly experience.
@@ -15,6 +19,22 @@ When generating React component libraries similar to Clerk Elements, follow thes
 - Use proper type definitions for all props and refs
 - Implement proper generic constraints where necessary
 - Export type definitions for public API
+- Avoid TypeScript enums due to their runtime overhead and tree-shaking limitations; use const objects or 'as const' assertions instead:
+```typescript
+// Instead of enum:
+enum Status { Active, Inactive }
+// Prefer:
+ const Status = {
+   Active: 'active',
+   Inactive: 'inactive'
+ } as const;
+
+// Or:
+const Status = Object.freeze({
+  Active: 'active',
+  Inactive: 'inactive'
+});
+```
 
 3. **Accessibility**
 - Support keyboard navigation
@@ -26,20 +46,22 @@ When generating React component libraries similar to Clerk Elements, follow thes
 
 Each component should follow this pattern:
 ```typescript
-type ComponentElement = React.ElementRef<'element_type'>;
+import { forwardRef, ElementRef, HTMLAttributes, ReactNode } from 'react';
+
+type ComponentElement = ElementRef<'element_type'>;
 type ComponentProps = {
   // Required props first
   name?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
   
   // Optional features
   asChild?: boolean;
   className?: string;
   
   // Additional type extensions
-} & React.HTMLAttributes<HTMLElementType>;
+} & HTMLAttributes<HTMLElementType>;
 
-export const Component = React.forwardRef<ComponentElement, ComponentProps>((
+export const Component = forwardRef<ComponentElement, ComponentProps>((
   { asChild, children, className, ...props }, 
   ref
 ) => {
@@ -60,7 +82,9 @@ export const Component = React.forwardRef<ComponentElement, ComponentProps>((
 - Handles initialization
 - Example structure:
 ```typescript
-export const Root: React.FC<RootProps> = ({
+import { FC } from 'react';
+
+export const Root: FC<RootProps> = ({
   children,
   ...props
 }) => {
@@ -157,6 +181,8 @@ Example documentation format:
 
 1. **Context Creation**
 ```typescript
+import { createContext, useContext } from 'react';
+
 const Context = createContext<ContextType | null>(null);
 
 const useComponentContext = () => {
@@ -172,7 +198,9 @@ const useComponentContext = () => {
 
 2. **Component Base**
 ```typescript
-export const Component = React.forwardRef<Element, Props>((
+import { forwardRef } from 'react';
+
+export const Component = forwardRef<Element, Props>((
   { asChild, children, className, ...props },
   ref
 ) => {

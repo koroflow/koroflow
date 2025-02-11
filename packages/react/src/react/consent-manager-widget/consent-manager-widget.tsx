@@ -99,15 +99,15 @@ export const ConsentManagerWidget = ({
 			</ConsentManagerWidgetFooter>
 			{!hideBrading && (
 				<Box
-					baseClassName="consent-manager-widget-branding"
+					baseClassName="kf-consent-manager-widget-branding"
 					themeKey="consent-manager-widget.branding"
 				>
 					<a
-						className="consent-manager-widget-branding-link"
+						className="kf-consent-manager-widget-branding-link"
 						href="https://consent.management"
 					>
 						Secured by{' '}
-						<span className="consent-manager-widget-branding-link-span">
+						<span className="kf-consent-manager-widget-branding-link-span">
 							consent.management
 						</span>
 					</a>

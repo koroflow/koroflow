@@ -1,5 +1,5 @@
 :root {
-	--kf-gray-950: 0 0% 9.02%;
+	/* --kf-gray-950: 0 0% 9.02%;
 	--kf-gray-900: 0 0% 10.98%;
 	--kf-gray-800: 0 0% 16.08%;
 	--kf-gray-700: 0 0% 20%;
@@ -291,11 +291,11 @@
 	--kf-stable-dark: var(--kf-teal-950);
 	--kf-stable-base: var(--kf-teal-500);
 	--kf-stable-light: var(--kf-teal-200);
-	--kf-stable-lighter: var(--kf-teal-50);
+	--kf-stable-lighter: var(--kf-teal-50); */
 }
 
 .dark {
-	--kf-bg-strong-950: var(--kf-neutral-0);
+	/* --kf-bg-strong-950: var(--kf-neutral-0);
 	--kf-bg-surface-800: var(--kf-neutral-200);
 	--kf-bg-sub-300: var(--kf-neutral-600);
 	--kf-bg-soft-200: var(--kf-neutral-700);
@@ -374,5 +374,5 @@
 	--kf-social-notion: 0 0% 100%;
 	--kf-social-tidal: 0 0% 100%;
 	--kf-social-amazon: 0 0% 100%;
-	--kf-social-zendesk: 0 0% 100%;
+	--kf-social-zendesk: 0 0% 100%; */
 }

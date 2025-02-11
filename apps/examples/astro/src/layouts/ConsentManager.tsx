@@ -1,0 +1,16 @@
+import {
+	ConsentManagerDialog,
+	ConsentManagerProvider,
+	CookieBanner,
+} from '@koroflow/elements';
+import type { ReactNode } from 'react';
+
+export const ConsentManagerLayout = ({ children }: { children: ReactNode }) => {
+	return (
+		<ConsentManagerProvider initialGdprTypes={['necessary', 'marketing']}>
+			{children}
+			<CookieBanner />
+			<ConsentManagerDialog />
+		</ConsentManagerProvider>
+	);
+};

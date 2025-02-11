@@ -39,6 +39,13 @@ export interface ConsentManagerWidgetRootProps
 	 * @defaultValue true
 	 */
 	useProvider?: boolean;
+
+	/**
+	 * @remarks
+	 * When true, removes all default styling from the banner and its children.
+	 * Useful when implementing completely custom styles.
+	 */
+	noStyle?: boolean;
 }
 
 /**
@@ -100,10 +107,10 @@ const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
 		noStyle,
 		theme,
 	};
-
 	const content = (
 		<Box
-			baseClassName="consent-manager-widget"
+			baseClassName="kf-consent-manager-widget"
+			data-testid="consent-manager-widget-root"
 			themeKey="consent-manager-widget.root"
 			{...props}
 		>

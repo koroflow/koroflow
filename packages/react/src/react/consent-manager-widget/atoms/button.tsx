@@ -23,6 +23,7 @@ const ConsentManagerWidgetAcceptAllButton = forwardRef<
 			action="accept-consent"
 			{...props}
 			themeKey="consent-manager-widget.footer.accept-button"
+			data-testid="consent-manager-widget-footer-accept-button"
 		>
 			{children}
 		</ConsentButton>
@@ -39,6 +40,7 @@ const ConsentManagerWidgetCustomizeButton = forwardRef<
 			action="open-consent-dialog"
 			{...props}
 			themeKey="consent-manager-widget.footer.customize-button"
+			data-testid="consent-manager-widget-footer-customize-button"
 		>
 			{children}
 		</ConsentButton>
@@ -57,6 +59,7 @@ const ConsentManagerWidgetSaveButton = forwardRef<
 			closeCustomizeDialog
 			{...props}
 			themeKey="consent-manager-widget.footer.save-button"
+			data-testid="consent-manager-widget-footer-save-button"
 		>
 			{children}
 		</ConsentButton>

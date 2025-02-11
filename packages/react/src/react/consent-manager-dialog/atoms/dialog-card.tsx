@@ -42,9 +42,10 @@ const DialogCard = forwardRef<HTMLDivElement, DialogCardProps>(
 		return (
 			<Box
 				ref={ref as Ref<HTMLDivElement>}
-				baseClassName="card consent-manager-dialog-card"
+				baseClassName="kf-card kf-consent-manager-dialog-card"
 				{...props}
 				themeKey="consent-manager-dialog.root"
+				data-testid="consent-manager-dialog-root"
 			>
 				{children}
 			</Box>
@@ -66,9 +67,10 @@ const DialogHeader = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
 		return (
 			<Box
 				ref={ref as Ref<HTMLDivElement>}
-				baseClassName="card-header consent-manager-dialog-card"
+				baseClassName="kf-card-header kf-consent-manager-dialog-card"
 				{...props}
 				themeKey="consent-manager-dialog.header"
+				data-testid="consent-manager-dialog-header"
 			>
 				{children}
 			</Box>
@@ -92,9 +94,10 @@ const DialogHeaderTitle = forwardRef<
 	return (
 		<Box
 			ref={ref as Ref<HTMLDivElement>}
-			baseClassName="card-title"
+			baseClassName="kf-card-title"
 			themeKey="consent-manager-dialog.title"
 			{...props}
+			data-testid="consent-manager-dialog-title"
 		>
 			{children}
 		</Box>
@@ -117,9 +120,10 @@ const DialogHeaderDescription = forwardRef<
 	return (
 		<Box
 			ref={ref as Ref<HTMLDivElement>}
-			baseClassName="card-description"
+			baseClassName="kf-card-description"
 			themeKey="consent-manager-dialog.description"
 			{...props}
+			data-testid="consent-manager-dialog-description"
 		>
 			{children}
 		</Box>
@@ -140,8 +144,9 @@ const DialogContent = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
 		return (
 			<Box
 				ref={ref as Ref<HTMLDivElement>}
-				baseClassName="card-content"
+				baseClassName="kf-card-content"
 				themeKey="consent-manager-dialog.content"
+				data-testid="consent-manager-dialog-content"
 				{...props}
 			>
 				{children}
@@ -164,13 +169,14 @@ const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
 		return (
 			<Box
 				ref={ref as Ref<HTMLDivElement>}
-				baseClassName="card-footer"
+				baseClassName="kf-card-footer"
 				themeKey="consent-manager-dialog.footer"
 				{...props}
+				data-testid="consent-manager-dialog-footer"
 			>
 				<a
 					className="consent-manager-widget-branding-link"
-					href="https://consent.management"
+					href="https://koroflow.com"
 				>
 					Secured by{' '}
 					<span className="consent-manager-widget-branding-link-span">
@@ -215,11 +221,11 @@ const ConsentCustomizationCard = ({ noStyle }: { noStyle?: boolean }) => (
 		<DialogFooter>
 			<a
 				className="consent-manager-widget-branding-link"
-				href="https://consent.management"
+				href="https://koroflow.com"
 			>
 				Secured by{' '}
 				<span className="consent-manager-widget-branding-link-span">
-					consent.management
+					Koroflow
 				</span>
 			</a>
 		</DialogFooter>

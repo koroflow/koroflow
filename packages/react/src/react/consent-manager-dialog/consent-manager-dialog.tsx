@@ -59,6 +59,8 @@ export interface ConsentManagerDialogProps
 	disableAnimation?: boolean;
 	/** Removes default styling when true */
 	noStyle?: boolean;
+	/** Whether the dialog is open */
+	open?: boolean;
 }
 
 /**
@@ -87,6 +89,7 @@ export const ConsentManagerDialog: FC<ConsentManagerDialogProps> = ({
 	theme,
 	disableAnimation,
 	noStyle,
+	open = false,
 }) => {
 	const consentManager = useConsentManager();
 	const [isMounted, setIsMounted] = useState(false);
@@ -116,11 +119,11 @@ export const ConsentManagerDialog: FC<ConsentManagerDialogProps> = ({
 			}}
 		>
 			<AnimatePresence mode="wait">
-				{consentManager.isPrivacyDialogOpen && (
+				{(open || consentManager.isPrivacyDialogOpen) && (
 					<>
-						<Overlay />
+						<Overlay open={open} />
 						<motion.dialog
-							className="consent-manager-dialog-root"
+							className="kf-consent-manager-dialog-root"
 							variants={dialogVariants}
 							initial="hidden"
 							animate="visible"
@@ -130,7 +133,7 @@ export const ConsentManagerDialog: FC<ConsentManagerDialogProps> = ({
 						>
 							<motion.div
 								ref={contentRef}
-								className="consent-manager-dialog-container"
+								className="kf-consent-manager-dialog-container"
 								variants={contentVariants}
 								initial="hidden"
 								animate="visible"

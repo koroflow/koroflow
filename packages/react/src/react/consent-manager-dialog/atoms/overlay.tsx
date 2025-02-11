@@ -39,6 +39,14 @@ interface OverlayProps {
 	 * - Maintains functionality without visual opinions
 	 */
 	noStyle?: boolean;
+
+	/**
+	 * Opens the overlay when true.
+	 *
+	 * @remarks
+	 * - Useful for testing purposes
+	 */
+	open?: boolean;
 }
 
 /**
@@ -64,17 +72,21 @@ interface OverlayProps {
  *
  * @public
  */
-const ConsentManagerDialogOverlay: FC<OverlayProps> = ({ noStyle }) => {
+const ConsentManagerDialogOverlay: FC<OverlayProps> = ({
+	noStyle,
+	open = false,
+}) => {
 	const { isPrivacyDialogOpen } = useConsentManager();
-	const { disableAnimation } = useThemeContext();
+	const { disableAnimation, noStyle: isThemeNoStyle } = useThemeContext();
+
 	const theme = useStyles('consent-manager-dialog.overlay', {
-		baseClassName: 'consent-manager-overlay',
-		noStyle,
+		baseClassName: 'kf-consent-manager-overlay',
+		noStyle: isThemeNoStyle || noStyle,
 	});
 
-	return isPrivacyDialogOpen ? (
+	return open || isPrivacyDialogOpen ? (
 		disableAnimation ? (
-			<div {...theme} />
+			<div {...theme} data-testid="consent-manager-dialog-overlay" />
 		) : (
 			<AnimatePresence>
 				<motion.div
@@ -82,6 +94,7 @@ const ConsentManagerDialogOverlay: FC<OverlayProps> = ({ noStyle }) => {
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
+					data-testid="consent-manager-dialog-overlay"
 				/>
 			</AnimatePresence>
 		)

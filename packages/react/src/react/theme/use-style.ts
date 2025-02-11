@@ -92,6 +92,7 @@ export function useStyles(
 	// Return the final merged style, ensuring immutability
 	return useMemo(() => {
 		if (mergedNoStyle) {
+			// When noStyle is true, only return theme styles if they exist
 			if (!themeStylesObject) return {};
 			const noStyleResult =
 				typeof themeStylesObject === 'string'
@@ -100,9 +101,9 @@ export function useStyles(
 							className: themeStylesObject.className,
 							style: themeStylesObject.style,
 						};
-
 			return noStyleResult;
 		}
+
 		// Ensure className is included and prevent duplication
 		const finalClassName = Array.from(
 			new Set(
@@ -116,8 +117,7 @@ export function useStyles(
 					.flat()
 			)
 		).join(' ');
-		const result = { ...finalMergedStyle, className: finalClassName };
 
-		return result;
+		return { ...finalMergedStyle, className: finalClassName };
 	}, [finalMergedStyle, mergedNoStyle, themeStylesObject, componentStyle]);
 }

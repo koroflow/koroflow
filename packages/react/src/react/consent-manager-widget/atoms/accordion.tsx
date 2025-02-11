@@ -27,7 +27,7 @@ const ConsentManagerWidgetAccordionSubGroup = forwardRef<
 	return (
 		<Box
 			ref={ref as Ref<HTMLDivElement>}
-			baseClassName="accordion-trigger-sub-group"
+			baseClassName="kf-accordion-trigger-sub-group"
 			themeKey={'consent-manager-widget.accordion.trigger-sub-group'}
 			{...props}
 		>
@@ -71,11 +71,18 @@ const ConsentManagerWidgetAccordionItems = () => {
 		<ConsentManagerWidgetAccordionItem
 			value={consent.name}
 			key={consent.name}
-			themeKey="consent-manager-widget.accordion.item"
+			themeKey={`consent-manager-widget.accordion.item-${consent.name}`}
 		>
-			<ConsentManagerWidgetAccordionTrigger themeKey="consent-manager-widget.accordion.trigger">
-				<ConsentManagerWidgetAccordionSubGroup>
-					<ConsentManagerWidgetAccordionArrow />
+			<ConsentManagerWidgetAccordionTrigger
+				themeKey="consent-manager-widget.accordion.trigger"
+				data-testid={`consent-manager-widget-accordion-trigger-${consent.name}`}
+			>
+				<ConsentManagerWidgetAccordionSubGroup
+					data-testid={`consent-manager-widget-accordion-sub-group-${consent.name}`}
+				>
+					<ConsentManagerWidgetAccordionArrow
+						data-testid={`consent-manager-widget-accordion-arrow-${consent.name}`}
+					/>
 					{consent.name.replace('_', ' ').charAt(0).toUpperCase() +
 						consent.name.replace('_', ' ').slice(1)}
 				</ConsentManagerWidgetAccordionSubGroup>
@@ -94,6 +101,7 @@ const ConsentManagerWidgetAccordionItems = () => {
 						thumb: { themeKey: 'consent-manager-widget.switch.thumb' },
 						track: { themeKey: 'consent-manager-widget.switch.track' },
 					}}
+					data-testid={`consent-manager-widget-switch-${consent.name}`}
 				/>
 			</ConsentManagerWidgetAccordionTrigger>
 			<ConsentManagerWidgetAccordionContent
@@ -103,6 +111,7 @@ const ConsentManagerWidgetAccordionItems = () => {
 						themeKey: 'consent-manager-widget.accordion.content',
 					},
 				}}
+				data-testid={`consent-manager-widget-accordion-content-${consent.name}`}
 			>
 				{consent.description}
 			</ConsentManagerWidgetAccordionContent>
