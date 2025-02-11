@@ -26,7 +26,8 @@
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
 		"schema-dts": "^1.1.2",
-		"sonner": "^1.7.4"
+		"sonner": "^1.7.4",
+		"zod": "^3.24.1"
 	},
 	"devDependencies": {
 		"@consent-management/typescript-config": "workspace:*",
