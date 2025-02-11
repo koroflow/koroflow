@@ -8,7 +8,7 @@ import { Footer } from './_components/footer';
 import { siteConfig } from './config';
 
 export const metadata: Metadata = {
-	title: `Koroflow: ${siteConfig.hero.title}`,
+	title: `c15t: ${siteConfig.hero.title}`,
 	description: siteConfig.hero.description,
 };
 

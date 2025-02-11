@@ -17,7 +17,7 @@ import GetStarted from '../../public/cookie-banner.png';
 export const linkItems: LinkItemType[] = [
 	{
 		type: 'icon',
-		url: 'https://github.com/koroflow/consent-management',
+		url: 'https://github.com/koroflow/c15t',
 		text: 'Github',
 		icon: <GithubIcon className="h-5 w-5" />,
 		external: true,
@@ -68,8 +68,16 @@ export const homePageOptions: BaseLayoutProps = {
 	},
 	links: [
 		{
+			text: 'Getting Started',
+			url: '/docs/framework/docs',
+		},
+		{
+			text: 'Core',
+			url: '/docs/core',
+		},
+		{
 			type: 'menu',
-			text: 'Documentation',
+			text: 'React',
 			url: '/docs/framework/react',
 			items: [
 				{
@@ -137,6 +145,10 @@ export const homePageOptions: BaseLayoutProps = {
 					},
 				},
 			],
+		},
+		{
+			text: 'Release Notes',
+			url: '/docs/release-notes',
 		},
 	],
 };

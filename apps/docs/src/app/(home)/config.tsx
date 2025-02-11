@@ -2,7 +2,7 @@ import {
 	Bolt,
 	Brain,
 	CodeIcon,
-	EyeIcon,
+	LanguagesIcon,
 	Server,
 	ShieldIcon,
 	ZapIcon,
@@ -27,7 +27,7 @@ export const siteConfig = {
 	links: {
 		email: 'support@c15t.com',
 		twitter: 'https://x.com/koroflow',
-		github: 'https://github.com/koroflow/consent-management',
+		github: 'https://github.com/koroflow/c15t',
 	},
 	hero: {
 		title: 'Consent infrastructure for the modern web',
@@ -57,6 +57,11 @@ export const siteConfig = {
 			icon: <Brain className="h-6 w-6" />,
 		},
 		{
+			name: 'i18n included',
+			description: 'Built-in internationalization support.',
+			icon: <LanguagesIcon className="h-6 w-6" />,
+		},
+		{
 			name: 'Performance First',
 			description: 'Minimal bundle impact, tree-shakable.',
 			icon: <ZapIcon className="h-6 w-6" />,
@@ -70,12 +75,6 @@ export const siteConfig = {
 			name: 'Open Source',
 			description: 'GNU3 license and open source from day one.',
 			icon: <Server className="h-6 w-6" />,
-		},
-		{
-			name: 'Complete Observability',
-			comingSoon: true,
-			description: 'Track and analyze privacy consent patterns.',
-			icon: <EyeIcon className="h-6 w-6" />,
 		},
 		{
 			name: 'Event Relay System',
@@ -99,7 +98,7 @@ export const siteConfig = {
 				items: [
 					{
 						text: 'GitHub',
-						url: 'https://github.com/koroflow/consent-management',
+						url: 'https://github.com/koroflow/c15t',
 						external: true,
 					},
 					{ text: 'Twitter', url: 'https://x.com/koroflow', external: true },

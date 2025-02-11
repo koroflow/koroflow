@@ -12,9 +12,7 @@ export function Header({ onClose }: HeaderProps) {
 			<div className="flex items-center justify-between border-b p-4">
 				<div className="flex items-center gap-2">
 					<Shield className="h-4 w-4" />
-					<span className="font-medium text-sm">
-						consent.management Dev Tool
-					</span>
+					<span className="font-medium text-sm">c15t.com Dev Tool</span>
 				</div>
 				<Button
 					variant="ghost"

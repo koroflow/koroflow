@@ -161,7 +161,7 @@ const DialogContent = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
  *
  * @remarks
  * - Should be the last child of DialogCard
- * - Includes Koroflow branding by default
+ * - Includes c15t branding by default
  * - Can be customized through theme configuration
  */
 const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
@@ -180,7 +180,7 @@ const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
 				>
 					Secured by{' '}
 					<span className="consent-manager-widget-branding-link-span">
-						consent.management
+						c15t
 					</span>
 				</a>
 			</Box>
@@ -226,17 +226,7 @@ const ConsentCustomizationCard = ({ noStyle }: { noStyle?: boolean }) => {
 					useProvider={false}
 				/>
 			</DialogContent>
-			<DialogFooter>
-				<a
-					className="kf-consent-manager-widget-branding-link"
-					href="https://koroflow.com"
-				>
-					Secured by{' '}
-					<span className="kf-consent-manager-widget-branding-link-span">
-						Koroflow
-					</span>
-				</a>
-			</DialogFooter>
+			<DialogFooter />
 		</DialogCard>
 	);
 };

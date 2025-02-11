@@ -1,5 +1,5 @@
 name: "🐛 Bug Report"
-description: Report a bug in Koroflow
+description: Report a bug in c15t
 labels: ["Bug", "Needs Approval"]
 body:
   - type: markdown
@@ -8,9 +8,9 @@ body:
         Thanks for taking the time to report a bug! Please fill out this form as completely as possible.
         
         Before reporting:
-        1. Search [existing issues](https://github.com/koroflow/consent-management/issues)
+        1. Search [existing issues](https://github.com/koroflow/c15t/issues)
         2. Try the latest version
-        3. Read the [documentation](https://consent.management/docs)
+        3. Read the [documentation](https://c15t.com/docs)
   
   - type: dropdown
     id: severity
@@ -29,7 +29,7 @@ body:
     id: version
     attributes:
       label: Version
-      description: What version of Koroflow are you using?
+      description: What version of c15t are you using?
       placeholder: "e.g., 1.0.0"
     validations:
       required: true
