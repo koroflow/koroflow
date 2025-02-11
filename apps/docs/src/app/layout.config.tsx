@@ -69,7 +69,7 @@ export const homePageOptions: BaseLayoutProps = {
 	links: [
 		{
 			text: 'Getting Started',
-			url: '/docs/framework/docs',
+			url: '/docs',
 		},
 		{
 			text: 'Core',
@@ -146,9 +146,9 @@ export const homePageOptions: BaseLayoutProps = {
 				},
 			],
 		},
-		{
-			text: 'Release Notes',
-			url: '/docs/release-notes',
-		},
+		// {
+		// 	text: 'Release Notes',
+		// 	url: '/docs/release-notes',
+		// },
 	],
 };

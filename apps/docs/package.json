@@ -4,7 +4,7 @@
 	"scripts": {
 		"build": "next build",
 		"check-types": "tsc --noEmit",
-		"dev": "next dev",
+		"dev": "next dev --turbo",
 		"fmt": "pnpm biome format --write .",
 		"postinstall": "fumadocs-mdx",
 		"lint": "pnpm biome lint ./src",

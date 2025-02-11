@@ -35,13 +35,13 @@ export const navigation = {
 		},
 	],
 	secondaryLinks: [
-		{ name: 'Getting Started', href: '/docs' },
+		{ name: 'Getting Started', href: '/docs/getting-started' },
 		{ name: 'Core', href: '/docs/core' },
 		{ name: 'React', href: '/docs/framework/react' },
 		// {
 		// 	name: 'Privacy Regulations',
 		// 	href: '/docs/privacy-regulations',
 		// },
-		{ name: 'Release Notes', href: '/docs/release-notes' },
+		// { name: 'Release Notes', href: '/docs/release-notes' },
 	],
 };

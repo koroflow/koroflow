@@ -3,19 +3,19 @@ import { createMDXSource } from 'fumadocs-mdx';
 import {
 	core,
 	coreMeta,
-	docs,
-	docsMeta,
 	framework,
 	frameworkMeta,
+	gettingStarted,
+	gettingStartedMeta,
 	privacyRegulations,
 	privacyRegulationsMeta,
 	releaseNotes,
 	releaseNotesMeta,
 } from '../../.source';
 
-export const source = loader({
-	baseUrl: '/docs',
-	source: createMDXSource(docs, docsMeta),
+export const gettingStartedSource = loader({
+	baseUrl: '/docs/getting-started',
+	source: createMDXSource(gettingStarted, gettingStartedMeta),
 });
 
 export const releaseNotesSource = loader({

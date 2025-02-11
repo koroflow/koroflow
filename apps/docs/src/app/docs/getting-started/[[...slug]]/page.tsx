@@ -1,8 +1,8 @@
-import { source } from '~/lib/source';
+import { gettingStartedSource } from '~/lib/source';
 import {
 	SharedDocsPage,
 	generateSharedMetadata,
-} from '../_components/shared-docs-page';
+} from '../../_components/shared-docs-page';
 
 /**
  * The main documentation page component that renders content based on the current slug.
@@ -16,7 +16,7 @@ export default async function Page(props: {
 	params: Promise<{ slug?: string[] }>;
 }) {
 	const params = await props.params;
-	return SharedDocsPage({ params, source });
+	return SharedDocsPage({ params, source: gettingStartedSource });
 }
 
 /**
@@ -24,7 +24,8 @@ export default async function Page(props: {
  *
  * @returns A promise that resolves to an array of valid route parameters
  */
-export const generateStaticParams = async () => source.generateParams();
+export const generateStaticParams = async () =>
+	gettingStartedSource.generateParams();
 
 /**
  * Generates the metadata for the current documentation page.
@@ -38,5 +39,5 @@ export async function generateMetadata(props: {
 	params: Promise<{ slug?: string[] }>;
 }) {
 	const params = await props.params;
-	return generateSharedMetadata(params, source);
+	return generateSharedMetadata(params, gettingStartedSource);
 }
