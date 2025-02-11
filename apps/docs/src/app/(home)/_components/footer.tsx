@@ -45,9 +45,9 @@ export function Footer() {
 			</footer>
 
 			{/* BorderText Component */}
-			<div className="container mt-4 h-[215px] overflow-hidden">
+			<div className="container mt-4 h-[135px] overflow-hidden">
 				<div className="flex w-full justify-center">
-					<div className="bg-gradient-to-tr from-white/40 to-white/10 bg-clip-text font-bold text-[200px] text-transparent tracking-tighter">
+					<div className="bg-gradient-to-tr from-white/40 to-white/10 bg-clip-text font-bold text-[125px] text-transparent tracking-tighter">
 						consent.management
 					</div>
 				</div>
