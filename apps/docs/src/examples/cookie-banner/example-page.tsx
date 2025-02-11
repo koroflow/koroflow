@@ -4,7 +4,6 @@ export const defaultPage = `import {
 	CookieBanner,
 } from '@consent-management/react';
 import { ExampleContent } from './exampleContent';
-import '@consent-management/react/globals.css';
 
 function App() {
     return (
