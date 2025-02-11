@@ -1,6 +1,7 @@
 {
 	"name": "@consent-management-examples/astro-react",
 	"type": "module",
+	"private": true,
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro build",
