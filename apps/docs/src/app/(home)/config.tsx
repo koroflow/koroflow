@@ -13,7 +13,8 @@ export const BLUR_FADE_DELAY = 0.15;
 
 export const siteConfig = {
 	name: 'Consent Management',
-	description: 'Consent infrastructure for the modern web.',
+	description:
+		'Transform privacy consent from a compliance checkbox into a fully observable system. Built for modern development teams, c15t unifies analytics, consent tracking, and privacy controls into a single performant solution',
 	cta: 'Get Started',
 	url: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
 	keywords: [

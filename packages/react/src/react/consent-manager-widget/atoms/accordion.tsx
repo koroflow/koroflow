@@ -8,10 +8,10 @@ import {
 	useCallback,
 } from 'react';
 import { useConsentManager } from '../../common';
+import { useTranslations } from '../../common/store/use-translations';
 import { Box, type BoxProps } from '../../primitives/box';
 import * as RadixAccordion from '../../ui/components/accordion';
 import * as RadixSwitch from '../../ui/components/switch';
-
 /**
  * Accordion sub-group component for organizing consent options.
  *
@@ -67,6 +67,12 @@ const ConsentManagerWidgetAccordionItems = () => {
 		},
 		[setConsent]
 	);
+
+	function formatConsentName(name: AllConsentNames) {
+		return name.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+	}
+
+	const { consentTypes } = useTranslations();
 	return getDisplayedConsents().map((consent) => (
 		<ConsentManagerWidgetAccordionItem
 			value={consent.name}
@@ -83,8 +89,7 @@ const ConsentManagerWidgetAccordionItems = () => {
 					<ConsentManagerWidgetAccordionArrow
 						data-testid={`consent-manager-widget-accordion-arrow-${consent.name}`}
 					/>
-					{consent.name.replace('_', ' ').charAt(0).toUpperCase() +
-						consent.name.replace('_', ' ').slice(1)}
+					{consentTypes[consent.name]?.title ?? formatConsentName(consent.name)}
 				</ConsentManagerWidgetAccordionSubGroup>
 
 				<ConsentManagerWidgetSwitch
@@ -113,7 +118,7 @@ const ConsentManagerWidgetAccordionItems = () => {
 				}}
 				data-testid={`consent-manager-widget-accordion-content-${consent.name}`}
 			>
-				{consent.description}
+				{consentTypes[consent.name]?.description ?? consent.description}
 			</ConsentManagerWidgetAccordionContent>
 		</ConsentManagerWidgetAccordionItem>
 	));

@@ -10,6 +10,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { type FC, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useConsentManager } from '../common';
+import { createThemeContextValue } from '../common/utils/theme';
 import { ThemeContext, type ThemeContextValue } from '../theme';
 import { ConsentCustomizationCard } from './atoms/dialog-card';
 import { Overlay } from './atoms/overlay';
@@ -107,17 +108,17 @@ export const ConsentManagerDialog: FC<ConsentManagerDialogProps> = ({
 		disableAnimation,
 	};
 
+	const mergedContextValue = createThemeContextValue(
+		consentManager,
+		contextValue
+	);
+
 	/**
 	 * Dialog content with theme context and animation support
 	 * @internal
 	 */
 	const dialogContentRoot = (
-		<ThemeContext.Provider
-			value={{
-				...consentManager,
-				...contextValue,
-			}}
-		>
+		<ThemeContext.Provider value={mergedContextValue}>
 			<AnimatePresence mode="wait">
 				{(open || consentManager.isPrivacyDialogOpen) && (
 					<>

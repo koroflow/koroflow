@@ -12,6 +12,7 @@ import type {
 	ConsentState,
 	ConsentType,
 	PrivacySettings,
+	TranslationConfig,
 	consentTypes,
 } from './types';
 
@@ -72,6 +73,15 @@ export interface PrivacyConsentState {
 
 	/** Privacy-related settings */
 	privacySettings: PrivacySettings;
+
+	/** Translation configuration */
+	translationConfig: TranslationConfig;
+
+	/**
+	 * Updates the translation configuration.
+	 * @param config - The new translation configuration
+	 */
+	setTranslationConfig: (config: TranslationConfig) => void;
 
 	/** Whether to include non-displayed consents in operations */
 	includeNonDisplayedConsents: boolean;

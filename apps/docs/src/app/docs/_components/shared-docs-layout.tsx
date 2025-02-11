@@ -59,7 +59,7 @@ export function SharedDocsLayout({
 								component: (
 									<Sidebar
 										aria-label="Documentation navigation"
-										className="fixed top-[120px] z-30 md:sticky md:h-[var(--fd-sidebar-height)] md:ps-[var(--fd-layout-offset)]"
+										className="fixed sticky md:h-[var(--fd-sidebar-height)] md:ps-[var(--fd-layout-offset)] lg:top-[120px] lg:top-[120px]"
 									>
 										<SidebarViewport>
 											<SidebarPageTree />

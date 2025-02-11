@@ -12,7 +12,11 @@ import {
 } from './libs/consent-utils';
 import { initialState } from './store.initial-state';
 import type { PrivacyConsentState } from './store.type';
-import { type ConsentState, consentTypes } from './types';
+import {
+	type ConsentState,
+	type TranslationConfig,
+	consentTypes,
+} from './types';
 
 /** Storage key for persisting consent data in localStorage */
 const STORAGE_KEY = 'privacy-consent-storage';
@@ -409,6 +413,14 @@ export const createConsentManagerStore = (
 		 */
 		setIncludeNonDisplayedConsents: (include) =>
 			set({ includeNonDisplayedConsents: include }),
+
+		/**
+		 * Updates the translation configuration.
+		 * @param config - The new translation configuration
+		 */
+		setTranslationConfig: (config: TranslationConfig) => {
+			set({ translationConfig: config });
+		},
 	}));
 
 	if (typeof window !== 'undefined') {

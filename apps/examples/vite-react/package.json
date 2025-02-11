@@ -1,7 +1,6 @@
 {
-	"name": "@c15t/examples-vite-react",
+	"name": "@c15t-examples/vite-react",
 	"private": true,
-	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",

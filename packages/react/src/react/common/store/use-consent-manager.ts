@@ -4,7 +4,7 @@ import type {
 	createConsentManagerStore,
 } from '@c15t/core';
 import { useContext } from 'react';
-import { ConsentStateContext } from './consent-manager';
+import { ConsentStateContext } from '../context/consent-manager-context';
 
 /**
  * A custom React hook that provides access to the privacy consent state and management methods.

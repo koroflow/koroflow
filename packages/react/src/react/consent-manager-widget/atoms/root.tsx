@@ -8,6 +8,7 @@
 
 import type { FC, ReactNode } from 'react';
 import { useConsentManager } from '../../common';
+import { createThemeContextValue } from '../../common/utils/theme';
 import { Box } from '../../primitives/box';
 import { ThemeContext, type ThemeContextValue } from '../../theme';
 import type { ConsentManagerWidgetTheme } from '../theme';
@@ -102,11 +103,15 @@ const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
 	 * to create the context value for child components
 	 */
 	const contextValue = {
-		...consentManager,
 		disableAnimation,
 		noStyle,
 		theme,
 	};
+
+	const mergedContextValue = createThemeContextValue(
+		consentManager,
+		contextValue
+	);
 	const content = (
 		<Box
 			baseClassName="kf-consent-manager-widget"
@@ -120,7 +125,7 @@ const ConsentManagerWidgetRoot: FC<ConsentManagerWidgetRootProps> = ({
 
 	if (useProvider) {
 		return (
-			<ThemeContext.Provider value={contextValue}>
+			<ThemeContext.Provider value={mergedContextValue}>
 				{content}
 			</ThemeContext.Provider>
 		);

@@ -4,6 +4,7 @@
  */
 
 import type { PrivacyConsentState } from './store.type';
+import { defaultTranslationConfig } from './translations';
 import { type ConsentState, consentTypes } from './types';
 
 /**
@@ -92,6 +93,9 @@ export const initialState: Omit<
 		honorDoNotTrack: true,
 	},
 
+	/** Default translation configuration */
+	translationConfig: defaultTranslationConfig,
+
 	/** Don't include non-displayed consents by default */
 	includeNonDisplayedConsents: false,
 
@@ -111,6 +115,7 @@ export const initialState: Omit<
 	setDetectedCountry: () => {},
 	getDisplayedConsents: () => [],
 	hasConsented: () => false,
+	setTranslationConfig: () => {},
 	clearAllData: () => {},
 	updateConsentMode: () => {},
 	setPrivacySettings: () => {},

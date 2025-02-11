@@ -8,10 +8,10 @@
 
 import { type ReactNode, type Ref, forwardRef } from 'react';
 
+import { useTranslations } from '../../common/store/use-translations';
 import { ConsentManagerWidget } from '../../consent-manager-widget/consent-manager-widget';
 import { Box, type BoxProps } from '../../primitives/box';
 import type { ClassNameStyle } from '../../theme';
-
 /**
  * Props for the DialogCard and related components
  * @public
@@ -206,31 +206,40 @@ const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
  * - Includes consent type management
  * - Built-in accessibility features
  */
-const ConsentCustomizationCard = ({ noStyle }: { noStyle?: boolean }) => (
-	<DialogCard>
-		<DialogHeader>
-			<DialogHeaderTitle>Privacy Settings</DialogHeaderTitle>
-			<DialogHeaderDescription>
-				Customize your privacy settings here. You can choose which types of
-				cookies and tracking technologies you allow.
-			</DialogHeaderDescription>
-		</DialogHeader>
-		<DialogContent>
-			<ConsentManagerWidget hideBrading noStyle={noStyle} useProvider={false} />
-		</DialogContent>
-		<DialogFooter>
-			<a
-				className="consent-manager-widget-branding-link"
-				href="https://koroflow.com"
-			>
-				Secured by{' '}
-				<span className="consent-manager-widget-branding-link-span">
-					Koroflow
-				</span>
-			</a>
-		</DialogFooter>
-	</DialogCard>
-);
+const ConsentCustomizationCard = ({ noStyle }: { noStyle?: boolean }) => {
+	const translations = useTranslations();
+
+	return (
+		<DialogCard>
+			<DialogHeader>
+				<DialogHeaderTitle>
+					{translations.consentManagerDialog.title}
+				</DialogHeaderTitle>
+				<DialogHeaderDescription>
+					{translations.consentManagerDialog.description}
+				</DialogHeaderDescription>
+			</DialogHeader>
+			<DialogContent>
+				<ConsentManagerWidget
+					hideBrading
+					noStyle={noStyle}
+					useProvider={false}
+				/>
+			</DialogContent>
+			<DialogFooter>
+				<a
+					className="kf-consent-manager-widget-branding-link"
+					href="https://koroflow.com"
+				>
+					Secured by{' '}
+					<span className="kf-consent-manager-widget-branding-link-span">
+						Koroflow
+					</span>
+				</a>
+			</DialogFooter>
+		</DialogCard>
+	);
+};
 
 const Card = DialogCard;
 const Header = DialogHeader;
