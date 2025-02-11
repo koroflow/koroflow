@@ -36,7 +36,7 @@ export function useTranslations(): Translations {
 	return useMemo(() => {
 		const { translations = {}, defaultLanguage = 'en' } = translationConfig;
 
-    // Return translations for the default language, falling back to English if needed
+		// Return translations for the default language, falling back to English if needed
 		const selectedTranslations = translations[defaultLanguage];
 		if (isTranslations(selectedTranslations)) {
 			return selectedTranslations;
