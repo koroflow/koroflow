@@ -14,7 +14,7 @@ import { Installer } from '~/components/docs/installer';
 import { PoweredBy } from '~/components/docs/powered-by';
 import { Preview } from '~/components/docs/preview';
 import { Tab, Tabs } from '~/components/docs/tabs';
-import type { source as Source } from '~/lib/source';
+import type { Source } from '~/lib/source';
 
 /**
  * Custom MDX components used for rendering documentation content
@@ -38,7 +38,7 @@ const components = {
  */
 interface SharedDocsPageProps {
 	params: { slug?: string[] };
-	source: typeof Source;
+	source: Source;
 	otherComponents?: Record<string, ComponentType>;
 }
 
@@ -110,7 +110,7 @@ export function SharedDocsPage({
  */
 export function generateSharedMetadata(
 	params: { slug?: string[] },
-	source: typeof Source
+	source: Source
 ): Metadata {
 	const page = source.getPage(params.slug);
 

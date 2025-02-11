@@ -37,3 +37,10 @@ export const privacyRegulationsSource = loader({
 	baseUrl: '/docs/privacy-regulations',
 	source: createMDXSource(privacyRegulations, privacyRegulationsMeta),
 });
+
+export type Source =
+	| typeof gettingStartedSource
+	| typeof releaseNotesSource
+	| typeof frameworkSource
+	| typeof coreSource
+	| typeof privacyRegulationsSource;

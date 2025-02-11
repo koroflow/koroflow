@@ -7,7 +7,7 @@ import {
 import type { ReactNode } from 'react';
 import { docsOptions } from '~/app/layout.config';
 import { HeaderBg } from '~/components/docs/header-bg';
-import type { source } from '~/lib/source';
+import type { Source } from '~/lib/source';
 
 /**
  * Props for the SharedDocsLayout component
@@ -18,7 +18,7 @@ import type { source } from '~/lib/source';
  */
 interface SharedDocsLayoutProps {
 	children: ReactNode;
-	source: typeof source;
+	source: Source;
 	noSidebar?: boolean;
 }
 
@@ -59,7 +59,7 @@ export function SharedDocsLayout({
 								component: (
 									<Sidebar
 										aria-label="Documentation navigation"
-										className="fixed sticky md:h-[var(--fd-sidebar-height)] md:ps-[var(--fd-layout-offset)] lg:top-[120px] lg:top-[120px]"
+										className="fixed top-[calc(var(--fd-banner-height)+var(--fd-nav-height))] z-30 md:sticky md:h-[var(--fd-sidebar-height)] md:ps-[var(--fd-layout-offset)]"
 									>
 										<SidebarViewport>
 											<SidebarPageTree />
