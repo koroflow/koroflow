@@ -1,5 +1,5 @@
 name: "✨ Feature Request"
-description: Suggest a new feature for c15t
+description: Suggest a new feature for consent.management
 labels: ["Feature", "Needs Approval"]
 body:
   - type: markdown
@@ -8,7 +8,7 @@ body:
         Thanks for suggesting a feature! Please fill out this form as completely as possible.
         
         Before submitting:
-        1. Search [existing requests](https://github.com/koroflow/c15t/issues)
+        1. Search [existing requests](https://github.com/koroflow/consent-management/issues)
         2. Read the [documentation](https://consent.management/docs)
         3. Join our [Discord](https://consent.management/discord) for discussions
 

@@ -8,7 +8,7 @@ import { Footer } from './_components/footer';
 import { siteConfig } from './config';
 
 export const metadata: Metadata = {
-	title: `c15t: ${siteConfig.hero.title}`,
+	title: 'React Privacy Components for the Modern Web',
 	description: siteConfig.hero.description,
 };
 

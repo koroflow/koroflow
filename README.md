@@ -1,10 +1,10 @@
 <div align="center">
    <img src="https://koroflow.com/logo-icon.png" alt="Koroflow Logo" width="64" height="64" />
-  <h1>c15t by Koroflow</h1>
+  <h1>consent.management by Koroflow</h1>
   <p>Transform privacy consent from a compliance checkbox into a fully observable system</p>
 
-  [![GitHub stars](https://img.shields.io/github/stars/koroflow/c15t?style=flat-square)](https://github.com/koroflow/c15t)
-  [![CI](https://img.shields.io/github/actions/workflow/status/koroflow/c15t/ci.yml?style=flat-square)](https://github.com/koroflow/c15t/actions/workflows/ci.yml)
+  [![GitHub stars](https://img.shields.io/github/stars/koroflow/consent-management?style=flat-square)](https://github.com/koroflow/consent-management)
+  [![CI](https://img.shields.io/github/actions/workflow/status/koroflow/consent-management/ci.yml?style=flat-square)](https://github.com/koroflow/consent-management/actions/workflows/ci.yml)
   [![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg?style=flat-square)](LICENSE)
   [![Discord](https://img.shields.io/discord/1312171102268690493?style=flat-square)](https://discord.gg/koroflow)
 </div>
@@ -13,7 +13,7 @@
 
 Koroflow unifies analytics, consent tracking, and privacy controls into a single performant solution. Built for modern development teams, it transforms privacy management from a compliance burden into a fully observable system.
 
-### Why c15t?
+### Why consent.management?
 
 - 🚫 No more slow cookie banners
 - 👁️ Complete visibility into consent choices
@@ -70,7 +70,7 @@ Prerequisites:
 
 ```bash
 # Clone repository
-git clone https://github.com/koroflow/c15t.git
+git clone https://github.com/koroflow/consent-management.git
 cd c1t5
 
 # Install dependencies
@@ -110,11 +110,11 @@ pnpm test
 
 We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md).
 
-- 🐛 [Report bugs](https://github.com/koroflow/c15t/issues/new?template=bug_report.yml)
-- ✨ [Request features](https://github.com/koroflow/c15t/issues/new?template=feature_request.yml)
-- 📚 [Improve docs](https://github.com/koroflow/c15t/issues/new?template=doc_report.yml)
-- 🧪 [Fix tests](https://github.com/koroflow/c15t/issues/new?template=test.yml)
-- ⚡ [Report performance issues](https://github.com/koroflow/c15t/issues/new?template=performance.yml)
+- 🐛 [Report bugs](https://github.com/koroflow/consent-management/issues/new?template=bug_report.yml)
+- ✨ [Request features](https://github.com/koroflow/consent-management/issues/new?template=feature_request.yml)
+- 📚 [Improve docs](https://github.com/koroflow/consent-management/issues/new?template=doc_report.yml)
+- 🧪 [Fix tests](https://github.com/koroflow/consent-management/issues/new?template=test.yml)
+- ⚡ [Report performance issues](https://github.com/koroflow/consent-management/issues/new?template=performance.yml)
 
 ## 🌟 Self-Hosting vs Cloud
 

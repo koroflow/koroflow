@@ -17,7 +17,7 @@ import GetStarted from '../../public/cookie-banner.png';
 export const linkItems: LinkItemType[] = [
 	{
 		type: 'icon',
-		url: 'https://github.com/koroflow/c15t',
+		url: 'https://github.com/koroflow/consent-management',
 		text: 'Github',
 		icon: <GithubIcon className="h-5 w-5" />,
 		external: true,

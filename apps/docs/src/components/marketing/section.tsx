@@ -40,7 +40,7 @@ const Section = forwardRef<HTMLElement, SectionProps>(
 
 		return (
 			<section id={id} ref={ref}>
-				<div className={cn('container relative mx-auto', className)}>
+				<div className={cn('mx-auto max-w-7xl', className)}>
 					{(title || subtitle || description) && (
 						<div
 							className={cn(

@@ -14,7 +14,7 @@ export const BLUR_FADE_DELAY = 0.15;
 export const siteConfig = {
 	name: 'Consent Management',
 	description:
-		'Transform privacy consent from a compliance checkbox into a fully observable system. Built for modern development teams, c15t unifies analytics, consent tracking, and privacy controls into a single performant solution',
+		'Transform privacy consent from a compliance checkbox into a fully observable system. Built for modern development teams.',
 	cta: 'Get Started',
 	url: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
 	keywords: [
@@ -27,12 +27,12 @@ export const siteConfig = {
 	links: {
 		email: 'support@consent-management.com',
 		twitter: 'https://x.com/koroflow',
-		github: 'https://github.com/koroflow/c15t',
+		github: 'https://github.com/koroflow/consent-management',
 	},
 	hero: {
-		title: 'Consent infrastructure for the modern web',
+		title: 'React Privacy Components for the Modern Web',
 		description:
-			'Transform privacy consent from a compliance checkbox into a fully observable system. Built for developers who care about performance, privacy, and clean code.',
+			'Privacy management reimagined with React components. Built for developers who want observable consent flows, type-safety, and zero performance overhead.',
 		cta: { text: 'Get Started', href: '/docs/framework/react' },
 		demo: {
 			text: 'Book A Demo',
@@ -98,7 +98,7 @@ export const siteConfig = {
 				items: [
 					{
 						text: 'GitHub',
-						url: 'https://github.com/koroflow/c15t',
+						url: 'https://github.com/koroflow/consent-management',
 						external: true,
 					},
 					{ text: 'Twitter', url: 'https://x.com/koroflow', external: true },

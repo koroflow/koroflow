@@ -161,7 +161,7 @@ const DialogContent = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
  *
  * @remarks
  * - Should be the last child of DialogCard
- * - Includes c15t branding by default
+ * - Includes consent.management branding by default
  * - Can be customized through theme configuration
  */
 const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
@@ -180,7 +180,7 @@ const DialogFooter = forwardRef<HTMLDivElement, Omit<BoxProps, 'themeKey'>>(
 				>
 					Secured by{' '}
 					<span className="consent-manager-widget-branding-link-span">
-						c15t
+						consent.management
 					</span>
 				</a>
 			</Box>
