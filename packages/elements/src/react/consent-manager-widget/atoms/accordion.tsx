@@ -69,10 +69,7 @@ const ConsentManagerWidgetAccordionItems = () => {
 	);
 
 	function formatConsentName(name: AllConsentNames) {
-		return (
-			name.replace('_', ' ').charAt(0).toUpperCase() +
-			name.replace('_', ' ').slice(1)
-		);
+		return name.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 	}
 
 	const { consentTypes } = useTranslations();

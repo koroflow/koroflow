@@ -102,7 +102,7 @@ export function detectBrowserLanguage(
 		// Try primary language match (e.g., 'en' from 'en-US')
 		const primaryLang = normalizedLang.split('-')[0];
 
-		if (primaryLang && primaryLang in translations) {
+		if (primaryLang && availableLanguages.includes(primaryLang)) {
 			return primaryLang;
 		}
 	}
