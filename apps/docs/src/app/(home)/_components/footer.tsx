@@ -15,7 +15,7 @@ export function Footer() {
 						</span>
 					</div>
 					<div className="mt-8 font-normal text-sm text-white/60 leading-6">
-						{siteConfig.description}
+						{siteConfig.footer.bottomText}
 					</div>
 				</div>
 

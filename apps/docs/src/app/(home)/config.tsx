@@ -9,13 +9,10 @@ import {
 } from 'lucide-react';
 import { ReactIcon } from '~/components/icons/react';
 
-export const BLUR_FADE_DELAY = 0.15;
-
 export const siteConfig = {
 	name: 'Consent Management',
 	description:
-		'Transform privacy consent from a compliance checkbox into a fully observable system. Built for modern development teams.',
-	cta: 'Get Started',
+		'Leverage native React components for seamless integration and high performance in a robust content management solution that empowers your development team while prioritizing privacy and compliance.',
 	url: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
 	keywords: [
 		'Privacy Management',
@@ -30,9 +27,9 @@ export const siteConfig = {
 		github: 'https://github.com/koroflow/consent-management',
 	},
 	hero: {
-		title: 'React Privacy Components for the Modern Web',
+		title: 'Content Management Redefined',
 		description:
-			'Privacy management reimagined with React components. Built for developers who want observable consent flows, type-safety, and zero performance overhead.',
+			'Leverage native React components for seamless integration and high performance in a robust content management solution that empowers your development team while prioritizing privacy and compliance.',
 		cta: { text: 'Get Started', href: '/docs/framework/react' },
 		demo: {
 			text: 'Book A Demo',
@@ -117,8 +114,8 @@ export const siteConfig = {
 				],
 			},
 		],
-		bottomText: 'Open source privacy infrastructure.',
-		brandText: 'KOROFLOW',
+		bottomText:
+			'Leverage native React components for seamless integration and high performance in a robust content management solution that empowers your development team while prioritizing privacy and compliance.',
 	},
 };
 
