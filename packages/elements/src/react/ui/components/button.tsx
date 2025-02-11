@@ -31,14 +31,13 @@ const BUTTON_ICON_NAME = 'ButtonIcon';
  */
 export const buttonVariants = tv({
 	slots: {
-		root: ['button'],
-		icon: ['button-icon'],
+		root: ['kf-button'],
+		icon: ['kf-button-icon'],
 	},
 	variants: {
 		variant: {
 			primary: {},
 			neutral: {},
-			error: {},
 		},
 		mode: {
 			filled: {},
@@ -47,10 +46,10 @@ export const buttonVariants = tv({
 			ghost: {},
 		},
 		size: {
-			medium: { root: 'button-medium' },
-			small: { root: 'button-small' },
-			xsmall: { root: 'button-xsmall' },
-			xxsmall: { root: 'button-xxsmall' },
+			medium: { root: 'kf-button-medium' },
+			small: { root: 'kf-button-small' },
+			xsmall: { root: 'kf-button-xsmall' },
+			xxsmall: { root: 'kf-button-xxsmall' },
 		},
 	},
 	compoundVariants: [
@@ -58,66 +57,44 @@ export const buttonVariants = tv({
 		{
 			variant: 'primary',
 			mode: 'filled',
-			class: { root: 'button-primary-filled' },
+			class: { root: 'kf-button-primary-filled' },
 		},
 		{
 			variant: 'primary',
 			mode: 'stroke',
-			class: { root: 'button-primary-stroke' },
+			class: { root: 'kf-button-primary-stroke' },
 		},
 		{
 			variant: 'primary',
 			mode: 'lighter',
-			class: { root: 'button-primary-lighter' },
+			class: { root: 'kf-button-primary-lighter' },
 		},
 		{
 			variant: 'primary',
 			mode: 'ghost',
-			class: { root: 'button-primary-ghost' },
+			class: { root: 'kf-button-primary-ghost' },
 		},
 
 		// Neutral variants
 		{
 			variant: 'neutral',
 			mode: 'filled',
-			class: { root: 'button-neutral-filled' },
+			class: { root: 'kf-button-neutral-filled' },
 		},
 		{
 			variant: 'neutral',
 			mode: 'stroke',
-			class: { root: 'button-neutral-stroke' },
+			class: { root: 'kf-button-neutral-stroke' },
 		},
 		{
 			variant: 'neutral',
 			mode: 'lighter',
-			class: { root: 'button-neutral-lighter' },
+			class: { root: 'kf-button-neutral-lighter' },
 		},
 		{
 			variant: 'neutral',
 			mode: 'ghost',
-			class: { root: 'button-neutral-ghost' },
-		},
-
-		// Error variants
-		{
-			variant: 'error',
-			mode: 'filled',
-			class: { root: 'button-error-filled' },
-		},
-		{
-			variant: 'error',
-			mode: 'stroke',
-			class: { root: 'button-error-stroke' },
-		},
-		{
-			variant: 'error',
-			mode: 'lighter',
-			class: { root: 'button-error-lighter' },
-		},
-		{
-			variant: 'error',
-			mode: 'ghost',
-			class: { root: 'button-error-ghost' },
+			class: { root: 'kf-button-neutral-ghost' },
 		},
 	],
 	defaultVariants: {

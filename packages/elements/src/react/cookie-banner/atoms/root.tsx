@@ -228,7 +228,7 @@ const CookieBannerRootChildren = forwardRef<
 		 */
 		const contentStyle = useStyles('cookie-banner.root', {
 			baseClassName: [
-				'cookie-banner cookie-banner-root cookie-banner-root-bottom-left',
+				'kf-cookie-banner kf-cookie-banner-root kf-cookie-banner-root-bottom-left',
 			],
 			style,
 			className: className || forwardedClassName,

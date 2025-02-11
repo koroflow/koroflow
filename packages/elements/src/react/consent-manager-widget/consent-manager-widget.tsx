@@ -100,15 +100,15 @@ export const ConsentManagerWidget = ({
 			</ConsentManagerWidgetFooter>
 			{!hideBrading && (
 				<Box
-					baseClassName="consent-manager-widget-branding"
+					baseClassName="kf-consent-manager-widget-branding"
 					themeKey="consent-manager-widget.branding"
 				>
 					<a
-						className="consent-manager-widget-branding-link"
+						className="kf-consent-manager-widget-branding-link"
 						href="https://koroflow.com"
 					>
 						Secured by{' '}
-						<span className="consent-manager-widget-branding-link-span">
+						<span className="kf-consent-manager-widget-branding-link-span">
 							Koroflow
 						</span>
 					</a>

@@ -1,5 +1,15 @@
 /* Base switch variables */
-.switch {
+.kf-switch {
+
+  /* css reset */
+   font-family: inherit; /* 1 */
+	font-size: 100%; /* 1 */
+	line-height: 1.15; /* 1 */
+	margin: 0; /* 2 */
+	white-space: nowrap;
+	outline: none;
+  border: 0;
+  background: none;
 	/* Layout variables */
 	--kf-switch-height: 1.25rem;
 	--kf-switch-width: 2rem;
@@ -12,18 +22,29 @@
 	--kf-switch-thumb-size-disabled: 0.625rem;
 	--kf-switch-thumb-translate: 0.75rem;
 
-	/* Colors */
-	--kf-switch-bg-default: var(--kf-bg-soft-200);
-	--kf-switch-bg-hover: var(--kf-bg-sub-300);
-	--kf-switch-bg-checked: var(--kf-primary-base);
-	--kf-switch-bg-checked-hover: var(--kf-primary-darker);
-	--kf-switch-bg-disabled: var(--kf-bg-white-0);
-	--kf-switch-thumb-bg: var(--kf-static-white);
-	--kf-switch-thumb-disabled: var(--kf-bg-soft-200);
+	/* Default HSL values */
+	--kf-switch-bg-default: hsl(0, 0%, 92%);
+	--kf-switch-bg-hover: hsl(0, 0%, 82%);
+	--kf-switch-bg-checked: hsl(227.94, 100%, 60%);
+	--kf-switch-bg-checked-hover: hsl(228.07, 69.8%, 48.04%);
+	--kf-switch-bg-disabled: hsl(0, 0%, 100%);
+	--kf-switch-thumb-bg: hsl(0, 0%, 100%);
+	--kf-switch-thumb-disabled: hsl(0, 0%, 96.86%);
+}
+
+.dark .kf-switch {
+	/* Colors for dark mode */
+	--kf-switch-bg-default: hsl(0, 0%, 20%);
+	--kf-switch-bg-hover: hsl(0, 0%, 16.08%);
+	--kf-switch-bg-checked: hsl(227.94, 100%, 60%);
+	--kf-switch-bg-checked-hover: hsl(228.07, 69.8%, 48.04%);
+	--kf-switch-bg-disabled: hsl(0, 0%, 9.02%);
+	--kf-switch-thumb-bg: hsl(0, 0%, 100%);
+	--kf-switch-thumb-disabled: hsl(0, 0%, 20%);
 }
 
 /* Root switch wrapper */
-.switch-root {
+.kf-switch-root {
 	display: block;
 	height: var(--kf-switch-height);
 	width: var(--kf-switch-width);
@@ -33,57 +54,57 @@
 }
 
 /* Switch track */
-.switch-track {
+.kf-switch-track {
 	position: relative;
-	height: calc(var(--kf-switch-height) - 2 * var(--kf-switch-padding));
-	width: calc(var(--kf-switch-width) - 2 * var(--kf-switch-padding));
+	height: calc(var(--kf-switch-height) * var(--kf-switch-padding));
+	width: calc(var(--kf-switch-width) * var(--kf-switch-padding));
 	border-radius: 9999px;
 	padding: var(--kf-switch-padding);
-	background-color: hsl(var(--kf-switch-bg-default));
+	background-color: var(--kf-switch-bg-default);
 	outline: none;
 	transition: all var(--kf-switch-duration) var(--kf-switch-ease);
 }
 
 /* Track states */
-.switch-track:hover {
-	background-color: hsl(var(--kf-switch-bg-hover));
+.kf-switch-track:hover {
+	background-color: var(--kf-switch-bg-hover);
 }
 
-.switch-track:focus-visible {
-	background-color: hsl(var(--kf-switch-bg-hover));
+.kf-switch-track:focus-visible {
+	background-color: var(--kf-switch-bg-hover);
 }
 
-.switch-track:active {
-	background-color: hsl(var(--kf-switch-bg-default));
+.kf-switch-track:active {
+	background-color: var(--kf-switch-bg-default);
 }
 
-.switch-root[data-state="checked"] .switch-track {
-	background-color: hsl(var(--kf-switch-bg-checked));
+.kf-switch-root[data-state="checked"] .kf-switch-track {
+	background-color: var(--kf-switch-bg-checked);
 }
 
-.switch-root[data-state="checked"]:hover .switch-track {
-	background-color: hsl(var(--kf-switch-bg-checked-hover));
+.kf-switch-root[data-state="checked"]:hover .kf-switch-track {
+	background-color: var(--kf-switch-bg-checked-hover);
 }
 
 /* Disabled states */
-.switch-root[data-disabled] {
+.kf-switch-root[data-disabled] {
 	cursor: not-allowed;
 }
 
-.switch-root[data-disabled] .switch-track {
-	background-color: hsl(var(--kf-switch-bg-disabled));
+.kf-switch-root[data-disabled] .kf-switch-track {
+	background-color: var(--kf-switch-bg-disabled);
 	opacity: 0.4;
-	box-shadow: inset 0 0 0 1px hsl(var(--kf-stroke-soft-200));
+	box-shadow: inset 0 0 0 1px hsl(0, 0%, 92.16%);
 }
 
-.switch-root[data-disabled][data-state="checked"] .switch-track {
-	background-color: hsl(var(--kf-switch-bg-checked));
+.kf-switch-root[data-disabled][data-state="checked"] .kf-switch-track {
+	background-color: var(--kf-switch-bg-checked);
 	opacity: 0.4;
 	box-shadow: none;
 }
 
 /* Switch thumb */
-.switch-thumb {
+.kf-switch-thumb {
 	position: relative;
 	display: block;
 	pointer-events: none;
@@ -94,14 +115,14 @@
 }
 
 /* Thumb states */
-.switch-thumb::before {
+.kf-switch-thumb::before {
 	content: "";
 	position: absolute;
 	inset-block: 0;
 	left: 0;
 	width: 100%;
 	border-radius: 9999px;
-	background-color: hsl(var(--kf-switch-thumb-bg));
+	background-color: var(--kf-switch-thumb-bg);
 	mask: radial-gradient(
 			circle farthest-side at 50% 50%,
 			#0000 1.95px,
@@ -110,7 +131,7 @@
 		50% 50% / 100% 100% no-repeat;
 }
 
-.switch-thumb::after {
+.kf-switch-thumb::after {
 	content: "";
 	position: absolute;
 	inset-block: 0;
@@ -120,25 +141,19 @@
 	box-shadow: var(--kf-shadow-switch-thumb);
 }
 
-.switch-root[data-state="checked"] .switch-thumb {
+.kf-switch-root[data-state="checked"] .kf-switch-thumb {
 	transform: translateX(var(--kf-switch-thumb-translate));
 }
 
-.switch-track:active .switch-thumb {
+.kf-switch-track:active .kf-switch-thumb {
 	transform: scale(0.833);
 }
 
 /* Disabled thumb */
-.switch-root[data-disabled] .switch-thumb {
-	width: var(--kf-switch-thumb-size-disabled);
-	height: var(--kf-switch-thumb-size-disabled);
+.kf-switch-root[data-disabled] .kf-switch-thumb {
 	box-shadow: none;
-	margin: calc(
-		(var(--kf-switch-thumb-size) - var(--kf-switch-thumb-size-disabled)) /
-		2
-	);
 }
 
-.switch-root[data-disabled][data-state="checked"] .switch-thumb {
+.kf-switch-root[data-disabled][data-state="checked"] .kf-switch-thumb {
 	transform: translateX(var(--kf-switch-thumb-translate));
 }

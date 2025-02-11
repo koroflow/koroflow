@@ -62,14 +62,12 @@ export const ConsentButton = forwardRef<
 
 		const buttonStyle = useStyles(themeKey ?? 'button', {
 			baseClassName: [
-				!(contextNoStyle || noStyle) && [
+				!(contextNoStyle || noStyle) &&
 					Button.buttonVariants({
 						variant,
 						mode,
 						size,
 					}).root(),
-					'consent-button',
-				],
 			],
 			style,
 			className: forwardedClassName,
