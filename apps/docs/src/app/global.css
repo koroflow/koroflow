@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "fumadocs-ui/css/vitepress.css";
+@import "fumadocs-ui/css/black.css";
 @import "fumadocs-ui/css/preset.css";
 
 @source "../../node_modules/fumadocs-ui/dist/**/*.js";
