@@ -68,7 +68,7 @@ export const Preview = ({
 	return (
 		<div
 			className={cn(
-				'not-prose relative overflow-hidden rounded-lg border-2 bg-gradient-to-b from-fd-card/80 to-fd-card shadow-[0_0_1px_1px_rgba(0,0,0,0.1)]'
+				'not-prose relative overflow-hidden rounded-lg border-1 bg-gradient-to-b from-fd-card/80 to-fd-card shadow-[0_0_1px_1px_rgba(0,0,0,0.1)]'
 			)}
 		>
 			<div className="transition-opacity duration-500" aria-hidden="true">

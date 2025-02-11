@@ -39,7 +39,7 @@ const Section = forwardRef<HTMLElement, SectionProps>(
 		const marginClass = marginClasses[align ?? 'center'];
 
 		return (
-			<section id={id} ref={ref}>
+			<section id={id} ref={ref} className="px-4 sm:px-6 md:px-8">
 				<div className={cn('mx-auto max-w-7xl', className)}>
 					{(title || subtitle || description) && (
 						<div

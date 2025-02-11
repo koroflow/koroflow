@@ -56,7 +56,7 @@ export function Hero() {
 						</span>
 					</h1>
 					<div className="flex w-full flex-col justify-between gap-6 sm:flex-row">
-						<p className="z-20 max-w-1xl text-balance text-left text-muted-foreground text-sm leading-normal sm:text-base lg:text-lg">
+						<p className="z-20 max-w-xl text-balance text-left text-muted-foreground text-sm leading-normal sm:text-base lg:text-lg">
 							{siteConfig.hero.description}
 						</p>
 						<div className="relative flex flex-col items-start justify-start gap-4 sm:flex-row sm:items-center sm:justify-end">
@@ -102,10 +102,10 @@ export function Hero() {
 					</div>
 				</div>
 
-				<BorderIcon className="-top-3 -left-3 absolute h-4 w-4 text-black sm:h-6 sm:w-6 dark:text-white" />
-				<BorderIcon className="-bottom-3 -left-3 absolute h-4 w-4 text-black sm:h-6 sm:w-6 dark:text-white" />
-				<BorderIcon className="-top-3 -right-3 absolute h-4 w-4 text-black sm:h-6 sm:w-6 dark:text-white" />
-				<BorderIcon className="-bottom-3 -right-3 absolute h-4 w-4 text-black sm:h-6 sm:w-6 dark:text-white" />
+				<BorderIcon className="-top-2 sm:-top-3 -left-2 sm:-left-3 absolute h-4 w-4 text-black sm:h-6 sm:w-6 dark:text-white" />
+				<BorderIcon className="-bottom-2 sm:-bottom-3 -left-2 sm:-left-3 absolute h-4 w-4 text-black sm:h-6 sm:w-6 dark:text-white" />
+				<BorderIcon className="-top-2 sm:-top-3 -right-2 sm:-right-3 absolute h-4 w-4 text-black sm:h-6 sm:w-6 dark:text-white" />
+				<BorderIcon className="-bottom-2 sm:-bottom-3 -right-2 sm:-right-3 absolute h-4 w-4 text-black sm:h-6 sm:w-6 dark:text-white" />
 			</div>
 		</Section>
 	);

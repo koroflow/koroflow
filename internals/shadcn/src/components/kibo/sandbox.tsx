@@ -66,9 +66,9 @@ const githubLight = {
 const githubDark = {
 	...githubLight,
 	colors: {
-		surface1: '#18191c',
-		surface2: '#18191c',
-		surface3: '#18191c',
+		surface1: '#151616',
+		surface2: '#151616',
+		surface3: '#151616',
 		clickable: '#959da5',
 		base: '#e1e4e8',
 		disabled: '#6a737d',
@@ -234,7 +234,7 @@ export const SandboxTabs = ({
 			<div
 				className={cn(
 					'group relative flex size-full flex-col',
-					'overflow-hidden rounded-lg border border-white/10',
+					'overflow-hidden rounded-lg',
 					'bg-gradient-to-b from-fd-card/80 to-fd-card',
 					'shadow-[0_0_1px_1px_rgba(0,0,0,0.1)]',
 					className
@@ -256,7 +256,7 @@ export const SandboxTabsList = ({
 }: SandboxTabsListProps) => (
 	<div
 		className={cn(
-			'flex h-13 flex-row items-center gap-2 overflow-x-auto border-fd-primary/10 border-b bg-gradient-to-b from-fd-background/80 to-transparent px-4 py-2 text-fd-muted-foreground shadow-[inset_0_-1px_0_rgba(0,0,0,0.1)]',
+			'flex h-13 flex-row items-center gap-2 overflow-x-auto overflow-y-hidden border-fd-primary/10 border-b bg-gradient-to-b from-fd-background/80 to-transparent px-4 py-2 text-fd-muted-foreground shadow-[inset_0_-1px_0_rgba(0,0,0,0.1)]',
 			className
 		)}
 		role="tablist"
