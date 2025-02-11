@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { ConsentManagementIcon } from '~/components/icons/logo';
+
+import { LogoWithBadge } from '~/components/logo';
 import { siteConfig } from '../config';
 
 export function Footer() {
@@ -8,12 +9,7 @@ export function Footer() {
 			<footer className="container relative mx-auto grid grid-cols-2 gap-8 overflow-hidden pt-8 sm:grid-cols-3 sm:pt-12 md:pt-16 lg:gap-16 lg:pt-24 xl:grid-cols-5 xl:pt-32">
 				{/* Logo and Description Column */}
 				<div className="col-span-2 flex flex-col items-center sm:col-span-3 sm:items-start xl:col-span-2">
-					<div className="flex flex-row gap-4">
-						<ConsentManagementIcon className="h-6 w-auto text-black dark:text-white" />
-						<span className="inline-flex items-center rounded-full border bg-fd-primary/10 px-2.5 py-0.5 font-semibold text-fd-primary text-xs">
-							RC 1
-						</span>
-					</div>
+						<LogoWithBadge/>
 					<div className="mt-8 font-normal text-sm text-white/60 leading-6">
 						{siteConfig.footer.bottomText}
 					</div>

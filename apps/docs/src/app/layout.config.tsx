@@ -3,6 +3,7 @@ import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 import Image from 'next/image';
 import { GithubIcon } from '~/components/icons/github';
 import { XIcon } from '~/components/icons/x';
+import GetStarted from '../../public/cookie-banner.png';
 
 import {
 	Book,
@@ -11,8 +12,7 @@ import {
 	MessageSquareCode,
 	Palette,
 } from 'lucide-react';
-import { ConsentManagementIcon } from '~/components/icons/logo';
-import GetStarted from '../../public/cookie-banner.png';
+import { LogoWithBadge } from '~/components/logo';
 
 export const linkItems: LinkItemType[] = [
 	{
@@ -40,14 +40,7 @@ export const linkItems: LinkItemType[] = [
  */
 export const docsOptions: BaseLayoutProps = {
 	nav: {
-		title: (
-			<>
-				<ConsentManagementIcon className="h-6 w-auto text-black dark:text-white" />
-				<span className="inline-flex items-center rounded-full border bg-fd-primary/10 px-2.5 py-0.5 font-semibold text-fd-primary text-xs">
-					RC 1
-				</span>
-			</>
-		),
+		title: <LogoWithBadge />,
 		// transparentMode: 'top',
 		component: undefined,
 	},
@@ -56,14 +49,7 @@ export const docsOptions: BaseLayoutProps = {
 
 export const homePageOptions: BaseLayoutProps = {
 	nav: {
-		title: (
-			<>
-				<ConsentManagementIcon className="h-6 w-auto text-black dark:text-white" />
-				<span className="inline-flex items-center rounded-full border bg-fd-primary/10 px-2.5 py-0.5 font-semibold text-fd-primary text-xs">
-					RC 1
-				</span>
-			</>
-		),
+		title: <LogoWithBadge />,
 		transparentMode: 'top',
 	},
 	links: [
