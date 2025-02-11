@@ -1,4 +1,4 @@
-# @consent-management/core
+# @c15t/core
 
 
 ## 0.0.1-beta.11

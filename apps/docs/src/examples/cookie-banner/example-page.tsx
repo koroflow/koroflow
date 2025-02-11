@@ -2,9 +2,9 @@ export const defaultPage = `import {
 	ConsentManagerProvider,
 	ConsentManagerDialog,
 	CookieBanner,
-} from '@consent-management/react';
+} from '@c15t/react';
 import { ExampleContent } from './exampleContent';
-import '@consent-management/react/globals.css';
+import '@c15t/react/globals.css';
 
 function App() {
     return (

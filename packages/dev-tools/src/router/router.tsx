@@ -10,7 +10,7 @@ import {
 import { motion } from 'motion/react';
 import { useCallback, useState } from 'react';
 
-import type { PrivacyConsentState } from '@consent-management/core';
+import type { PrivacyConsentState } from '@c15t/core';
 import { Button } from '../components/ui/button';
 import { ExpandableTabs } from '../components/ui/expandable-tabs';
 import { ScrollArea } from '../components/ui/scroll-area';

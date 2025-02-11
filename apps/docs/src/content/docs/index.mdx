@@ -1,129 +1,57 @@
 ---
-title: Introduction to Consent Management
-description: Consent management transforms privacy consent from a compliance checkbox into a fully observable system. Built for modern development teams, it unifies analytics, consent tracking, and privacy controls into a single performant solution - no more slow cookie banners or blind spots in user privacy choices.
+title: Introduction to c15t
+description: Transform privacy consent from a compliance checkbox into a fully observable system. Built for modern development teams, c15t unifies analytics, consent tracking, and privacy controls into a single performant solution - no more slow cookie banners or blind spots in user privacy choices.
 ---
-## What is consent management?
 
-consent management is an open source platform that transforms privacy consent from a compliance checkbox into a fully observable system. Inspired by the developer experience and quality standards set by platforms like Vercel, Clerk, Resend, and Unkey, we're building privacy infrastructure that developers truly deserve.
+## What is c15t?
 
-Built for modern development teams, consent management unifies analytics, consent management, and privacy controls into a single, performant solution that gives you complete visibility into how users interact with your privacy choices.
+c15t (short for consent.management) is an open-source platform that transforms privacy consent from a compliance checkbox into a fully observable system. Built for modern development teams, it provides a unified solution for:
+
+- Analytics integration
+- Consent management
+- Privacy controls
+- Complete consent state visibility
 
 Gone are the days of:
-- Cookie banners that slow down your site
+- Cookie banners slowing down your site
 - Blind spots in consent tracking
-- Complex multi-vendor implementations
+- Complex multi-vendor implementations 
 - Uncertainty about privacy policy changes
 - Poor visibility into consent states
-
-## Open Source Foundation
-
-We believe great developer tools should be built in the open. Taking inspiration from platforms we admire, Koroflow is built with:
-
-- **Core Platform**: GNU3 licensed, free to self-host
-- **UI Components**: Built on shadcn/ui, fully customizable
-- **Server Components**: Next.js app directory ready
-- **Cloud Platform**: Coming soon, optional managed service
-
-Just as Vercel revolutionized deployment workflows, Clerk simplified authentication, Resend modernized email infrastructure, and Unkey simplified API key management, we aim to bring that same level of excellence and simplicity to privacy management.
-## Current Features (Beta)
-
-Koroflow is currently in early alpha with a focus on core privacy management:
-
-✅ **Available Now**:
-- Full-featured consent management 
-- Beautiful shadcn/ui components
-- GDPR-compliant privacy controls
-- Local storage consent state
-- Developer tools for testing
-
-## Performance-First Design
-
-Unlike traditional cookie banners that add hundreds of kilobytes to your bundle size, Koroflow's privacy components are designed with performance in mind:
-
-- **Minimal Bundle Impact**: Built on shadcn/ui with only the essentials
-- **Server Components Ready**: Full support for Next.js app directory  
-- **Zero Dependencies**: No bloated third-party libraries
-- **Smart Chunking**: Components are naturally code-split in modern bundlers
-
-```tsx
-// Simple, performant implementation
-import { ConsentManagerProvider } from "@@consent-management/react/headless"
-import { CookieBanner } from "your-app/ui"
-
-export default function App() {
-  return (
-    <ConsentManagerProvider
-      initialGdprTypes={[
-        "necessary",
-        "marketing",
-        "functionality",
-        "measurement",
-      ]}
-    >
-      <CookieBanner />
-    </ConsentManagerProvider>
-  )
-}
-```
-
-
-## Privacy Management UI
-
-Koroflow provides a complete privacy management system built on shadcn/ui and Tailwind CSS:
-
-### Core Components
-- **Consent Banner**: Customizable, accessible cookie consent notices
-- **Preference Center**: Full-featured privacy settings interface
-- **Policy Display**: Privacy policy and cookie documentation components
-- **Category Management**: Granular consent controls for different tracking types
-
-### Key Features
-- Full TypeScript support
-- Built on shadcn/ui for consistent design patterns
-- Tailwind CSS styling for complete visual control
-- Accessible by default
-- Server-side state management
-- Automatic consent persistence
-
-## Self-Hosting vs Cloud
-
-Koroflow believes in giving you options:
-
-### Self-Hosted (Open Source)
-- Full GNU3 licensed platform
-- Complete control over your infrastructure
-- Free to modify and extend
-- Community-supported
-
-### Cloud Platform (Coming Soon)
-- Managed infrastructure
-- Advanced analytics
-- Team collaboration features
-- Enterprise support
-- Fair pricing model
 
 ## Core Principles
 
 ### 1. Open Source First
-We believe in building in the open, to improve the developer experience and quality of life, but also trust.
+Building in public isn't just about transparency - it's about creating better tools through community collaboration. Our open-source foundation means you can:
 
-### 2. Developer Experience
-Clean, TypeScript-first APIs that feel natural to use. Privacy management shouldn't be painful.
+- Inspect and understand the code handling user consent
+- Contribute improvements and fixes
+- Self-host for complete control
+- Trust through transparency
+
+### 2. Developer Experience 
+Privacy management should feel natural in your development workflow:
+
+- TypeScript-first APIs with full type safety
+- Modern React patterns and hooks
+- Intuitive state management
+- Comprehensive documentation
 
 ### 3. Performance as Standard
-No bloated front-ends or slow load times. Every byte is considered.
+Every byte matters. c15t is built with performance in mind:
+
+- Minimal bundle impact
+- Efficient state management
+- Optimized server/client patterns
+- Smart code splitting
 
 ### 4. Privacy by Design
-Consent management isn't a bolt-on - it's a core part of modern web development.
+Privacy isn't an afterthought - it's a core part of modern web development:
 
-## Roadmap
-
-We're building Koroflow in public and would love your input:
-
-1. **Q1 2024**: Core consent management
-2. **Q2 2024**: Event relay system
-3. **Q3 2024**: Cloud platform beta
-4. **Q4 2024**: Enterprise features
+- GDPR-compliant by default
+- Granular consent controls
+- Complete audit trail
+- Privacy-first architecture
 
 ## Get Started
 
@@ -132,19 +60,27 @@ Ready to modernize your privacy infrastructure? Choose your path:
 <Cards>
   <Card 
     title="Quick Start Guide" 
-    description="Set up consent.management in your project in under 5 minutes"
+    description="Set up c15t in your project in under 5 minutes"
     href="/docs/framework/react" 
   />
   <Card 
     title="Regulations" 
-    description="Understand the regulations that consent.management supports"
+    description="Understand the privacy regulations that c15t supports"
     href="/docs/regulations" 
   />
 </Cards>
 
-## Join the Community
+## Join Our Community
 
-Koroflow is built in public with our community. Join us:
-- [GitHub Discussion](https://github.com/koroflow/discussions)
-- [Twitter](https://twitter.com/koroflow)
+c15t is built in public with our community. Get involved:
 
+- [GitHub Discussions](https://github.com/koroflow/discussions) - Ask questions and share ideas
+- [Twitter](https://twitter.com/koroflow) - Stay updated on the latest developments
+
+## Looking for Enterprise Features?
+
+Check out our [enterprise offerings](/enterprise) for:
+- Advanced compliance tools
+- Team management
+- Custom deployment options
+- Priority support

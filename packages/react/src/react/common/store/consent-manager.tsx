@@ -6,7 +6,7 @@ import {
 	type NamespaceProps,
 	type PrivacyConsentState,
 	createConsentManagerStore,
-} from '@consent-management/core';
+} from '@c15t/core';
 import {
 	type ReactNode,
 	createContext,

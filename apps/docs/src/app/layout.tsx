@@ -3,8 +3,8 @@ import {
 	ConsentManagerDialog,
 	ConsentManagerProvider,
 	CookieBanner,
-} from '@consent-management/react';
-import { cn } from '@consent-management/shadcn/libs';
+} from '@c15t/react';
+import { cn } from '@c15t/shadcn/libs';
 import { RootProvider } from 'fumadocs-ui/provider';
 import { Fira_Mono, Inter } from 'next/font/google';
 import type { ReactNode } from 'react';

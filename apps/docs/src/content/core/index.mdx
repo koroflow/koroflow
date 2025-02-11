@@ -1,15 +1,15 @@
 ---
 title: Core Documentation
-description: Comprehensive guide to using the @consent-management/core package for managing privacy consents.
+description: Comprehensive guide to using the @c15t/core package for managing privacy consents.
 ---
 
-# @consent-management/core
+# @c15t/core
 
 ## Introduction
 
-The `@consent-management/core` package is a headless library designed to transform privacy consent management from a simple compliance checkbox into a fully observable system. It is ideal for modern development teams looking to integrate consent management into their applications while maintaining full control over the user interface. This package unifies analytics, consent tracking, and privacy controls into a single performant solution, eliminating the need for slow cookie banners and addressing blind spots in user privacy choices.
+The `@c15t/core` package is a headless library designed to transform privacy consent management from a simple compliance checkbox into a fully observable system. It is ideal for modern development teams looking to integrate consent management into their applications while maintaining full control over the user interface. This package unifies analytics, consent tracking, and privacy controls into a single performant solution, eliminating the need for slow cookie banners and addressing blind spots in user privacy choices.
 
-## Why Use @consent-management/core?
+## Why Use @c15t/core?
 
 - **Headless Architecture**: Provides the core logic and state management for consent without imposing any UI constraints, allowing developers to build custom interfaces tailored to their application's needs.
 - **Custom UI Development**: Perfect for teams that want to design their own consent interfaces while leveraging robust backend logic.
@@ -20,11 +20,11 @@ The `@consent-management/core` package is a headless library designed to transfo
 To install the package, use one of the following commands:
 
 ```bash
-npm install @consent-management/core
+npm install @c15t/core
 # or
-yarn add @consent-management/core
+yarn add @c15t/core
 # or
-pnpm add @consent-management/core
+pnpm add @c15t/core
 ```
 
 ## Usage
@@ -34,7 +34,7 @@ pnpm add @consent-management/core
 To create a consent manager store, import and use the `createConsentManagerStore` function. This store will handle all consent-related state and logic:
 
 ```typescript
-import { createConsentManagerStore } from '@consent-management/core';
+import { createConsentManagerStore } from '@c15t/core';
 
 const store = createConsentManagerStore();
 

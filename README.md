@@ -25,22 +25,22 @@ Koroflow unifies analytics, consent tracking, and privacy controls into a single
 
 | Package | Description | Version |
 |---------|-------------|---------|
-| `@consent-management/core` | Core consent and event management | [![npm](https://img.shields.io/npm/v/@consent-management/core?style=flat-square)](https://www.npmjs.com/package/@consent-management/core) |
-| `@consent-management/react` | shadcn/ui based components | [![npm](https://img.shields.io/npm/v/@consent-management/react?style=flat-square)](https://www.npmjs.com/package/@consent-management/react) |
-| `@consent-management/dev-tools` | Development and debugging tools | [![npm](https://img.shields.io/npm/v/@consent-management/dev-tools?style=flat-square)](https://www.npmjs.com/package/@consent-management/dev-tools) |
+| `@c15t/core` | Core consent and event management | [![npm](https://img.shields.io/npm/v/@c15t/core?style=flat-square)](https://www.npmjs.com/package/@c15t/core) |
+| `@c15t/react` | shadcn/ui based components | [![npm](https://img.shields.io/npm/v/@c15t/react?style=flat-square)](https://www.npmjs.com/package/@c15t/react) |
+| `@c15t/dev-tools` | Development and debugging tools | [![npm](https://img.shields.io/npm/v/@c15t/dev-tools?style=flat-square)](https://www.npmjs.com/package/@c15t/dev-tools) |
 
 ## ⚡ Quick Start
 
 ```bash
 # Install packages
-npm install @consent-management/react
+npm install @c15t/react
 
 # Optional: Install dev tools
-npm install -D @consent-management/dev-tools
+npm install -D @c15t/dev-tools
 ```
 
 ```tsx
-import { ConsentManagerProvider, CookieBanner, ConsentManagerDialog } from "@consent-management/react";
+import { ConsentManagerProvider, CookieBanner, ConsentManagerDialog } from "@c15t/react";
 
 export default function App() {
   return (

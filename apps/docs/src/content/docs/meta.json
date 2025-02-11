@@ -2,10 +2,11 @@
 	"title": "Docs",
 	"root": true,
 	"pages": [
-		"---Introduction---",
+		"---Getting Started---",
 		"index",
 		"--- Open Source ---",
-		"contributing",
-		"license"
+		"open-source/why-open-source",
+		"open-source/contributing",
+		"open-source/license"
 	]
 }

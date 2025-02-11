@@ -1,4 +1,4 @@
-import type { AllConsentNames } from '@consent-management/core';
+import type { AllConsentNames } from '@c15t/core';
 
 import {
 	type ComponentPropsWithoutRef,

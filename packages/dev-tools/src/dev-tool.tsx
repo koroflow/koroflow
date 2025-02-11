@@ -1,8 +1,5 @@
 'use client';
-import type {
-	NamespaceProps,
-	PrivacyConsentState,
-} from '@consent-management/core';
+import type { NamespaceProps, PrivacyConsentState } from '@c15t/core';
 
 import {
 	type FC,
