@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { expect } from 'vitest';
 import { render } from 'vitest-browser-react';
-import { ConsentManagerProvider } from '../../../index';
+import { ConsentManagerProvider } from '../../index';
 import type { ThemeValue } from '../../theme/types/style-types';
 
 interface ComponentStyles {

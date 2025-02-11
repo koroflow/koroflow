@@ -5,24 +5,24 @@
 	"type": "module",
 	"exports": {
 		"./consent-manager-dialog": {
-			"types": "./dist/react/consent-manager-dialog/index.d.ts",
-			"import": "./dist/react/consent-manager-dialog/index.js",
-			"require": "./dist/react/consent-manager-dialog/index.cjs"
+			"types": "./dist/consent-manager-dialog/index.d.ts",
+			"import": "./dist/consent-manager-dialog/index.js",
+			"require": "./dist/consent-manager-dialog/index.cjs"
 		},
 		"./consent-manager-widget": {
-			"types": "./dist/react/consent-manager-widget/index.d.ts",
-			"import": "./dist/react/consent-manager-widget/index.js",
-			"require": "./dist/react/consent-manager-widget/index.cjs"
+			"types": "./dist/consent-manager-widget/index.d.ts",
+			"import": "./dist/consent-manager-widget/index.js",
+			"require": "./dist/consent-manager-widget/index.cjs"
 		},
 		"./cookie-banner": {
-			"types": "./dist/react/cookie-banner/index.d.ts",
-			"import": "./dist/react/cookie-banner/index.js",
-			"require": "./dist/react/cookie-banner/index.cjs"
+			"types": "./dist/cookie-banner/index.d.ts",
+			"import": "./dist/cookie-banner/index.js",
+			"require": "./dist/cookie-banner/index.cjs"
 		},
 		"./common": {
-			"types": "./dist/react/common/index.d.ts",
-			"import": "./dist/react/common/index.js",
-			"require": "./dist/react/common/index.cjs"
+			"types": "./dist/common/index.d.ts",
+			"import": "./dist/common/index.js",
+			"require": "./dist/common/index.cjs"
 		},
 		".": {
 			"types": "./dist/index.d.ts",

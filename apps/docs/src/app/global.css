@@ -19,15 +19,15 @@
 	--fd-layout-width: 1400px !important;
 	--fd-nav-height: 58px !important; /* Default for mobile */
 
-  @media (min-width: 64rem) {
+	@media (min-width: 64rem) {
 		--fd-nav-height: 112px !important;
-  }
+	}
 }
 
-#nd-toc,  {
-  @media (min-width: 64rem) {
-  	--fd-nav-height: 112px !important;
-  }
+#nd-toc {
+	@media (min-width: 64rem) {
+		--fd-nav-height: 112px !important;
+	}
 }
 
 :root .dark {

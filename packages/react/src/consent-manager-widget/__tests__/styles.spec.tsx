@@ -1,5 +1,5 @@
 import { test } from 'vitest';
-import { ConsentManagerWidget } from '../../../index';
+import { ConsentManagerWidget } from '../../index';
 import type { ThemeValue } from '../../theme';
 import testComponentStyles from './utils';
 

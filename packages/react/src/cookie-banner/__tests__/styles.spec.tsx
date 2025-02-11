@@ -1,57 +1,80 @@
 import { test } from 'vitest';
-import { ConsentManagerDialog } from '../../../index';
+import { CookieBanner } from '../../index';
 import type { ThemeValue } from '../../theme';
-import type { ConsentManagerDialogTheme } from '../theme';
 import testComponentStyles from './utils';
+
+type TestCase = {
+	testId: string;
+	styles: string | ThemeValue;
+};
 
 type ComponentTestCase = {
 	testId: string;
-	themeKey: keyof ConsentManagerDialogTheme;
+	themeKey: string;
 	styles: string;
 };
 
 const ALL_COMPONENTS: ComponentTestCase[] = [
 	{
-		testId: 'consent-manager-dialog-root',
-		themeKey: 'consent-manager-dialog.root',
-		styles: 'custom-dialog-root',
+		testId: 'cookie-banner-root',
+		themeKey: 'cookie-banner.root',
+		styles: 'custom-root',
 	},
 	{
-		testId: 'consent-manager-dialog-overlay',
-		themeKey: 'consent-manager-dialog.overlay',
-		styles: 'custom-dialog-overlay',
+		testId: 'cookie-banner-card',
+		themeKey: 'cookie-banner.card',
+		styles: 'custom-card',
 	},
 	{
-		testId: 'consent-manager-dialog-header',
-		themeKey: 'consent-manager-dialog.header',
-		styles: 'custom-dialog-header',
+		testId: 'cookie-banner-header',
+		themeKey: 'cookie-banner.header.root',
+		styles: 'custom-header',
 	},
 	{
-		testId: 'consent-manager-dialog-title',
-		themeKey: 'consent-manager-dialog.title',
-		styles: 'custom-dialog-title',
+		testId: 'cookie-banner-title',
+		themeKey: 'cookie-banner.header.title',
+		styles: 'custom-title',
 	},
 	{
-		testId: 'consent-manager-dialog-description',
-		themeKey: 'consent-manager-dialog.description',
-		styles: 'custom-dialog-description',
+		testId: 'cookie-banner-description',
+		themeKey: 'cookie-banner.header.description',
+		styles: 'custom-description',
 	},
 	{
-		testId: 'consent-manager-dialog-content',
-		themeKey: 'consent-manager-dialog.content',
-		styles: 'custom-dialog-content',
+		testId: 'cookie-banner-footer',
+		themeKey: 'cookie-banner.footer',
+		styles: 'custom-footer',
 	},
 	{
-		testId: 'consent-manager-dialog-footer',
-		themeKey: 'consent-manager-dialog.footer',
-		styles: 'custom-dialog-footer',
+		testId: 'cookie-banner-footer-sub-group',
+		themeKey: 'cookie-banner.footer.sub-group',
+		styles: 'custom-footer-sub-group',
+	},
+	{
+		testId: 'cookie-banner-overlay',
+		themeKey: 'cookie-banner.overlay',
+		styles: 'custom-overlay',
+	},
+	{
+		testId: 'cookie-banner-reject-button',
+		themeKey: 'cookie-banner.footer.reject-button',
+		styles: 'custom-reject-button',
+	},
+	{
+		testId: 'cookie-banner-customize-button',
+		themeKey: 'cookie-banner.footer.customize-button',
+		styles: 'custom-customize-button',
+	},
+	{
+		testId: 'cookie-banner-accept-button',
+		themeKey: 'cookie-banner.footer.accept-button',
+		styles: 'custom-accept-button',
 	},
 ];
 
 test('Theme prop applies string classnames to all components', async () => {
 	const test = (
-		<ConsentManagerDialog
-			open
+		<CookieBanner
 			theme={ALL_COMPONENTS.reduce(
 				(acc, { themeKey, styles }) => {
 					acc[themeKey] = styles;
@@ -86,8 +109,7 @@ test('Theme prop supports object format with className and style for all compone
 	}));
 
 	const test = (
-		<ConsentManagerDialog
-			open
+		<CookieBanner
 			theme={testCases.reduce(
 				(acc, { themeKey, className, style }) => {
 					acc[themeKey] = {
@@ -115,9 +137,8 @@ test('Theme prop supports object format with className and style for all compone
 
 test('No style prop removes default styles but keeps custom classNames', async () => {
 	const test = (
-		<ConsentManagerDialog
+		<CookieBanner
 			noStyle
-			open
 			theme={ALL_COMPONENTS.reduce(
 				(acc, { themeKey, styles }) => {
 					acc[themeKey] = styles;
@@ -140,25 +161,25 @@ test('No style prop removes default styles but keeps custom classNames', async (
 
 test('Theme prop handles mixed format (string and object) correctly', async () => {
 	const mixedTheme: Record<string, ThemeValue> = {
-		'consent-manager-dialog.root': {
-			className: 'custom-dialog-root',
+		'cookie-banner.root': {
+			className: 'custom-root',
 			style: {
 				backgroundColor: 'rgb(255, 255, 255)',
 				padding: '16px',
 			},
 		},
-		'consent-manager-dialog.overlay': 'custom-dialog-overlay',
+		'cookie-banner.header.title': 'custom-title',
 	};
 
-	const test = <ConsentManagerDialog theme={mixedTheme} open />;
+	const test = <CookieBanner theme={mixedTheme} />;
 
 	await testComponentStyles({
 		component: test,
 		testCases: [
 			{
-				testId: 'consent-manager-dialog-root',
+				testId: 'cookie-banner-root',
 				styles: {
-					className: 'custom-dialog-root',
+					className: 'custom-root',
 					style: {
 						backgroundColor: 'rgb(255, 255, 255)',
 						padding: '16px',
@@ -166,8 +187,8 @@ test('Theme prop handles mixed format (string and object) correctly', async () =
 				},
 			},
 			{
-				testId: 'consent-manager-dialog-overlay',
-				styles: 'custom-dialog-overlay',
+				testId: 'cookie-banner-title',
+				styles: 'custom-title',
 			},
 		],
 	});
@@ -175,9 +196,10 @@ test('Theme prop handles mixed format (string and object) correctly', async () =
 
 test('Theme prop handles edge cases gracefully', async () => {
 	const edgeCaseTheme: Record<string, ThemeValue> = {
-		'consent-manager-dialog.root': '',
-		'consent-manager-dialog.overlay': '',
-		'consent-manager-dialog.content': {
+		'cookie-banner.root': '',
+		'cookie-banner.title': '',
+		'cookie-banner.description': '',
+		'cookie-banner.footer': {
 			className: '',
 			style: {
 				margin: '0',
@@ -186,21 +208,21 @@ test('Theme prop handles edge cases gracefully', async () => {
 		},
 	};
 
-	const test = <ConsentManagerDialog open theme={edgeCaseTheme} />;
+	const test = <CookieBanner theme={edgeCaseTheme} />;
 
 	await testComponentStyles({
 		component: test,
 		testCases: [
 			{
-				testId: 'consent-manager-dialog-root',
+				testId: 'cookie-banner-root',
 				styles: '',
 			},
 			{
-				testId: 'consent-manager-dialog-overlay',
+				testId: 'cookie-banner-title',
 				styles: '',
 			},
 			{
-				testId: 'consent-manager-dialog-content',
+				testId: 'cookie-banner-footer',
 				styles: {
 					className: '',
 					style: {
