@@ -67,6 +67,14 @@ const ConsentManagerWidgetAccordionItems = () => {
 		},
 		[setConsent]
 	);
+
+	function formatConsentName(name: AllConsentNames) {
+		return (
+			name.replace('_', ' ').charAt(0).toUpperCase() +
+			name.replace('_', ' ').slice(1)
+		);
+	}
+
 	const { consentTypes } = useTranslations();
 	return getDisplayedConsents().map((consent) => (
 		<ConsentManagerWidgetAccordionItem
@@ -84,7 +92,7 @@ const ConsentManagerWidgetAccordionItems = () => {
 					<ConsentManagerWidgetAccordionArrow
 						data-testid={`consent-manager-widget-accordion-arrow-${consent.name}`}
 					/>
-					{consentTypes[consent.name]?.title}
+					{consentTypes[consent.name]?.title ?? formatConsentName(consent.name)}
 				</ConsentManagerWidgetAccordionSubGroup>
 
 				<ConsentManagerWidgetSwitch
@@ -113,7 +121,7 @@ const ConsentManagerWidgetAccordionItems = () => {
 				}}
 				data-testid={`consent-manager-widget-accordion-content-${consent.name}`}
 			>
-				{consentTypes[consent.name]?.description}
+				{consentTypes[consent.name]?.description ?? consent.description}
 			</ConsentManagerWidgetAccordionContent>
 		</ConsentManagerWidgetAccordionItem>
 	));

@@ -30,6 +30,10 @@ export interface ConsentManagerWidgetTranslations {
 	rejectAll: string;
 }
 
+/**
+ * Maps consent type names to their respective translations.
+ * Uses the name property from ConsentType to ensure type safety.
+ */
 export type ConsentTypesTranslations = {
 	[key in ConsentType['name']]: ConsentTypeTranslations;
 };
@@ -49,7 +53,6 @@ export interface Translations {
 	consentManagerWidget: Partial<ConsentManagerWidgetTranslations>;
 	consentTypes: Partial<ConsentTypesTranslations>;
 }
-
 export interface TranslationConfig {
 	translations: Record<string, Partial<Translations>>;
 	defaultLanguage?: string;

@@ -2,8 +2,8 @@
 
 import type { Translations } from '@koroflow/core-js';
 import { defaultTranslationConfig } from '@koroflow/core-js';
+import { useMemo } from 'react';
 import { useConsentManager } from './use-consent-manager';
-
 /**
  * Hook for accessing translations in the current language.
  *
@@ -32,21 +32,24 @@ import { useConsentManager } from './use-consent-manager';
  */
 export function useTranslations(): Translations {
 	const { translationConfig } = useConsentManager();
-	const { translations = {}, defaultLanguage = 'en' } = translationConfig;
 
-	// Return translations for the default language, falling back to English if needed
-	const selectedTranslations = translations[defaultLanguage];
-	if (isTranslations(selectedTranslations)) {
-		return selectedTranslations;
-	}
+	return useMemo(() => {
+		const { translations = {}, defaultLanguage = 'en' } = translationConfig;
 
-	const englishTranslations = translations.en;
-	if (isTranslations(englishTranslations)) {
-		return englishTranslations;
-	}
+    // Return translations for the default language, falling back to English if needed
+		const selectedTranslations = translations[defaultLanguage];
+		if (isTranslations(selectedTranslations)) {
+			return selectedTranslations;
+		}
 
-	// We know this is a valid Translations object
-	return defaultTranslationConfig.translations.en as Translations;
+		const englishTranslations = translations.en;
+		if (isTranslations(englishTranslations)) {
+			return englishTranslations;
+		}
+
+		// We know this is a valid Translations object
+		return defaultTranslationConfig.translations.en as Translations;
+	}, [translationConfig]);
 }
 
 // Type guard to check if a value is a valid Translations object

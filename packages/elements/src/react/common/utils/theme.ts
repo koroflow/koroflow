@@ -1,19 +1,27 @@
 import type { PrivacyConsentState } from '@koroflow/core-js';
 import type { ThemeContextValue } from '../../theme';
 
-type ThemeContextValueWithConsent = PrivacyConsentState &
-	(() => PrivacyConsentState) &
-	ThemeContextValue;
+interface ThemeContextValueWithConsent
+	extends PrivacyConsentState,
+		ThemeContextValue {
+	(): PrivacyConsentState & ThemeContextValue;
+}
 
-/**
- * Creates a theme context value that satisfies both function and object requirements
- */
 export function createThemeContextValue(
 	consentManager: PrivacyConsentState,
 	themeProps: ThemeContextValue
 ): ThemeContextValueWithConsent {
-	return Object.assign(() => ({ ...consentManager, ...themeProps }), {
+	const fn = () => ({ ...consentManager, ...themeProps });
+
+	const result = Object.assign(fn, {
 		...consentManager,
 		...themeProps,
-	}) as ThemeContextValueWithConsent;
+	});
+
+	// Type guard to ensure type safety
+	if (typeof result !== 'function' || !('theme' in result)) {
+		throw new Error('Invalid theme context value');
+	}
+
+	return result;
 }

@@ -48,8 +48,31 @@ export interface ConsentManagerProviderProps extends NamespaceProps {
 
 	/**
 	 * @remarks
-	 * Configuration for translations including available languages and settings.
-	 * Extends or overrides the default translations.
+	 * The configuration allows you to:
+	 * - Define translations for multiple languages through the translations object
+	 * - Set a default language via defaultLanguage prop
+	 * - Control automatic language switching based on browser settings with disableAutoLanguageSwitch
+	 * - Override specific translation keys while keeping defaults for others
+	 *
+	 * @example
+	 * ```tsx
+	 * <ConsentManagerProvider
+	 *   translationConfig={{
+	 *     translations: {
+	 *       de: {
+	 *         cookieBanner: {
+	 *           title: 'Cookie-Einstellungen',
+	 *           description: 'Wir verwenden Cookies...'
+	 *         }
+	 *       }
+	 *     },
+	 *     defaultLanguage: 'en',
+	 *     disableAutoLanguageSwitch: false
+	 *   }}
+	 * >
+	 *   {children}
+	 * </ConsentManagerProvider>
+	 * ```
 	 */
 	translationConfig?: Partial<TranslationConfig>;
 }

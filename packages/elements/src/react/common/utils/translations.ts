@@ -1,4 +1,11 @@
+'use client';
 import type { TranslationConfig, Translations } from '@koroflow/core-js';
+
+type TranslationSection =
+	| 'cookieBanner'
+	| 'consentManagerDialog'
+	| 'consentManagerWidget'
+	| 'consentTypes';
 
 /**
  * Deep merges translation objects
@@ -7,24 +14,20 @@ export function deepMergeTranslations(
 	base: Translations,
 	override: Partial<Translations>
 ): Translations {
-	return {
-		cookieBanner: {
-			...base.cookieBanner,
-			...(override.cookieBanner || {}),
-		},
-		consentManagerDialog: {
-			...base.consentManagerDialog,
-			...(override.consentManagerDialog || {}),
-		},
-		consentManagerWidget: {
-			...base.consentManagerWidget,
-			...(override.consentManagerWidget || {}),
-		},
-		consentTypes: {
-			...base.consentTypes,
-			...(override.consentTypes || {}),
-		},
-	};
+	const sections: TranslationSection[] = [
+		'cookieBanner',
+		'consentManagerDialog',
+		'consentManagerWidget',
+		'consentTypes',
+	];
+
+	return sections.reduce((result, section) => {
+		result[section] = {
+			...base[section],
+			...(override[section] || {}),
+		};
+		return result;
+	}, {} as Translations);
 }
 
 /**
@@ -78,12 +81,27 @@ export function detectBrowserLanguage(
 		return defaultLanguage || 'en';
 	}
 
-	const browserLanguages = navigator?.languages || [
-		navigator?.language || 'en',
-	];
+	// Normalize language codes to lowercase for consistent comparison
+	const availableLanguages = Object.keys(translations).map((lang) =>
+		lang.toLowerCase()
+	);
+
+	const browserLanguages =
+		typeof window !== 'undefined'
+			? navigator?.languages || [navigator?.language || 'en']
+			: ['en'];
 
 	for (const lang of browserLanguages) {
-		const primaryLang = lang.split('-')[0];
+		// Try exact match first (e.g., 'en-US' if available)
+		const normalizedLang = lang.toLowerCase();
+
+		if (availableLanguages.includes(normalizedLang)) {
+			return normalizedLang;
+		}
+
+		// Try primary language match (e.g., 'en' from 'en-US')
+		const primaryLang = normalizedLang.split('-')[0];
+
 		if (primaryLang && primaryLang in translations) {
 			return primaryLang;
 		}
