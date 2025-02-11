@@ -23,7 +23,7 @@
  *   ComplianceRegion,
  *   ComplianceSettings,
  *   PrivacySettings
- * } from '@c15t/core/types';
+ * } from '@consent-management/core/types';
  *
  * const euSettings: ComplianceSettings = {
  *   enabled: true,
@@ -69,7 +69,7 @@ export type {
  *   type AllConsentNames,
  *   type ConsentType,
  *   consentTypes
- * } from '@c15t/core/types';
+ * } from '@consent-management/core/types';
  *
  * function isOptionalConsent(type: AllConsentNames): boolean {
  *   const config = consentTypes.find(c => c.name === type);
@@ -97,7 +97,7 @@ export type { AllConsentNames, ConsentType };
  * import type {
  *   CallbackFunction,
  *   Callbacks
- * } from '@c15t/core/types';
+ * } from '@consent-management/core/types';
  *
  * const callbacks: Callbacks = {
  *   onConsentGiven: () => {

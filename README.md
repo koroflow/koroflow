@@ -3,8 +3,8 @@
   <h1>c15t by Koroflow</h1>
   <p>Transform privacy consent from a compliance checkbox into a fully observable system</p>
 
-  [![GitHub stars](https://img.shields.io/github/stars/consent-management?style=flat-square)](https://github.com/koroflow/c15t)
-  [![CI](https://img.shields.io/github/actions/workflow/status/consent-management/ci.yml?style=flat-square)](https://github.com/koroflow/c15t/actions/workflows/ci.yml)
+  [![GitHub stars](https://img.shields.io/github/stars/koroflow/c15t?style=flat-square)](https://github.com/koroflow/c15t)
+  [![CI](https://img.shields.io/github/actions/workflow/status/koroflow/c15t/ci.yml?style=flat-square)](https://github.com/koroflow/c15t/actions/workflows/ci.yml)
   [![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg?style=flat-square)](LICENSE)
   [![Discord](https://img.shields.io/discord/1312171102268690493?style=flat-square)](https://discord.gg/koroflow)
 </div>
@@ -25,22 +25,22 @@ Koroflow unifies analytics, consent tracking, and privacy controls into a single
 
 | Package | Description | Version |
 |---------|-------------|---------|
-| `@c15t/core` | Core consent and event management | [![npm](https://img.shields.io/npm/v/@c15t/core?style=flat-square)](https://www.npmjs.com/package/@c15t/core) |
-| `@c15t/react` | shadcn/ui based components | [![npm](https://img.shields.io/npm/v/@c15t/react?style=flat-square)](https://www.npmjs.com/package/@c15t/react) |
-| `@c15t/dev-tools` | Development and debugging tools | [![npm](https://img.shields.io/npm/v/@c15t/dev-tools?style=flat-square)](https://www.npmjs.com/package/@c15t/dev-tools) |
+| `@consent-management/core` | Core consent and event management | [![npm](https://img.shields.io/npm/v/@consent-management/core?style=flat-square)](https://www.npmjs.com/package/@consent-management/core) |
+| `@consent-management/react` | shadcn/ui based components | [![npm](https://img.shields.io/npm/v/@consent-management/react?style=flat-square)](https://www.npmjs.com/package/@consent-management/react) |
+| `@consent-management/dev-tools` | Development and debugging tools | [![npm](https://img.shields.io/npm/v/@consent-management/dev-tools?style=flat-square)](https://www.npmjs.com/package/@consent-management/dev-tools) |
 
 ## ⚡ Quick Start
 
 ```bash
 # Install packages
-npm install @c15t/react
+npm install @consent-management/react
 
 # Optional: Install dev tools
-npm install -D @c15t/dev-tools
+npm install -D @consent-management/dev-tools
 ```
 
 ```tsx
-import { ConsentManagerProvider, CookieBanner, ConsentManagerDialog } from "@c15t/react";
+import { ConsentManagerProvider, CookieBanner, ConsentManagerDialog } from "@consent-management/react";
 
 export default function App() {
   return (
@@ -71,7 +71,7 @@ Prerequisites:
 ```bash
 # Clone repository
 git clone https://github.com/koroflow/c15t.git
-cd consent-management
+cd c1t5
 
 # Install dependencies
 pnpm install
@@ -100,11 +100,11 @@ pnpm test
 
 ## 📚 Documentation
 
-- [Getting Started](https://c15t.com/docs)
-- [Core Concepts](https://c15t.com/docs/concepts)
-- [API Reference](https://c15t.com/docs/api)
-- [UI Components](https://c15t.com/docs/framework/react)
-- [Privacy Regulations](https://c15t.com/docs/regulations)
+- [Getting Started](https://consent.management/docs)
+- [Core Concepts](https://consent.management/docs/concepts)
+- [API Reference](https://consent.management/docs/api)
+- [UI Components](https://consent.management/docs/framework/react)
+- [Privacy Regulations](https://consent.management/docs/regulations)
 
 ## 🤝 Contributing
 

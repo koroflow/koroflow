@@ -1,6 +1,6 @@
-# @c15t/react
+# @consent-management/react
 
-## 0.0.1-beta.11
+## 1.0.0-rc.1
 
 ### Patch Changes
 
@@ -12,7 +12,7 @@
 
 - all build tools now use rslib + new formatting from biomejs
 - Updated dependencies
-  - @c15t/core@0.0.1
+  - @consent-management/core@0.0.1
 
 ## 0.0.1-beta.9
 
@@ -20,4 +20,4 @@
 
 - 1912aa9: Refactored codebase to use Ultracite Biome Config for stricter linting
 - Updated dependencies [1912aa9]
-  - @c15t/core@0.0.1-beta.9
+  - @consent-management/core@0.0.1-beta.9

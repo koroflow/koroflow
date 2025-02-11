@@ -9,13 +9,13 @@ import {
 	SandboxTabsContent,
 	SandboxTabsList,
 	SandboxTabsTrigger,
-} from '@c15t/shadcn/components';
+} from '@consent-management/shadcn/components';
 import {
 	ResizableHandle,
 	ResizablePanel,
 	ResizablePanelGroup,
-} from '@c15t/shadcn/components';
-import { cn } from '@c15t/shadcn/libs';
+} from '@consent-management/shadcn/components';
+import { cn } from '@consent-management/shadcn/libs';
 import { AppWindowIcon, CodeIcon, TerminalIcon } from 'lucide-react';
 import type { ComponentProps } from 'react';
 import { exampleContent } from '~/examples/cookie-banner/example-page';
@@ -91,8 +91,8 @@ export const Preview = ({
 					customSetup={{
 						dependencies: {
 							...dependencies,
-							'@c15t/react': 'latest',
-							'@c15t/dev-tools': 'latest',
+							'@consent-management/react': 'latest',
+							'@consent-management/dev-tools': 'latest',
 						},
 						devDependencies: {
 							...devDependencies,

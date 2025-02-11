@@ -5,7 +5,7 @@ import {
 	type PrivacyConsentState,
 	createConsentManagerStore,
 	defaultTranslationConfig,
-} from '@c15t/core';
+} from '@consent-management/core';
 import { useEffect, useMemo, useState } from 'react';
 import { ConsentStateContext } from '../context/consent-manager-context';
 import type { ConsentManagerProviderProps } from '../types/consent-manager';

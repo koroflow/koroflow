@@ -1,5 +1,5 @@
 {
-	"name": "@c15t/shadcn",
+	"name": "@consent-management/shadcn",
 	"private": true,
 	"sideEffects": false,
 	"type": "module",
@@ -31,6 +31,6 @@
 		"tailwind-merge": "^3.0.1"
 	},
 	"devDependencies": {
-		"@c15t/typescript-config": "workspace:*"
+		"@consent-management/typescript-config": "workspace:*"
 	}
 }

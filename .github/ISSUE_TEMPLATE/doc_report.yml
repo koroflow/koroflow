@@ -29,7 +29,7 @@ body:
     attributes:
       label: Page URL
       description: Which page has the issue?
-      placeholder: "https://c15t.com/docs/..."
+      placeholder: "https://consent.management/docs/..."
     validations:
       required: true
 

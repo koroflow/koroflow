@@ -1,4 +1,4 @@
-import { cn } from '@c15t/shadcn/libs';
+import { cn } from '@consent-management/shadcn/libs';
 import Link from 'fumadocs-core/link';
 import type { HTMLAttributes, ReactElement, ReactNode } from 'react';
 

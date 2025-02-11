@@ -1,5 +1,5 @@
 {
-	"name": "@c15t/docs",
+	"name": "@consent-management/docs",
 	"private": true,
 	"scripts": {
 		"build": "next build",
@@ -11,8 +11,8 @@
 		"start": "next start"
 	},
 	"dependencies": {
-		"@c15t/react": "workspace:*",
-		"@c15t/shadcn": "workspace:*",
+		"@consent-management/react": "workspace:*",
+		"@consent-management/shadcn": "workspace:*",
 		"@radix-ui/react-select": "^2.1.5",
 		"@radix-ui/react-tabs": "^1.1.2",
 		"@svg-maps/world": "^1.0.1",
@@ -31,7 +31,7 @@
 		"zod": "^3.24.1"
 	},
 	"devDependencies": {
-		"@c15t/typescript-config": "workspace:*",
+		"@consent-management/typescript-config": "workspace:*",
 		"@types/mdx": "^2.0.13",
 		"@types/react": "^19.0.8",
 		"@types/react-dom": "^19.0.3",

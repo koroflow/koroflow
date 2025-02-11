@@ -4,7 +4,7 @@ export type { ConsentManagerProviderProps } from './types/consent-manager';
 export { useTranslations } from './store/use-translations';
 
 // Re-export types and constants
-export { consentTypes } from '@c15t/core';
+export { consentTypes } from '@consent-management/core';
 export type {
 	CallbackFunction,
 	Callbacks,
@@ -15,4 +15,4 @@ export type {
 	ComplianceSettings,
 	PrivacySettings,
 	HasConsentedProps,
-} from '@c15t/core';
+} from '@consent-management/core';

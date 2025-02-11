@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        ⚠️ **IMPORTANT**: If this is a critical security vulnerability, please report it directly to security@c15t.com instead of creating a public issue.
+        ⚠️ **IMPORTANT**: If this is a critical security vulnerability, please report it directly to security@korofow.com instead of creating a public issue.
 
   - type: dropdown
     id: severity

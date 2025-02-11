@@ -105,7 +105,7 @@ export const ConsentManagerWidget = ({
 				>
 					<a
 						className="kf-consent-manager-widget-branding-link"
-						href="https://c15t.com"
+						href="https://consent.management"
 					>
 						Secured by{' '}
 						<span className="kf-consent-manager-widget-branding-link-span">

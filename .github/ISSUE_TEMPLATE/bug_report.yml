@@ -10,7 +10,7 @@ body:
         Before reporting:
         1. Search [existing issues](https://github.com/koroflow/c15t/issues)
         2. Try the latest version
-        3. Read the [documentation](https://c15t.com/docs)
+        3. Read the [documentation](https://consent.management/docs)
   
   - type: dropdown
     id: severity

@@ -27,22 +27,22 @@ Let's add a basic cookie banner to your application. First, install the package:
 <Tabs groupId="manual-install" items={["npm", "pnpm", "yarn", "bun"]}>
   <Tab value="npm">
   ```bash 
-  npm install @c15t/react
+  npm install @consent-management/react
   ```
   </Tab>
   <Tab value="pnpm">
   ```bash 
-  pnpm install @c15t/react
+  pnpm install @consent-management/react
   ```
   </Tab>
   <Tab value="yarn">
   ```bash
-  yarn add @c15t/react
+  yarn add @consent-management/react
   ```
   </Tab>
   <Tab value="bun">
   ```bash
-  bun add @c15t/react 
+  bun add @consent-management/react 
   ```
   </Tab>
 </Tabs>
@@ -53,7 +53,7 @@ Then add the banner to your root component:
 import {
 	ConsentManagerProvider,
 	CookieBanner,
-} from "@c15t/react";
+} from "@consent-management/react";
 
 function App() {
   return (
@@ -79,7 +79,7 @@ The Cookie Banner uses a compound component pattern, giving you complete control
 <Tabs groupId="Version" items={["Recommended", "Expanded"]}>
   <Tab value="Recommended">
   ```tsx 
-import { CookieBanner } from "@c15t/react";
+import { CookieBanner } from "@consent-management/react";
 
 const Banner = () => {
 	return (
@@ -94,7 +94,7 @@ const Banner = () => {
 </Tab>
 <Tab value="expanded">
 ```tsx
-import * as CookieBanner from "@c15t/react/cookie-banner";
+import * as CookieBanner from "@consent-management/react/cookie-banner";
 
 const Banner = () => {
 	return (
@@ -129,7 +129,7 @@ The Cookie Banner is designed to adapt to your application's visual style. Here 
 The theme prop provides a straightforward way to customize the banner's appearance:
 
 ```tsx
-import { CookieBanner } from "@c15t/react";
+import { CookieBanner } from "@consent-management/react";
 
 const CustomCookieBanner = () => {
   return (
@@ -161,7 +161,7 @@ const CustomCookieBanner = () => {
 For more traditional styling approaches, you can use CSS modules:
 
 ```tsx
-import { CookieBanner } from "@c15t/react";
+import { CookieBanner } from "@consent-management/react";
 import styles from "./cookie-banner.module.css";
 
 const CSSModuleCookieBanner = () => {
@@ -182,7 +182,7 @@ const CSSModuleCookieBanner = () => {
 You can integrate your own component library using the `asChild` prop:
 
 ```tsx
-import * as CookieBanner from "@c15t/react/cookie-banner";
+import * as CookieBanner from "@consent-management/react/cookie-banner";
 import { Button } from "./your-components";
 
 const CustomAcceptButton = () => {

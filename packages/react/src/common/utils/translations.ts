@@ -1,5 +1,5 @@
 'use client';
-import type { TranslationConfig, Translations } from '@c15t/core';
+import type { TranslationConfig, Translations } from '@consent-management/core';
 
 type TranslationSection =
 	| 'cookieBanner'

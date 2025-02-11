@@ -62,10 +62,10 @@ importers:
 
   apps/docs:
     dependencies:
-      '@c15t/react':
+      '@consent-management/react':
         specifier: workspace:*
         version: link:../../packages/react
-      '@c15t/shadcn':
+      '@consent-management/shadcn':
         specifier: workspace:*
         version: link:../../internals/shadcn
       '@radix-ui/react-select':
@@ -117,7 +117,7 @@ importers:
         specifier: ^3.24.1
         version: 3.24.1
     devDependencies:
-      '@c15t/typescript-config':
+      '@consent-management/typescript-config':
         specifier: workspace:*
         version: link:../../internals/typescript-config
       '@types/mdx':
@@ -147,7 +147,7 @@ importers:
       '@astrojs/react':
         specifier: ^4.2.0
         version: 4.2.0(@types/node@22.10.10)(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tsx@4.19.2)(yaml@2.7.0)
-      '@c15t/react':
+      '@consent-management/react':
         specifier: workspace:*
         version: link:../../../packages/react
       '@types/react':
@@ -175,7 +175,7 @@ importers:
         specifier: ^19.0.0
         version: 19.0.0(react@19.0.0)
     devDependencies:
-      '@c15t/react':
+      '@consent-management/react':
         specifier: workspace:*
         version: link:../../../packages/react
       '@eslint/js':
@@ -242,7 +242,7 @@ importers:
         specifier: ^3.0.1
         version: 3.0.1
     devDependencies:
-      '@c15t/typescript-config':
+      '@consent-management/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
 
@@ -254,13 +254,13 @@ importers:
         specifier: ^5.0.3
         version: 5.0.3(@types/react@19.0.8)(react@19.0.0)
     devDependencies:
-      '@c15t/typescript-config':
+      '@consent-management/typescript-config':
         specifier: workspace:*
         version: link:../../internals/typescript-config
 
   packages/dev-tools:
     dependencies:
-      '@c15t/core':
+      '@consent-management/core':
         specifier: workspace:*
         version: link:../core
       '@radix-ui/react-accordion':
@@ -312,7 +312,7 @@ importers:
         specifier: ^5.0.3
         version: 5.0.3(@types/react@19.0.8)(react@19.0.0)
     devDependencies:
-      '@c15t/typescript-config':
+      '@consent-management/typescript-config':
         specifier: workspace:*
         version: link:../../internals/typescript-config
       postcss:
@@ -321,7 +321,7 @@ importers:
 
   packages/react:
     dependencies:
-      '@c15t/core':
+      '@consent-management/core':
         specifier: workspace:*
         version: link:../core
       '@radix-ui/react-accordion':
@@ -352,7 +352,7 @@ importers:
         specifier: ^5.0.3
         version: 5.0.3(@types/react@19.0.8)(react@19.0.0)
     devDependencies:
-      '@c15t/typescript-config':
+      '@consent-management/typescript-config':
         specifier: workspace:*
         version: link:../../internals/typescript-config
 

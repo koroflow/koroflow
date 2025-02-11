@@ -44,7 +44,7 @@ export const docsOptions: BaseLayoutProps = {
 			<>
 				<ConsentManagementIcon className="h-6 w-auto text-black dark:text-white" />
 				<span className="inline-flex items-center rounded-full border bg-fd-primary/10 px-2.5 py-0.5 font-semibold text-fd-primary text-xs">
-					Beta
+					RC 1
 				</span>
 			</>
 		),
@@ -60,7 +60,7 @@ export const homePageOptions: BaseLayoutProps = {
 			<>
 				<ConsentManagementIcon className="h-6 w-auto text-black dark:text-white" />
 				<span className="inline-flex items-center rounded-full border bg-fd-primary/10 px-2.5 py-0.5 font-semibold text-fd-primary text-xs">
-					Beta
+					RC 1
 				</span>
 			</>
 		),
@@ -138,7 +138,7 @@ export const homePageOptions: BaseLayoutProps = {
 					icon: <Palette />,
 					text: 'Styling',
 					description:
-						'Learn how to customize the appearance of @c15t/react components through our flexible theming system.',
+						'Learn how to customize the appearance of @consent-management/react components through our flexible theming system.',
 					url: '/docs/framework/react/guides/customization',
 					menu: {
 						className: 'lg:col-start-3',

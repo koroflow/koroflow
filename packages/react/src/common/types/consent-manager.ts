@@ -6,7 +6,7 @@ import type {
 	PrivacyConsentState,
 	TranslationConfig,
 	createConsentManagerStore,
-} from '@c15t/core';
+} from '@consent-management/core';
 import type { ReactNode } from 'react';
 
 /**

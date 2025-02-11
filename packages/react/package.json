@@ -1,6 +1,6 @@
 {
-	"name": "@c15t/react",
-	"version": "0.0.1-beta.11",
+	"name": "@consent-management/react",
+	"version": "1.0.0-rc.1",
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
@@ -43,7 +43,7 @@
 	},
 	"browserslist": [">0.2%", "not dead", "not op_mini all"],
 	"dependencies": {
-		"@c15t/core": "workspace:*",
+		"@consent-management/core": "workspace:*",
 		"@radix-ui/react-accordion": "1.2.2",
 		"@radix-ui/react-slot": "1.1.1",
 		"@radix-ui/react-switch": "1.1.2",
@@ -53,7 +53,7 @@
 		"zustand": "^5.0.3"
 	},
 	"devDependencies": {
-		"@c15t/typescript-config": "workspace:*"
+		"@consent-management/typescript-config": "workspace:*"
 	},
 	"peerDependencies": {
 		"react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",

@@ -1,5 +1,5 @@
 {
-	"name": "@c15t-examples/vite-react",
+	"name": "@consent-management-examples/vite-react",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -13,7 +13,7 @@
 		"react-dom": "^19.0.0"
 	},
 	"devDependencies": {
-		"@c15t/react": "workspace:*",
+		"@consent-management/react": "workspace:*",
 		"@eslint/js": "^9.19.0",
 		"@types/react": "^19.0.8",
 		"@types/react-dom": "^19.0.3",

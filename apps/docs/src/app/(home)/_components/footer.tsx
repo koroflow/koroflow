@@ -11,7 +11,7 @@ export function Footer() {
 					<div className="flex flex-row gap-4">
 						<ConsentManagementIcon className="h-6 w-auto text-black dark:text-white" />
 						<span className="inline-flex items-center rounded-full border bg-fd-primary/10 px-2.5 py-0.5 font-semibold text-fd-primary text-xs">
-							Beta
+							RC 1
 						</span>
 					</div>
 					<div className="mt-8 font-normal text-sm text-white/60 leading-6">
@@ -48,7 +48,7 @@ export function Footer() {
 			<div className="container mt-4 h-[215px] overflow-hidden">
 				<div className="flex w-full justify-center">
 					<div className="bg-gradient-to-tr from-white/40 to-white/10 bg-clip-text font-bold text-[200px] text-transparent tracking-tighter">
-						consent mgmt
+						c15t
 					</div>
 				</div>
 			</div>

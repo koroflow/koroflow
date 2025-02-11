@@ -9,8 +9,8 @@ body:
         
         Before submitting:
         1. Search [existing requests](https://github.com/koroflow/c15t/issues)
-        2. Read the [documentation](https://c15t.com/docs)
-        3. Join our [Discord](https://c15t.com/discord) for discussions
+        2. Read the [documentation](https://consent.management/docs)
+        3. Join our [Discord](https://consent.management/discord) for discussions
 
   - type: dropdown
     id: type

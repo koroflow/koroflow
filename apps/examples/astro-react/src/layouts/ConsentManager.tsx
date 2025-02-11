@@ -2,7 +2,7 @@ import {
 	ConsentManagerDialog,
 	ConsentManagerProvider,
 	CookieBanner,
-} from '@c15t/react';
+} from '@consent-management/react';
 import type { ReactNode } from 'react';
 
 export const ConsentManagerLayout = ({ children }: { children: ReactNode }) => {

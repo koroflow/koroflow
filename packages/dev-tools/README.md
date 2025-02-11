@@ -1,6 +1,6 @@
 <div align="center">
    <img src="https://koroflow.com/logo-icon.png" alt="Koroflow Logo" width="64" height="64" />
-  <h1>@c15t/dev-tools</h1>
+  <h1>@consent-management/dev-tools</h1>
   <p>Transform privacy consent from a compliance checkbox into a fully observable system</p>
 
   [![GitHub stars](https://img.shields.io/github/stars/consent-management?style=flat-square)](https://github.com/koroflow/c15t)
@@ -12,23 +12,23 @@
 ## Documentation
 
 For detailed documentation and examples, visit:
-[https://c15t.com/docs/framework/react/dev-tool](https://c15t.com/docs/teact/dev-tool)
+[https://consent.management/docs/framework/react/dev-tool](https://consent.management/docs/teact/dev-tool)
 
 ## Installation
 
 ```bash
-npm install @c15t/dev-tools
+npm install @consent-management/dev-tools
 # or
-yarn add @c15t/dev-tools
+yarn add @consent-management/dev-tools
 # or
-pnpm add @c15t/dev-tools
+pnpm add @consent-management/dev-tools
 ```
 
 ## Quick Start
 
 ```tsx
-import { ConsentManagerProvider, CookieBanner, ConsentManagerDialog } from "@c15t/react";
-import { DevTools } from "@c15t/dev-tools";
+import { ConsentManagerProvider, CookieBanner, ConsentManagerDialog } from "@consent-management/react";
+import { DevTools } from "@consent-management/dev-tools";
 
 export default function App() {
   return (

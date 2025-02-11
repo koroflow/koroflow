@@ -2,7 +2,7 @@
 import type {
 	PrivacyConsentState,
 	createConsentManagerStore,
-} from '@c15t/core';
+} from '@consent-management/core';
 import { useContext } from 'react';
 import { ConsentStateContext } from '../context/consent-manager-context';
 
