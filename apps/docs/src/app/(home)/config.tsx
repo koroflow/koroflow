@@ -54,16 +54,16 @@ export const siteConfig = {
 			icon: <Brain className="h-6 w-6" />,
 		},
 		{
+			name: 'i18n included',
+			description: 'Built-in internationalization support.',
+			icon: <LanguagesIcon className="h-6 w-6" />,
+		},
+		{
 			name: 'Automatic Fetch / XHR Blocking',
 			description:
 				'Automatically block fetch and XHR requests until consent is granted.',
 			icon: <NetworkIcon className="h-6 w-6" />,
 			comingSoon: true,
-		},
-		{
-			name: 'i18n included',
-			description: 'Built-in internationalization support.',
-			icon: <LanguagesIcon className="h-6 w-6" />,
 		},
 		{
 			name: 'Performance First',
