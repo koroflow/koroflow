@@ -56,7 +56,6 @@ export function createTrackingBlocker(
 	let consents = initialConsents || createDefaultConsentState();
 	const originalFetch = window.fetch;
 	const originalXHR = window.XMLHttpRequest;
-	let mutationObserver: MutationObserver | null = null;
 
 	/**
 	 * Normalize a domain by removing 'www.' prefix and ensuring consistent format
