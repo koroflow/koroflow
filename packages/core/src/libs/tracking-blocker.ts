@@ -59,12 +59,51 @@ export function createTrackingBlocker(
 	let mutationObserver: MutationObserver | null = null;
 
 	/**
+	 * Normalize a domain by removing 'www.' prefix and ensuring consistent format
+	 */
+	function normalizeDomain(domain: string): string {
+		return domain.toLowerCase().replace(/^www\./, '');
+	}
+
+	/**
+	 * Check if a domain matches any entry in the domain map, including subdomains
+	 */
+	function findMatchingDomain(
+		domain: string,
+		domainMap: Record<string, AllConsentNames>
+	): AllConsentNames | undefined {
+		const normalizedDomain = normalizeDomain(domain);
+
+		// First try exact match
+		const directMatch = domainMap[normalizedDomain];
+		if (directMatch) {
+			return directMatch;
+		}
+
+		// Then try matching as a subdomain
+		for (const [mapDomain, consent] of Object.entries(domainMap)) {
+			const normalizedMapDomain = normalizeDomain(mapDomain);
+			if (
+				normalizedDomain.endsWith(`.${normalizedMapDomain}`) ||
+				normalizedDomain === normalizedMapDomain
+			) {
+				return consent;
+			}
+		}
+
+		return undefined;
+	}
+
+	/**
 	 * Check if a URL requires consent and if that consent has been granted
 	 */
 	function isRequestAllowed(url: string): boolean {
 		try {
 			const domain = new URL(url).hostname;
-			const requiredConsent = blockerConfig.domainConsentMap?.[domain];
+			const requiredConsent = findMatchingDomain(
+				domain,
+				blockerConfig.domainConsentMap || {}
+			);
 
 			if (!requiredConsent) {
 				return true; // Allow if no consent required
