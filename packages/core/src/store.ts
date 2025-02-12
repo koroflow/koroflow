@@ -10,6 +10,7 @@ import {
 	hasConsentFor,
 	hasConsented,
 } from './libs/consent-utils';
+import { createTrackingBlocker } from './libs/tracking-blocker';
 import { initialState } from './store.initial-state';
 import type { PrivacyConsentState } from './store.type';
 import {
@@ -111,6 +112,15 @@ export const createConsentManagerStore = (
 	// Load initial state from localStorage if available
 	const storedConsent = getStoredConsent();
 
+	// Initialize tracking blocker
+	const trackingBlocker =
+		typeof window !== 'undefined'
+			? createTrackingBlocker(
+					{},
+					storedConsent?.consents || initialState.consents
+				)
+			: null;
+
 	const store = createStore<PrivacyConsentState>((set, get) => ({
 		...initialState,
 		...(storedConsent
@@ -157,6 +167,10 @@ export const createConsentManagerStore = (
 						consentInfo: state.consentInfo,
 					})
 				);
+
+				// Update tracking blocker with new consents
+				trackingBlocker?.updateConsents(newConsents);
+
 				return { consents: newConsents };
 			});
 			get().updateConsentMode();
@@ -234,6 +248,9 @@ export const createConsentManagerStore = (
 					consentInfo,
 				})
 			);
+
+			// Update tracking blocker with new consents
+			trackingBlocker?.updateConsents(newConsents);
 
 			set({
 				consents: newConsents,
