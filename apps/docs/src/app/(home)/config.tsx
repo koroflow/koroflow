@@ -1,9 +1,9 @@
 import {
 	Brain,
-	NetworkIcon,
 	CodeIcon,
 	LanguagesIcon,
-	Server,
+	NetworkIcon,
+	ServerIcon,
 	ShieldIcon,
 	ZapIcon,
 } from 'lucide-react';
@@ -58,6 +58,7 @@ export const siteConfig = {
 			description:
 				'Automatically block fetch and XHR requests until consent is granted.',
 			icon: <NetworkIcon className="h-6 w-6" />,
+			comingSoon: true,
 		},
 		{
 			name: 'i18n included',
@@ -77,7 +78,7 @@ export const siteConfig = {
 		{
 			name: 'Open Source',
 			description: 'GNU3 license and open source from day one.',
-			icon: <Server className="h-6 w-6" />,
+			icon: <ServerIcon className="h-6 w-6" />,
 		},
 	],
 	footer: {
