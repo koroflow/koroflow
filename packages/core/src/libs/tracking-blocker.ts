@@ -116,94 +116,75 @@ export function createTrackingBlocker(
 	}
 
 	/**
-	 * Handle individual script elements
+	 * Dispatch an event when a request is blocked due to missing consent
 	 */
-	function handleScriptElement(script: HTMLScriptElement): void {
-		const src = script.src;
-		if (src && !isRequestAllowed(src)) {
-			script.remove();
-		}
-	}
-
-	/**
-	 * Remove existing tracking scripts
-	 */
-	function removeTrackingScripts(): void {
-		const scripts = document.getElementsByTagName('script');
-		for (const script of Array.from(scripts)) {
-			handleScriptElement(script);
-		}
-	}
-
-	/**
-	 * Set up blocking of tracking scripts
-	 */
-	function setupScriptBlocking(): void {
-		// Block existing scripts
-		removeTrackingScripts();
-
-		// Set up observer for dynamically added scripts
-		mutationObserver = new MutationObserver(handleMutations);
-
-		// Start observing
-		mutationObserver.observe(document.documentElement, {
-			childList: true,
-			subtree: true,
-		});
-	}
-
-	/**
-	 * Handle DOM mutations to block new tracking scripts
-	 */
-	function handleMutations(mutations: MutationRecord[]): void {
-		for (const mutation of mutations) {
-			if (mutation.type === 'childList') {
-				for (const node of mutation.addedNodes) {
-					if (node instanceof HTMLScriptElement) {
-						handleScriptElement(node);
-					}
-				}
-			}
-		}
+	function dispatchConsentBlockedEvent(url: string): void {
+		document.dispatchEvent(
+			new CustomEvent('ConsentBlockedRequest', { detail: { url } })
+		);
 	}
 
 	/**
 	 * Intercept and potentially block network requests
 	 */
 	function interceptNetworkRequests(): void {
-		// Override fetch
-		window.fetch = (input: RequestInfo | URL, init?: RequestInit) => {
-			const url = input instanceof Request ? input.url : input.toString();
+		// Override fetch only if it hasn't been modified by another script
+		if (window.fetch === originalFetch) {
+			window.fetch = async (input: RequestInfo | URL, init?: RequestInit) => {
+				const url = input instanceof Request ? input.url : input.toString();
 
-			if (!isRequestAllowed(url)) {
-				throw new Error(`Request to ${url} blocked due to missing consent`);
-			}
-
-			return originalFetch.call(window, input, init);
-		};
-
-		// Override XMLHttpRequest
-		window.XMLHttpRequest = class extends originalXHR {
-			open(
-				method: string,
-				url: string | URL,
-				async = true,
-				username?: string,
-				password?: string
-			) {
-				if (!isRequestAllowed(url.toString())) {
-					throw new Error(`Request to ${url} blocked due to missing consent`);
+				if (!isRequestAllowed(url)) {
+					dispatchConsentBlockedEvent(url);
+					return Promise.reject(
+						new Error(`Request to ${url} blocked due to missing consent`)
+					);
 				}
 
-				super.open(method, url, async, username, password);
-			}
-		};
+				return await originalFetch.call(window, input, init);
+			};
+		}
+
+		// Override XMLHttpRequest only if it hasn't been modified
+		if (window.XMLHttpRequest === originalXHR) {
+			window.XMLHttpRequest = class extends originalXHR {
+				override open(
+					method: string,
+					url: string | URL,
+					async = true,
+					username?: string,
+					password?: string
+				) {
+					if (!isRequestAllowed(url.toString())) {
+						dispatchConsentBlockedEvent(url.toString());
+						throw new Error(`Request to ${url} blocked due to missing consent`);
+					}
+
+					super.open(method, url, async, username, password);
+				}
+			};
+		}
+	}
+
+	/**
+	 * Safe restoration of fetch and XHR
+	 */
+	function restoreOriginalRequests(): void {
+		// Only restore if the current implementations are our overridden versions
+		const currentFetch = window.fetch.toString();
+		const currentXHR = window.XMLHttpRequest.toString();
+
+		// Check if the current implementations match our overridden versions
+		if (currentFetch.includes('dispatchConsentBlockedEvent')) {
+			window.fetch = originalFetch;
+		}
+		if (currentXHR.includes('dispatchConsentBlockedEvent')) {
+			window.XMLHttpRequest = originalXHR;
+		}
 	}
 
 	// Initialize if automatic blocking is enabled
 	if (!blockerConfig.disableAutomaticBlocking) {
 		interceptNetworkRequests();
-		setupScriptBlocking();
 	}
 
 	return {
@@ -211,9 +192,7 @@ export function createTrackingBlocker(
 			consents = newConsents;
 		},
 		destroy: () => {
-			window.fetch = originalFetch;
-			window.XMLHttpRequest = originalXHR;
-			mutationObserver?.disconnect();
+			restoreOriginalRequests();
 		},
 	};
 }
