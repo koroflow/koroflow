@@ -34,6 +34,7 @@ export function ConsentManagerProvider({
 	namespace = 'KoroflowStore',
 	noStyle = false,
 	translationConfig,
+	trackingBlockerConfig,
 }: ConsentManagerProviderProps) {
 	const preparedTranslationConfig = useMemo(() => {
 		const mergedConfig = mergeTranslationConfigs(
@@ -50,11 +51,13 @@ export function ConsentManagerProvider({
 
 	// Create a stable reference to the store with prepared translation config
 	const store = useMemo(() => {
-		const store = createConsentManagerStore(namespace);
+		const store = createConsentManagerStore(namespace, {
+			trackingBlockerConfig,
+		});
 		// Set translation config immediately
 		store.getState().setTranslationConfig(preparedTranslationConfig);
 		return store;
-	}, [namespace, preparedTranslationConfig]);
+	}, [namespace, preparedTranslationConfig, trackingBlockerConfig]);
 
 	// Initialize state with the current state from the consent manager store
 	const [state, setState] = useState<PrivacyConsentState>(store.getState());
