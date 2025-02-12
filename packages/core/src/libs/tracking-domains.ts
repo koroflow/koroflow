@@ -2,7 +2,7 @@ import type { AllConsentNames } from '../types';
 
 /**
  * Default tracking domains that require specific consent types
-*/
+ */
 const DEFAULT_DOMAIN_CONSENT_MAP: Record<string, AllConsentNames> = {
 	// Analytics/Measurement domains
 	'www.google-analytics.com': 'measurement',
