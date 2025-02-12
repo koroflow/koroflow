@@ -4,6 +4,7 @@ import type {
 	ComplianceSettings,
 	NamespaceProps,
 	PrivacyConsentState,
+	TrackingBlockerConfig,
 	TranslationConfig,
 	createConsentManagerStore,
 } from '@consent-management/core';
@@ -75,6 +76,8 @@ export interface ConsentManagerProviderProps extends NamespaceProps {
 	 * ```
 	 */
 	translationConfig?: Partial<TranslationConfig>;
+
+	trackingBlockerConfig?: TrackingBlockerConfig;
 }
 
 /**

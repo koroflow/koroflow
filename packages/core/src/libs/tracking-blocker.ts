@@ -13,8 +13,8 @@ export interface TrackingBlockerConfig {
 	/** Whether to disable automatic blocking (defaults to false) */
 	disableAutomaticBlocking?: boolean;
 
-	/** List of domains known to be used for tracking */
-	trackingDomains?: string[];
+	/** Override the default domain consent map */
+	overrideDomainConsentMap?: boolean;
 
 	/** Map of domains to their required consent types */
 	domainConsentMap?: Record<string, AllConsentNames>;
@@ -47,8 +47,10 @@ export function createTrackingBlocker(
 ): TrackingBlocker {
 	const blockerConfig = {
 		disableAutomaticBlocking: false,
-		domainConsentMap: DEFAULT_DOMAIN_CONSENT_MAP,
 		...config,
+		domainConsentMap: config.overrideDomainConsentMap
+			? config.domainConsentMap
+			: { ...DEFAULT_DOMAIN_CONSENT_MAP, ...config.domainConsentMap },
 	};
 
 	let consents = initialConsents || createDefaultConsentState();

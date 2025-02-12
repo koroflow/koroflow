@@ -11,6 +11,7 @@ import {
 	hasConsented,
 } from './libs/consent-utils';
 import { createTrackingBlocker } from './libs/tracking-blocker';
+import type { TrackingBlockerConfig } from './libs/tracking-blocker';
 import { initialState } from './store.initial-state';
 import type { PrivacyConsentState } from './store.type';
 import {
@@ -64,6 +65,10 @@ const getStoredConsent = (): StoredConsent | null => {
 	}
 };
 
+interface StoreConfig {
+	trackingBlockerConfig?: TrackingBlockerConfig;
+}
+
 /**
  * Creates a new consent manager store instance.
  *
@@ -107,7 +112,8 @@ const getStoredConsent = (): StoredConsent | null => {
  * @public
  */
 export const createConsentManagerStore = (
-	namespace: string | undefined = 'ConsentManagerStore'
+	namespace: string | undefined = 'ConsentManagerStore',
+	config?: StoreConfig
 ) => {
 	// Load initial state from localStorage if available
 	const storedConsent = getStoredConsent();
@@ -116,7 +122,7 @@ export const createConsentManagerStore = (
 	const trackingBlocker =
 		typeof window !== 'undefined'
 			? createTrackingBlocker(
-					{},
+					config?.trackingBlockerConfig || {},
 					storedConsent?.consents || initialState.consents
 				)
 			: null;
